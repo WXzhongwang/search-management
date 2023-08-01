@@ -301,17 +301,19 @@ public class MySQLStore implements IMetaStorage {
     @Override
     public void insertProject(ProjectMetaData projectMetaData) {
         String command = String.format(
-                "insert into %s (%s, %s, %s, %s, %s) values (?, ?, ?, ?, ?)",
+                "insert into %s (%s, %s, %s, %s, %s, %s) values (?, ?, ?, ?, ?, ?)",
                 projectMetaTableName,
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_CLUSTER_NAME,
                 TableColumnNameConstant.Project.COLUMN_DESCRIPTION,
+                TableColumnNameConstant.Project.COLUMN_SETTING,
                 TableColumnNameConstant.Project.COLUMN_CREATE_TIME,
                 TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME);
         jdbcTemplate.update(
                 command,
                 projectMetaData.clusterName + "." + projectMetaData.projectName,
                 projectMetaData.projectDesc,
+                projectMetaData.projectSetting,
                 projectMetaData.gmtCreate,
                 projectMetaData.gmtModified);
     }
@@ -323,6 +325,9 @@ public class MySQLStore implements IMetaStorage {
         if (projectMetaData.projectDesc != null) {
             command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_DESCRIPTION, projectMetaData.projectDesc);
         }
+        if (projectMetaData.projectSetting != null) {
+            command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_SETTING, projectMetaData.projectSetting);
+        }
         command += String.format(" where %s=\"%s\"", TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
                 projectMetaData.clusterName + "." + projectMetaData.projectName);
         jdbcTemplate.update(
@@ -333,6 +338,9 @@ public class MySQLStore implements IMetaStorage {
                         int parameterIndex = 1;
                         if (projectMetaData.projectDesc != null) {
                             preparedStatement.setString(parameterIndex++, projectMetaData.projectDesc);
+                        }
+                        if (projectMetaData.projectSetting != null) {
+                            preparedStatement.setString(parameterIndex++, projectMetaData.projectSetting);
                         }
                     }
                 }
@@ -347,6 +355,40 @@ public class MySQLStore implements IMetaStorage {
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
                 clusterName + "." + projectName);
         jdbcTemplate.update(command);
+    }
+
+    @Override
+    public void insertIndexTemplate(IndexTemplateMetaData indexTemplateMetaData) {
+        StringBuilder aliasListString = new StringBuilder();
+        for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++ i) {
+            if (i != 0) {
+                aliasListString.append("@");
+            }
+            aliasListString.append(indexTemplateMetaData.aliasList.get(i));
+        }
+        String command = String.format(
+                "insert into %s (%s, %s, %s, %s, %s, %s, %s, %s, %s) values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                indexTemplateTableName,
+                TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
+                TableColumnNameConstant.IndexTemplate.COLUMN_MAPPINGS,
+                TableColumnNameConstant.IndexTemplate.COLUMN_SETTINGS,
+                TableColumnNameConstant.IndexTemplate.COLUMN_ALIAS,
+                TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_POLICY,
+                TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_WINDOW,
+                TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_NAME_PREFIX,
+                TableColumnNameConstant.IndexTemplate.COLUMN_CREATE_TIME,
+                TableColumnNameConstant.IndexTemplate.COLUMN_LAST_UPDATE_TIME);
+        jdbcTemplate.update(
+                command,
+                indexTemplateMetaData.projectName + "." + indexTemplateMetaData.templateName,
+                indexTemplateMetaData.mappings,
+                indexTemplateMetaData.settings,
+                aliasListString.toString(),
+                indexTemplateMetaData.autoIndexRollingPolicy.toString(),
+                indexTemplateMetaData.autoIndexRollingWindow,
+                indexTemplateMetaData.autoIndexNamePrefix,
+                indexTemplateMetaData.gmtCreate,
+                indexTemplateMetaData.gmtModified);
     }
 
     private List<ClusterMetaData> loadClusterMetas() {

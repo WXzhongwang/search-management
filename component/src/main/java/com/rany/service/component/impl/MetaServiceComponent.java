@@ -5,6 +5,7 @@ import com.rany.service.common.exception.ErrorCodeEnum;
 import com.rany.service.common.exception.SearchManagementException;
 import com.rany.service.component.meta.ClusterMeta;
 import com.rany.service.component.meta.ProjectMeta;
+import com.rany.service.component.meta.dto.IndexTemplateMetaData;
 import com.rany.service.component.meta.dto.ProjectMetaData;
 import com.rany.service.platform.meta.*;
 import io.grpc.stub.StreamObserver;
@@ -162,6 +163,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         projectMeta.projectName = request.getName();
         projectMeta.projectDesc = request.getDescription();
         projectMeta.clusterName = request.getCluster();
+        projectMeta.projectSetting = request.getProjectSetting();
 
         // set properties
         internal.insertProject(projectMeta);
@@ -187,6 +189,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ProjectMetaData projectMeta = new ProjectMetaData();
         projectMeta.projectName = request.getName();
         projectMeta.projectDesc = request.getDescription();
+        projectMeta.projectSetting = request.getProjectSetting();
         // set properties
         internal.updateProject(projectMeta);
 
@@ -286,9 +289,38 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
             builder.addAllProjects(projects);
         }
         ListProjectDetailsReply reply = builder
-                .setErrorCode(code.getCode())
-                .setErrorMessage(code.getMessage())
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
                 .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void createIndexTemplate(CreateIndexTemplateRequest request, StreamObserver<CreateIndexTemplateReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        IndexTemplateMetaData indexTemplateMetaData = new IndexTemplateMetaData();
+        indexTemplateMetaData.templateName = request.getName();
+        indexTemplateMetaData.projectName = request.getProject();
+        indexTemplateMetaData.mappings = request.getMapping();
+        indexTemplateMetaData.settings = request.getSetting();
+        indexTemplateMetaData.aliasList = request.getAliasesList();
+        indexTemplateMetaData.autoIndexNamePrefix = request.getAutoIndexNamePrefix();
+        indexTemplateMetaData.autoIndexRollingWindow = request.getAutoIndexRollingWindow();
+        indexTemplateMetaData.autoIndexRollingPolicy = request.getAutoIndexRollingPolicy();
+
+        internal.insertIndexTemplate(indexTemplateMetaData);
+        CreateIndexTemplateReply reply = CreateIndexTemplateReply.newBuilder()
+        .setCode(code.getCode())
+        .setMessage(code.getMessage())
+        .build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }

@@ -17,4 +17,9 @@ public class ProjectMeta {
     public String projectDesc;
     public Timestamp gmtCreate;
     public Timestamp gmtModified;
+
+    /**
+     * 项目配置
+     */
+    public String projectSetting;
 }

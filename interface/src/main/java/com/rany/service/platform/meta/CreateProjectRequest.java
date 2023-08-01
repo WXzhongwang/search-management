@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     cluster_ = "";
     description_ = "";
+    projectSetting_ = "";
   }
 
   @java.lang.Override
@@ -69,6 +70,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             description_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            projectSetting_ = s;
             break;
           }
         }
@@ -197,6 +204,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PROJECTSETTING_FIELD_NUMBER = 4;
+  private volatile java.lang.Object projectSetting_;
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  public java.lang.String getProjectSetting() {
+    java.lang.Object ref = projectSetting_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      projectSetting_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getProjectSettingBytes() {
+    java.lang.Object ref = projectSetting_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      projectSetting_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -218,6 +259,9 @@ private static final long serialVersionUID = 0L;
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, description_);
     }
+    if (!getProjectSettingBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, projectSetting_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -234,6 +278,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, description_);
+    }
+    if (!getProjectSettingBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, projectSetting_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -257,6 +304,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCluster());
     result = result && getDescription()
         .equals(other.getDescription());
+    result = result && getProjectSetting()
+        .equals(other.getProjectSetting());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -274,6 +323,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getCluster().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + PROJECTSETTING_FIELD_NUMBER;
+    hash = (53 * hash) + getProjectSetting().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -413,6 +464,8 @@ private static final long serialVersionUID = 0L;
 
       description_ = "";
 
+      projectSetting_ = "";
+
       return this;
     }
 
@@ -438,6 +491,7 @@ private static final long serialVersionUID = 0L;
       result.name_ = name_;
       result.cluster_ = cluster_;
       result.description_ = description_;
+      result.projectSetting_ = projectSetting_;
       onBuilt();
       return result;
     }
@@ -489,6 +543,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        onChanged();
+      }
+      if (!other.getProjectSetting().isEmpty()) {
+        projectSetting_ = other.projectSetting_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -721,6 +779,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       description_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object projectSetting_ = "";
+    /**
+     * <code>string projectSetting = 4;</code>
+     */
+    public java.lang.String getProjectSetting() {
+      java.lang.Object ref = projectSetting_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        projectSetting_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string projectSetting = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProjectSettingBytes() {
+      java.lang.Object ref = projectSetting_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        projectSetting_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string projectSetting = 4;</code>
+     */
+    public Builder setProjectSetting(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      projectSetting_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string projectSetting = 4;</code>
+     */
+    public Builder clearProjectSetting() {
+      
+      projectSetting_ = getDefaultInstance().getProjectSetting();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string projectSetting = 4;</code>
+     */
+    public Builder setProjectSettingBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      projectSetting_ = value;
       onChanged();
       return this;
     }

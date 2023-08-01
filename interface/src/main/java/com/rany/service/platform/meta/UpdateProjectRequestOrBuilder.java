@@ -31,4 +31,14 @@ public interface UpdateProjectRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
+
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  java.lang.String getProjectSetting();
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectSettingBytes();
 }

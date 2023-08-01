@@ -108,6 +108,12 @@ public class AdminClient {
         projectListRequest.check();
         return adminProxy.listProjectDetails(projectListRequest);
     }
+
+
+    public void createIndexTemplate(IndexTemplateCreateRequest indexTemplateCreateRequest) {
+        indexTemplateCreateRequest.check();
+        adminProxy.createIndexTemplate(indexTemplateCreateRequest);
+    }
 }
 
 

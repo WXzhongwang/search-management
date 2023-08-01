@@ -3,6 +3,7 @@ package com.rany.service.component;
 import com.rany.service.common.exception.SearchManagementException;
 import com.rany.service.component.meta.dto.ClusterMetaData;
 import com.rany.service.component.meta.dto.IndexMetaData;
+import com.rany.service.component.meta.dto.IndexTemplateMetaData;
 import com.rany.service.component.meta.dto.ProjectMetaData;
 
 import java.util.List;
@@ -99,4 +100,12 @@ public interface IMetaStorage {
      * @param projectName
      */
     void deleteProject(String clusterName, String projectName);
+
+
+    /**
+     * 新建模板
+     *
+     * @param indexTemplateMetaData
+     */
+    void insertIndexTemplate(IndexTemplateMetaData indexTemplateMetaData);
 }

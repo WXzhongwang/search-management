@@ -1,5 +1,6 @@
 package com.rany.service.component.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.rany.service.common.constants.Constants;
 import com.rany.service.common.enums.EnvEnum;
@@ -18,15 +19,14 @@ import com.rany.service.component.metric.MetricUtils;
 import com.rany.service.component.metric.ProjectMetricCounter;
 import com.rany.service.component.metric.SystemMetricCounter;
 import com.rany.service.component.store.MySQLStore;
+import com.rany.service.component.utils.JSONUtility;
 import com.rany.service.component.utils.MetaUtility;
 import com.rany.service.platform.DataTypeUtils;
-import com.rany.service.platform.meta.AutoIndexRollingPolicy;
-import com.rany.service.platform.meta.ClusterInfo;
-import com.rany.service.platform.meta.ClusterStatus;
-import com.rany.service.platform.meta.ProjectInfo;
+import com.rany.service.platform.meta.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.util.StringUtils;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -187,9 +187,9 @@ public class MasterServiceInternalImpl {
 
             for (ProjectMetaData projectMeta : cluster.projectMetaMap.values()) {
                 // 索引组
-                for (IndexTemplateMetaData indexGroupMeta : projectMeta.indexTemplateMetaData.values()) {
+                for (IndexTemplateMetaData IndexTemplateMeta : projectMeta.indexTemplateMetaData.values()) {
                     // 索引
-                    for (IndexMetaData indexMeta : indexGroupMeta.indexMetas.values()) {
+                    for (IndexMetaData indexMeta : IndexTemplateMeta.indexMetas.values()) {
                         try {
                             IndexMetaData tmpIndexMeta = esClientMap.get(cluster.clusterName).acquireIndexInfo(indexMeta.fullName);
                             indexMeta.totalData = tmpIndexMeta.totalData;
@@ -908,6 +908,7 @@ public class MasterServiceInternalImpl {
             meta.indexTemplateMetaData = new HashMap<String, IndexTemplateMetaData>();
             meta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
             meta.gmtModified = meta.gmtCreate;
+            meta.projectSetting = info.projectSetting;
 
             // Write project meta into persistent storage;
             long startInsertMeta = System.nanoTime();
@@ -1056,5 +1057,72 @@ public class MasterServiceInternalImpl {
             readLock.unlock();
         }
         return result;
+    }
+
+
+    public void insertIndexTemplate(IndexTemplateMetaData info) {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(info.projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", info.projectName));
+            }
+            if (projectMeta.indexTemplateMetaData.containsKey(info.templateName)) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] already exists in project [%s].", info.templateName, info.projectName));
+            }
+
+            // Put a new index template meta into the root project meta map;
+            IndexTemplateMetaData templateMetaData = new IndexTemplateMetaData();
+            templateMetaData.templateName = info.templateName;
+            templateMetaData.mappings = info.mappings;
+            templateMetaData.settings = info.settings;
+            templateMetaData.aliasList = new ArrayList<>();
+            if (info.aliasList.size() > 0) {
+                templateMetaData.aliasList.addAll(info.aliasList);
+            }
+            templateMetaData.autoIndexRollingPolicy = info.autoIndexRollingPolicy;
+            templateMetaData.autoIndexRollingWindow = info.autoIndexRollingWindow;
+            templateMetaData.autoIndexNamePrefix = info.autoIndexNamePrefix;
+            templateMetaData.indexMetas = new HashMap<>();
+            templateMetaData.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+            templateMetaData.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+
+            // 将项目的setting属性继承到索引组
+            // 如果项目存在setting,将集群的继承下去
+            if (!StringUtils.isEmpty(projectMeta.projectSetting)) {
+                String setting = templateMetaData.settings;
+                JSONObject jsonSetting = JSONObject.parseObject(setting);
+                JSONObject groupSetting = JSONObject.parseObject(projectMeta.projectSetting);
+                JSONUtility.merge(jsonSetting, groupSetting);
+                templateMetaData.settings = JSONObject.toJSONString(jsonSetting);
+            }
+
+            long startInsertMeta = System.nanoTime();
+            metaStore.insertIndexTemplate(templateMetaData);
+            long endInsertMeta = System.nanoTime();
+            logger.info("IndexTemplateMeta of Index template [project={}][name={}] has been written into persistent storage with the following content: \n" +
+                            "mapping={}\n" +
+                            "setting={}\n" +
+                            "policy={}\n" +
+                            "timeToLive={}",
+                    info.projectName, templateMetaData.templateName, templateMetaData.mappings, templateMetaData.settings, templateMetaData.autoIndexRollingPolicy, templateMetaData.autoIndexRollingWindow);
+
+            // Update the meta of containing project and cluster object;
+            projectMeta.indexTemplateMetaData.put(info.templateName, templateMetaData);
+            logger.info("IndexTemplateMeta of Index template [project={}][name={}] has been written into memory.", info.projectName,
+                    templateMetaData.templateName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::insertIndexTemplate: getLock:{} ms, insertMeta:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endInsertMeta - startInsertMeta) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
     }
 }

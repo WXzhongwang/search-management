@@ -18,6 +18,7 @@ import io.grpc.ManagedChannel;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.netty.NegotiationType;
 import io.grpc.netty.NettyChannelBuilder;
+import io.grpc.stub.MetadataUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -437,4 +438,34 @@ public class Proxy implements Bootstrap {
         }
         return reply.getProjectsList();
     }
+
+
+
+    public void createIndexTemplate(IndexTemplateCreateRequest indexTemplateCreateRequest) {
+        AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexTemplateCreateRequest.getAutoIndexRollingPolicy());
+        CreateIndexTemplateRequest request = CreateIndexTemplateRequest.newBuilder()
+                .setName(indexTemplateCreateRequest.getName())
+                .setProject(indexTemplateCreateRequest.getProjectName())
+                .addAllAliases(indexTemplateCreateRequest.getAliases())
+                .setMapping(indexTemplateCreateRequest.getMapping())
+                .setSetting(indexTemplateCreateRequest.getSetting())
+                .setAutoIndexNamePrefix(indexTemplateCreateRequest.getAutoIndexNamePrefix())
+                .setAutoIndexRollingPolicy(autoIndexRollingPolicy)
+                .setAutoIndexRollingWindow(indexTemplateCreateRequest.getAutoIndexRollingWindow())
+                .build();
+        CreateIndexTemplateReply reply = null;
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.createIndexTemplate(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to create index template with message: " + e.getMessage());
+        }
+    }
+
+
+
 }

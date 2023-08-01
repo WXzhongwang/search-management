@@ -37,6 +37,7 @@ public class TableColumnNameConstant {
         public static final String PROJECT_META_TABLE_PK_NAME = "project_name";
         public static final String PROJECT_META_TABLE_CLUSTER_NAME = "cluster_name";
         public static final String COLUMN_DESCRIPTION = "project_desc";
+        public static final String COLUMN_SETTING = "project_setting";
         public static final String COLUMN_CREATE_TIME = "gmt_create";
         public static final String COLUMN_LAST_UPDATE_TIME = "gmt_modified";
     }

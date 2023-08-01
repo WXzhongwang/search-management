@@ -184,6 +184,84 @@ public final class MetaServiceGrpc {
           .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("ListProjectDetails"))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.CreateIndexTemplateRequest,
+      com.rany.service.platform.meta.CreateIndexTemplateReply> METHOD_CREATE_INDEX_TEMPLATE =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.CreateIndexTemplateRequest, com.rany.service.platform.meta.CreateIndexTemplateReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "CreateIndexTemplate"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.CreateIndexTemplateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.CreateIndexTemplateReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("CreateIndexTemplate"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.GetIndexTemplateRequest,
+      com.rany.service.platform.meta.GetIndexTemplateReply> METHOD_GET_INDEX_TEMPLATE =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.GetIndexTemplateRequest, com.rany.service.platform.meta.GetIndexTemplateReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "GetIndexTemplate"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.GetIndexTemplateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.GetIndexTemplateReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("GetIndexTemplate"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.UpdateIndexTemplateRequest,
+      com.rany.service.platform.meta.UpdateIndexTemplateReply> METHOD_UPDATE_INDEX_TEMPLATE =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.UpdateIndexTemplateRequest, com.rany.service.platform.meta.UpdateIndexTemplateReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "UpdateIndexTemplate"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.UpdateIndexTemplateReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("UpdateIndexTemplate"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.DeleteIndexTemplateRequest,
+      com.rany.service.platform.meta.DeleteIndexTemplateReply> METHOD_DELETE_INDEX_TEMPLATE =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.DeleteIndexTemplateRequest, com.rany.service.platform.meta.DeleteIndexTemplateReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "DeleteIndexTemplate"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.DeleteIndexTemplateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.DeleteIndexTemplateReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("DeleteIndexTemplate"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.ListIndexTemplateRequest,
+      com.rany.service.platform.meta.ListIndexTemplateReply> METHOD_LIST_INDEX_TEMPLATE =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.ListIndexTemplateRequest, com.rany.service.platform.meta.ListIndexTemplateReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "ListIndexTemplate"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.ListIndexTemplateRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.ListIndexTemplateReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("ListIndexTemplate"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.ListIndexTemplateDetailsRequest,
+      com.rany.service.platform.meta.ListIndexTemplateDetailsReply> METHOD_LIST_INDEX_TEMPLATE_DETAILS =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.ListIndexTemplateDetailsRequest, com.rany.service.platform.meta.ListIndexTemplateDetailsReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "ListIndexTemplateDetails"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.ListIndexTemplateDetailsRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.ListIndexTemplateDetailsReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("ListIndexTemplateDetails"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.CreateIndexRequest,
       com.rany.service.platform.meta.CreateIndexReply> METHOD_CREATE_INDEX =
       io.grpc.MethodDescriptor.<com.rany.service.platform.meta.CreateIndexRequest, com.rany.service.platform.meta.CreateIndexReply>newBuilder()
@@ -368,6 +446,51 @@ public final class MetaServiceGrpc {
 
     /**
      * <pre>
+     * 模版
+     * </pre>
+     */
+    public void createIndexTemplate(com.rany.service.platform.meta.CreateIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.CreateIndexTemplateReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_CREATE_INDEX_TEMPLATE, responseObserver);
+    }
+
+    /**
+     */
+    public void getIndexTemplate(com.rany.service.platform.meta.GetIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.GetIndexTemplateReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_GET_INDEX_TEMPLATE, responseObserver);
+    }
+
+    /**
+     */
+    public void updateIndexTemplate(com.rany.service.platform.meta.UpdateIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.UpdateIndexTemplateReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_UPDATE_INDEX_TEMPLATE, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteIndexTemplate(com.rany.service.platform.meta.DeleteIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DeleteIndexTemplateReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_DELETE_INDEX_TEMPLATE, responseObserver);
+    }
+
+    /**
+     */
+    public void listIndexTemplate(com.rany.service.platform.meta.ListIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_LIST_INDEX_TEMPLATE, responseObserver);
+    }
+
+    /**
+     */
+    public void listIndexTemplateDetails(com.rany.service.platform.meta.ListIndexTemplateDetailsRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateDetailsReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_LIST_INDEX_TEMPLATE_DETAILS, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 索引相关
      * </pre>
      */
@@ -490,6 +613,48 @@ public final class MetaServiceGrpc {
                 com.rany.service.platform.meta.ListProjectDetailsRequest,
                 com.rany.service.platform.meta.ListProjectDetailsReply>(
                   this, METHODID_LIST_PROJECT_DETAILS)))
+          .addMethod(
+            METHOD_CREATE_INDEX_TEMPLATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.CreateIndexTemplateRequest,
+                com.rany.service.platform.meta.CreateIndexTemplateReply>(
+                  this, METHODID_CREATE_INDEX_TEMPLATE)))
+          .addMethod(
+            METHOD_GET_INDEX_TEMPLATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.GetIndexTemplateRequest,
+                com.rany.service.platform.meta.GetIndexTemplateReply>(
+                  this, METHODID_GET_INDEX_TEMPLATE)))
+          .addMethod(
+            METHOD_UPDATE_INDEX_TEMPLATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.UpdateIndexTemplateRequest,
+                com.rany.service.platform.meta.UpdateIndexTemplateReply>(
+                  this, METHODID_UPDATE_INDEX_TEMPLATE)))
+          .addMethod(
+            METHOD_DELETE_INDEX_TEMPLATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.DeleteIndexTemplateRequest,
+                com.rany.service.platform.meta.DeleteIndexTemplateReply>(
+                  this, METHODID_DELETE_INDEX_TEMPLATE)))
+          .addMethod(
+            METHOD_LIST_INDEX_TEMPLATE,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.ListIndexTemplateRequest,
+                com.rany.service.platform.meta.ListIndexTemplateReply>(
+                  this, METHODID_LIST_INDEX_TEMPLATE)))
+          .addMethod(
+            METHOD_LIST_INDEX_TEMPLATE_DETAILS,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.ListIndexTemplateDetailsRequest,
+                com.rany.service.platform.meta.ListIndexTemplateDetailsReply>(
+                  this, METHODID_LIST_INDEX_TEMPLATE_DETAILS)))
           .addMethod(
             METHOD_CREATE_INDEX,
             asyncUnaryCall(
@@ -651,6 +816,57 @@ public final class MetaServiceGrpc {
 
     /**
      * <pre>
+     * 模版
+     * </pre>
+     */
+    public void createIndexTemplate(com.rany.service.platform.meta.CreateIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.CreateIndexTemplateReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_CREATE_INDEX_TEMPLATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getIndexTemplate(com.rany.service.platform.meta.GetIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.GetIndexTemplateReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_GET_INDEX_TEMPLATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateIndexTemplate(com.rany.service.platform.meta.UpdateIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.UpdateIndexTemplateReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_INDEX_TEMPLATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void deleteIndexTemplate(com.rany.service.platform.meta.DeleteIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DeleteIndexTemplateReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_DELETE_INDEX_TEMPLATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listIndexTemplate(com.rany.service.platform.meta.ListIndexTemplateRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_LIST_INDEX_TEMPLATE, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listIndexTemplateDetails(com.rany.service.platform.meta.ListIndexTemplateDetailsRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateDetailsReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_LIST_INDEX_TEMPLATE_DETAILS, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * 索引相关
      * </pre>
      */
@@ -799,6 +1015,51 @@ public final class MetaServiceGrpc {
     public com.rany.service.platform.meta.ListProjectDetailsReply listProjectDetails(com.rany.service.platform.meta.ListProjectDetailsRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_LIST_PROJECT_DETAILS, getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * 模版
+     * </pre>
+     */
+    public com.rany.service.platform.meta.CreateIndexTemplateReply createIndexTemplate(com.rany.service.platform.meta.CreateIndexTemplateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_CREATE_INDEX_TEMPLATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.GetIndexTemplateReply getIndexTemplate(com.rany.service.platform.meta.GetIndexTemplateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_GET_INDEX_TEMPLATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.UpdateIndexTemplateReply updateIndexTemplate(com.rany.service.platform.meta.UpdateIndexTemplateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_UPDATE_INDEX_TEMPLATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.DeleteIndexTemplateReply deleteIndexTemplate(com.rany.service.platform.meta.DeleteIndexTemplateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_DELETE_INDEX_TEMPLATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.ListIndexTemplateReply listIndexTemplate(com.rany.service.platform.meta.ListIndexTemplateRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_LIST_INDEX_TEMPLATE, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.ListIndexTemplateDetailsReply listIndexTemplateDetails(com.rany.service.platform.meta.ListIndexTemplateDetailsRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_LIST_INDEX_TEMPLATE_DETAILS, getCallOptions(), request);
     }
 
     /**
@@ -962,6 +1223,57 @@ public final class MetaServiceGrpc {
 
     /**
      * <pre>
+     * 模版
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.CreateIndexTemplateReply> createIndexTemplate(
+        com.rany.service.platform.meta.CreateIndexTemplateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_CREATE_INDEX_TEMPLATE, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.GetIndexTemplateReply> getIndexTemplate(
+        com.rany.service.platform.meta.GetIndexTemplateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_GET_INDEX_TEMPLATE, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.UpdateIndexTemplateReply> updateIndexTemplate(
+        com.rany.service.platform.meta.UpdateIndexTemplateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_UPDATE_INDEX_TEMPLATE, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.DeleteIndexTemplateReply> deleteIndexTemplate(
+        com.rany.service.platform.meta.DeleteIndexTemplateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_DELETE_INDEX_TEMPLATE, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.ListIndexTemplateReply> listIndexTemplate(
+        com.rany.service.platform.meta.ListIndexTemplateRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_LIST_INDEX_TEMPLATE, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.ListIndexTemplateDetailsReply> listIndexTemplateDetails(
+        com.rany.service.platform.meta.ListIndexTemplateDetailsRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_LIST_INDEX_TEMPLATE_DETAILS, getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * 索引相关
      * </pre>
      */
@@ -1016,11 +1328,17 @@ public final class MetaServiceGrpc {
   private static final int METHODID_GET_PROJECT = 9;
   private static final int METHODID_LIST_PROJECT = 10;
   private static final int METHODID_LIST_PROJECT_DETAILS = 11;
-  private static final int METHODID_CREATE_INDEX = 12;
-  private static final int METHODID_GET_INDEX = 13;
-  private static final int METHODID_UPDATE_INDEX = 14;
-  private static final int METHODID_DELETE_INDEX = 15;
-  private static final int METHODID_LIST_INDEX = 16;
+  private static final int METHODID_CREATE_INDEX_TEMPLATE = 12;
+  private static final int METHODID_GET_INDEX_TEMPLATE = 13;
+  private static final int METHODID_UPDATE_INDEX_TEMPLATE = 14;
+  private static final int METHODID_DELETE_INDEX_TEMPLATE = 15;
+  private static final int METHODID_LIST_INDEX_TEMPLATE = 16;
+  private static final int METHODID_LIST_INDEX_TEMPLATE_DETAILS = 17;
+  private static final int METHODID_CREATE_INDEX = 18;
+  private static final int METHODID_GET_INDEX = 19;
+  private static final int METHODID_UPDATE_INDEX = 20;
+  private static final int METHODID_DELETE_INDEX = 21;
+  private static final int METHODID_LIST_INDEX = 22;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1086,6 +1404,30 @@ public final class MetaServiceGrpc {
         case METHODID_LIST_PROJECT_DETAILS:
           serviceImpl.listProjectDetails((com.rany.service.platform.meta.ListProjectDetailsRequest) request,
               (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListProjectDetailsReply>) responseObserver);
+          break;
+        case METHODID_CREATE_INDEX_TEMPLATE:
+          serviceImpl.createIndexTemplate((com.rany.service.platform.meta.CreateIndexTemplateRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.CreateIndexTemplateReply>) responseObserver);
+          break;
+        case METHODID_GET_INDEX_TEMPLATE:
+          serviceImpl.getIndexTemplate((com.rany.service.platform.meta.GetIndexTemplateRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.GetIndexTemplateReply>) responseObserver);
+          break;
+        case METHODID_UPDATE_INDEX_TEMPLATE:
+          serviceImpl.updateIndexTemplate((com.rany.service.platform.meta.UpdateIndexTemplateRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.UpdateIndexTemplateReply>) responseObserver);
+          break;
+        case METHODID_DELETE_INDEX_TEMPLATE:
+          serviceImpl.deleteIndexTemplate((com.rany.service.platform.meta.DeleteIndexTemplateRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DeleteIndexTemplateReply>) responseObserver);
+          break;
+        case METHODID_LIST_INDEX_TEMPLATE:
+          serviceImpl.listIndexTemplate((com.rany.service.platform.meta.ListIndexTemplateRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateReply>) responseObserver);
+          break;
+        case METHODID_LIST_INDEX_TEMPLATE_DETAILS:
+          serviceImpl.listIndexTemplateDetails((com.rany.service.platform.meta.ListIndexTemplateDetailsRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexTemplateDetailsReply>) responseObserver);
           break;
         case METHODID_CREATE_INDEX:
           serviceImpl.createIndex((com.rany.service.platform.meta.CreateIndexRequest) request,
@@ -1180,6 +1522,12 @@ public final class MetaServiceGrpc {
               .addMethod(METHOD_GET_PROJECT)
               .addMethod(METHOD_LIST_PROJECT)
               .addMethod(METHOD_LIST_PROJECT_DETAILS)
+              .addMethod(METHOD_CREATE_INDEX_TEMPLATE)
+              .addMethod(METHOD_GET_INDEX_TEMPLATE)
+              .addMethod(METHOD_UPDATE_INDEX_TEMPLATE)
+              .addMethod(METHOD_DELETE_INDEX_TEMPLATE)
+              .addMethod(METHOD_LIST_INDEX_TEMPLATE)
+              .addMethod(METHOD_LIST_INDEX_TEMPLATE_DETAILS)
               .addMethod(METHOD_CREATE_INDEX)
               .addMethod(METHOD_GET_INDEX)
               .addMethod(METHOD_UPDATE_INDEX)

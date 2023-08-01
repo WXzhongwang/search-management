@@ -1,5 +1,6 @@
 package com.rany.service.common.toolkit;
 
+import com.rany.service.platform.meta.AutoIndexRollingPolicy;
 import com.rany.service.platform.meta.ClusterStatus;
 
 import java.time.LocalDate;
@@ -108,6 +109,26 @@ public final class DateUtility {
             result = ClusterStatus.DELETING;
         } else if (status.equalsIgnoreCase("IN_SERVICE")) {
             result = ClusterStatus.IN_SERVICE;
+        }
+        return result;
+    }
+
+    public static AutoIndexRollingPolicy stringToAutoIndexRollingPolicy(String policy) {
+        AutoIndexRollingPolicy result = null;
+        if (policy == null) {
+            result = null;
+        } else if (policy.equalsIgnoreCase("NONE")) {
+            result = AutoIndexRollingPolicy.NONE;
+        } else if (policy.equalsIgnoreCase("DAY")) {
+            result = AutoIndexRollingPolicy.DAY;
+        } else if (policy.equalsIgnoreCase("YEAR")) {
+            result = AutoIndexRollingPolicy.YEAR;
+        } else if (policy.equalsIgnoreCase("MONTH")) {
+            result = AutoIndexRollingPolicy.MONTH;
+        } else if (policy.equalsIgnoreCase("QUARTER")) {
+            result = AutoIndexRollingPolicy.QUARTER;
+        } else if (policy.equalsIgnoreCase("HALF_YEAR")) {
+            result = AutoIndexRollingPolicy.HALF_YEAR;
         }
         return result;
     }
