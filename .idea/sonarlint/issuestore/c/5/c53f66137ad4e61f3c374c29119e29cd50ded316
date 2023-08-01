@@ -1,0 +1,95 @@
+
+f	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß”â¢
+u
+java:S1488à"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~
+S
+java:S2589å"7Remove this expression which always evaluates to "true"(ÙÀæÒøÿÿÿÿ
+e	java:S116t"PRename this field "name_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áè±Í
+n	java:S116–"SRename this field "cluster_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–İÊ¡ûÿÿÿÿ
+r	java:S116¦"WRename this field "description_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú¯²ñıÿÿÿÿ
+h	java:S116È"RRename this field "status_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äîÂş
+o	java:S116Ø"TRename this field "endpoint_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÚÑ“ûÿÿÿÿ
+r	java:S116ú"\Rename this field "internalEndpoint_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÛ¨
+{
+java:S4144Ÿ"dUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 1032.(ñı®¢
+=
+java:S1948t"'Make "name_" transient or serializable.(áè±Í
+J
+java:S1948¦".Make "description_" transient or serializable.(ú¯²ñıÿÿÿÿ
+G
+java:S1948Ø"+Make "endpoint_" transient or serializable.(ŞÚÑ“ûÿÿÿÿ
+J
+java:S1948ú"3Make "internalEndpoint_" transient or serializable.(âÛ¨
+m
+java:S3077t"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(áè±Í
+s
+java:S3077¦"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(ú¯²ñıÿÿÿÿ
+s
+java:S3077Ø"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(ŞÚÑ“ûÿÿÿÿ
+n
+java:S3077ú"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(âÛ¨
+M
+java:S1481%"7Remove this unused "mutable_bitField0_" local variable.(ß”â¢
+F
+java:S45240"+Move this default to the end of the switch.(Î—­Šşÿÿÿÿ
+K
+java:S1874¡"/Remove this use of "valueOf"; it is deprecated.(´úö•ûÿÿÿÿ
+K
+java:S1874Ó"/Remove this use of "valueOf"; it is deprecated.(Å  íøÿÿÿÿ
+Q
+java:S1161œ":Add the "@Override" annotation above this method signature(Û‹Ö‡
+V
+java:S1161¥":Add the "@Override" annotation above this method signature(¹õˆÏùÿÿÿÿ
+Q
+java:S1161¼":Add the "@Override" annotation above this method signature(œè“
+e	java:S116‰"PRename this field "name_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñœã/
+h	java:S116Î"SRename this field "cluster_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸‘òA
+r	java:S116ú"WRename this field "description_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰šÚ™øÿÿÿÿ
+m	java:S116¿"RRename this field "status_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³·éÆúÿÿÿÿ
+j	java:S116ë"TRename this field "endpoint_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òúõ
+r	java:S116°"\Rename this field "internalEndpoint_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ğ—
+?	java:S108‚")Either remove or fill this block of code.(º„ç½
+Q
+java:S1161…":Add the "@Override" annotation above this method signature(öË·š
+Q
+java:S1161—":Add the "@Override" annotation above this method signature(²íğ‘
+o
+java:S2975³"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ
+V
+java:S1161³":Add the "@Override" annotation above this method signature(Îõ¾Òûÿÿÿÿ
+A
+java:S1905´"*Remove this unnecessary cast to "Builder".(¥ùšÏ
+V
+java:S1161¶":Add the "@Override" annotation above this method signature(ÑÍ“Ëûÿÿÿÿ
+A
+java:S1905¹"*Remove this unnecessary cast to "Builder".(ê„£
+V
+java:S1161»":Add the "@Override" annotation above this method signature(Ã•Œƒüÿÿÿÿ
+F
+java:S1905½"*Remove this unnecessary cast to "Builder".(Æ÷¾¢ûÿÿÿÿ
+V
+java:S1161¿":Add the "@Override" annotation above this method signature(»¤Å“ûÿÿÿÿ
+A
+java:S1905Á"*Remove this unnecessary cast to "Builder".(ƒ¦†
+Q
+java:S1161Ã":Add the "@Override" annotation above this method signature(§ß—¡
+F
+java:S1905Æ"*Remove this unnecessary cast to "Builder".(ˆÎ…•şÿÿÿÿ
+Q
+java:S1161È":Add the "@Override" annotation above this method signature(¿¸Ú©
+@
+java:S1905Ë"*Remove this unnecessary cast to "Builder".(İ¤Â\
+Q
+java:S1161Í":Add the "@Override" annotation above this method signature(”×Ñ¾
+Q
+java:S1161ó":Add the "@Override" annotation above this method signature(Û‹Ö‡
+V
+java:S1161÷":Add the "@Override" annotation above this method signature(˜œö¾ûÿÿÿÿ
+K
+java:S1874á"/Remove this use of "valueOf"; it is deprecated.(´úö•ûÿÿÿÿ
+K
+java:S1874Ò"/Remove this use of "valueOf"; it is deprecated.(Å  íøÿÿÿÿ
+Q
+java:S1161ô":Add the "@Override" annotation above this method signature(´çÍê
+Q
+java:S1161ù":Add the "@Override" annotation above this method signature(¥ªóÃ

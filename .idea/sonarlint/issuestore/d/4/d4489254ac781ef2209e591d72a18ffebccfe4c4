@@ -1,0 +1,15 @@
+
+p
+java:S1104"SMake aliases a static final constant or non-public and provide accessors if needed.(Õ˜–…8±û÷‰0
+o
+java:S1104"RMake health a static final constant or non-public and provide accessors if needed.(Ã‹µ8áãñø‰0
+v
+java:S1104"YMake primaryShards a static final constant or non-public and provide accessors if needed.(¶±Œñ8©Çöø‰0
+{
+java:S1104"YMake replicaShards a static final constant or non-public and provide accessors if needed.(à¦¤Õøÿÿÿÿ8–Ÿøø‰0
+m
+java:S1104"PMake docs a static final constant or non-public and provide accessors if needed.(ˆ¸°è8½ãøø‰0
+r
+java:S1104"UMake totalData a static final constant or non-public and provide accessors if needed.(ÒÑ¥ú8İÿšù‰0
+M
+java:S1135	"2Complete the task associated to this TODO comment.(Â“Œùÿÿÿÿ

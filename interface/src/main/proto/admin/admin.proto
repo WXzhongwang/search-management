@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+option java_package = "com.rany.service.platform.admin";
+
+option java_outer_classname = "SearchMiddlePlatformAdminService";
+
+service AdminService {
+  rpc Ping (PingRequest) returns (PingReply) {}
+  rpc SetServiceReadOnly (SetReadOnlyRequest) returns (ReadOnlyResponse) {}
+  rpc SetServiceInService (SetInServiceRequest) returns (InServiceResponse) {}
+  rpc SetServiceSuspend (SetSuspendRequest) returns (SuspendResponse) {}
+  rpc GetServiceMode(GetServiceModeRequest) returns (ServiceModeResponse){}
+
+  rpc SuspendBackendThreads(SuspendWorkThreadRequest) returns (SuspendWorkThreadResponse){}
+  rpc ResumeBackendThreads(ResumeWorkThreadRequest) returns (ResumeWorkThreadResponse){}
+  rpc GetBackendThreadsStatus(GetWorkThreadStatusRequest) returns (GetWorkThreadStatusResponse){}
+}
+
+message PingRequest {
+  string ping = 1;
+}
+
+message PingReply {
+  string pong = 1;
+}
+
+message SetReadOnlyRequest {
+
+}
+message ReadOnlyResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message SetInServiceRequest {
+
+}
+message InServiceResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message SetSuspendRequest {
+
+}
+message SuspendResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetServiceModeRequest {
+
+}
+
+message ServiceModeResponse{
+  int32 code = 1;
+  string message = 2;
+  string mode = 3;
+}
+
+message SuspendWorkThreadRequest {
+
+}
+message SuspendWorkThreadResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ResumeWorkThreadRequest {
+
+}
+message ResumeWorkThreadResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetWorkThreadStatusRequest {
+
+}
+message GetWorkThreadStatusResponse {
+  int32 code = 1;
+  string message = 2;
+  bool running = 3;
+}

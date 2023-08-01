@@ -1,0 +1,57 @@
+
+b
+java:S1192’"FDefine a constant instead of duplicating this literal "%s-%s" 5 times.(æµ¾øÿÿÿÿ
+t	java:S135¢"YReduce the total number of break and continue statements in this loop to use at most one.(Úöø—øÿÿÿÿ
+o	java:S135–"YReduce the total number of break and continue statements in this loop to use at most one.(Ù‰¬“
+O
+java:S2589ó"8Remove this expression which always evaluates to "false"(ŞÍãâ
+O
+java:S2589ø"8Remove this expression which always evaluates to "false"(ŞÍãâ
+n
+java:S3776©"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Îëåÿÿÿÿÿ
+n
+java:S3776Ñ"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(ø§šÃûÿÿÿÿ
+W	java:S125ß"<This block of commented-out lines of code should be removed.(Ÿœãˆüÿÿÿÿ
+b
+java:S1854Ö"KRemove this useless assignment to local variable "tmpClusterConnectionMap".(ÚéÃÁ
+K
+java:S1659²"/Declare "startHoldReadLock" on a separate line.(®âûùÿÿÿÿ
+F
+java:S1659Á"/Declare "endCheckMetaStore" on a separate line.(¤æÚ˜
+I
+java:S1659Ë"2Declare "endCheckEsConnection" on a separate line.(ƒ¨’ù
+P
+java:S2864Í"4Iterate over the "entrySet" instead of the "keySet".(¡Îü°ùÿÿÿÿ
+L
+java:S1659é"0Declare "startHoldWriteLock" on a separate line.(¤ı¯ûÿÿÿÿ
+D
+java:S1659î"(Declare "needDelete" on a separate line.(ö¼Ôúÿÿÿÿ
+K
+java:S1481î"/Remove this unused "needDelete" local variable.(ö¼Ôúÿÿÿÿ
+b
+java:S1764ó"KCorrect one of the identical sub-expressions on both sides of operator "||"(ŞÍãâ
+b
+java:S1764ø"KCorrect one of the identical sub-expressions on both sides of operator "||"(ŞÍãâ
+n
+java:S3776„"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(Ô¥µßşÿÿÿÿ
+?	java:S108º")Either remove or fill this block of code.(”ı¾
+t
+java:S2139Ó"XEither log this exception and handle it, or rethrow it with some contextual information.(ˆ§äßÿÿÿÿÿ
+i
+java:S3776ï"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(“–ış
+I
+java:S1659ö"-Declare "endHoldReadLock" on a separate line.(éêÔØùÿÿÿÿ
+D
+java:S1659„"(Declare "endGetData" on a separate line.(™˜ì½ıÿÿÿÿ
+J
+java:S1659’".Declare "endHoldWriteLock" on a separate line.(œö¿Şøÿÿÿÿ
+P
+java:S2864†"4Iterate over the "entrySet" instead of the "keySet".(¡Îü°ùÿÿÿÿ
+d
+java:S1659©"NDeclare "indexTemplateName" and all following declarations on a separate line.(×úÓ
+L
+java:S1659Û"0Declare "startHoldWriteLock" on a separate line.(¤ı¯ûÿÿÿÿ
+K
+java:S3398„"/Move this method into "AutoIndexRollingWorker".(Ô¥µßşÿÿÿÿ
+G
+java:S10684",Remove this unused "metaType" private field.(Òìçßıÿÿÿÿ

@@ -1,0 +1,295 @@
+package com.rany.service.component.impl;
+
+import com.rany.service.common.exception.CommonReturnCode;
+import com.rany.service.common.exception.ErrorCodeEnum;
+import com.rany.service.common.exception.SearchManagementException;
+import com.rany.service.component.meta.ClusterMeta;
+import com.rany.service.component.meta.ProjectMeta;
+import com.rany.service.component.meta.dto.ProjectMetaData;
+import com.rany.service.platform.meta.*;
+import io.grpc.stub.StreamObserver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.List;
+
+/**
+ * @author zhongshengwang
+ */
+public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
+
+    private static final Logger logger = LoggerFactory.getLogger(MetaServiceComponent.class);
+
+    private final MasterServiceInternalImpl internal;
+
+    public MetaServiceComponent(MasterServiceInternalImpl internal) {
+        this.internal = internal;
+    }
+
+    @Override
+    public void createCluster(CreateClusterRequest request, StreamObserver<CreateClusterReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(), String.format("Service is in [%s] status.", status));
+        }
+
+        // create cluster
+        ClusterMeta clusterMeta = new ClusterMeta();
+        internal.createCluster(clusterMeta);
+        CreateClusterReply reply = CreateClusterReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getClusterInfo(GetClusterInfoRequest request, StreamObserver<GetClusterInfoReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(), String.format("Service is in [%s] status.", status));
+        }
+        ClusterInfo cluster = internal.getCluster(request.getName());
+        GetClusterInfoReply reply = GetClusterInfoReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .setCluster(cluster)
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateCluster(UpdateClusterInfoRequest request, StreamObserver<UpdateClusterInfoReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(), String.format("Service is in [%s] status.", status));
+        }
+        // update cluster
+        ClusterMeta clusterMeta = new ClusterMeta();
+        internal.updateCluster(clusterMeta);
+
+        UpdateClusterInfoReply reply = UpdateClusterInfoReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteCluster(DeleteClusterRequest request, StreamObserver<DeleteClusterReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(), String.format("Service is in [%s] status.", status));
+        }
+        internal.deleteCluster(request.getName());
+        DeleteClusterReply reply = DeleteClusterReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listCluster(ListClusterRequest request, StreamObserver<ListClusterReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.READONLY && status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ListClusterReply.Builder builder = ListClusterReply.newBuilder();
+        List<ClusterInfo> clusters = internal.getClusters();
+        if (clusters != null && !clusters.isEmpty()) {
+            for (int i = 0; i < clusters.size(); ++i) {
+                builder.addClusters(clusters.get(i).getName());
+            }
+        }
+        ListClusterReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listClusterDetails(ListClusterDetailsRequest request, StreamObserver<ListClusterDetailsReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.READONLY && status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ListClusterDetailsReply.Builder builder = ListClusterDetailsReply.newBuilder();
+        List<ClusterInfo> clusters = internal.getClusters();
+        if (clusters != null && !clusters.isEmpty()) {
+            for (int i = 0; i < clusters.size(); ++i) {
+                builder.addClusters(clusters.get(i));
+            }
+        }
+        ListClusterDetailsReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void createProject(CreateProjectRequest request, StreamObserver<CreateProjectReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ProjectMeta projectMeta = new ProjectMeta();
+        projectMeta.projectName = request.getName();
+        projectMeta.projectDesc = request.getDescription();
+        projectMeta.clusterName = request.getCluster();
+
+        // set properties
+        internal.insertProject(projectMeta);
+
+        CreateProjectReply reply = CreateProjectReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void updateProject(UpdateProjectRequest request, StreamObserver<UpdateProjectReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ProjectMetaData projectMeta = new ProjectMetaData();
+        projectMeta.projectName = request.getName();
+        projectMeta.projectDesc = request.getDescription();
+        // set properties
+        internal.updateProject(projectMeta);
+
+        UpdateProjectReply reply = UpdateProjectReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getProject(GetProjectRequest request, StreamObserver<GetProjectReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+
+        // set properties
+        ProjectInfo project = internal.getProject(request.getName());
+
+        GetProjectReply reply = GetProjectReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .setProject(project)
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void deleteProject(DeleteProjectRequest request, StreamObserver<DeleteProjectReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+
+        // set properties
+        internal.deleteProject(request.getName());
+
+        DeleteProjectReply reply = DeleteProjectReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void listProject(ListProjectRequest request, StreamObserver<ListProjectReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ListProjectReply.Builder builder = ListProjectReply.newBuilder();
+
+        // set properties
+        List<ProjectInfo> projects = internal.listProjects(request.getName());
+        if (projects != null && !projects.isEmpty()) {
+            for (int i = 0; i < projects.size(); ++i) {
+                builder.addProjects(projects.get(i).getName());
+            }
+        }
+        ListProjectReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listProjectDetails(ListProjectDetailsRequest request, StreamObserver<ListProjectDetailsReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ListProjectDetailsReply.Builder builder = ListProjectDetailsReply.newBuilder();
+        List<ProjectInfo> projects = internal.listProjects(request.getCluster());
+        if (projects != null) {
+            builder.addAllProjects(projects);
+        }
+        ListProjectDetailsReply reply = builder
+                .setErrorCode(code.getCode())
+                .setErrorMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+}

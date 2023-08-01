@@ -1,0 +1,22 @@
+
+M
+java:S3655a"7Call "Optional#isPresent()" before accessing the value.(¿½ˆ
+m
+java:S1450C"WRemove the "metaStub" field and declare it as a local variable in the relevant methods.(î€şØ
+y
+java:S2142t"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(­¤ß”øÿÿÿÿ
+C	java:S108t")Either remove or fill this block of code.(­¤ß”øÿÿÿÿ
+t
+java:S2142z"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+i
+java:S3776ˆ"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(“–ış
+z
+java:S2142”"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(­¤ß”øÿÿÿÿ
+D	java:S108”")Either remove or fill this block of code.(­¤ß”øÿÿÿÿ
+z
+java:S2142¿"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(­¤ß”øÿÿÿÿ
+D	java:S108¿")Either remove or fill this block of code.(­¤ß”øÿÿÿÿ
+`
+java:S1117É"DRename "adminServiceStub" which hides the field declared at line 71.(èşÛÀûÿÿÿÿ
+J
+java:S1068G"4Remove this unused "adminServiceStub" private field.(Á‘®ï

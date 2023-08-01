@@ -1,0 +1,23 @@
+
+q
+java:S1104"TMake fullName a static final constant or non-public and provide accessors if needed.(ùßŞ8¨á¡ü‰0
+m
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾8Éºªü‰0
+n
+java:S1104"RMake legacy a static final constant or non-public and provide accessors if needed.(—âl8á¤­ü‰0
+s
+java:S1104"WMake projectName a static final constant or non-public and provide accessors if needed.(ï„§h8éÉïø‰0
+u
+java:S1104"XMake templateName a static final constant or non-public and provide accessors if needed.(ïËÅ8ªƒ¼ü‰0
+f
+java:S1104"PMake tags a static final constant or non-public and provide accessors if needed.(ÇëìË
+n
+java:S1104"SMake mapping a static final constant or non-public and provide accessors if needed.(¨Æ™ùÿÿÿÿ
+i
+java:S1104"SMake setting a static final constant or non-public and provide accessors if needed.(ú£¨¾
+q
+java:S1104"UMake gmtCreate a static final constant or non-public and provide accessors if needed.(Õ®¤#8ğáïø‰0
+y
+java:S1104"WMake gmtModified a static final constant or non-public and provide accessors if needed.(®¿õüÿÿÿÿ8ğáïø‰0
+M
+java:S1135	"2Complete the task associated to this TODO comment.(Â“Œùÿÿÿÿ

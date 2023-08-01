@@ -1,0 +1,19 @@
+
+m
+java:S1104"WMake clusterName a static final constant or non-public and provide accessors if needed.(ĞÜÑñ
+r
+java:S1104"WMake clusterDesc a static final constant or non-public and provide accessors if needed.(¤Ã¤êúÿÿÿÿ
+o
+java:S1104"YMake clusterStatus a static final constant or non-public and provide accessors if needed.(èÁßò
+m
+java:S1104"WMake clusterType a static final constant or non-public and provide accessors if needed.(ç¼³È
+u
+java:S1104"ZMake clusterAddress a static final constant or non-public and provide accessors if needed.(“ƒ„½úÿÿÿÿ
+}
+java:S1104"bMake clusterInternalAddress a static final constant or non-public and provide accessors if needed.(şÖÄ©úÿÿÿÿ
+j
+java:S1104"UMake gmtCreate a static final constant or non-public and provide accessors if needed.(Õ®¤#
+r
+java:S1104"WMake gmtModified a static final constant or non-public and provide accessors if needed.(®¿õüÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(Â“Œùÿÿÿÿ

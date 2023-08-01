@@ -1,0 +1,418 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option java_multiple_files = true;
+
+option java_package = "com.rany.service.platform.meta";
+
+option java_outer_classname = "SearchMiddlePlatformMetaService";
+
+
+service MetaService {
+
+  // 集群相关
+  rpc CreateCluster(CreateClusterRequest) returns (CreateClusterReply) {}
+  rpc DeleteCluster (DeleteClusterRequest) returns (DeleteClusterReply) {}
+  rpc UpdateCluster (UpdateClusterInfoRequest) returns (UpdateClusterInfoReply) {}
+  rpc GetClusterInfo(GetClusterInfoRequest) returns (GetClusterInfoReply) {}
+  rpc ListCluster (ListClusterRequest) returns (ListClusterReply) {}
+  rpc ListClusterDetails (ListClusterDetailsRequest) returns (ListClusterDetailsReply) {}
+
+  // 项目相关
+  rpc CreateProject(CreateProjectRequest) returns (CreateProjectReply) {}
+  rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectReply) {}
+  rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectReply) {}
+  rpc GetProject (GetProjectRequest) returns (GetProjectReply) {}
+  rpc ListProject (ListProjectRequest) returns (ListProjectReply) {}
+  rpc ListProjectDetails (ListProjectDetailsRequest) returns (ListProjectDetailsReply) {}
+
+  // 模版
+  rpc CreateIndexTemplate (CreateIndexTemplateRequest) returns (CreateIndexTemplateReply) {}
+  rpc GetIndexTemplate (GetIndexTemplateRequest) returns (GetIndexTemplateReply) {}
+  rpc UpdateIndexTemplate (UpdateIndexTemplateRequest) returns (UpdateIndexTemplateReply) {}
+  rpc DeleteIndexTemplate (DeleteIndexTemplateRequest) returns (DeleteIndexTemplateReply) {}
+  rpc ListIndexTemplate (ListIndexTemplateRequest) returns (ListIndexTemplateReply) {}
+  rpc ListIndexTemplateDetails (ListIndexTemplateDetailsRequest) returns (ListIndexTemplateDetailsReply) {}
+
+
+  // 索引相关
+  rpc CreateIndex (CreateIndexRequest) returns (CreateIndexReply) {}
+  rpc GetIndex (GetIndexRequest) returns (GetIndexReply) {}
+  rpc UpdateIndex (UpdateIndexRequest) returns (UpdateIndexReply) {}
+  rpc DeleteIndex (DeleteIndexRequest) returns (DeleteIndexReply) {}
+  rpc ListIndex (ListIndexRequest) returns (ListIndexReply) {}
+}
+
+message CreateClusterRequest {
+  string name = 1;
+  ClusterType cluster = 2;
+  string description = 3;
+  ClusterStatus status = 4;
+  string endpoint = 5;
+  string internal_endpoint = 6;
+}
+
+enum ClusterType {
+  HDD = 0;
+  SSD = 1;
+}
+
+enum ClusterStatus {
+  NULL = 0;
+  CREATING = 1;
+  IN_SERVICE = 2;
+  DISABLED = 3;
+  DELETING = 4;
+}
+
+message CreateClusterReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetClusterInfoRequest {
+  string name = 1;
+}
+
+message GetClusterInfoReply {
+  int32 code = 1;
+  string message = 2;
+  ClusterInfo cluster = 3;
+}
+
+message ClusterInfo {
+  int32 id = 1;
+  string name = 2;
+  string endpoint = 3;
+  string internal_endpoint = 4;
+  ClusterType type = 5;
+  string description = 6;
+  int64 create_time = 7;
+  int64 last_update_time = 8;
+  ClusterStatus status = 9;
+  string es_version = 10;
+  int32 total_project_number = 11;
+  int32 total_index_number = 12;
+  int64 total_doc_number = 13;
+  int64 total_data_size = 14;
+  string cluster_health = 15;
+  repeated NodeInfo nodes = 16;
+  int32 total_template_number = 17;
+}
+
+message NodeInfo {
+  int32 id = 1;
+  string name = 2;
+  string ip_address = 3;
+  bool is_master = 4;
+  double cpu_percent = 5;
+  string ram_max = 6;
+  string ram_current = 7;
+  string heap_max = 8;
+  string heap_current = 9;
+  string disk_avail = 10;
+  double disk_percent = 11;
+  string group = 12;
+  string tag = 13;
+}
+
+message UpdateClusterInfoRequest {
+  int32 id = 1;
+  string name = 2;
+  ClusterStatus status = 3;
+  string description = 4;
+  string internal_endpoint = 5;
+}
+
+message UpdateClusterInfoReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message DeleteClusterRequest {
+  string name = 1;
+}
+
+message DeleteClusterReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ListClusterRequest {
+}
+
+message ListClusterReply {
+  int32 code = 1;
+  string message = 2;
+  repeated string clusters = 3;
+}
+
+message ListClusterDetailsRequest {
+}
+
+message ListClusterDetailsReply {
+  int32 code = 1;
+  string message = 2;
+  repeated ClusterInfo clusters = 3;
+}
+
+
+// 项目相关
+message CreateProjectRequest {
+  string name = 1;
+  string cluster = 2;
+  string description = 3;
+}
+
+message CreateProjectReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message DeleteProjectRequest {
+  string name = 1;
+  ProjectStatus status = 2;
+}
+
+message DeleteProjectReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message UpdateProjectRequest {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message UpdateProjectReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetProjectRequest {
+  string name = 1;
+}
+
+message GetProjectReply {
+  int32 code = 1;
+  string message = 2;
+  ProjectInfo project = 3;
+}
+
+message ProjectInfo {
+  int32 id = 1;
+  string name = 2;
+  string cluster_name = 3;
+  string description = 4;
+  int32 total_index_number = 5;
+  int64 total_doc_number = 6;
+  int64 total_data_size = 7;
+  int32 cluster_id = 8;
+  ProjectStatus status = 9;
+  int32 total_template_number = 17;
+}
+
+enum ProjectStatus {
+  NORMAL = 0;
+  DELETE = 1;
+}
+
+message ListProjectRequest {
+  string cluster_id = 1;
+  string name = 2;
+}
+
+message ListProjectReply {
+  int32 code = 1;
+  string message = 2;
+  repeated string projects = 3;
+}
+
+message ListProjectDetailsRequest {
+  string cluster = 1;
+}
+
+message ListProjectDetailsReply {
+  int32 code = 1;
+  string message = 2;
+  repeated ProjectInfo projects = 3;
+}
+
+// 模板相关
+message CreateIndexTemplateRequest {
+    string name = 1;
+    string project = 2;
+    string mapping = 3;
+    string setting = 4;
+    repeated string aliases = 5;
+    AutoIndexRollingPolicy auto_index_rolling_policy = 6;
+    int32 auto_index_rolling_window = 7;
+    string auto_index_name_prefix = 8;
+}
+
+message CreateIndexTemplateReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetIndexTemplateRequest {
+  string name = 1;
+  string project = 2;
+}
+
+message GetIndexTemplateReply {
+  int32 code = 1;
+  string message = 2;
+  IndexTemplateInfo template = 3;
+}
+
+message UpdateIndexTemplateRequest {
+    string name = 1;
+    string project = 2;
+    google.protobuf.StringValue mapping = 3;                    // Use StringValue to enable optional field;
+    google.protobuf.StringValue setting = 4;                    // Use StringValue to enable optional field;
+    bool update_alias = 5;
+    bool update_policy = 6;
+    bool update_window = 7;
+    repeated string aliases = 8;
+    AutoIndexRollingPolicy auto_index_rolling_policy = 9;
+    int32 auto_index_rolling_window = 10;
+}
+
+message UpdateIndexTemplateReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message DeleteIndexTemplateRequest {
+  string name = 1;
+  string project = 2;
+}
+
+message DeleteIndexTemplateReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ListIndexTemplateRequest {
+  string project = 1;
+}
+
+message ListIndexTemplateReply {
+  int32 code = 1;
+  string message = 2;
+  repeated string templates = 3;
+}
+
+message ListIndexTemplateDetailsRequest {
+  string project = 1;
+}
+
+message ListIndexTemplateDetailsReply {
+  int32 code = 1;
+  string message = 2;
+  repeated IndexTemplateInfo templates = 3;
+}
+
+
+message IndexTemplateInfo {
+    string name = 1;
+    string cluster = 2;
+    string project = 3;
+    string mapping = 4;
+    string setting = 5;
+    repeated string aliases = 6;
+    AutoIndexRollingPolicy auto_index_rolling_policy = 7;
+    int32 auto_index_rolling_window = 8;
+    string auto_index_name_prefix = 9;
+    int32 total_index_number = 10;          // number of indices of this index group;
+    int64 total_doc_number = 11;            // doc number of all indices of this index group;
+    int64 total_data_size = 12;             // data size of all indices of this index group;
+}
+
+
+// 索引相关
+message CreateIndexRequest {
+  string name = 1;
+  string project = 2;
+  repeated string aliases = 4;
+  google.protobuf.StringValue mapping = 5;            // Use StringValue to enable optional field;
+  google.protobuf.StringValue setting = 6;            // Use StringValue to enable optional field;
+  AutoIndexRollingPolicy rolling_policy = 7;
+}
+
+message CreateIndexReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message GetIndexRequest {
+  int32 index_id = 1;
+}
+
+message GetIndexReply {
+  int32 code = 1;
+  string message = 2;
+  IndexInfo index = 3;
+}
+
+message IndexInfo {
+  string name = 1;
+  string cluster_name = 2;
+  string project_name = 3;
+  string mapping = 5;
+  string setting = 6;
+  repeated string aliases = 7;
+  int64 total_doc_number = 8;         // doc number of this index;
+  int64 total_data_size = 9;          // data size of all shards of this index;
+  int32 primary_shard_number = 10;
+  int32 replica_shard_number = 11;
+  string index_health = 12;
+  string project_id = 13;
+  string cluster_id = 14;
+  AutoIndexRollingPolicy rolling_policy = 15;
+  int32 index_id = 16;
+}
+
+enum AutoIndexRollingPolicy {
+  NONE = 0;       // Index policy is not set
+  DAY = 1;        // Index is auto-created daily with the format of name: indexname-20180521
+  MONTH = 2;      // Index is auto-created monthly with the format of name: indexname-201801
+  QUARTER = 3;    // Index is auto-created quaterly with the format of name: indexname-2018Q3
+  HALF_YEAR = 4;   // Index is auto-created semiyearly with the format of name: indexname-2018S1
+  YEAR = 5;       // Index is auto-created yearly with the format of name: indexname-2018
+}
+
+message UpdateIndexRequest {
+  int32 index_id = 1;
+  google.protobuf.StringValue mapping = 4;            // Use StringValue to enable optional field;
+  google.protobuf.StringValue setting = 5;            // Use StringValue to enable optional field;
+}
+
+message UpdateIndexReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message DeleteIndexRequest {
+  int32 index_id = 1;
+}
+
+message DeleteIndexReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ListIndexRequest {
+  int32 cluster_id = 1;
+  int32 project_id = 2;
+  string name = 3;
+}
+
+message ListIndexReply {
+  int32 code = 1;
+  string message = 2;
+  repeated IndexInfo indices = 3;
+}

@@ -1,0 +1,19 @@
+server:
+  port: 8086
+
+spring:
+  profiles:
+    active: dev
+
+metastore:
+  type: MYSQL
+  env: dev
+  mysql:
+    jdbcUrl: jdbc:mysql://localhost:3306/search_manager?serverTimezone=UTC
+    username: root
+    database: search_manager
+    password: Zsw131400.
+
+
+
+

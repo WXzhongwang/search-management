@@ -1,0 +1,40 @@
+
+m
+java:S1192N"WDefine a constant instead of duplicating this literal "%s DATETIME NOT NULL 
+" 4 times.(ôğ¶ç
+ƒ
+java:S1192["mDefine a constant instead of duplicating this literal "Fail to create meta tables with message: %s." 4 times.(•³Öè
+s
+java:S1192M"XDefine a constant instead of duplicating this literal "%s DATETIME NOT NULL, 
+" 4 times.(ûÉ¼ˆıÿÿÿÿ
+w
+java:S1192d"\Define a constant instead of duplicating this literal "%s VARCHAR(256) NOT NULL, 
+" 8 times.(şá¾Ùüÿÿÿÿ
+~
+java:S1192G"hDefine a constant instead of duplicating this literal "%s VARCHAR(256) PRIMARY KEY NOT NULL, 
+" 4 times.(Åƒ¼
+x
+java:S1192F"bDefine a constant instead of duplicating this literal "CREATE TABLE IF NOT EXISTS %s ( 
+" 4 times.(ïÌ‰†
+v
+java:S1192H"[Define a constant instead of duplicating this literal "%s VARCHAR(64) NOT NULL, 
+" 3 times.(†ªİéüÿÿÿÿ
+F
+java:S5411ê"*Use the primitive boolean expression here.(£Í±²ûÿÿÿÿ
+H
+java:S1199B"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+H
+java:S1199^"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+H
+java:S1199t"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+I
+java:S1199•"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ
+g
+java:S22593"LA "NullPointerException" could be thrown; "getDataSource()" can return null.(æ‡°¸ıÿÿÿÿ
+N	java:S106["9Replace this use of System.out or System.err by a logger.(•³Öè
+N	java:S106q"9Replace this use of System.out or System.err by a logger.(•³Öè
+O	java:S106‘"9Replace this use of System.out or System.err by a logger.(•³Öè
+O	java:S106®"9Replace this use of System.out or System.err by a logger.(•³Öè
+T	java:S106ä"9Replace this use of System.out or System.err by a logger.(®Í¦Âÿÿÿÿÿ
+R	java:S125è"<This block of commented-out lines of code should be removed.(ûÃÈ«
+W	java:S125é"<This block of commented-out lines of code should be removed.(À‡Âêûÿÿÿÿ

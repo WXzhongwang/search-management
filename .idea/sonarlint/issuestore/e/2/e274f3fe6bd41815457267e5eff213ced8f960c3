@@ -1,0 +1,23 @@
+
+n
+java:S1104"XMake templateName a static final constant or non-public and provide accessors if needed.(ïËÅ
+l
+java:S1104"WMake projectName a static final constant or non-public and provide accessors if needed.(ï„§h
+o
+java:S1104"TMake settings a static final constant or non-public and provide accessors if needed.(Âõ«çÿÿÿÿÿ
+j
+java:S1104"TMake mappings a static final constant or non-public and provide accessors if needed.(Öÿ„™
+x
+java:S1104"bMake autoIndexRollingPolicy a static final constant or non-public and provide accessors if needed.(×‡¹¿
+}
+java:S1104"bMake autoIndexRollingWindow a static final constant or non-public and provide accessors if needed.(‚û™Ëøÿÿÿÿ
+
+java:S1104"_Make autoIndexNamePrefix a static final constant or non-public and provide accessors if needed.(–”¤øÿÿÿÿ8ïÜóû‰0
+k
+java:S1104"UMake aliasList a static final constant or non-public and provide accessors if needed.(­§ƒß
+j
+java:S1104"UMake gmtCreate a static final constant or non-public and provide accessors if needed.(Õ®¤#
+r
+java:S1104"WMake gmtModified a static final constant or non-public and provide accessors if needed.(®¿õüÿÿÿÿ
+M
+java:S1135"2Complete the task associated to this TODO comment.(Â“Œùÿÿÿÿ
