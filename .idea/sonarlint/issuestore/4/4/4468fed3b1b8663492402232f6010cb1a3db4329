@@ -1,5 +1,0 @@
-
-
-java:S1319"rThe type of "indexTemplateMetaData" should be an interface such as "Map" rather than the implementation "HashMap".(Çë‹ñ8ëœÏû‰0
-~
-java:S1104"aMake indexTemplateMetaData a static final constant or non-public and provide accessors if needed.(Çë‹ñ8Ş…Ğû‰0

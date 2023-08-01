@@ -1,7 +1,0 @@
-
-9
-java:S2629*"$Invoke method(s) only conditionally.(Ñ…(
-s
-java:S1450""]Remove the "adminComponent" field and declare it as a local variable in the relevant methods.(…×ù‹
-w
-java:S1450#"\Remove the "metaComponent" field and declare it as a local variable in the relevant methods.(Ÿ«çåùÿÿÿÿ
