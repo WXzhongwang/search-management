@@ -4,7 +4,7 @@
 
 1. springboot 2.2.6.RELEASE
 2. elasticsearch 7.16.3
-3. 
+3. grpc+netty
 
 **特性:**
 
