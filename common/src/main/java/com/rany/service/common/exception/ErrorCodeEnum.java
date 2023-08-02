@@ -32,8 +32,10 @@ public enum ErrorCodeEnum {
     INTERNAL_ERROR(40010, "内部异常"),
     OBJECT_ALREADY_EXIST(40010, "数据已存在"),
     OBJECT_NOT_EXIST(40010, "数据不存在"),
+    INVALID_INPUT_PARAMETER(40010, "参数不正常"),
     CLUSTER_NOT_EMPTY(40010, "集群不为空"),
     PROJECT_NOT_EMPTY(40011, "项目模板不为空"),
+    TEMPLATE_NOT_EMPTY(40011, "模板不为空"),
 
     ;
 

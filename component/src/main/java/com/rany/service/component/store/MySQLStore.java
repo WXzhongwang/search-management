@@ -391,6 +391,68 @@ public class MySQLStore implements IMetaStorage {
                 indexTemplateMetaData.gmtModified);
     }
 
+    @Override
+    public void updateIndexTemplate(IndexTemplateMetaData indexTemplateMetaData) {
+        String command = String.format("update %s set ", indexTemplateTableName);
+        command += String.format(" %s=%d ", TableColumnNameConstant.IndexTemplate.COLUMN_LAST_UPDATE_TIME, indexTemplateMetaData.gmtModified);
+        if (indexTemplateMetaData.mappings != null) {
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_MAPPINGS);
+        }
+        if (indexTemplateMetaData.settings != null) {
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_SETTINGS);
+        }
+        if (indexTemplateMetaData.aliasList != null) {
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_ALIAS);
+        }
+        if (indexTemplateMetaData.autoIndexRollingPolicy != null) {
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_POLICY, indexTemplateMetaData.autoIndexRollingPolicy.toString());
+        }
+        if (indexTemplateMetaData.autoIndexRollingWindow != null) {
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_WINDOW, indexTemplateMetaData.autoIndexRollingWindow.toString());
+        }
+        command += String.format(" where %s=\"%s\"", TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME, indexTemplateMetaData.projectName + "." + indexTemplateMetaData.templateName);
+
+        jdbcTemplate.update(
+                command,
+                new PreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                        int parameterIndex = 1;
+                        if (indexTemplateMetaData.mappings != null) {
+                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.mappings);
+                        }
+                        if (indexTemplateMetaData.settings != null) {
+                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.settings);
+                        }
+                        if (indexTemplateMetaData.aliasList != null) {
+                            StringBuffer aliasListString = new StringBuffer();
+                            for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++ i) {
+                                if (i != 0) {
+                                    aliasListString.append("@");
+                                }
+                                aliasListString.append(indexTemplateMetaData.aliasList.get(i));
+                            }
+                            preparedStatement.setString(parameterIndex ++, aliasListString.toString());
+                        }
+                        if (indexTemplateMetaData.autoIndexRollingPolicy != null) {
+                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.autoIndexRollingPolicy.toString());
+                        }
+                        if (indexTemplateMetaData.autoIndexRollingWindow != null) {
+                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.autoIndexRollingWindow.toString());
+                        }
+                    }
+                }
+        );
+    }
+
+
+    @Override
+    public void deleteIndexTemplate(String projectName, String templateName)  {
+        String command = String.format("delete from %s where %s=\"%s\"",
+                indexTemplateTableName, TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
+                projectName + "." + templateName);
+        jdbcTemplate.update(command);
+    }
     private List<ClusterMetaData> loadClusterMetas() {
         List<ClusterMetaData> result = new ArrayList<>();
         String command = String.format("select %s,%s,%s,%s,%s,%s,%s,%s from %s",

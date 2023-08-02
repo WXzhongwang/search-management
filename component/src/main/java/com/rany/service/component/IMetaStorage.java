@@ -108,4 +108,21 @@ public interface IMetaStorage {
      * @param indexTemplateMetaData
      */
     void insertIndexTemplate(IndexTemplateMetaData indexTemplateMetaData);
+
+
+
+    /**
+     * 更新模板
+     *
+     * @param indexTemplateMetaData
+     */
+    void updateIndexTemplate(IndexTemplateMetaData indexTemplateMetaData);
+
+
+    /**
+     * 删除模版
+     * @param projectName
+     * @param templateName
+     */
+    void deleteIndexTemplate(String projectName, String templateName);
 }

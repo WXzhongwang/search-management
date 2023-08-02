@@ -2,6 +2,7 @@ package com.rany.service.client;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.protobuf.StringValue;
 import com.rany.service.client.rpc.request.*;
 import com.rany.service.common.constants.Constants;
 import com.rany.service.common.exception.CommonReturnCode;
@@ -18,7 +19,6 @@ import io.grpc.ManagedChannel;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.netty.NegotiationType;
 import io.grpc.netty.NettyChannelBuilder;
-import io.grpc.stub.MetadataUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -467,5 +467,68 @@ public class Proxy implements Bootstrap {
     }
 
 
+    public void updateIndexTemplate(IndexTemplateUpdateRequest request)  {
+        UpdateIndexTemplateRequest.Builder builder = UpdateIndexTemplateRequest.newBuilder();
+        builder.setName(request.getName()).setProject(request.getProjectName());
+
+        if (request.getMapping() != null) {
+            builder.setMapping(StringValue.newBuilder().setValue(request.getMapping() ).build());
+        }
+        if (request.getSetting()  != null) {
+            builder.setSetting(StringValue.newBuilder().setValue(request.getSetting() ).build());
+        }
+        if (request.getAutoIndexRollingPolicy() != null) {
+            AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(request.getAutoIndexRollingPolicy());
+            builder.setUpdatePolicy(true);
+            builder.setAutoIndexRollingPolicy(autoIndexRollingPolicy);
+        } else {
+            builder.setUpdatePolicy(false);
+        }
+        if (request.getAutoIndexRollingWindow() != null) {
+            builder.setUpdateWindow(true);
+            builder.setAutoIndexRollingWindow(request.getAutoIndexRollingWindow());
+        } else {
+            builder.setUpdateWindow(false);
+        }
+        if (request.getAliases() != null && !request.getAliases().isEmpty()) {
+            builder.setUpdateAlias(true);
+            builder.addAllAliases(request.getAliases() );
+        } else {
+            builder.setUpdateAlias(false);
+        }
+        UpdateIndexTemplateRequest updateIndexTemplateRequest = builder.build();
+        UpdateIndexTemplateReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.updateIndexTemplate(updateIndexTemplateRequest);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to update index template with message: " + e.getMessage());
+        }
+    }
+
+
+
+    public void deleteIndexTemplate(IndexTemplateDeleteRequest request)  {
+        DeleteIndexTemplateRequest.Builder builder = DeleteIndexTemplateRequest.newBuilder();
+        builder.setName(request.getName()).setProject(request.getProjectName());
+        DeleteIndexTemplateRequest deleteIndexTemplateRequest = builder.build();
+        DeleteIndexTemplateReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.deleteIndexTemplate(deleteIndexTemplateRequest);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to delete index template with message: " + e.getMessage());
+        }
+    }
 
 }

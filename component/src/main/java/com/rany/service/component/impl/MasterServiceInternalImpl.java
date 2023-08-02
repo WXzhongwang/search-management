@@ -1125,4 +1125,103 @@ public class MasterServiceInternalImpl {
             writeLock.unlock();
         }
     }
+
+
+    public void updateIndexTemplate(IndexTemplateMetaData templateMetaData)  {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(templateMetaData.projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", templateMetaData.projectName));
+            }
+            IndexTemplateMetaData template = projectMeta.indexTemplateMetaData.get(templateMetaData.templateName);
+            if (template == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exist in project [%s].", templateMetaData.templateName, templateMetaData.projectName));
+            }
+            if ((templateMetaData.autoIndexRollingPolicy != null) &&
+                    (template.autoIndexRollingPolicy != templateMetaData.autoIndexRollingPolicy) &&
+                    (template.autoIndexRollingPolicy != AutoIndexRollingPolicy.NONE) &&
+                    (templateMetaData.autoIndexRollingPolicy != AutoIndexRollingPolicy.NONE)) {
+                throw new SearchManagementException(ErrorCodeEnum.INVALID_INPUT_PARAMETER.getCode(),
+                        String.format("Auto index rolling policy can't be updated from [%s] to [%s].",
+                                template.autoIndexRollingPolicy, templateMetaData.autoIndexRollingPolicy));
+            }
+
+            long lastUpdateTime = System.currentTimeMillis();
+            long startUpdateMeta = System.nanoTime();
+            metaStore.updateIndexTemplate(templateMetaData);
+            long endUpdateMeta = System.nanoTime();
+            logger.info("IndexTemplateMeta of index template [project={}][name={}] has been updated in persistent storage with the following content: \n" +
+                            "mapping={}\n" +
+                            "setting={}\n" +
+                            "autoIndexRollingPolicy={}\n" +
+                            "autoIndexRollingWindow={}",
+                    templateMetaData.projectName, templateMetaData.templateName, templateMetaData.mappings, templateMetaData.settings, templateMetaData.autoIndexRollingPolicy, templateMetaData.autoIndexRollingWindow);
+
+            if (templateMetaData.mappings != null) {
+                template.mappings = templateMetaData.mappings;
+            }
+            if (templateMetaData.settings != null) {
+                template.settings =  templateMetaData.settings;
+            }
+            if (templateMetaData.aliasList != null) {
+                template.aliasList = templateMetaData.aliasList;
+            }
+            if (templateMetaData.autoIndexRollingPolicy != null) {
+                template.autoIndexRollingPolicy = templateMetaData.autoIndexRollingPolicy;
+            }
+            if (templateMetaData.autoIndexRollingWindow != null) {
+                template.autoIndexRollingWindow = templateMetaData.autoIndexRollingWindow;
+            }
+            template.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            logger.info("IndexTemplateMeta of index template [project={}][name={}] has been updated in memory.", template.projectName, template.templateName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::updateIndexTemplate: getLock:{} ms, updateMeta:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endUpdateMeta - startUpdateMeta) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
+
+    public void deleteIndexTemplate(String projectName, String templateName)  {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(), String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData indexTemplateMetaData = projectMeta.indexTemplateMetaData.get(templateName);
+            if (indexTemplateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(), String.format("IndexTemplate [%s] does not exist in project [%s].", templateName, projectName));
+            }
+            if (indexTemplateMetaData.indexMetas.size() != 0) {
+                throw new SearchManagementException(ErrorCodeEnum.TEMPLATE_NOT_EMPTY.getCode(), String.format("IndexTemplate [%s] is not empty and can't be deleted.", templateName));
+            }
+
+            long startDeleteMeta = System.nanoTime();
+            metaStore.deleteIndexTemplate(projectName, templateName);
+            long endDeleteMeta = System.nanoTime();
+            logger.info("IndexTemplateMeta of index template [project={}][name={}] has been deleted from persistent storage.", projectName, templateName);
+
+            // Update the meta of containing project and cluster object;
+            projectMeta.indexTemplateMetaData.remove(templateName);
+            logger.info("IndexTemplateMeta of index template [project={}][name={}] has been deleted from memory.", projectName, templateName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::deleteIndexTemplate: getLock:{} ms, deleteMeta:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endDeleteMeta - startDeleteMeta) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
+    }
 }

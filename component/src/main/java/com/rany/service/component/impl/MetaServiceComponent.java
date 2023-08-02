@@ -324,4 +324,52 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
+
+
+    @Override
+    public void updateIndexTemplate(UpdateIndexTemplateRequest request, StreamObserver<UpdateIndexTemplateReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        IndexTemplateMetaData indexTemplateMetaData = new IndexTemplateMetaData();
+        indexTemplateMetaData.templateName = request.getName();
+        indexTemplateMetaData.mappings = request.hasMapping() ? request.getMapping().getValue() : null;
+        indexTemplateMetaData.settings = request.hasSetting() ? request.getSetting().getValue(): null;
+        indexTemplateMetaData.aliasList = request.getAliasesList();
+        indexTemplateMetaData.autoIndexRollingWindow = request.getAutoIndexRollingWindow();
+        indexTemplateMetaData.autoIndexRollingPolicy = request.getAutoIndexRollingPolicy();
+
+        internal.updateIndexTemplate(indexTemplateMetaData);
+        UpdateIndexTemplateReply reply = UpdateIndexTemplateReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void deleteIndexTemplate(DeleteIndexTemplateRequest request, StreamObserver<DeleteIndexTemplateReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        internal.deleteIndexTemplate(request.getProject(), request.getName());
+        DeleteIndexTemplateReply reply = DeleteIndexTemplateReply.newBuilder()
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 }

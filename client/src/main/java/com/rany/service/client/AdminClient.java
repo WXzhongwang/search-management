@@ -114,6 +114,16 @@ public class AdminClient {
         indexTemplateCreateRequest.check();
         adminProxy.createIndexTemplate(indexTemplateCreateRequest);
     }
+
+    public void updateIndexTemplate(IndexTemplateUpdateRequest indexTemplateUpdateRequest) {
+        indexTemplateUpdateRequest.check();
+        adminProxy.updateIndexTemplate(indexTemplateUpdateRequest);
+    }
+
+    public void deleteIndexTemplate(IndexTemplateDeleteRequest indexTemplateDeleteRequest) {
+        indexTemplateDeleteRequest.check();
+        adminProxy.deleteIndexTemplate(indexTemplateDeleteRequest);
+    }
 }
 
 
