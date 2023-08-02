@@ -147,4 +147,14 @@ public interface IndexInfoOrBuilder extends
    * <code>int32 index_id = 16;</code>
    */
   int getIndexId();
+
+  /**
+   * <code>string template = 17;</code>
+   */
+  java.lang.String getTemplate();
+  /**
+   * <code>string template = 17;</code>
+   */
+  com.google.protobuf.ByteString
+      getTemplateBytes();
 }

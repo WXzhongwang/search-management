@@ -2,6 +2,7 @@ package com.rany.service.client;
 
 import com.rany.service.client.rpc.request.*;
 import com.rany.service.platform.meta.ClusterInfo;
+import com.rany.service.platform.meta.IndexTemplateInfo;
 import com.rany.service.platform.meta.ProjectInfo;
 
 import java.util.List;
@@ -123,6 +124,16 @@ public class AdminClient {
     public void deleteIndexTemplate(IndexTemplateDeleteRequest indexTemplateDeleteRequest) {
         indexTemplateDeleteRequest.check();
         adminProxy.deleteIndexTemplate(indexTemplateDeleteRequest);
+    }
+
+    public List<String> listIndexTemplate(IndexTemplateListRequest indexTemplateListRequest) {
+        indexTemplateListRequest.check();
+        return adminProxy.listIndexTemplate(indexTemplateListRequest);
+    }
+
+    public List<IndexTemplateInfo> listIndexTemplateDetails(IndexTemplateListRequest indexTemplateListRequest) {
+        indexTemplateListRequest.check();
+        return adminProxy.listIndexTemplateDetails(indexTemplateListRequest);
     }
 }
 

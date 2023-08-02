@@ -31,6 +31,7 @@ private static final long serialVersionUID = 0L;
     clusterId_ = "";
     rollingPolicy_ = 0;
     indexId_ = 0;
+    template_ = "";
   }
 
   @java.lang.Override
@@ -147,6 +148,12 @@ private static final long serialVersionUID = 0L;
           case 128: {
 
             indexId_ = input.readInt32();
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            template_ = s;
             break;
           }
         }
@@ -547,6 +554,40 @@ private static final long serialVersionUID = 0L;
     return indexId_;
   }
 
+  public static final int TEMPLATE_FIELD_NUMBER = 17;
+  private volatile java.lang.Object template_;
+  /**
+   * <code>string template = 17;</code>
+   */
+  public java.lang.String getTemplate() {
+    java.lang.Object ref = template_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      template_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string template = 17;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTemplateBytes() {
+    java.lang.Object ref = template_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      template_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -603,6 +644,9 @@ private static final long serialVersionUID = 0L;
     }
     if (indexId_ != 0) {
       output.writeInt32(16, indexId_);
+    }
+    if (!getTemplateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, template_);
     }
     unknownFields.writeTo(output);
   }
@@ -668,6 +712,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(16, indexId_);
     }
+    if (!getTemplateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, template_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -713,6 +760,8 @@ private static final long serialVersionUID = 0L;
     result = result && rollingPolicy_ == other.rollingPolicy_;
     result = result && (getIndexId()
         == other.getIndexId());
+    result = result && getTemplate()
+        .equals(other.getTemplate());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -758,6 +807,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + rollingPolicy_;
     hash = (37 * hash) + INDEX_ID_FIELD_NUMBER;
     hash = (53 * hash) + getIndexId();
+    hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
+    hash = (53 * hash) + getTemplate().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -917,6 +968,8 @@ private static final long serialVersionUID = 0L;
 
       indexId_ = 0;
 
+      template_ = "";
+
       return this;
     }
 
@@ -960,6 +1013,7 @@ private static final long serialVersionUID = 0L;
       result.clusterId_ = clusterId_;
       result.rollingPolicy_ = rollingPolicy_;
       result.indexId_ = indexId_;
+      result.template_ = template_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -1061,6 +1115,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getIndexId() != 0) {
         setIndexId(other.getIndexId());
+      }
+      if (!other.getTemplate().isEmpty()) {
+        template_ = other.template_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1930,6 +1988,75 @@ private static final long serialVersionUID = 0L;
     public Builder clearIndexId() {
       
       indexId_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object template_ = "";
+    /**
+     * <code>string template = 17;</code>
+     */
+    public java.lang.String getTemplate() {
+      java.lang.Object ref = template_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        template_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTemplateBytes() {
+      java.lang.Object ref = template_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        template_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder setTemplate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      template_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder clearTemplate() {
+      
+      template_ = getDefaultInstance().getTemplate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder setTemplateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      template_ = value;
       onChanged();
       return this;
     }

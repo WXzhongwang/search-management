@@ -531,4 +531,43 @@ public class Proxy implements Bootstrap {
         }
     }
 
+
+    public List<String> listIndexTemplate(IndexTemplateListRequest listRequest)  {
+        ListIndexTemplateRequest request = ListIndexTemplateRequest.newBuilder()
+                .setProject(listRequest.getProjectName())
+                .build();
+        ListIndexTemplateReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndexTemplate(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to list index template with message: " + e.getMessage());
+        }
+        return reply.getTemplatesList();
+    }
+
+    public List<IndexTemplateInfo> listIndexTemplateDetails(IndexTemplateListRequest listRequest)  {
+        ListIndexTemplateDetailsRequest request = ListIndexTemplateDetailsRequest.newBuilder()
+                .setProject(listRequest.getProjectName())
+                .build();
+        ListIndexTemplateDetailsReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndexTemplateDetails(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to list index template details with message: " + e.getMessage());
+        }
+        return reply.getTemplatesList();
+    }
+
 }

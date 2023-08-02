@@ -11,7 +11,7 @@ package com.rany.service.component.metric;
  */
 public class TemplateMetricCounter {
 
-    public long totalIndex;
-    public long totalDocs;
-    public long totalDataSize;
+    public Integer totalIndex;
+    public Integer totalDocs;
+    public Integer totalDataSize;
 }

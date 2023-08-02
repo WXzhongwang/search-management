@@ -14,10 +14,7 @@ import com.rany.service.component.es.AdvancedEsClient;
 import com.rany.service.component.meta.ClusterMeta;
 import com.rany.service.component.meta.ProjectMeta;
 import com.rany.service.component.meta.dto.*;
-import com.rany.service.component.metric.ClusterMetricCounter;
-import com.rany.service.component.metric.MetricUtils;
-import com.rany.service.component.metric.ProjectMetricCounter;
-import com.rany.service.component.metric.SystemMetricCounter;
+import com.rany.service.component.metric.*;
 import com.rany.service.component.store.MySQLStore;
 import com.rany.service.component.utils.JSONUtility;
 import com.rany.service.component.utils.MetaUtility;
@@ -1223,5 +1220,36 @@ public class MasterServiceInternalImpl {
         } finally {
             writeLock.unlock();
         }
+    }
+
+
+    public List<IndexTemplateInfo> getIndexTemplates(String projectName) {
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        List<IndexTemplateInfo> result = new ArrayList<IndexTemplateInfo>();
+        try {
+            long startGetLock = System.nanoTime();
+            readLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(), String.format("Project [%s] does not exist.", projectName));
+            }
+            long startGetData = System.nanoTime();
+            for (Map.Entry<String, IndexTemplateMetaData> entry : projectMeta.indexTemplateMetaData.entrySet()) {
+                IndexTemplateMetaData indexGroupMeta = entry.getValue();
+                TemplateMetricCounter counter = MetricUtils.calculateTemplateMetric(indexGroupMeta);
+                IndexTemplateInfo info = MetaUtility.build(projectMeta.clusterName, projectName, indexGroupMeta, counter);
+                result.add(info);
+            }
+            long endGetData = System.nanoTime();
+            logger.info("getIndexTemplates is called with projectName={}.", projectName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndexTemplates: getLock:{} ms, getData:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+        } finally {
+            readLock.unlock();
+        }
+        return result;
     }
 }

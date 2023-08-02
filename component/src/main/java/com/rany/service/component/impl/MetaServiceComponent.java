@@ -372,4 +372,54 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
+
+
+    @Override
+    public void listIndexTemplate(ListIndexTemplateRequest request, StreamObserver<ListIndexTemplateReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ListIndexTemplateReply.Builder builder = ListIndexTemplateReply.newBuilder();
+        List<IndexTemplateInfo> indexTemplates = internal.getIndexTemplates(request.getProject());
+        if (indexTemplates != null) {
+            for (int i = 0; i < indexTemplates.size(); ++ i) {
+                builder.addTemplates(indexTemplates.get(i).getName());
+            }
+        }
+        ListIndexTemplateReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listIndexTemplateDetails(ListIndexTemplateDetailsRequest request, StreamObserver<ListIndexTemplateDetailsReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        ListIndexTemplateDetailsReply.Builder builder = ListIndexTemplateDetailsReply.newBuilder();
+        List<IndexTemplateInfo> indexTemplates = internal.getIndexTemplates(request.getProject());
+        if (indexTemplates != null) {
+            for (int i = 0; i < indexTemplates.size(); ++ i) {
+                builder.addTemplates(indexTemplates.get(i));
+            }
+        }
+        ListIndexTemplateDetailsReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 }
+

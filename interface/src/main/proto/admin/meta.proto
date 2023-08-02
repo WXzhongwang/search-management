@@ -376,6 +376,7 @@ message IndexInfo {
   string cluster_id = 14;
   AutoIndexRollingPolicy rolling_policy = 15;
   int32 index_id = 16;
+  string template = 17;
 }
 
 enum AutoIndexRollingPolicy {

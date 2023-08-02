@@ -1,14 +1,11 @@
 package com.rany.service.component.utils;
 
 
-import com.rany.service.component.meta.dto.ClusterMetaData;
-import com.rany.service.component.meta.dto.NodeMeta;
-import com.rany.service.component.meta.dto.ProjectMetaData;
+import com.rany.service.component.meta.dto.*;
 import com.rany.service.component.metric.ClusterMetricCounter;
 import com.rany.service.component.metric.ProjectMetricCounter;
-import com.rany.service.platform.meta.ClusterInfo;
-import com.rany.service.platform.meta.NodeInfo;
-import com.rany.service.platform.meta.ProjectInfo;
+import com.rany.service.component.metric.TemplateMetricCounter;
+import com.rany.service.platform.meta.*;
 
 import java.util.ArrayList;
 
@@ -73,6 +70,47 @@ public class MetaUtility {
                 .setTotalIndexNumber(counter.totalIndex)
                 .setTotalDocNumber(counter.totalDocs)
                 .setTotalDataSize(counter.totalDataSize)
+                .build();
+    }
+
+
+    public static IndexTemplateInfo build(String clusterName, String projectName, IndexTemplateMetaData meta,  TemplateMetricCounter counter) {
+        if (meta == null) {
+            return null;
+        }
+        return IndexTemplateInfo.newBuilder()
+                .setName(meta.templateName)
+                .setCluster(clusterName)
+                .setProject(projectName)
+                .setMapping(meta.mappings)
+                .setSetting(meta.settings)
+                .addAllAliases(meta.aliasList)
+                .setAutoIndexRollingPolicy(meta.autoIndexRollingPolicy)
+                .setAutoIndexRollingWindow(meta.autoIndexRollingWindow)
+                .setAutoIndexNamePrefix(meta.autoIndexNamePrefix)
+                .setTotalIndexNumber(counter.totalIndex)
+                .setTotalDocNumber(counter.totalDocs)
+                .setTotalDataSize(counter.totalDataSize)
+                .build();
+    }
+
+    public static IndexInfo build(String clusterName, String projectName, String templateName, IndexMetaData meta) {
+        if (meta == null) {
+            return null;
+        }
+        return IndexInfo.newBuilder()
+                .setName(meta.name)
+                .setClusterName(clusterName)
+                .setMapping(meta.mapping)
+                .setSetting(meta.setting)
+                .addAllAliases(meta.aliases)
+                .setProjectName(projectName)
+                .setTemplate(templateName)
+                .setTotalDocNumber(meta.docs)
+                .setTotalDataSize(meta.totalData)
+                .setPrimaryShardNumber(meta.primaryShards)
+                .setReplicaShardNumber(meta.replicaShards)
+                .setIndexHealth(meta.health)
                 .build();
     }
 
