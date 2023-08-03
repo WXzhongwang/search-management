@@ -8,7 +8,32 @@ public interface DeleteIndexRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 index_id = 1;</code>
+   * <code>string project = 1;</code>
    */
-  int getIndexId();
+  java.lang.String getProject();
+  /**
+   * <code>string project = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectBytes();
+
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  java.lang.String getIndexTemplate();
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexTemplateBytes();
+
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  java.lang.String getIndexName();
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexNameBytes();
 }

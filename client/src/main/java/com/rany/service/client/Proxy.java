@@ -570,4 +570,52 @@ public class Proxy implements Bootstrap {
         return reply.getTemplatesList();
     }
 
+
+    public void createIndex(IndexCreateRequest indexCreateRequest)  {
+        AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexCreateRequest.getAutoIndexRollingPolicy());
+        CreateIndexRequest request = CreateIndexRequest.newBuilder()
+                .setProject(indexCreateRequest.getProject())
+                .setIndexTemplate(indexCreateRequest.getTemplate())
+                .setName(indexCreateRequest.getName())
+                .addAllAliases(indexCreateRequest.getAliases())
+                .setRollingPolicy(autoIndexRollingPolicy)
+                .build();
+        CreateIndexReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.createIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to create index with message: " + e.getMessage());
+        }
+    }
+
+
+    public void deleteIndex(IndexDeleteRequest deleteIndexRequest)  {
+        DeleteIndexRequest request = DeleteIndexRequest.newBuilder()
+                .setProject(deleteIndexRequest.getProject())
+                .setIndexTemplate(deleteIndexRequest.getTemplate())
+                .setIndexName(deleteIndexRequest.getName())
+                .build();
+        DeleteIndexReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.deleteIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to delete index with message: " + e.getMessage());
+        }
+    }
+
+
+
+
 }

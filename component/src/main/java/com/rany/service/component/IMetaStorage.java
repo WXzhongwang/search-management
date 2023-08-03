@@ -56,6 +56,15 @@ public interface IMetaStorage {
 
 
     /**
+     * 删除索引
+     * @param projectName
+     * @param indexGroupName
+     * @param indexName
+     */
+    void deleteIndex(String projectName, String indexGroupName, String indexName);
+
+
+    /**
      * 添加集群
      *
      * @param clusterMetaData

@@ -16,7 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UpdateIndexRequest() {
-    indexId_ = 0;
+    project_ = "";
+    indexTemplate_ = "";
+    indexName_ = "";
   }
 
   @java.lang.Override
@@ -47,9 +49,22 @@ private static final long serialVersionUID = 0L;
             }
             break;
           }
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            indexId_ = input.readInt32();
+            project_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            indexTemplate_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            indexName_ = s;
             break;
           }
           case 34: {
@@ -102,13 +117,106 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.UpdateIndexRequest.class, com.rany.service.platform.meta.UpdateIndexRequest.Builder.class);
   }
 
-  public static final int INDEX_ID_FIELD_NUMBER = 1;
-  private int indexId_;
+  public static final int PROJECT_FIELD_NUMBER = 1;
+  private volatile java.lang.Object project_;
   /**
-   * <code>int32 index_id = 1;</code>
+   * <code>string project = 1;</code>
    */
-  public int getIndexId() {
-    return indexId_;
+  public java.lang.String getProject() {
+    java.lang.Object ref = project_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      project_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string project = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getProjectBytes() {
+    java.lang.Object ref = project_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      project_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INDEXTEMPLATE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object indexTemplate_;
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  public java.lang.String getIndexTemplate() {
+    java.lang.Object ref = indexTemplate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indexTemplate_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getIndexTemplateBytes() {
+    java.lang.Object ref = indexTemplate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indexTemplate_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INDEXNAME_FIELD_NUMBER = 3;
+  private volatile java.lang.Object indexName_;
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  public java.lang.String getIndexName() {
+    java.lang.Object ref = indexName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indexName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getIndexNameBytes() {
+    java.lang.Object ref = indexName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indexName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int MAPPING_FIELD_NUMBER = 4;
@@ -189,8 +297,14 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (indexId_ != 0) {
-      output.writeInt32(1, indexId_);
+    if (!getProjectBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, project_);
+    }
+    if (!getIndexTemplateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, indexTemplate_);
+    }
+    if (!getIndexNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, indexName_);
     }
     if (mapping_ != null) {
       output.writeMessage(4, getMapping());
@@ -206,9 +320,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (indexId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, indexId_);
+    if (!getProjectBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, project_);
+    }
+    if (!getIndexTemplateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, indexTemplate_);
+    }
+    if (!getIndexNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, indexName_);
     }
     if (mapping_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -234,8 +353,12 @@ private static final long serialVersionUID = 0L;
     com.rany.service.platform.meta.UpdateIndexRequest other = (com.rany.service.platform.meta.UpdateIndexRequest) obj;
 
     boolean result = true;
-    result = result && (getIndexId()
-        == other.getIndexId());
+    result = result && getProject()
+        .equals(other.getProject());
+    result = result && getIndexTemplate()
+        .equals(other.getIndexTemplate());
+    result = result && getIndexName()
+        .equals(other.getIndexName());
     result = result && (hasMapping() == other.hasMapping());
     if (hasMapping()) {
       result = result && getMapping()
@@ -257,8 +380,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + INDEX_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getIndexId();
+    hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+    hash = (53 * hash) + getProject().hashCode();
+    hash = (37 * hash) + INDEXTEMPLATE_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexTemplate().hashCode();
+    hash = (37 * hash) + INDEXNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexName().hashCode();
     if (hasMapping()) {
       hash = (37 * hash) + MAPPING_FIELD_NUMBER;
       hash = (53 * hash) + getMapping().hashCode();
@@ -396,7 +523,11 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      indexId_ = 0;
+      project_ = "";
+
+      indexTemplate_ = "";
+
+      indexName_ = "";
 
       if (mappingBuilder_ == null) {
         mapping_ = null;
@@ -432,7 +563,9 @@ private static final long serialVersionUID = 0L;
 
     public com.rany.service.platform.meta.UpdateIndexRequest buildPartial() {
       com.rany.service.platform.meta.UpdateIndexRequest result = new com.rany.service.platform.meta.UpdateIndexRequest(this);
-      result.indexId_ = indexId_;
+      result.project_ = project_;
+      result.indexTemplate_ = indexTemplate_;
+      result.indexName_ = indexName_;
       if (mappingBuilder_ == null) {
         result.mapping_ = mapping_;
       } else {
@@ -484,8 +617,17 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.rany.service.platform.meta.UpdateIndexRequest other) {
       if (other == com.rany.service.platform.meta.UpdateIndexRequest.getDefaultInstance()) return this;
-      if (other.getIndexId() != 0) {
-        setIndexId(other.getIndexId());
+      if (!other.getProject().isEmpty()) {
+        project_ = other.project_;
+        onChanged();
+      }
+      if (!other.getIndexTemplate().isEmpty()) {
+        indexTemplate_ = other.indexTemplate_;
+        onChanged();
+      }
+      if (!other.getIndexName().isEmpty()) {
+        indexName_ = other.indexName_;
+        onChanged();
       }
       if (other.hasMapping()) {
         mergeMapping(other.getMapping());
@@ -520,28 +662,209 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int indexId_ ;
+    private java.lang.Object project_ = "";
     /**
-     * <code>int32 index_id = 1;</code>
+     * <code>string project = 1;</code>
      */
-    public int getIndexId() {
-      return indexId_;
+    public java.lang.String getProject() {
+      java.lang.Object ref = project_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        project_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 index_id = 1;</code>
+     * <code>string project = 1;</code>
      */
-    public Builder setIndexId(int value) {
-      
-      indexId_ = value;
+    public com.google.protobuf.ByteString
+        getProjectBytes() {
+      java.lang.Object ref = project_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        project_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string project = 1;</code>
+     */
+    public Builder setProject(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      project_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 index_id = 1;</code>
+     * <code>string project = 1;</code>
      */
-    public Builder clearIndexId() {
+    public Builder clearProject() {
       
-      indexId_ = 0;
+      project_ = getDefaultInstance().getProject();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string project = 1;</code>
+     */
+    public Builder setProjectBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      project_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object indexTemplate_ = "";
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    public java.lang.String getIndexTemplate() {
+      java.lang.Object ref = indexTemplate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indexTemplate_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIndexTemplateBytes() {
+      java.lang.Object ref = indexTemplate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indexTemplate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    public Builder setIndexTemplate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indexTemplate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    public Builder clearIndexTemplate() {
+      
+      indexTemplate_ = getDefaultInstance().getIndexTemplate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    public Builder setIndexTemplateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indexTemplate_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object indexName_ = "";
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    public java.lang.String getIndexName() {
+      java.lang.Object ref = indexName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indexName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIndexNameBytes() {
+      java.lang.Object ref = indexName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indexName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    public Builder setIndexName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indexName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    public Builder clearIndexName() {
+      
+      indexName_ = getDefaultInstance().getIndexName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    public Builder setIndexNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indexName_ = value;
       onChanged();
       return this;
     }

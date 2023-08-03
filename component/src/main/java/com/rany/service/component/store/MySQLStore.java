@@ -229,6 +229,13 @@ public class MySQLStore implements IMetaStorage {
         }
     }
 
+    public void deleteIndex(String projectName, String indexGroupName, String indexName)  {
+        String command = String.format("delete from %s where %s=\"%s\"", indexMetaTableName,
+                TableColumnNameConstant.Index.INDEX_META_TABLE_PK_NAME,
+                projectName + "." + indexGroupName + "." + indexName);
+        jdbcTemplate.execute(command);
+    }
+
     @Override
     public void insertCluster(ClusterMetaData clusterMetaData) {
         String command = String.format(

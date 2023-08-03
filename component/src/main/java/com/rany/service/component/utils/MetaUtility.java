@@ -114,4 +114,16 @@ public class MetaUtility {
                 .build();
     }
 
+
+
+
+    public static String combineFullIndexName(String projectName, String indexGroupName, String indexName) {
+        return projectName + "." + indexGroupName + "." + indexName;
+    }
+
+    public static String combineFullAliasName(String projectName, String indexGroupName, String aliasName) {
+        return projectName + "." + indexGroupName + "." + aliasName;
+    }
+
+
 }

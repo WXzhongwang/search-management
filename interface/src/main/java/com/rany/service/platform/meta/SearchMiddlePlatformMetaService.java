@@ -382,84 +382,86 @@ public final class SearchMiddlePlatformMetaService {
       "index_rolling_window\030\010 \001(\005\022\036\n\026auto_index" +
       "_name_prefix\030\t \001(\t\022\032\n\022total_index_number" +
       "\030\n \001(\005\022\030\n\020total_doc_number\030\013 \001(\003\022\027\n\017tota" +
-      "l_data_size\030\014 \001(\003\"\323\001\n\022CreateIndexRequest" +
-      "\022\014\n\004name\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\017\n\007alias" +
-      "es\030\004 \003(\t\022-\n\007mapping\030\005 \001(\0132\034.google.proto" +
-      "buf.StringValue\022-\n\007setting\030\006 \001(\0132\034.googl" +
-      "e.protobuf.StringValue\022/\n\016rolling_policy" +
-      "\030\007 \001(\0162\027.AutoIndexRollingPolicy\"1\n\020Creat",
-      "eIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001" +
-      "(\t\"#\n\017GetIndexRequest\022\020\n\010index_id\030\001 \001(\005\"" +
-      "I\n\rGetIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messag" +
-      "e\030\002 \001(\t\022\031\n\005index\030\003 \001(\0132\n.IndexInfo\"\372\002\n\tI" +
-      "ndexInfo\022\014\n\004name\030\001 \001(\t\022\024\n\014cluster_name\030\002" +
-      " \001(\t\022\024\n\014project_name\030\003 \001(\t\022\017\n\007mapping\030\005 " +
-      "\001(\t\022\017\n\007setting\030\006 \001(\t\022\017\n\007aliases\030\007 \003(\t\022\030\n" +
-      "\020total_doc_number\030\010 \001(\003\022\027\n\017total_data_si" +
-      "ze\030\t \001(\003\022\034\n\024primary_shard_number\030\n \001(\005\022\034" +
-      "\n\024replica_shard_number\030\013 \001(\005\022\024\n\014index_he",
-      "alth\030\014 \001(\t\022\022\n\nproject_id\030\r \001(\t\022\022\n\ncluste" +
-      "r_id\030\016 \001(\t\022/\n\016rolling_policy\030\017 \001(\0162\027.Aut" +
-      "oIndexRollingPolicy\022\020\n\010index_id\030\020 \001(\005\022\020\n" +
-      "\010template\030\021 \001(\t\"\204\001\n\022UpdateIndexRequest\022\020" +
-      "\n\010index_id\030\001 \001(\005\022-\n\007mapping\030\004 \001(\0132\034.goog" +
-      "le.protobuf.StringValue\022-\n\007setting\030\005 \001(\013" +
-      "2\034.google.protobuf.StringValue\"1\n\020Update" +
-      "IndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(" +
-      "\t\"&\n\022DeleteIndexRequest\022\020\n\010index_id\030\001 \001(" +
-      "\005\"1\n\020DeleteIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007m",
-      "essage\030\002 \001(\t\"H\n\020ListIndexRequest\022\022\n\nclus" +
-      "ter_id\030\001 \001(\005\022\022\n\nproject_id\030\002 \001(\005\022\014\n\004name" +
-      "\030\003 \001(\t\"L\n\016ListIndexReply\022\014\n\004code\030\001 \001(\005\022\017" +
-      "\n\007message\030\002 \001(\t\022\033\n\007indices\030\003 \003(\0132\n.Index" +
-      "Info*\037\n\013ClusterType\022\007\n\003HDD\020\000\022\007\n\003SSD\020\001*S\n" +
-      "\rClusterStatus\022\010\n\004NULL\020\000\022\014\n\010CREATING\020\001\022\016" +
-      "\n\nIN_SERVICE\020\002\022\014\n\010DISABLED\020\003\022\014\n\010DELETING" +
-      "\020\004*\'\n\rProjectStatus\022\n\n\006NORMAL\020\000\022\n\n\006DELET" +
-      "E\020\001*\\\n\026AutoIndexRollingPolicy\022\010\n\004NONE\020\000\022" +
-      "\007\n\003DAY\020\001\022\t\n\005MONTH\020\002\022\013\n\007QUARTER\020\003\022\r\n\tHALF",
-      "_YEAR\020\004\022\010\n\004YEAR\020\0052\211\014\n\013MetaService\022=\n\rCre" +
-      "ateCluster\022\025.CreateClusterRequest\032\023.Crea" +
-      "teClusterReply\"\000\022=\n\rDeleteCluster\022\025.Dele" +
-      "teClusterRequest\032\023.DeleteClusterReply\"\000\022" +
-      "E\n\rUpdateCluster\022\031.UpdateClusterInfoRequ" +
-      "est\032\027.UpdateClusterInfoReply\"\000\022@\n\016GetClu" +
-      "sterInfo\022\026.GetClusterInfoRequest\032\024.GetCl" +
-      "usterInfoReply\"\000\0227\n\013ListCluster\022\023.ListCl" +
-      "usterRequest\032\021.ListClusterReply\"\000\022L\n\022Lis" +
-      "tClusterDetails\022\032.ListClusterDetailsRequ",
-      "est\032\030.ListClusterDetailsReply\"\000\022=\n\rCreat" +
-      "eProject\022\025.CreateProjectRequest\032\023.Create" +
-      "ProjectReply\"\000\022=\n\rDeleteProject\022\025.Delete" +
-      "ProjectRequest\032\023.DeleteProjectReply\"\000\022=\n" +
-      "\rUpdateProject\022\025.UpdateProjectRequest\032\023." +
-      "UpdateProjectReply\"\000\0224\n\nGetProject\022\022.Get" +
-      "ProjectRequest\032\020.GetProjectReply\"\000\0227\n\013Li" +
-      "stProject\022\023.ListProjectRequest\032\021.ListPro" +
-      "jectReply\"\000\022L\n\022ListProjectDetails\022\032.List" +
-      "ProjectDetailsRequest\032\030.ListProjectDetai",
-      "lsReply\"\000\022O\n\023CreateIndexTemplate\022\033.Creat" +
-      "eIndexTemplateRequest\032\031.CreateIndexTempl" +
-      "ateReply\"\000\022F\n\020GetIndexTemplate\022\030.GetInde" +
-      "xTemplateRequest\032\026.GetIndexTemplateReply" +
-      "\"\000\022O\n\023UpdateIndexTemplate\022\033.UpdateIndexT" +
-      "emplateRequest\032\031.UpdateIndexTemplateRepl" +
-      "y\"\000\022O\n\023DeleteIndexTemplate\022\033.DeleteIndex" +
-      "TemplateRequest\032\031.DeleteIndexTemplateRep" +
-      "ly\"\000\022I\n\021ListIndexTemplate\022\031.ListIndexTem" +
-      "plateRequest\032\027.ListIndexTemplateReply\"\000\022",
-      "^\n\030ListIndexTemplateDetails\022 .ListIndexT" +
-      "emplateDetailsRequest\032\036.ListIndexTemplat" +
-      "eDetailsReply\"\000\0227\n\013CreateIndex\022\023.CreateI" +
-      "ndexRequest\032\021.CreateIndexReply\"\000\022.\n\010GetI" +
-      "ndex\022\020.GetIndexRequest\032\016.GetIndexReply\"\000" +
-      "\0227\n\013UpdateIndex\022\023.UpdateIndexRequest\032\021.U" +
-      "pdateIndexReply\"\000\0227\n\013DeleteIndex\022\023.Delet" +
-      "eIndexRequest\032\021.DeleteIndexReply\"\000\0221\n\tLi" +
-      "stIndex\022\021.ListIndexRequest\032\017.ListIndexRe" +
-      "ply\"\000BC\n\036com.rany.service.platform.metaB",
-      "\037SearchMiddlePlatformMetaServiceP\001b\006prot" +
-      "o3"
+      "l_data_size\030\014 \001(\003\"\352\001\n\022CreateIndexRequest" +
+      "\022\014\n\004name\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindex" +
+      "Template\030\003 \001(\t\022\017\n\007aliases\030\004 \003(\t\022-\n\007mappi" +
+      "ng\030\005 \001(\0132\034.google.protobuf.StringValue\022-" +
+      "\n\007setting\030\006 \001(\0132\034.google.protobuf.String" +
+      "Value\022/\n\016rolling_policy\030\007 \001(\0162\027.AutoInde",
+      "xRollingPolicy\"1\n\020CreateIndexReply\022\014\n\004co" +
+      "de\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"#\n\017GetIndexReq" +
+      "uest\022\020\n\010index_id\030\001 \001(\005\"I\n\rGetIndexReply\022" +
+      "\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\031\n\005index\030" +
+      "\003 \001(\0132\n.IndexInfo\"\372\002\n\tIndexInfo\022\014\n\004name\030" +
+      "\001 \001(\t\022\024\n\014cluster_name\030\002 \001(\t\022\024\n\014project_n" +
+      "ame\030\003 \001(\t\022\017\n\007mapping\030\005 \001(\t\022\017\n\007setting\030\006 " +
+      "\001(\t\022\017\n\007aliases\030\007 \003(\t\022\030\n\020total_doc_number" +
+      "\030\010 \001(\003\022\027\n\017total_data_size\030\t \001(\003\022\034\n\024prima" +
+      "ry_shard_number\030\n \001(\005\022\034\n\024replica_shard_n",
+      "umber\030\013 \001(\005\022\024\n\014index_health\030\014 \001(\t\022\022\n\npro" +
+      "ject_id\030\r \001(\t\022\022\n\ncluster_id\030\016 \001(\t\022/\n\016rol" +
+      "ling_policy\030\017 \001(\0162\027.AutoIndexRollingPoli" +
+      "cy\022\020\n\010index_id\030\020 \001(\005\022\020\n\010template\030\021 \001(\t\"\255" +
+      "\001\n\022UpdateIndexRequest\022\017\n\007project\030\001 \001(\t\022\025" +
+      "\n\rindexTemplate\030\002 \001(\t\022\021\n\tindexName\030\003 \001(\t" +
+      "\022-\n\007mapping\030\004 \001(\0132\034.google.protobuf.Stri" +
+      "ngValue\022-\n\007setting\030\005 \001(\0132\034.google.protob" +
+      "uf.StringValue\"1\n\020UpdateIndexReply\022\014\n\004co" +
+      "de\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"O\n\022DeleteIndex",
+      "Request\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplat" +
+      "e\030\002 \001(\t\022\021\n\tindexName\030\003 \001(\t\"1\n\020DeleteInde" +
+      "xReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"H\n" +
+      "\020ListIndexRequest\022\022\n\ncluster_id\030\001 \001(\005\022\022\n" +
+      "\nproject_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\"L\n\016ListI" +
+      "ndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t" +
+      "\022\033\n\007indices\030\003 \003(\0132\n.IndexInfo*\037\n\013Cluster" +
+      "Type\022\007\n\003HDD\020\000\022\007\n\003SSD\020\001*S\n\rClusterStatus\022" +
+      "\010\n\004NULL\020\000\022\014\n\010CREATING\020\001\022\016\n\nIN_SERVICE\020\002\022" +
+      "\014\n\010DISABLED\020\003\022\014\n\010DELETING\020\004*\'\n\rProjectSt",
+      "atus\022\n\n\006NORMAL\020\000\022\n\n\006DELETE\020\001*\\\n\026AutoInde" +
+      "xRollingPolicy\022\010\n\004NONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MON" +
+      "TH\020\002\022\013\n\007QUARTER\020\003\022\r\n\tHALF_YEAR\020\004\022\010\n\004YEAR" +
+      "\020\0052\211\014\n\013MetaService\022=\n\rCreateCluster\022\025.Cr" +
+      "eateClusterRequest\032\023.CreateClusterReply\"" +
+      "\000\022=\n\rDeleteCluster\022\025.DeleteClusterReques" +
+      "t\032\023.DeleteClusterReply\"\000\022E\n\rUpdateCluste" +
+      "r\022\031.UpdateClusterInfoRequest\032\027.UpdateClu" +
+      "sterInfoReply\"\000\022@\n\016GetClusterInfo\022\026.GetC" +
+      "lusterInfoRequest\032\024.GetClusterInfoReply\"",
+      "\000\0227\n\013ListCluster\022\023.ListClusterRequest\032\021." +
+      "ListClusterReply\"\000\022L\n\022ListClusterDetails" +
+      "\022\032.ListClusterDetailsRequest\032\030.ListClust" +
+      "erDetailsReply\"\000\022=\n\rCreateProject\022\025.Crea" +
+      "teProjectRequest\032\023.CreateProjectReply\"\000\022" +
+      "=\n\rDeleteProject\022\025.DeleteProjectRequest\032" +
+      "\023.DeleteProjectReply\"\000\022=\n\rUpdateProject\022" +
+      "\025.UpdateProjectRequest\032\023.UpdateProjectRe" +
+      "ply\"\000\0224\n\nGetProject\022\022.GetProjectRequest\032" +
+      "\020.GetProjectReply\"\000\0227\n\013ListProject\022\023.Lis",
+      "tProjectRequest\032\021.ListProjectReply\"\000\022L\n\022" +
+      "ListProjectDetails\022\032.ListProjectDetailsR" +
+      "equest\032\030.ListProjectDetailsReply\"\000\022O\n\023Cr" +
+      "eateIndexTemplate\022\033.CreateIndexTemplateR" +
+      "equest\032\031.CreateIndexTemplateReply\"\000\022F\n\020G" +
+      "etIndexTemplate\022\030.GetIndexTemplateReques" +
+      "t\032\026.GetIndexTemplateReply\"\000\022O\n\023UpdateInd" +
+      "exTemplate\022\033.UpdateIndexTemplateRequest\032" +
+      "\031.UpdateIndexTemplateReply\"\000\022O\n\023DeleteIn" +
+      "dexTemplate\022\033.DeleteIndexTemplateRequest",
+      "\032\031.DeleteIndexTemplateReply\"\000\022I\n\021ListInd" +
+      "exTemplate\022\031.ListIndexTemplateRequest\032\027." +
+      "ListIndexTemplateReply\"\000\022^\n\030ListIndexTem" +
+      "plateDetails\022 .ListIndexTemplateDetailsR" +
+      "equest\032\036.ListIndexTemplateDetailsReply\"\000" +
+      "\0227\n\013CreateIndex\022\023.CreateIndexRequest\032\021.C" +
+      "reateIndexReply\"\000\022.\n\010GetIndex\022\020.GetIndex" +
+      "Request\032\016.GetIndexReply\"\000\0227\n\013UpdateIndex" +
+      "\022\023.UpdateIndexRequest\032\021.UpdateIndexReply" +
+      "\"\000\0227\n\013DeleteIndex\022\023.DeleteIndexRequest\032\021",
+      ".DeleteIndexReply\"\000\0221\n\tListIndex\022\021.ListI" +
+      "ndexRequest\032\017.ListIndexReply\"\000BC\n\036com.ra" +
+      "ny.service.platform.metaB\037SearchMiddlePl" +
+      "atformMetaServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -719,7 +721,7 @@ public final class SearchMiddlePlatformMetaService {
     internal_static_CreateIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateIndexRequest_descriptor,
-        new java.lang.String[] { "Name", "Project", "Aliases", "Mapping", "Setting", "RollingPolicy", });
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", "Aliases", "Mapping", "Setting", "RollingPolicy", });
     internal_static_CreateIndexReply_descriptor =
       getDescriptor().getMessageTypes().get(41);
     internal_static_CreateIndexReply_fieldAccessorTable = new
@@ -749,7 +751,7 @@ public final class SearchMiddlePlatformMetaService {
     internal_static_UpdateIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateIndexRequest_descriptor,
-        new java.lang.String[] { "IndexId", "Mapping", "Setting", });
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "Mapping", "Setting", });
     internal_static_UpdateIndexReply_descriptor =
       getDescriptor().getMessageTypes().get(46);
     internal_static_UpdateIndexReply_fieldAccessorTable = new
@@ -761,7 +763,7 @@ public final class SearchMiddlePlatformMetaService {
     internal_static_DeleteIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteIndexRequest_descriptor,
-        new java.lang.String[] { "IndexId", });
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", });
     internal_static_DeleteIndexReply_descriptor =
       getDescriptor().getMessageTypes().get(48);
     internal_static_DeleteIndexReply_fieldAccessorTable = new

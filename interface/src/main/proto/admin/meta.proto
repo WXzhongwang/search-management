@@ -339,6 +339,7 @@ message IndexTemplateInfo {
 message CreateIndexRequest {
   string name = 1;
   string project = 2;
+  string indexTemplate = 3;
   repeated string aliases = 4;
   google.protobuf.StringValue mapping = 5;            // Use StringValue to enable optional field;
   google.protobuf.StringValue setting = 6;            // Use StringValue to enable optional field;
@@ -389,7 +390,9 @@ enum AutoIndexRollingPolicy {
 }
 
 message UpdateIndexRequest {
-  int32 index_id = 1;
+  string project = 1;
+  string indexTemplate = 2;
+  string indexName = 3;
   google.protobuf.StringValue mapping = 4;            // Use StringValue to enable optional field;
   google.protobuf.StringValue setting = 5;            // Use StringValue to enable optional field;
 }
@@ -400,7 +403,9 @@ message UpdateIndexReply {
 }
 
 message DeleteIndexRequest {
-  int32 index_id = 1;
+  string project = 1;
+  string indexTemplate = 2;
+  string indexName = 3;
 }
 
 message DeleteIndexReply {

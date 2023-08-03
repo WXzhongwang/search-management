@@ -12,6 +12,7 @@ import com.rany.service.component.MetaStoreEnum;
 import com.rany.service.component.config.MetaStoreConfig;
 import com.rany.service.component.es.AdvancedEsClient;
 import com.rany.service.component.meta.ClusterMeta;
+import com.rany.service.component.meta.Pair;
 import com.rany.service.component.meta.ProjectMeta;
 import com.rany.service.component.meta.dto.*;
 import com.rany.service.component.metric.*;
@@ -80,6 +81,7 @@ public class MasterServiceInternalImpl {
      */
     private final ReentrantReadWriteLock lock;
     private final Map<String, AdvancedEsClient> esClientMap = new ConcurrentHashMap<>();
+    private final Map<String, Pair<String, String>> legacyIndexNameMap =  new ConcurrentHashMap<>();
     private final Map<String, ClusterMetaData> clusterMetaMap = new ConcurrentHashMap<>();
     private final Map<String, ProjectMetaData> projectMetaMap = new ConcurrentHashMap<>();
     private ScheduledFuture<?> healthCheckFuture;
@@ -106,6 +108,7 @@ public class MasterServiceInternalImpl {
         this.loadMeta();
         // 预加载connections
         this.prepareConnections();
+        this.constructLegacyIndex();
         // 加载动态数据(集群，索引相关数据)
         this.warmingUp();
         this.warmingUpIndexSchema();
@@ -162,6 +165,23 @@ public class MasterServiceInternalImpl {
             ClusterMetaData meta = cluster.getValue();
             AdvancedEsClient esClient = new AdvancedEsClient(meta.clusterInternalAddress);
             esClientMap.put(meta.clusterName, esClient);
+        }
+    }
+
+
+
+    public void constructLegacyIndex() {
+        // 3. Construct legacy index name mapping;
+        for (ClusterMetaData clusterMeta: clusterMetaMap.values()) {
+            for (ProjectMetaData projectMeta: clusterMeta.projectMetaMap.values()) {
+                for (IndexTemplateMetaData indexTemplateMetaData: projectMeta.indexTemplateMetaData.values()) {
+                    for (IndexMetaData indexMeta: indexTemplateMetaData.indexMetas.values()) {
+                        if (indexMeta.legacy) {
+                            legacyIndexNameMap.put(indexMeta.name, new Pair<>(indexTemplateMetaData.templateName, projectMeta.projectName));
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -608,12 +628,15 @@ public class MasterServiceInternalImpl {
             writeLock.lock();
 
             clusterMetaMap.clear();
+            legacyIndexNameMap.clear();
+            
             for (AdvancedEsClient client : esClientMap.values()) {
                 client.close();
             }
             esClientMap.clear();
             loadMeta();
             prepareConnections();
+            constructLegacyIndex();
             warmingUp();
             warmingUpIndexSchema();
 
@@ -1237,9 +1260,9 @@ public class MasterServiceInternalImpl {
             }
             long startGetData = System.nanoTime();
             for (Map.Entry<String, IndexTemplateMetaData> entry : projectMeta.indexTemplateMetaData.entrySet()) {
-                IndexTemplateMetaData indexGroupMeta = entry.getValue();
-                TemplateMetricCounter counter = MetricUtils.calculateTemplateMetric(indexGroupMeta);
-                IndexTemplateInfo info = MetaUtility.build(projectMeta.clusterName, projectName, indexGroupMeta, counter);
+                IndexTemplateMetaData indexTemplateMeta = entry.getValue();
+                TemplateMetricCounter counter = MetricUtils.calculateTemplateMetric(indexTemplateMeta);
+                IndexTemplateInfo info = MetaUtility.build(projectMeta.clusterName, projectName, indexTemplateMeta, counter);
                 result.add(info);
             }
             long endGetData = System.nanoTime();
@@ -1252,4 +1275,158 @@ public class MasterServiceInternalImpl {
         }
         return result;
     }
+
+
+    public void insertIndex(IndexInfo info, boolean hasMapping, boolean hasSetting){
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(info.getProjectName());
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", info.getProjectName()));
+            }
+            IndexTemplateMetaData indexTemplateMetaData = projectMeta.indexTemplateMetaData.get(info.getTemplate());
+            if (indexTemplateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exists in project [%s].", info.getTemplate(), info.getProjectName()));
+            }
+            if (indexTemplateMetaData.indexMetas.containsKey(info.getName())) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(),
+                        String.format("Index [%s] already exist in IndexTemplate [%s] and project [%s]", info.getName(), info.getTemplate(), info.getProjectName()));
+            }
+
+            // Put a new index meta into the indexTemplate meta;
+            IndexMetaData indexMeta = new IndexMetaData();
+            indexMeta.name = info.getName();
+            indexMeta.legacy = false;
+            indexMeta.fullName = MetaUtility.combineFullIndexName(projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
+            AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
+            long startCheckIndex = System.nanoTime();
+            if (client.checkIndexExist(indexMeta.fullName)) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(), String.format("Index [%s] already exist on ES cluster.", indexMeta.fullName));
+            }
+            long endCheckIndex = System.nanoTime();
+            List<String> aliases = new ArrayList<String>();
+            if (info.getAliasesCount() > 0) {
+                aliases.addAll(info.getAliasesList());
+            } else if (indexTemplateMetaData.aliasList.size() > 0) {
+                aliases.addAll(indexTemplateMetaData.aliasList);
+            }
+            String mappings = null;
+            String settings = null;
+            if (hasMapping) {
+                mappings = info.getMapping();
+            } else {
+                mappings = indexTemplateMetaData.mappings;
+            }
+            if (hasSetting) {
+                settings = info.getSetting();
+            } else {
+                settings = indexTemplateMetaData.settings;
+            }
+            List<String> fullIndexAliases = new ArrayList<>();
+            for (String alias : aliases) {
+                String aliasName = null;
+                if (indexMeta.legacy) {
+                    aliasName = alias;
+                } else {
+                    aliasName = MetaUtility.combineFullIndexName(projectMeta.projectName, indexTemplateMetaData.templateName, alias);
+                }
+                fullIndexAliases.add(aliasName);
+            }
+
+            long startCreateIndex = System.nanoTime();
+            client.createIndex(indexMeta.fullName, fullIndexAliases, mappings, settings);
+            long endCreateIndex = System.nanoTime();
+            logger.info("Index [project={}][indexTemplate={}][name={}] has been created on ElasticSearch cluster.",
+                    projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
+
+            indexMeta.aliases = aliases;
+            indexMeta.mapping = mappings;
+            indexMeta.setting = settings;
+            indexMeta.tags = "";
+            indexMeta.docs = 0;
+            indexMeta.totalData = 0;
+            indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());;
+            indexMeta.gmtModified = indexMeta.gmtCreate;
+            indexMeta.health = Constants.UNKNOWN;
+
+            long startInsertMeta = System.nanoTime();
+            metaStore.insertIndex(indexMeta);
+            long endInsertMeta = System.nanoTime();
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into persistent storage.",
+                    projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
+
+            // Update the meta of containing index group, project and cluster object;
+            indexTemplateMetaData.indexMetas.put(indexMeta.name, indexMeta);
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into memory.",
+                    projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
+            logger.info("Time breakdown of MasterServiceInternalImpl::insertIndex: getLock:{} ms, checkIndex:{} ms, createIndex:{} ms, insertMeta:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endCheckIndex - startCheckIndex) / 1000000,
+                    (endCreateIndex - startCreateIndex) / 1000000,
+                    (endInsertMeta - startInsertMeta) / 1000000);
+        }  finally {
+            writeLock.unlock();
+        }
+    }
+
+
+    public void deleteIndex(String projectName, String indexTemplateName, String indexName) {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("indexTemplate [%s] does not exist in project [%s].", indexTemplateName, projectName));
+            }
+            IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
+            if (indexMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Index [%s] does not exist in indexTemplate [%s] and project [%s].", indexName, indexTemplateName, projectName));
+            }
+
+            long startDeleteMeta = System.nanoTime();
+            metaStore.deleteIndex(projectName, indexTemplateName, indexName);
+            long endDeleteMeta = System.nanoTime();
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been deleted from persistent storage.",
+                    projectName, indexTemplateName, indexName);
+
+            templateMetaData.indexMetas.remove(indexName);
+            if (indexMeta.legacy) {
+                legacyIndexNameMap.remove(indexName);
+                logger.info("Index name [{}] has been removed from legacy index name mapping.", indexName);
+            }
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been deleted from memory.",
+                    projectName, indexTemplateName, indexName);
+
+            AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
+            long startDeleteIndex = System.nanoTime();
+            client.deleteIndex(indexMeta.fullName);
+            long endDeleteIndex = System.nanoTime();
+            logger.info("Index [project={}][indexTemplate={}][name={}] has been deleted on ElasticSearch cluster.",
+                    projectName, indexTemplateName, indexName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::deleteIndex: getLock:{} ms, deleteMeta:{} ms, deleteIndex:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endDeleteMeta - startDeleteMeta) / 1000000,
+                    (endDeleteIndex - startDeleteIndex) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
 }

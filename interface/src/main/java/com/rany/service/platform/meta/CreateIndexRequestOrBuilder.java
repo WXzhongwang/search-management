@@ -28,6 +28,16 @@ public interface CreateIndexRequestOrBuilder extends
       getProjectBytes();
 
   /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  java.lang.String getIndexTemplate();
+  /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexTemplateBytes();
+
+  /**
    * <code>repeated string aliases = 4;</code>
    */
   java.util.List<java.lang.String>

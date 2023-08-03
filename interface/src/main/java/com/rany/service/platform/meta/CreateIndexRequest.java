@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private CreateIndexRequest() {
     name_ = "";
     project_ = "";
+    indexTemplate_ = "";
     aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     rollingPolicy_ = 0;
   }
@@ -66,11 +67,17 @@ private static final long serialVersionUID = 0L;
             project_ = s;
             break;
           }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            indexTemplate_ = s;
+            break;
+          }
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
               aliases_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             aliases_.add(s);
             break;
@@ -115,7 +122,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
         aliases_ = aliases_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -197,6 +204,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       project_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INDEXTEMPLATE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object indexTemplate_;
+  /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  public java.lang.String getIndexTemplate() {
+    java.lang.Object ref = indexTemplate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indexTemplate_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getIndexTemplateBytes() {
+    java.lang.Object ref = indexTemplate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indexTemplate_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -332,6 +373,9 @@ private static final long serialVersionUID = 0L;
     if (!getProjectBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
     }
+    if (!getIndexTemplateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, indexTemplate_);
+    }
     for (int i = 0; i < aliases_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, aliases_.getRaw(i));
     }
@@ -357,6 +401,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getProjectBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
+    }
+    if (!getIndexTemplateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, indexTemplate_);
     }
     {
       int dataSize = 0;
@@ -398,6 +445,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName());
     result = result && getProject()
         .equals(other.getProject());
+    result = result && getIndexTemplate()
+        .equals(other.getIndexTemplate());
     result = result && getAliasesList()
         .equals(other.getAliasesList());
     result = result && (hasMapping() == other.hasMapping());
@@ -426,6 +475,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PROJECT_FIELD_NUMBER;
     hash = (53 * hash) + getProject().hashCode();
+    hash = (37 * hash) + INDEXTEMPLATE_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexTemplate().hashCode();
     if (getAliasesCount() > 0) {
       hash = (37 * hash) + ALIASES_FIELD_NUMBER;
       hash = (53 * hash) + getAliasesList().hashCode();
@@ -577,8 +628,10 @@ private static final long serialVersionUID = 0L;
 
       project_ = "";
 
+      indexTemplate_ = "";
+
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (mappingBuilder_ == null) {
         mapping_ = null;
       } else {
@@ -619,9 +672,10 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       result.name_ = name_;
       result.project_ = project_;
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      result.indexTemplate_ = indexTemplate_;
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         aliases_ = aliases_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.aliases_ = aliases_;
       if (mappingBuilder_ == null) {
@@ -685,10 +739,14 @@ private static final long serialVersionUID = 0L;
         project_ = other.project_;
         onChanged();
       }
+      if (!other.getIndexTemplate().isEmpty()) {
+        indexTemplate_ = other.indexTemplate_;
+        onChanged();
+      }
       if (!other.aliases_.isEmpty()) {
         if (aliases_.isEmpty()) {
           aliases_ = other.aliases_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureAliasesIsMutable();
           aliases_.addAll(other.aliases_);
@@ -870,11 +928,80 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object indexTemplate_ = "";
+    /**
+     * <code>string indexTemplate = 3;</code>
+     */
+    public java.lang.String getIndexTemplate() {
+      java.lang.Object ref = indexTemplate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indexTemplate_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string indexTemplate = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIndexTemplateBytes() {
+      java.lang.Object ref = indexTemplate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indexTemplate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string indexTemplate = 3;</code>
+     */
+    public Builder setIndexTemplate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indexTemplate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexTemplate = 3;</code>
+     */
+    public Builder clearIndexTemplate() {
+      
+      indexTemplate_ = getDefaultInstance().getIndexTemplate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string indexTemplate = 3;</code>
+     */
+    public Builder setIndexTemplateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indexTemplate_ = value;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAliasesIsMutable() {
-      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
         aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -945,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAliases() {
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
