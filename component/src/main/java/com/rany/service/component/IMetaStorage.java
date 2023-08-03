@@ -64,6 +64,9 @@ public interface IMetaStorage {
     void deleteIndex(String projectName, String indexGroupName, String indexName);
 
 
+    void updateIndex(IndexMetaData indexMetaData);
+
+
     /**
      * 添加集群
      *

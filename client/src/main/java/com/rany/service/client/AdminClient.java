@@ -145,6 +145,11 @@ public class AdminClient {
         indexDeleteRequest.check();
         adminProxy.deleteIndex(indexDeleteRequest);
     }
+
+    public void updateIndex(IndexUpdateRequest indexUpdateRequest) {
+        indexUpdateRequest.check();
+        adminProxy.updateIndex(indexUpdateRequest);
+    }
 }
 
 

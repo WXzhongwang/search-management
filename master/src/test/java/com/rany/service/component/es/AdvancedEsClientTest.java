@@ -75,7 +75,7 @@ public class AdvancedEsClientTest {
     public void updateIndex() {
         String indexName = "test_index_create";
         String mappings = "{\"properties\":{\"_class\":{\"type\":\"text\",\"fields\":{\"keyword\":{\"type\":\"keyword\",\"ignore_above\":256}}},\"description\":{\"type\":\"text\",\"fields\":{\"keyword\":{\"type\":\"keyword\",\"ignore_above\":256}}},\"id\":{\"type\":\"long\"},\"name\":{\"type\":\"text\",\"fields\":{\"keyword\":{\"type\":\"keyword\",\"ignore_above\":256}}},\"price\":{\"type\":\"float\"},\"create_timestamp\":{\"type\":\"long\"}}}";
-        advancedEsClient.updateIndex(indexName, mappings, null);
+        advancedEsClient.updateIndex(indexName, mappings, null, null);
     }
 
     @Test

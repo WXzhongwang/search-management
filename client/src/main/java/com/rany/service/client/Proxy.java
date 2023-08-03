@@ -616,6 +616,26 @@ public class Proxy implements Bootstrap {
     }
 
 
+    public void updateIndex(IndexUpdateRequest indexUpdateRequest)  {
+        AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexUpdateRequest.getAutoIndexRollingPolicy());
+        UpdateIndexRequest request = UpdateIndexRequest.newBuilder()
+                .setProject(indexUpdateRequest.getProject())
+                .setIndexTemplate(indexUpdateRequest.getTemplate())
+                .setIndexName(indexUpdateRequest.getName())
+                .build();
+        UpdateIndexReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.updateIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to update index with message: " + e.getMessage());
+        }
+    }
 
 
 }

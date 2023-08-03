@@ -475,5 +475,38 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
+
+
+    @Override
+    public void updateIndex(UpdateIndexRequest request, StreamObserver<UpdateIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        IndexInfo.Builder infoBuilder = IndexInfo.newBuilder();
+        infoBuilder.setName(request.getIndexName())
+                .setTemplate(request.getIndexTemplate())
+                .setProjectName(request.getProject())
+                .build();
+        if (request.hasMapping()) {
+            infoBuilder.setMapping(request.getMapping().getValue());
+        }
+        if (request.hasSetting()) {
+            infoBuilder.setSetting(request.getSetting().getValue());
+        }
+        IndexInfo info = infoBuilder.build();
+
+        internal.updateIndex(info);
+        UpdateIndexReply.Builder builder = UpdateIndexReply.newBuilder();
+        UpdateIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 }
 

@@ -629,7 +629,7 @@ public class MasterServiceInternalImpl {
 
             clusterMetaMap.clear();
             legacyIndexNameMap.clear();
-            
+
             for (AdvancedEsClient client : esClientMap.values()) {
                 client.close();
             }
@@ -1424,6 +1424,83 @@ public class MasterServiceInternalImpl {
                     (endGetLock - startGetLock) / 1000000,
                     (endDeleteMeta - startDeleteMeta) / 1000000,
                     (endDeleteIndex - startDeleteIndex) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
+
+    public void updateIndex(IndexInfo info) {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(info.getProjectName());
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", info.getProjectName()));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(info.getTemplate());
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exist in project [%s].", info.getTemplate(), info.getProjectName()));
+            }
+            IndexMetaData indexMeta = templateMetaData.indexMetas.get(info.getName());
+            if (indexMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Index [%s] does not exist in indexTemplate [%s] and project [%s].",
+                                info.getName(), info.getTemplate(), info.getProjectName()));
+            }
+
+            AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
+            String fullIndexName = null;
+            if (indexMeta.legacy) {
+                fullIndexName = indexMeta.name;
+            } else {
+                fullIndexName = MetaUtility.combineFullIndexName(projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+            }
+            //es alias use full alias
+            List<String> fullIndexAliases = null;
+
+            fullIndexAliases = new ArrayList<>();
+            for (String alias : info.getAliasesList()) {
+                String aliasName = null;
+                if (indexMeta.legacy) {
+                    aliasName = alias;
+                } else {
+                    aliasName = MetaUtility.combineFullIndexName(projectMeta.projectName, templateMetaData.templateName, alias);
+                }
+                fullIndexAliases.add(aliasName);
+            }
+            long startUpdateIndex = System.nanoTime();
+            client.updateIndex(fullIndexName, info.getMapping(), info.getSetting(), fullIndexAliases);
+            IndexMetaData tmpIndexMeta = client.acquireIndexSchema(fullIndexName);
+            indexMeta.mapping = tmpIndexMeta.mapping;
+            indexMeta.setting = tmpIndexMeta.setting;
+            if(info.getAliasesList().size() != 0){
+                indexMeta.aliases = info.getAliasesList();
+            }
+            long endUpdateIndex = System.nanoTime();
+            logger.info("Index [project={}][indexTemplate={}][name={}] has been updated on ElasticSearch cluster.",
+                    info.getProjectName(), info.getTemplate(), info.getName());
+
+            long lastUpdateTime = System.currentTimeMillis();
+            long startUpdateMeta = System.nanoTime();
+            metaStore.updateIndex(tmpIndexMeta);
+            long endUpdateMeta = System.nanoTime();
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been updated in persistent storage.",
+                    projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+
+            // Temporarily set "new mapping and setting" to index meta before update real index in ES;
+            indexMeta.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been updated in memory.",
+                    projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+            logger.info("Time breakdown of MasterServiceInternalImpl::updateIndex: getLock:{} ms, updateIndex:{} ms, updateMeta:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endUpdateIndex - startUpdateIndex) / 1000000,
+                    (endUpdateMeta - startUpdateMeta) / 1000000);
         } finally {
             writeLock.unlock();
         }

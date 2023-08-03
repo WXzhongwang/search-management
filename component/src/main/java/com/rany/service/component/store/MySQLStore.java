@@ -237,6 +237,29 @@ public class MySQLStore implements IMetaStorage {
     }
 
     @Override
+    public void updateIndex(IndexMetaData indexMetaData) {
+        String command = String.format("update %s set ", indexMetaTableName);
+        command += String.format(" %s=%d ", TableColumnNameConstant.Index.COLUMN_LAST_UPDATE_TIME, indexMetaData.gmtModified);
+        if (indexMetaData.tags != null) {
+            command += String.format(" ,%s=? ", TableColumnNameConstant.Index.COLUMN_INDEX_TAGS);
+        }
+        command += String.format(" where %s=\"%s\"",
+                TableColumnNameConstant.Index.INDEX_META_TABLE_PK_NAME,
+                indexMetaData.projectName + "." + indexMetaData.templateName + "." + indexMetaData.name);
+        jdbcTemplate.update(
+                command,
+                new PreparedStatementSetter() {
+                    @Override
+                    public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                        if (indexMetaData.tags != null) {
+                            preparedStatement.setString(1, indexMetaData.tags);
+                        }
+                    }
+                }
+        );
+    }
+
+    @Override
     public void insertCluster(ClusterMetaData clusterMetaData) {
         String command = String.format(
                 "insert into %s (%s, %s, %s, %s, %s, %s, %s, %s) values (?, ?, ?, ?, ?, ?, ?, ?)",

@@ -2,6 +2,7 @@ package com.rany.service.component.es;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Sets;
 import com.rany.service.common.constants.Constants;
 import com.rany.service.common.exception.ErrorCodeEnum;
 import com.rany.service.common.exception.SearchManagementException;
@@ -14,15 +15,15 @@ import org.apache.http.HttpHost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
+import org.elasticsearch.action.admin.indices.alias.IndicesAliasesRequest;
+import org.elasticsearch.action.admin.indices.alias.get.GetAliasesRequest;
 import org.elasticsearch.client.*;
+import org.elasticsearch.cluster.metadata.AliasMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * AdvancedEsClient
@@ -343,7 +344,7 @@ public class AdvancedEsClient {
         }
     }
 
-    public void updateIndex(String fullIndexName, String mappings, String settings) {
+    public void updateIndex(String fullIndexName, String mappings, String settings, List<String> aliases) {
         try {
             if (mappings != null) {
                 HttpEntity inputEntity = new NStringEntity(mappings, ContentType.APPLICATION_JSON);
@@ -362,6 +363,44 @@ public class AdvancedEsClient {
                 Response response = lowLevelClient.performRequest(request);
                 HttpEntity outputEntity = response.getEntity();
             }
+
+            // update index alias
+            if(aliases.size() != 0){
+                GetAliasesRequest getAliasesRequest = new GetAliasesRequest();
+                getAliasesRequest.indices(fullIndexName);
+                Set<String> preAliasSet = Sets.newHashSet();
+                Collection<Set<AliasMetadata>> metaSets = highLevelClient.indices().getAlias(getAliasesRequest,RequestOptions.DEFAULT)
+                        .getAliases().values();
+                if(metaSets.size() == 1) {
+                    metaSets.forEach(multiMetaSet -> {
+                        multiMetaSet.stream().forEach(aliasMetaData -> {
+                            preAliasSet.add(aliasMetaData.alias());
+                        });
+                    });
+
+                    IndicesAliasesRequest aliasesRequest = new IndicesAliasesRequest();
+                    // add alias if pre alias not exists
+                    aliases.stream().forEach(alias -> {
+                        if (!preAliasSet.contains(alias)) {
+                            IndicesAliasesRequest.AliasActions addActions = IndicesAliasesRequest.AliasActions
+                                    .add().index(fullIndexName).alias(alias);
+                            aliasesRequest.addAliasAction(addActions);
+                        }
+                    });
+                    //remove alias if new alias not exists
+                    preAliasSet.stream().forEach(alias -> {
+                        if (!aliases.contains(alias)) {
+                            IndicesAliasesRequest.AliasActions deleteActions = IndicesAliasesRequest.AliasActions
+                                    .remove().index(fullIndexName).alias(alias);
+                            aliasesRequest.addAliasAction(deleteActions);
+                        }
+                    });
+                    if(aliasesRequest.getAliasActions().size() > 0){
+                        highLevelClient.indices().updateAliases(aliasesRequest, RequestOptions.DEFAULT);
+                    }
+                }
+            }
+
         } catch (Exception e) {
             throw new SearchManagementException(ErrorCodeEnum.UPDATE_INDEX_ERROR.getCode(), e.getMessage());
         }
