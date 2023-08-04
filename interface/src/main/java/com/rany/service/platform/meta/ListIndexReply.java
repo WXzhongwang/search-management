@@ -18,7 +18,7 @@ private static final long serialVersionUID = 0L;
   private ListIndexReply() {
     code_ = 0;
     message_ = "";
-    indices_ = java.util.Collections.emptyList();
+    indices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -61,12 +61,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              indices_ = new java.util.ArrayList<com.rany.service.platform.meta.IndexInfo>();
+              indices_ = new com.google.protobuf.LazyStringArrayList();
               mutable_bitField0_ |= 0x00000004;
             }
-            indices_.add(
-                input.readMessage(com.rany.service.platform.meta.IndexInfo.parser(), extensionRegistry));
+            indices_.add(s);
             break;
           }
         }
@@ -78,7 +78,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-        indices_ = java.util.Collections.unmodifiableList(indices_);
+        indices_ = indices_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -141,38 +141,32 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INDICES_FIELD_NUMBER = 3;
-  private java.util.List<com.rany.service.platform.meta.IndexInfo> indices_;
+  private com.google.protobuf.LazyStringList indices_;
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  public java.util.List<com.rany.service.platform.meta.IndexInfo> getIndicesList() {
+  public com.google.protobuf.ProtocolStringList
+      getIndicesList() {
     return indices_;
   }
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
-   */
-  public java.util.List<? extends com.rany.service.platform.meta.IndexInfoOrBuilder> 
-      getIndicesOrBuilderList() {
-    return indices_;
-  }
-  /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
   public int getIndicesCount() {
     return indices_.size();
   }
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  public com.rany.service.platform.meta.IndexInfo getIndices(int index) {
+  public java.lang.String getIndices(int index) {
     return indices_.get(index);
   }
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  public com.rany.service.platform.meta.IndexInfoOrBuilder getIndicesOrBuilder(
-      int index) {
-    return indices_.get(index);
+  public com.google.protobuf.ByteString
+      getIndicesBytes(int index) {
+    return indices_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -194,7 +188,7 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
     }
     for (int i = 0; i < indices_.size(); i++) {
-      output.writeMessage(3, indices_.get(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, indices_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -211,9 +205,13 @@ private static final long serialVersionUID = 0L;
     if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
     }
-    for (int i = 0; i < indices_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, indices_.get(i));
+    {
+      int dataSize = 0;
+      for (int i = 0; i < indices_.size(); i++) {
+        dataSize += computeStringSizeNoTag(indices_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getIndicesList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -381,7 +379,6 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getIndicesFieldBuilder();
       }
     }
     public Builder clear() {
@@ -390,12 +387,8 @@ private static final long serialVersionUID = 0L;
 
       message_ = "";
 
-      if (indicesBuilder_ == null) {
-        indices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      } else {
-        indicesBuilder_.clear();
-      }
+      indices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -422,15 +415,11 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       result.code_ = code_;
       result.message_ = message_;
-      if (indicesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          indices_ = java.util.Collections.unmodifiableList(indices_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.indices_ = indices_;
-      } else {
-        result.indices_ = indicesBuilder_.build();
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        indices_ = indices_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
+      result.indices_ = indices_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -480,31 +469,15 @@ private static final long serialVersionUID = 0L;
         message_ = other.message_;
         onChanged();
       }
-      if (indicesBuilder_ == null) {
-        if (!other.indices_.isEmpty()) {
-          if (indices_.isEmpty()) {
-            indices_ = other.indices_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureIndicesIsMutable();
-            indices_.addAll(other.indices_);
-          }
-          onChanged();
+      if (!other.indices_.isEmpty()) {
+        if (indices_.isEmpty()) {
+          indices_ = other.indices_;
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          ensureIndicesIsMutable();
+          indices_.addAll(other.indices_);
         }
-      } else {
-        if (!other.indices_.isEmpty()) {
-          if (indicesBuilder_.isEmpty()) {
-            indicesBuilder_.dispose();
-            indicesBuilder_ = null;
-            indices_ = other.indices_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            indicesBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getIndicesFieldBuilder() : null;
-          } else {
-            indicesBuilder_.addAllMessages(other.indices_);
-          }
-        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -629,244 +602,98 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.rany.service.platform.meta.IndexInfo> indices_ =
-      java.util.Collections.emptyList();
+    private com.google.protobuf.LazyStringList indices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIndicesIsMutable() {
       if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        indices_ = new java.util.ArrayList<com.rany.service.platform.meta.IndexInfo>(indices_);
+        indices_ = new com.google.protobuf.LazyStringArrayList(indices_);
         bitField0_ |= 0x00000004;
        }
     }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.rany.service.platform.meta.IndexInfo, com.rany.service.platform.meta.IndexInfo.Builder, com.rany.service.platform.meta.IndexInfoOrBuilder> indicesBuilder_;
-
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
-    public java.util.List<com.rany.service.platform.meta.IndexInfo> getIndicesList() {
-      if (indicesBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(indices_);
-      } else {
-        return indicesBuilder_.getMessageList();
-      }
+    public com.google.protobuf.ProtocolStringList
+        getIndicesList() {
+      return indices_.getUnmodifiableView();
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
     public int getIndicesCount() {
-      if (indicesBuilder_ == null) {
-        return indices_.size();
-      } else {
-        return indicesBuilder_.getCount();
-      }
+      return indices_.size();
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
-    public com.rany.service.platform.meta.IndexInfo getIndices(int index) {
-      if (indicesBuilder_ == null) {
-        return indices_.get(index);
-      } else {
-        return indicesBuilder_.getMessage(index);
-      }
+    public java.lang.String getIndices(int index) {
+      return indices_.get(index);
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
-    public Builder setIndices(
-        int index, com.rany.service.platform.meta.IndexInfo value) {
-      if (indicesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureIndicesIsMutable();
-        indices_.set(index, value);
-        onChanged();
-      } else {
-        indicesBuilder_.setMessage(index, value);
-      }
-      return this;
+    public com.google.protobuf.ByteString
+        getIndicesBytes(int index) {
+      return indices_.getByteString(index);
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
     public Builder setIndices(
-        int index, com.rany.service.platform.meta.IndexInfo.Builder builderForValue) {
-      if (indicesBuilder_ == null) {
-        ensureIndicesIsMutable();
-        indices_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        indicesBuilder_.setMessage(index, builderForValue.build());
-      }
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIndicesIsMutable();
+      indices_.set(index, value);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public Builder addIndices(com.rany.service.platform.meta.IndexInfo value) {
-      if (indicesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureIndicesIsMutable();
-        indices_.add(value);
-        onChanged();
-      } else {
-        indicesBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
     public Builder addIndices(
-        int index, com.rany.service.platform.meta.IndexInfo value) {
-      if (indicesBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureIndicesIsMutable();
-        indices_.add(index, value);
-        onChanged();
-      } else {
-        indicesBuilder_.addMessage(index, value);
-      }
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIndicesIsMutable();
+      indices_.add(value);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public Builder addIndices(
-        com.rany.service.platform.meta.IndexInfo.Builder builderForValue) {
-      if (indicesBuilder_ == null) {
-        ensureIndicesIsMutable();
-        indices_.add(builderForValue.build());
-        onChanged();
-      } else {
-        indicesBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public Builder addIndices(
-        int index, com.rany.service.platform.meta.IndexInfo.Builder builderForValue) {
-      if (indicesBuilder_ == null) {
-        ensureIndicesIsMutable();
-        indices_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        indicesBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
     public Builder addAllIndices(
-        java.lang.Iterable<? extends com.rany.service.platform.meta.IndexInfo> values) {
-      if (indicesBuilder_ == null) {
-        ensureIndicesIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, indices_);
-        onChanged();
-      } else {
-        indicesBuilder_.addAllMessages(values);
-      }
+        java.lang.Iterable<java.lang.String> values) {
+      ensureIndicesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, indices_);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
     public Builder clearIndices() {
-      if (indicesBuilder_ == null) {
-        indices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-      } else {
-        indicesBuilder_.clear();
-      }
+      indices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .IndexInfo indices = 3;</code>
+     * <code>repeated string indices = 3;</code>
      */
-    public Builder removeIndices(int index) {
-      if (indicesBuilder_ == null) {
-        ensureIndicesIsMutable();
-        indices_.remove(index);
-        onChanged();
-      } else {
-        indicesBuilder_.remove(index);
-      }
+    public Builder addIndicesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureIndicesIsMutable();
+      indices_.add(value);
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public com.rany.service.platform.meta.IndexInfo.Builder getIndicesBuilder(
-        int index) {
-      return getIndicesFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public com.rany.service.platform.meta.IndexInfoOrBuilder getIndicesOrBuilder(
-        int index) {
-      if (indicesBuilder_ == null) {
-        return indices_.get(index);  } else {
-        return indicesBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public java.util.List<? extends com.rany.service.platform.meta.IndexInfoOrBuilder> 
-         getIndicesOrBuilderList() {
-      if (indicesBuilder_ != null) {
-        return indicesBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(indices_);
-      }
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public com.rany.service.platform.meta.IndexInfo.Builder addIndicesBuilder() {
-      return getIndicesFieldBuilder().addBuilder(
-          com.rany.service.platform.meta.IndexInfo.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public com.rany.service.platform.meta.IndexInfo.Builder addIndicesBuilder(
-        int index) {
-      return getIndicesFieldBuilder().addBuilder(
-          index, com.rany.service.platform.meta.IndexInfo.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .IndexInfo indices = 3;</code>
-     */
-    public java.util.List<com.rany.service.platform.meta.IndexInfo.Builder> 
-         getIndicesBuilderList() {
-      return getIndicesFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.rany.service.platform.meta.IndexInfo, com.rany.service.platform.meta.IndexInfo.Builder, com.rany.service.platform.meta.IndexInfoOrBuilder> 
-        getIndicesFieldBuilder() {
-      if (indicesBuilder_ == null) {
-        indicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.rany.service.platform.meta.IndexInfo, com.rany.service.platform.meta.IndexInfo.Builder, com.rany.service.platform.meta.IndexInfoOrBuilder>(
-                indices_,
-                ((bitField0_ & 0x00000004) == 0x00000004),
-                getParentForChildren(),
-                isClean());
-        indices_ = null;
-      }
-      return indicesBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

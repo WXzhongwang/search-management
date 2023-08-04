@@ -17,6 +17,8 @@ import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
 import org.elasticsearch.action.admin.indices.alias.IndicesAliasesRequest;
 import org.elasticsearch.action.admin.indices.alias.get.GetAliasesRequest;
+import org.elasticsearch.action.admin.indices.settings.get.GetSettingsRequest;
+import org.elasticsearch.action.admin.indices.settings.get.GetSettingsResponse;
 import org.elasticsearch.client.*;
 import org.elasticsearch.cluster.metadata.AliasMetadata;
 import org.slf4j.Logger;
@@ -40,8 +42,9 @@ public class AdvancedEsClient {
     private final String endpoint;
     private final RestClient lowLevelClient;
     private final RestHighLevelClient highLevelClient;
-
-    private static final int ES_CONNECTION_TIMEOUT = 3000;
+    public static final String ES_DOMAIN_SETTINGS_FIELD = "index.routing.allocation.require.domain";
+    public static final String ES_GROUP_SETTINGS_FIELD = "index.routing.allocation.require.group";
+    private static final int ES_OPERATION_RETRY_TIME = 3;
 
     public AdvancedEsClient(String endpoint) {
         this.endpoint = endpoint;
@@ -423,5 +426,31 @@ public class AdvancedEsClient {
         } catch (Exception e) {
             throw new SearchManagementException(ErrorCodeEnum.CHECK_STATUS_ERROR.getCode(), e.getMessage(), e);
         }
+    }
+
+    public GetSettingsResponse acquireIndexSettings() {
+        int retryTime = 0;
+        String errMessage = "";
+        GetSettingsResponse response = null;
+        while (retryTime < ES_OPERATION_RETRY_TIME) {
+            try {
+                if (retryTime > 0) {
+                    Thread.sleep(10 * retryTime);
+                    // Sleep before retry;
+                }
+                GetSettingsRequest getSettingsRequest = new GetSettingsRequest();
+                getSettingsRequest.indices("*");
+                response = highLevelClient.indices().getSettings(getSettingsRequest, RequestOptions.DEFAULT);
+                break;
+            } catch (Exception e) {
+                errMessage = String.format("Fail to call acquireIndexSettings from es cluster [%s] with message [%s].", endpoint, e.getMessage());
+                logger.error("Fail to call acquireIndexSettings from es cluster {} with message {} and exception {}. Retry time: {}.", endpoint, e.getMessage(), e.toString(), retryTime);
+                retryTime ++;
+            }
+        }
+        if (retryTime == ES_OPERATION_RETRY_TIME) {
+            throw new SearchManagementException(ErrorCodeEnum.INTERNAL_ERROR.getCode(), errMessage);
+        }
+        return response;
     }
 }

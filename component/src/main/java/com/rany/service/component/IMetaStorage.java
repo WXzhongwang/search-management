@@ -64,6 +64,10 @@ public interface IMetaStorage {
     void deleteIndex(String projectName, String indexGroupName, String indexName);
 
 
+    /**
+     * 更新索引
+     * @param indexMetaData
+     */
     void updateIndex(IndexMetaData indexMetaData);
 
 

@@ -12,6 +12,7 @@ import com.rany.service.component.MetaStoreEnum;
 import com.rany.service.component.config.MetaStoreConfig;
 import com.rany.service.component.es.AdvancedEsClient;
 import com.rany.service.component.meta.ClusterMeta;
+import com.rany.service.component.meta.IndexTemplateMeta;
 import com.rany.service.component.meta.Pair;
 import com.rany.service.component.meta.ProjectMeta;
 import com.rany.service.component.meta.dto.*;
@@ -21,6 +22,7 @@ import com.rany.service.component.utils.JSONUtility;
 import com.rany.service.component.utils.MetaUtility;
 import com.rany.service.platform.DataTypeUtils;
 import com.rany.service.platform.meta.*;
+import org.elasticsearch.action.admin.indices.settings.get.GetSettingsResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -88,6 +90,7 @@ public class MasterServiceInternalImpl {
     private ScheduledFuture<?> autoIndexRollingFuture;
     private ScheduledFuture<?> metricRefresherFuture;
     private ScheduledFuture<?> syncMetaFuture;
+    private ScheduledFuture<?> indexDomainRefreshFuture;
 
     public MasterServiceInternalImpl(String profile, MetaStoreConfig metaStoreConfig) {
         logger.info("Begin to call MasterServiceInternalImpl::start().");
@@ -289,6 +292,9 @@ public class MasterServiceInternalImpl {
 
         AutoIndexRollingWorker autoIndexRollingWorker = new AutoIndexRollingWorker();
         autoIndexRollingFuture = backgroundTaskExecutor.scheduleAtFixedRate(autoIndexRollingWorker, 0, 10, TimeUnit.SECONDS);
+
+        IndexDomainRefreshExecutor indexDomainRefreshExecutorTask = new IndexDomainRefreshExecutor();
+        indexDomainRefreshFuture = backgroundTaskExecutor.scheduleAtFixedRate(indexDomainRefreshExecutorTask,0, 10, TimeUnit.SECONDS);
         backgroundRunning = true;
     }
 
@@ -570,6 +576,7 @@ public class MasterServiceInternalImpl {
                         continue;
                     }
                     if (DataTypeUtils.isLegacy(tmpIndexMeta.fullName)) {
+                        // 非常规索引待定
                         continue;
                     }
                     String projectName = null, indexTemplateName = null, indexName = null;
@@ -647,6 +654,122 @@ public class MasterServiceInternalImpl {
             backgroundLogger.info("Finish to execute SyncMetaWorker.");
         }
     }
+
+
+
+    class IndexDomainRefreshExecutor implements Runnable {
+        public void run() {
+            logger.info("Begin a new round to execute IndexDomainRefreshExecutor.");
+            HashMap<String, AdvancedEsClient> tmpClusterConnectionMap = new HashMap<>();
+            HashMap<String, List<IndexMetaData>> tmpClusterIndexMetaListMap = new HashMap<>();
+            HashMap<String, GetSettingsResponse> tmpClusterIndexSettingRespMap = new HashMap<>();
+
+            long startHoldWriteLock = 0, endHoldWriteLock = 0, startHoldReadLock = 0, endHoldReadLock = 0,
+                    startGetData = 0, endGetData = 0;
+            ReentrantReadWriteLock.ReadLock readLock = MasterServiceInternalImpl.this.lock.readLock();
+            try {
+                startHoldReadLock = System.nanoTime();
+                readLock.lock();
+                for (ClusterMetaData clusterMeta: clusterMetaMap.values()) {
+                    if (clusterMeta.clusterStatus != ClusterStatus.IN_SERVICE) {
+                        continue;
+                    }
+                    AdvancedEsClient client = esClientMap.get(clusterMeta.clusterName);
+                    tmpClusterConnectionMap.put(clusterMeta.clusterName, client);
+                }
+            } finally {
+                readLock.unlock();
+                endHoldReadLock = System.nanoTime();
+            }
+
+            startGetData = System.nanoTime();
+            for (String clusterName : tmpClusterConnectionMap.keySet()) {
+                AdvancedEsClient client = tmpClusterConnectionMap.get(clusterName);
+
+                GetSettingsResponse settingsResponse = client.acquireIndexSettings();
+                tmpClusterIndexSettingRespMap.put(clusterName, settingsResponse);
+
+                List<IndexMetaData> metaList =  client.acquireIndexInfo();
+                tmpClusterIndexMetaListMap.put(clusterName, metaList);
+            }
+            endGetData = System.nanoTime();
+
+
+            ReentrantReadWriteLock.WriteLock writeLock = MasterServiceInternalImpl.this.lock.writeLock();
+            try {
+                startHoldWriteLock = System.nanoTime();
+                writeLock.lock();
+
+                for (ClusterMeta clusterMeta: clusterMetaMap.values()) {
+                    GetSettingsResponse settingsResponse = tmpClusterIndexSettingRespMap.get(clusterMeta.clusterName);
+                    List<IndexMetaData> metaList = tmpClusterIndexMetaListMap.get(clusterMeta.clusterName);
+                    if (metaList == null || settingsResponse == null) {
+                        continue;
+                    }
+                    for (IndexMetaData tmpIndexMeta : metaList) {
+                        String projectName = null;
+                        String indexTemplateName = null;
+                        String indexName = null;
+                        if (tmpIndexMeta.name.startsWith(".")) {
+                            // skip system index such as "kibana indices";
+                            continue;
+                        } else if (tmpIndexMeta.name.contains(".")) {
+                            // get projectName and template from fullIndexName;
+                            String [] parts = tmpIndexMeta.name.split("\\.");
+                            if (parts.length == 3) {
+                                projectName = parts[0];
+                                indexTemplateName = parts[1];
+                                indexName = parts[2];
+                            }
+                        } else {
+                            Pair<String, String> namePair = legacyIndexNameMap.get(tmpIndexMeta.name);
+                            if (namePair == null) {
+                                // This index is not managed by meta service, it should be deleted in someway;
+                            } else {
+                                projectName = namePair.getValue();
+                                indexTemplateName = namePair.getKey();
+                                indexName = tmpIndexMeta.name;
+                            }
+                        }
+                        if (projectName == null || indexTemplateName == null) {
+                            logger.warn("Fail to get projectName and indexName from index {} on cluster {}. This index is wild.", tmpIndexMeta.name, clusterMeta.clusterName);
+                            continue;
+                        }
+                        ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+                        if (projectMeta == null) {
+                            continue;
+                        }
+                        IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+                        if (templateMetaData == null) {
+                            continue;
+                        }
+                        IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
+                        if (indexMeta == null) {
+                            continue;
+                        }
+                        String domain = settingsResponse.getSetting(tmpIndexMeta.name,AdvancedEsClient.ES_DOMAIN_SETTINGS_FIELD);
+                        String group = settingsResponse.getSetting(tmpIndexMeta.name,AdvancedEsClient.ES_GROUP_SETTINGS_FIELD);
+
+                        indexMeta.domain = domain;
+                        indexMeta.group = group;
+                    }
+                }
+            }  finally {
+                writeLock.unlock();
+                endHoldWriteLock = System.nanoTime();
+            }
+
+            tmpClusterConnectionMap.clear();
+            tmpClusterIndexMetaListMap.clear();
+            tmpClusterIndexSettingRespMap.clear();
+            logger.info("Time breakdown of MasterServiceInternalImpl::IndexDomainRefreshThread: holdReadLock:{} ms, holdWriteLock:{} ms,  getData:{} ms.",
+                    (endHoldReadLock - startHoldReadLock) / 1000000,
+                    (endHoldWriteLock - startHoldWriteLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+            logger.info("Finish this round to execute IndexDomainRefreshExecutor.");
+        }
+    }
+
 
 
     /**
@@ -1277,7 +1400,7 @@ public class MasterServiceInternalImpl {
     }
 
 
-    public void insertIndex(IndexInfo info, boolean hasMapping, boolean hasSetting){
+    public void createIndex(IndexInfo info, boolean hasMapping, boolean hasSetting){
         ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
 
         try {
@@ -1506,4 +1629,135 @@ public class MasterServiceInternalImpl {
         }
     }
 
+
+    public List<IndexInfo> getIndices(String projectName, String templateName)  {
+        long startGetLock = 0, endGetLock = 0, startGetData = 0, endGetData = 0;
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        List<IndexInfo> result = new ArrayList<IndexInfo>();
+        try {
+            startGetLock = System.nanoTime();
+            readLock.lock();
+            endGetLock = System.nanoTime();
+
+            startGetData = System.nanoTime();
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(templateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("indexTemplate [%s] does not exist in project [%s].", templateName, projectName));
+            }
+            for (Map.Entry<String, IndexMetaData> entry : templateMetaData.indexMetas.entrySet()) {
+                IndexMetaData indexMeta = entry.getValue();
+                IndexInfo info = MetaUtility.build(projectMeta.clusterName, projectName, templateName, indexMeta);
+                result.add(info);
+            }
+            endGetData = System.nanoTime();
+            logger.info("getIndices is called with projectName={} and indexTemplateName={}.", projectName, templateName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndices: getLock:{} ms, getData:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+        } finally {
+            readLock.unlock();
+        }
+        return result;
+    }
+
+
+    public List<IndexNameEntry> getIndexNameList(String clusterName)  {
+        long startGetLock = 0, endGetLock = 0, startGetData = 0, endGetData = 0;
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        List<IndexNameEntry> result = new ArrayList<IndexNameEntry>();
+        try {
+            startGetLock = System.nanoTime();
+            readLock.lock();
+            endGetLock = System.nanoTime();
+
+            startGetData = System.nanoTime();
+            ClusterMetaData clusterMeta = clusterMetaMap.get(clusterName);
+            if (clusterMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Cluster [%s] does not exist.", clusterName));
+            }
+            for (ProjectMetaData projectMeta : clusterMeta.projectMetaMap.values()) {
+                for (IndexTemplateMetaData templateMetaData : projectMeta.indexTemplateMetaData.values()) {
+                    for (IndexMetaData indexMeta : templateMetaData.indexMetas.values()) {
+                        String domain = indexMeta.domain;
+                        String group = indexMeta.group;
+                        domain = (domain == null) ? Constants.UNKNOWN : domain;
+                        group = (group == null) ? Constants.UNKNOWN : group;
+                        IndexNameEntry entry = IndexNameEntry.newBuilder()
+                                .setProject(projectMeta.projectName)
+                                .setIndexTemplate(templateMetaData.templateName)
+                                .setIndexName(indexMeta.name)
+                                .setDomain(domain)
+                                .setGroup(group)
+                                .setFullName(indexMeta.fullName)
+                                .build();
+                        result.add(entry);
+                    }
+                }
+            }
+            endGetData = System.nanoTime();
+            logger.info("getIndexNameList is called with clusterName={}.", clusterName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndexNameList: getLock:{} ms, getData:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+        }  finally {
+            readLock.unlock();
+        }
+        return result;
+    }
+
+    public List<IndexNameEntry> getIndexAliasNameList(String clusterName)  {
+        long startGetLock = 0, endGetLock = 0, startGetData = 0, endGetData = 0;
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        List<IndexNameEntry> result = new ArrayList<IndexNameEntry>();
+        try {
+            startGetLock = System.nanoTime();
+            readLock.lock();
+            endGetLock = System.nanoTime();
+
+            startGetData = System.nanoTime();
+            ClusterMetaData clusterMeta = clusterMetaMap.get(clusterName);
+            if (clusterMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Cluster [%s] does not exist.", clusterName));
+            }
+            for (ProjectMetaData projectMeta : clusterMeta.projectMetaMap.values()) {
+                for (IndexTemplateMetaData templateMetaData : projectMeta.indexTemplateMetaData.values()) {
+                    for (IndexMetaData indexMeta : templateMetaData.indexMetas.values()) {
+                        for (int i = 0; i < indexMeta.aliases.size(); ++ i) {
+                            String projectName = projectMeta.projectName;
+                            String templateName = templateMetaData.templateName;
+                            String aliasName = indexMeta.aliases.get(i);
+                            String domain = indexMeta.domain;
+                            String fullAliasName = "";
+                            fullAliasName = MetaUtility.combineFullAliasName(projectName, templateName, aliasName);
+                            domain = (domain == null) ? Constants.UNKNOWN : domain;
+                            IndexNameEntry entry = IndexNameEntry.newBuilder()
+                                    .setProject(projectMeta.projectName)
+                                    .setIndexTemplate(templateMetaData.templateName)
+                                    .setIndexName(aliasName)
+                                    .setDomain(domain)
+                                    .setFullName(fullAliasName)
+                                    .build();
+                            result.add(entry);
+                        }
+                    }
+                }
+            }
+            endGetData = System.nanoTime();
+            logger.info("getIndexAliasNameList is called with clusterName={}.", clusterName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndexAliasNameList: getLock:{} ms, getData:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+        } finally {
+            readLock.unlock();
+        }
+        return result;
+    }
 }

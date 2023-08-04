@@ -42,6 +42,9 @@ service MetaService {
   rpc UpdateIndex (UpdateIndexRequest) returns (UpdateIndexReply) {}
   rpc DeleteIndex (DeleteIndexRequest) returns (DeleteIndexReply) {}
   rpc ListIndex (ListIndexRequest) returns (ListIndexReply) {}
+  rpc ListIndexDetails (ListIndexDetailsRequest) returns (ListIndexDetailsReply) {}
+  rpc ListIndexName (ListIndexNameRequest) returns (ListIndexNameReply) {}
+  rpc ListIndexAliasName (ListIndexAliasNameRequest) returns (ListIndexAliasNameReply) {}
 }
 
 message CreateClusterRequest {
@@ -271,16 +274,16 @@ message GetIndexTemplateReply {
 }
 
 message UpdateIndexTemplateRequest {
-    string name = 1;
-    string project = 2;
-    google.protobuf.StringValue mapping = 3;                    // Use StringValue to enable optional field;
-    google.protobuf.StringValue setting = 4;                    // Use StringValue to enable optional field;
-    bool update_alias = 5;
-    bool update_policy = 6;
-    bool update_window = 7;
-    repeated string aliases = 8;
-    AutoIndexRollingPolicy auto_index_rolling_policy = 9;
-    int32 auto_index_rolling_window = 10;
+  string name = 1;
+  string project = 2;
+  google.protobuf.StringValue mapping = 3;                    // Use StringValue to enable optional field;
+  google.protobuf.StringValue setting = 4;                    // Use StringValue to enable optional field;
+  bool update_alias = 5;
+  bool update_policy = 6;
+  bool update_window = 7;
+  repeated string aliases = 8;
+  AutoIndexRollingPolicy auto_index_rolling_policy = 9;
+  int32 auto_index_rolling_window = 10;
 }
 
 message UpdateIndexTemplateReply {
@@ -320,18 +323,18 @@ message ListIndexTemplateDetailsReply {
 
 
 message IndexTemplateInfo {
-    string name = 1;
-    string cluster = 2;
-    string project = 3;
-    string mapping = 4;
-    string setting = 5;
-    repeated string aliases = 6;
-    AutoIndexRollingPolicy auto_index_rolling_policy = 7;
-    int32 auto_index_rolling_window = 8;
-    string auto_index_name_prefix = 9;
-    int32 total_index_number = 10;          // number of indices of this index group;
-    int64 total_doc_number = 11;            // doc number of all indices of this index group;
-    int64 total_data_size = 12;             // data size of all indices of this index group;
+  string name = 1;
+  string cluster = 2;
+  string project = 3;
+  string mapping = 4;
+  string setting = 5;
+  repeated string aliases = 6;
+  AutoIndexRollingPolicy auto_index_rolling_policy = 7;
+  int32 auto_index_rolling_window = 8;
+  string auto_index_name_prefix = 9;
+  int32 total_index_number = 10;          // number of indices of this index group;
+  int64 total_doc_number = 11;            // doc number of all indices of this index group;
+  int64 total_data_size = 12;             // data size of all indices of this index group;
 }
 
 
@@ -395,6 +398,7 @@ message UpdateIndexRequest {
   string indexName = 3;
   google.protobuf.StringValue mapping = 4;            // Use StringValue to enable optional field;
   google.protobuf.StringValue setting = 5;            // Use StringValue to enable optional field;
+  repeated string aliases = 6;
 }
 
 message UpdateIndexReply {
@@ -414,13 +418,54 @@ message DeleteIndexReply {
 }
 
 message ListIndexRequest {
-  int32 cluster_id = 1;
-  int32 project_id = 2;
-  string name = 3;
+  string cluster = 1;
+  string project = 2;
+  string indexTemplate = 3;
 }
 
 message ListIndexReply {
   int32 code = 1;
   string message = 2;
+  repeated string indices = 3;
+}
+
+message ListIndexDetailsRequest {
+  string cluster = 1;
+  string project = 2;
+  string indexTemplate = 3;
+}
+
+message ListIndexDetailsReply {
+  int32 code = 1;
+  string message = 2;
   repeated IndexInfo indices = 3;
+}
+
+message IndexNameEntry {
+  string project = 1;
+  string indexTemplate = 2;
+  string indexName = 3;
+  string full_name = 4;
+  string domain = 5;
+  string group = 6;
+}
+
+message ListIndexNameRequest {
+  string cluster = 1;
+}
+
+message ListIndexNameReply {
+  int32 code = 1;
+  string message = 2;
+  repeated IndexNameEntry indexNames = 3;
+}
+
+message ListIndexAliasNameRequest {
+  string cluster = 1;
+}
+
+message ListIndexAliasNameReply {
+  int32 code = 1;
+  string message = 2;
+  repeated IndexNameEntry indexAliasNames = 3;
 }

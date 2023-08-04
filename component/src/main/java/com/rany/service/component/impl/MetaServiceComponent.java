@@ -246,7 +246,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onCompleted();
     }
 
-
     @Override
     public void listProject(ListProjectRequest request, StreamObserver<ListProjectReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
@@ -325,7 +324,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onCompleted();
     }
 
-
     @Override
     public void updateIndexTemplate(UpdateIndexTemplateRequest request, StreamObserver<UpdateIndexTemplateReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
@@ -353,7 +351,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onCompleted();
     }
 
-
     @Override
     public void deleteIndexTemplate(DeleteIndexTemplateRequest request, StreamObserver<DeleteIndexTemplateReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
@@ -372,7 +369,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
-
 
     @Override
     public void listIndexTemplate(ListIndexTemplateRequest request, StreamObserver<ListIndexTemplateReply> responseObserver) {
@@ -422,7 +418,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onCompleted();
     }
 
-
     @Override
     public void createIndex(CreateIndexRequest request, StreamObserver<CreateIndexReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
@@ -446,7 +441,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         }
         IndexInfo info = infoBuilder.build();
 
-        internal.insertIndex(info, request.hasMapping(), request.hasSetting());
+        internal.createIndex(info, request.hasMapping(), request.hasSetting());
         CreateIndexReply.Builder builder = CreateIndexReply.newBuilder();
         CreateIndexReply reply = builder
                 .setCode(code.getCode())
@@ -455,7 +450,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
-
 
     @Override
     public void deleteIndex(DeleteIndexRequest request, StreamObserver<DeleteIndexReply> responseObserver) {
@@ -475,7 +469,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
-
 
     @Override
     public void updateIndex(UpdateIndexRequest request, StreamObserver<UpdateIndexReply> responseObserver) {
@@ -502,6 +495,111 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         internal.updateIndex(info);
         UpdateIndexReply.Builder builder = UpdateIndexReply.newBuilder();
         UpdateIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listIndex(ListIndexRequest request, StreamObserver<ListIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ListIndexReply.Builder builder = ListIndexReply.newBuilder();
+        List<IndexInfo> indices = internal.getIndices(request.getProject(), request.getIndexTemplate());
+        if (indices != null) {
+            for (int i = 0; i < indices.size(); ++ i) {
+                builder.addIndices(indices.get(i).getName());
+            }
+        }
+
+        ListIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listIndexDetails(ListIndexDetailsRequest request, StreamObserver<ListIndexDetailsReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ListIndexDetailsReply.Builder builder = ListIndexDetailsReply.newBuilder();
+        List<IndexInfo> indices = internal.getIndices(request.getProject(), request.getIndexTemplate());
+        if (indices != null) {
+            for (int i = 0; i < indices.size(); ++ i) {
+                builder.addIndices(indices.get(i));
+            }
+        }
+
+        ListIndexDetailsReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void listIndexName(ListIndexNameRequest request, StreamObserver<ListIndexNameReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ListIndexNameReply.Builder builder = ListIndexNameReply.newBuilder();
+        List<IndexNameEntry> indices = internal.getIndexNameList(request.getCluster());
+        if (indices != null) {
+            for (int i = 0; i < indices.size(); ++ i) {
+                builder.addIndexNames(indices.get(i));
+            }
+        }
+
+        ListIndexNameReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void listIndexAliasName(ListIndexAliasNameRequest request, StreamObserver<ListIndexAliasNameReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        ListIndexAliasNameReply.Builder builder = ListIndexAliasNameReply.newBuilder();
+        List<IndexNameEntry> indices = internal.getIndexAliasNameList(request.getCluster());
+        if (indices != null) {
+            for (int i = 0; i < indices.size(); ++ i) {
+                builder.addIndexAliasNames(indices.get(i));
+            }
+        }
+
+        ListIndexAliasNameReply reply = builder
                 .setCode(code.getCode())
                 .setMessage(code.getMessage())
                 .build();

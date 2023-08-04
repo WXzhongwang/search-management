@@ -17,4 +17,6 @@ public class IndexMetaData extends IndexMeta {
     public Integer replicaShards;
     public Integer docs;
     public Integer totalData;
+    public String domain;
+    public String group;
 }

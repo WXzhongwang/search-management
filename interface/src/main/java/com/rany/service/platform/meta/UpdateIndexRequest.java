@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     project_ = "";
     indexTemplate_ = "";
     indexName_ = "";
+    aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -93,6 +94,15 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              aliases_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000020;
+            }
+            aliases_.add(s);
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -101,6 +111,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = aliases_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -117,6 +130,7 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.UpdateIndexRequest.class, com.rany.service.platform.meta.UpdateIndexRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int PROJECT_FIELD_NUMBER = 1;
   private volatile java.lang.Object project_;
   /**
@@ -285,6 +299,35 @@ private static final long serialVersionUID = 0L;
     return getSetting();
   }
 
+  public static final int ALIASES_FIELD_NUMBER = 6;
+  private com.google.protobuf.LazyStringList aliases_;
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  public com.google.protobuf.ProtocolStringList
+      getAliasesList() {
+    return aliases_;
+  }
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  public int getAliasesCount() {
+    return aliases_.size();
+  }
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  public java.lang.String getAliases(int index) {
+    return aliases_.get(index);
+  }
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getAliasesBytes(int index) {
+    return aliases_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -312,6 +355,9 @@ private static final long serialVersionUID = 0L;
     if (setting_ != null) {
       output.writeMessage(5, getSetting());
     }
+    for (int i = 0; i < aliases_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, aliases_.getRaw(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -336,6 +382,14 @@ private static final long serialVersionUID = 0L;
     if (setting_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getSetting());
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < aliases_.size(); i++) {
+        dataSize += computeStringSizeNoTag(aliases_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getAliasesList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -369,6 +423,8 @@ private static final long serialVersionUID = 0L;
       result = result && getSetting()
           .equals(other.getSetting());
     }
+    result = result && getAliasesList()
+        .equals(other.getAliasesList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -393,6 +449,10 @@ private static final long serialVersionUID = 0L;
     if (hasSetting()) {
       hash = (37 * hash) + SETTING_FIELD_NUMBER;
       hash = (53 * hash) + getSetting().hashCode();
+    }
+    if (getAliasesCount() > 0) {
+      hash = (37 * hash) + ALIASES_FIELD_NUMBER;
+      hash = (53 * hash) + getAliasesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -541,6 +601,8 @@ private static final long serialVersionUID = 0L;
         setting_ = null;
         settingBuilder_ = null;
       }
+      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -563,6 +625,8 @@ private static final long serialVersionUID = 0L;
 
     public com.rany.service.platform.meta.UpdateIndexRequest buildPartial() {
       com.rany.service.platform.meta.UpdateIndexRequest result = new com.rany.service.platform.meta.UpdateIndexRequest(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.project_ = project_;
       result.indexTemplate_ = indexTemplate_;
       result.indexName_ = indexName_;
@@ -576,6 +640,12 @@ private static final long serialVersionUID = 0L;
       } else {
         result.setting_ = settingBuilder_.build();
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = aliases_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.aliases_ = aliases_;
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -635,6 +705,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasSetting()) {
         mergeSetting(other.getSetting());
       }
+      if (!other.aliases_.isEmpty()) {
+        if (aliases_.isEmpty()) {
+          aliases_ = other.aliases_;
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          ensureAliasesIsMutable();
+          aliases_.addAll(other.aliases_);
+        }
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -661,6 +741,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -1173,6 +1254,100 @@ private static final long serialVersionUID = 0L;
         setting_ = null;
       }
       return settingBuilder_;
+    }
+
+    private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureAliasesIsMutable() {
+      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
+        bitField0_ |= 0x00000020;
+       }
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAliasesList() {
+      return aliases_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public int getAliasesCount() {
+      return aliases_.size();
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public java.lang.String getAliases(int index) {
+      return aliases_.get(index);
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAliasesBytes(int index) {
+      return aliases_.getByteString(index);
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public Builder setAliases(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasesIsMutable();
+      aliases_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public Builder addAliases(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasesIsMutable();
+      aliases_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public Builder addAllAliases(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureAliasesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, aliases_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public Builder clearAliases() {
+      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    public Builder addAliasesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureAliasesIsMutable();
+      aliases_.add(value);
+      onChanged();
+      return this;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

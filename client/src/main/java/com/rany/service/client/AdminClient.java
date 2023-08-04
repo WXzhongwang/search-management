@@ -1,9 +1,7 @@
 package com.rany.service.client;
 
 import com.rany.service.client.rpc.request.*;
-import com.rany.service.platform.meta.ClusterInfo;
-import com.rany.service.platform.meta.IndexTemplateInfo;
-import com.rany.service.platform.meta.ProjectInfo;
+import com.rany.service.platform.meta.*;
 
 import java.util.List;
 import java.util.Set;
@@ -149,6 +147,26 @@ public class AdminClient {
     public void updateIndex(IndexUpdateRequest indexUpdateRequest) {
         indexUpdateRequest.check();
         adminProxy.updateIndex(indexUpdateRequest);
+    }
+
+    public List<String> listIndex(IndexListRequest listIndexRequest) {
+        listIndexRequest.check();
+        return adminProxy.listIndex(listIndexRequest);
+    }
+
+    public List<IndexInfo> listIndexDetails(IndexListDetailsRequest listIndexRequest) {
+        listIndexRequest.check();
+        return adminProxy.listIndexDetails(listIndexRequest);
+    }
+
+    public List<IndexNameEntry> listIndexName(IndexListNameRequest listIndexRequest) {
+        listIndexRequest.check();
+        return adminProxy.listIndexName(listIndexRequest);
+    }
+
+    public List<IndexNameEntry> listIndexAlias(IndexListAliasRequest listIndexRequest) {
+        listIndexRequest.check();
+        return adminProxy.listIndexAlias(listIndexRequest);
     }
 }
 

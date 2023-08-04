@@ -23,26 +23,21 @@ public interface ListIndexReplyOrBuilder extends
       getMessageBytes();
 
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  java.util.List<com.rany.service.platform.meta.IndexInfo> 
+  java.util.List<java.lang.String>
       getIndicesList();
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
-   */
-  com.rany.service.platform.meta.IndexInfo getIndices(int index);
-  /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
   int getIndicesCount();
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  java.util.List<? extends com.rany.service.platform.meta.IndexInfoOrBuilder> 
-      getIndicesOrBuilderList();
+  java.lang.String getIndices(int index);
   /**
-   * <code>repeated .IndexInfo indices = 3;</code>
+   * <code>repeated string indices = 3;</code>
    */
-  com.rany.service.platform.meta.IndexInfoOrBuilder getIndicesOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getIndicesBytes(int index);
 }

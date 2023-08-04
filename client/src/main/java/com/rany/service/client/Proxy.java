@@ -594,7 +594,6 @@ public class Proxy implements Bootstrap {
         }
     }
 
-
     public void deleteIndex(IndexDeleteRequest deleteIndexRequest)  {
         DeleteIndexRequest request = DeleteIndexRequest.newBuilder()
                 .setProject(deleteIndexRequest.getProject())
@@ -615,16 +614,22 @@ public class Proxy implements Bootstrap {
         }
     }
 
-
     public void updateIndex(IndexUpdateRequest indexUpdateRequest)  {
         AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexUpdateRequest.getAutoIndexRollingPolicy());
-        UpdateIndexRequest request = UpdateIndexRequest.newBuilder()
-                .setProject(indexUpdateRequest.getProject())
+        UpdateIndexRequest.Builder builder = UpdateIndexRequest.newBuilder();
+        builder.setProject(indexUpdateRequest.getProject())
                 .setIndexTemplate(indexUpdateRequest.getTemplate())
                 .setIndexName(indexUpdateRequest.getName())
                 .build();
         UpdateIndexReply reply = null;
 
+        if (indexUpdateRequest.getMapping() != null) {
+            builder.setMapping(StringValue.newBuilder().setValue(indexUpdateRequest.getMapping() ).build());
+        }
+        if (indexUpdateRequest.getSetting()  != null) {
+            builder.setSetting(StringValue.newBuilder().setValue(indexUpdateRequest.getSetting() ).build());
+        }
+        UpdateIndexRequest request = builder.build();
         try {
             metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
             reply = metaStub.updateIndex(request);
@@ -637,5 +642,83 @@ public class Proxy implements Bootstrap {
         }
     }
 
+    public List<String> listIndex(IndexListRequest indexListRequest)  {
+        ListIndexRequest.Builder builder = ListIndexRequest.newBuilder();
+        builder.setProject(indexListRequest.getProject())
+                .setIndexTemplate(indexListRequest.getTemplate())
+                .setCluster(indexListRequest.getCluster())
+                .build();
+        ListIndexReply reply = null;
+        ListIndexRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to update index with message: " + e.getMessage());
+        }
+        return reply.getIndicesList();
+    }
+
+    public List<IndexInfo> listIndexDetails(IndexListDetailsRequest indexListRequest)  {
+        ListIndexDetailsRequest.Builder builder = ListIndexDetailsRequest.newBuilder();
+        builder.setProject(indexListRequest.getProject())
+                .setIndexTemplate(indexListRequest.getTemplate())
+                .setCluster(indexListRequest.getCluster())
+                .build();
+        ListIndexDetailsReply reply = null;
+        ListIndexDetailsRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndexDetails(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to update index with message: " + e.getMessage());
+        }
+        return reply.getIndicesList();
+    }
+
+
+    public List<IndexNameEntry> listIndexName(IndexListNameRequest listIndexNameRequest)  {
+        ListIndexNameRequest.Builder builder = ListIndexNameRequest.newBuilder();
+        builder.setCluster(listIndexNameRequest.getCluster());
+        ListIndexNameReply reply = null;
+        ListIndexNameRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndexName(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to list index names with message: " + e.getMessage());
+        }
+        return reply.getIndexNamesList();
+    }
+
+    public List<IndexNameEntry> listIndexAlias(IndexListAliasRequest listIndexAliasRequest)  {
+        ListIndexAliasNameRequest.Builder builder = ListIndexAliasNameRequest.newBuilder();
+        builder.setCluster(listIndexAliasRequest.getCluster());
+        ListIndexAliasNameReply reply = null;
+        ListIndexAliasNameRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.listIndexAliasName(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to list index alias list with message: " + e.getMessage());
+        }
+        return reply.getIndexAliasNamesList();
+    }
 
 }

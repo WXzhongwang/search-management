@@ -269,6 +269,41 @@ public final class SearchMiddlePlatformMetaService {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ListIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexDetailsReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexDetailsReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_IndexNameEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_IndexNameEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexNameRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexNameRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexNameReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexNameReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexAliasNameRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexAliasNameRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexAliasNameReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexAliasNameReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -401,67 +436,87 @@ public final class SearchMiddlePlatformMetaService {
       "umber\030\013 \001(\005\022\024\n\014index_health\030\014 \001(\t\022\022\n\npro" +
       "ject_id\030\r \001(\t\022\022\n\ncluster_id\030\016 \001(\t\022/\n\016rol" +
       "ling_policy\030\017 \001(\0162\027.AutoIndexRollingPoli" +
-      "cy\022\020\n\010index_id\030\020 \001(\005\022\020\n\010template\030\021 \001(\t\"\255" +
+      "cy\022\020\n\010index_id\030\020 \001(\005\022\020\n\010template\030\021 \001(\t\"\276" +
       "\001\n\022UpdateIndexRequest\022\017\n\007project\030\001 \001(\t\022\025" +
       "\n\rindexTemplate\030\002 \001(\t\022\021\n\tindexName\030\003 \001(\t" +
       "\022-\n\007mapping\030\004 \001(\0132\034.google.protobuf.Stri" +
       "ngValue\022-\n\007setting\030\005 \001(\0132\034.google.protob" +
-      "uf.StringValue\"1\n\020UpdateIndexReply\022\014\n\004co" +
-      "de\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"O\n\022DeleteIndex",
-      "Request\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplat" +
-      "e\030\002 \001(\t\022\021\n\tindexName\030\003 \001(\t\"1\n\020DeleteInde" +
-      "xReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"H\n" +
-      "\020ListIndexRequest\022\022\n\ncluster_id\030\001 \001(\005\022\022\n" +
-      "\nproject_id\030\002 \001(\005\022\014\n\004name\030\003 \001(\t\"L\n\016ListI" +
-      "ndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t" +
-      "\022\033\n\007indices\030\003 \003(\0132\n.IndexInfo*\037\n\013Cluster" +
-      "Type\022\007\n\003HDD\020\000\022\007\n\003SSD\020\001*S\n\rClusterStatus\022" +
-      "\010\n\004NULL\020\000\022\014\n\010CREATING\020\001\022\016\n\nIN_SERVICE\020\002\022" +
-      "\014\n\010DISABLED\020\003\022\014\n\010DELETING\020\004*\'\n\rProjectSt",
-      "atus\022\n\n\006NORMAL\020\000\022\n\n\006DELETE\020\001*\\\n\026AutoInde" +
-      "xRollingPolicy\022\010\n\004NONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MON" +
-      "TH\020\002\022\013\n\007QUARTER\020\003\022\r\n\tHALF_YEAR\020\004\022\010\n\004YEAR" +
-      "\020\0052\211\014\n\013MetaService\022=\n\rCreateCluster\022\025.Cr" +
-      "eateClusterRequest\032\023.CreateClusterReply\"" +
-      "\000\022=\n\rDeleteCluster\022\025.DeleteClusterReques" +
-      "t\032\023.DeleteClusterReply\"\000\022E\n\rUpdateCluste" +
-      "r\022\031.UpdateClusterInfoRequest\032\027.UpdateClu" +
-      "sterInfoReply\"\000\022@\n\016GetClusterInfo\022\026.GetC" +
-      "lusterInfoRequest\032\024.GetClusterInfoReply\"",
-      "\000\0227\n\013ListCluster\022\023.ListClusterRequest\032\021." +
-      "ListClusterReply\"\000\022L\n\022ListClusterDetails" +
-      "\022\032.ListClusterDetailsRequest\032\030.ListClust" +
-      "erDetailsReply\"\000\022=\n\rCreateProject\022\025.Crea" +
-      "teProjectRequest\032\023.CreateProjectReply\"\000\022" +
-      "=\n\rDeleteProject\022\025.DeleteProjectRequest\032" +
-      "\023.DeleteProjectReply\"\000\022=\n\rUpdateProject\022" +
-      "\025.UpdateProjectRequest\032\023.UpdateProjectRe" +
-      "ply\"\000\0224\n\nGetProject\022\022.GetProjectRequest\032" +
-      "\020.GetProjectReply\"\000\0227\n\013ListProject\022\023.Lis",
-      "tProjectRequest\032\021.ListProjectReply\"\000\022L\n\022" +
-      "ListProjectDetails\022\032.ListProjectDetailsR" +
-      "equest\032\030.ListProjectDetailsReply\"\000\022O\n\023Cr" +
-      "eateIndexTemplate\022\033.CreateIndexTemplateR" +
-      "equest\032\031.CreateIndexTemplateReply\"\000\022F\n\020G" +
-      "etIndexTemplate\022\030.GetIndexTemplateReques" +
-      "t\032\026.GetIndexTemplateReply\"\000\022O\n\023UpdateInd" +
-      "exTemplate\022\033.UpdateIndexTemplateRequest\032" +
-      "\031.UpdateIndexTemplateReply\"\000\022O\n\023DeleteIn" +
-      "dexTemplate\022\033.DeleteIndexTemplateRequest",
-      "\032\031.DeleteIndexTemplateReply\"\000\022I\n\021ListInd" +
-      "exTemplate\022\031.ListIndexTemplateRequest\032\027." +
-      "ListIndexTemplateReply\"\000\022^\n\030ListIndexTem" +
-      "plateDetails\022 .ListIndexTemplateDetailsR" +
-      "equest\032\036.ListIndexTemplateDetailsReply\"\000" +
-      "\0227\n\013CreateIndex\022\023.CreateIndexRequest\032\021.C" +
-      "reateIndexReply\"\000\022.\n\010GetIndex\022\020.GetIndex" +
-      "Request\032\016.GetIndexReply\"\000\0227\n\013UpdateIndex" +
-      "\022\023.UpdateIndexRequest\032\021.UpdateIndexReply" +
-      "\"\000\0227\n\013DeleteIndex\022\023.DeleteIndexRequest\032\021",
-      ".DeleteIndexReply\"\000\0221\n\tListIndex\022\021.ListI" +
-      "ndexRequest\032\017.ListIndexReply\"\000BC\n\036com.ra" +
-      "ny.service.platform.metaB\037SearchMiddlePl" +
-      "atformMetaServiceP\001b\006proto3"
+      "uf.StringValue\022\017\n\007aliases\030\006 \003(\t\"1\n\020Updat" +
+      "eIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001",
+      "(\t\"O\n\022DeleteIndexRequest\022\017\n\007project\030\001 \001(" +
+      "\t\022\025\n\rindexTemplate\030\002 \001(\t\022\021\n\tindexName\030\003 " +
+      "\001(\t\"1\n\020DeleteIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n" +
+      "\007message\030\002 \001(\t\"K\n\020ListIndexRequest\022\017\n\007cl" +
+      "uster\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTem" +
+      "plate\030\003 \001(\t\"@\n\016ListIndexReply\022\014\n\004code\030\001 " +
+      "\001(\005\022\017\n\007message\030\002 \001(\t\022\017\n\007indices\030\003 \003(\t\"R\n" +
+      "\027ListIndexDetailsRequest\022\017\n\007cluster\030\001 \001(" +
+      "\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(" +
+      "\t\"S\n\025ListIndexDetailsReply\022\014\n\004code\030\001 \001(\005",
+      "\022\017\n\007message\030\002 \001(\t\022\033\n\007indices\030\003 \003(\0132\n.Ind" +
+      "exInfo\"}\n\016IndexNameEntry\022\017\n\007project\030\001 \001(" +
+      "\t\022\025\n\rindexTemplate\030\002 \001(\t\022\021\n\tindexName\030\003 " +
+      "\001(\t\022\021\n\tfull_name\030\004 \001(\t\022\016\n\006domain\030\005 \001(\t\022\r" +
+      "\n\005group\030\006 \001(\t\"\'\n\024ListIndexNameRequest\022\017\n" +
+      "\007cluster\030\001 \001(\t\"X\n\022ListIndexNameReply\022\014\n\004" +
+      "code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022#\n\nindexName" +
+      "s\030\003 \003(\0132\017.IndexNameEntry\",\n\031ListIndexAli" +
+      "asNameRequest\022\017\n\007cluster\030\001 \001(\t\"b\n\027ListIn" +
+      "dexAliasNameReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa",
+      "ge\030\002 \001(\t\022(\n\017indexAliasNames\030\003 \003(\0132\017.Inde" +
+      "xNameEntry*\037\n\013ClusterType\022\007\n\003HDD\020\000\022\007\n\003SS" +
+      "D\020\001*S\n\rClusterStatus\022\010\n\004NULL\020\000\022\014\n\010CREATI" +
+      "NG\020\001\022\016\n\nIN_SERVICE\020\002\022\014\n\010DISABLED\020\003\022\014\n\010DE" +
+      "LETING\020\004*\'\n\rProjectStatus\022\n\n\006NORMAL\020\000\022\n\n" +
+      "\006DELETE\020\001*\\\n\026AutoIndexRollingPolicy\022\010\n\004N" +
+      "ONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MONTH\020\002\022\013\n\007QUARTER\020\003\022\r" +
+      "\n\tHALF_YEAR\020\004\022\010\n\004YEAR\020\0052\336\r\n\013MetaService\022" +
+      "=\n\rCreateCluster\022\025.CreateClusterRequest\032" +
+      "\023.CreateClusterReply\"\000\022=\n\rDeleteCluster\022",
+      "\025.DeleteClusterRequest\032\023.DeleteClusterRe" +
+      "ply\"\000\022E\n\rUpdateCluster\022\031.UpdateClusterIn" +
+      "foRequest\032\027.UpdateClusterInfoReply\"\000\022@\n\016" +
+      "GetClusterInfo\022\026.GetClusterInfoRequest\032\024" +
+      ".GetClusterInfoReply\"\000\0227\n\013ListCluster\022\023." +
+      "ListClusterRequest\032\021.ListClusterReply\"\000\022" +
+      "L\n\022ListClusterDetails\022\032.ListClusterDetai" +
+      "lsRequest\032\030.ListClusterDetailsReply\"\000\022=\n" +
+      "\rCreateProject\022\025.CreateProjectRequest\032\023." +
+      "CreateProjectReply\"\000\022=\n\rDeleteProject\022\025.",
+      "DeleteProjectRequest\032\023.DeleteProjectRepl" +
+      "y\"\000\022=\n\rUpdateProject\022\025.UpdateProjectRequ" +
+      "est\032\023.UpdateProjectReply\"\000\0224\n\nGetProject" +
+      "\022\022.GetProjectRequest\032\020.GetProjectReply\"\000" +
+      "\0227\n\013ListProject\022\023.ListProjectRequest\032\021.L" +
+      "istProjectReply\"\000\022L\n\022ListProjectDetails\022" +
+      "\032.ListProjectDetailsRequest\032\030.ListProjec" +
+      "tDetailsReply\"\000\022O\n\023CreateIndexTemplate\022\033" +
+      ".CreateIndexTemplateRequest\032\031.CreateInde" +
+      "xTemplateReply\"\000\022F\n\020GetIndexTemplate\022\030.G",
+      "etIndexTemplateRequest\032\026.GetIndexTemplat" +
+      "eReply\"\000\022O\n\023UpdateIndexTemplate\022\033.Update" +
+      "IndexTemplateRequest\032\031.UpdateIndexTempla" +
+      "teReply\"\000\022O\n\023DeleteIndexTemplate\022\033.Delet" +
+      "eIndexTemplateRequest\032\031.DeleteIndexTempl" +
+      "ateReply\"\000\022I\n\021ListIndexTemplate\022\031.ListIn" +
+      "dexTemplateRequest\032\027.ListIndexTemplateRe" +
+      "ply\"\000\022^\n\030ListIndexTemplateDetails\022 .List" +
+      "IndexTemplateDetailsRequest\032\036.ListIndexT" +
+      "emplateDetailsReply\"\000\0227\n\013CreateIndex\022\023.C",
+      "reateIndexRequest\032\021.CreateIndexReply\"\000\022." +
+      "\n\010GetIndex\022\020.GetIndexRequest\032\016.GetIndexR" +
+      "eply\"\000\0227\n\013UpdateIndex\022\023.UpdateIndexReque" +
+      "st\032\021.UpdateIndexReply\"\000\0227\n\013DeleteIndex\022\023" +
+      ".DeleteIndexRequest\032\021.DeleteIndexReply\"\000" +
+      "\0221\n\tListIndex\022\021.ListIndexRequest\032\017.ListI" +
+      "ndexReply\"\000\022F\n\020ListIndexDetails\022\030.ListIn" +
+      "dexDetailsRequest\032\026.ListIndexDetailsRepl" +
+      "y\"\000\022=\n\rListIndexName\022\025.ListIndexNameRequ" +
+      "est\032\023.ListIndexNameReply\"\000\022L\n\022ListIndexA",
+      "liasName\022\032.ListIndexAliasNameRequest\032\030.L" +
+      "istIndexAliasNameReply\"\000BC\n\036com.rany.ser" +
+      "vice.platform.metaB\037SearchMiddlePlatform" +
+      "MetaServiceP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -751,7 +806,7 @@ public final class SearchMiddlePlatformMetaService {
     internal_static_UpdateIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UpdateIndexRequest_descriptor,
-        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "Mapping", "Setting", });
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "Mapping", "Setting", "Aliases", });
     internal_static_UpdateIndexReply_descriptor =
       getDescriptor().getMessageTypes().get(46);
     internal_static_UpdateIndexReply_fieldAccessorTable = new
@@ -775,13 +830,55 @@ public final class SearchMiddlePlatformMetaService {
     internal_static_ListIndexRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListIndexRequest_descriptor,
-        new java.lang.String[] { "ClusterId", "ProjectId", "Name", });
+        new java.lang.String[] { "Cluster", "Project", "IndexTemplate", });
     internal_static_ListIndexReply_descriptor =
       getDescriptor().getMessageTypes().get(50);
     internal_static_ListIndexReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ListIndexReply_descriptor,
         new java.lang.String[] { "Code", "Message", "Indices", });
+    internal_static_ListIndexDetailsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(51);
+    internal_static_ListIndexDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexDetailsRequest_descriptor,
+        new java.lang.String[] { "Cluster", "Project", "IndexTemplate", });
+    internal_static_ListIndexDetailsReply_descriptor =
+      getDescriptor().getMessageTypes().get(52);
+    internal_static_ListIndexDetailsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexDetailsReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Indices", });
+    internal_static_IndexNameEntry_descriptor =
+      getDescriptor().getMessageTypes().get(53);
+    internal_static_IndexNameEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_IndexNameEntry_descriptor,
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "FullName", "Domain", "Group", });
+    internal_static_ListIndexNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(54);
+    internal_static_ListIndexNameRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexNameRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListIndexNameReply_descriptor =
+      getDescriptor().getMessageTypes().get(55);
+    internal_static_ListIndexNameReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexNameReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "IndexNames", });
+    internal_static_ListIndexAliasNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(56);
+    internal_static_ListIndexAliasNameRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexAliasNameRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListIndexAliasNameReply_descriptor =
+      getDescriptor().getMessageTypes().get(57);
+    internal_static_ListIndexAliasNameReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexAliasNameReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "IndexAliasNames", });
     com.google.protobuf.WrappersProto.getDescriptor();
   }
 

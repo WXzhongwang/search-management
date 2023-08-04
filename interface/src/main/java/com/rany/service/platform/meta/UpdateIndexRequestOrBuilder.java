@@ -86,4 +86,23 @@ public interface UpdateIndexRequestOrBuilder extends
    * <code>.google.protobuf.StringValue setting = 5;</code>
    */
   com.google.protobuf.StringValueOrBuilder getSettingOrBuilder();
+
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  java.util.List<java.lang.String>
+      getAliasesList();
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  int getAliasesCount();
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  java.lang.String getAliases(int index);
+  /**
+   * <code>repeated string aliases = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getAliasesBytes(int index);
 }
