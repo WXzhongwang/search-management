@@ -306,6 +306,7 @@ public class MasterServiceInternalImpl {
         metricRefresherFuture.cancel(false);
         syncMetaFuture.cancel(false);
         autoIndexRollingFuture.cancel(false);
+        indexDomainRefreshFuture.cancel(false);
         backgroundRunning = false;
     }
 
