@@ -16,8 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListProjectRequest() {
-    clusterId_ = "";
-    name_ = "";
+    cluster_ = "";
   }
 
   @java.lang.Override
@@ -51,13 +50,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            clusterId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
+            cluster_ = s;
             break;
           }
         }
@@ -84,68 +77,34 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.ListProjectRequest.class, com.rany.service.platform.meta.ListProjectRequest.Builder.class);
   }
 
-  public static final int CLUSTER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object clusterId_;
+  public static final int CLUSTER_FIELD_NUMBER = 1;
+  private volatile java.lang.Object cluster_;
   /**
-   * <code>string cluster_id = 1;</code>
+   * <code>string cluster = 1;</code>
    */
-  public java.lang.String getClusterId() {
-    java.lang.Object ref = clusterId_;
+  public java.lang.String getCluster() {
+    java.lang.Object ref = cluster_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      clusterId_ = s;
+      cluster_ = s;
       return s;
     }
   }
   /**
-   * <code>string cluster_id = 1;</code>
+   * <code>string cluster = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getClusterIdBytes() {
-    java.lang.Object ref = clusterId_;
+      getClusterBytes() {
+    java.lang.Object ref = cluster_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      clusterId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
-  /**
-   * <code>string name = 2;</code>
-   */
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string name = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
+      cluster_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -164,11 +123,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getClusterIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clusterId_);
-    }
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+    if (!getClusterBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cluster_);
     }
     unknownFields.writeTo(output);
   }
@@ -178,11 +134,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getClusterIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clusterId_);
-    }
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+    if (!getClusterBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cluster_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -200,10 +153,8 @@ private static final long serialVersionUID = 0L;
     com.rany.service.platform.meta.ListProjectRequest other = (com.rany.service.platform.meta.ListProjectRequest) obj;
 
     boolean result = true;
-    result = result && getClusterId()
-        .equals(other.getClusterId());
-    result = result && getName()
-        .equals(other.getName());
+    result = result && getCluster()
+        .equals(other.getCluster());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -215,10 +166,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getClusterId().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + CLUSTER_FIELD_NUMBER;
+    hash = (53 * hash) + getCluster().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -348,9 +297,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      clusterId_ = "";
-
-      name_ = "";
+      cluster_ = "";
 
       return this;
     }
@@ -374,8 +321,7 @@ private static final long serialVersionUID = 0L;
 
     public com.rany.service.platform.meta.ListProjectRequest buildPartial() {
       com.rany.service.platform.meta.ListProjectRequest result = new com.rany.service.platform.meta.ListProjectRequest(this);
-      result.clusterId_ = clusterId_;
-      result.name_ = name_;
+      result.cluster_ = cluster_;
       onBuilt();
       return result;
     }
@@ -417,12 +363,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.rany.service.platform.meta.ListProjectRequest other) {
       if (other == com.rany.service.platform.meta.ListProjectRequest.getDefaultInstance()) return this;
-      if (!other.getClusterId().isEmpty()) {
-        clusterId_ = other.clusterId_;
-        onChanged();
-      }
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
+      if (!other.getCluster().isEmpty()) {
+        cluster_ = other.cluster_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -452,140 +394,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object clusterId_ = "";
+    private java.lang.Object cluster_ = "";
     /**
-     * <code>string cluster_id = 1;</code>
+     * <code>string cluster = 1;</code>
      */
-    public java.lang.String getClusterId() {
-      java.lang.Object ref = clusterId_;
+    public java.lang.String getCluster() {
+      java.lang.Object ref = cluster_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        clusterId_ = s;
+        cluster_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string cluster_id = 1;</code>
+     * <code>string cluster = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getClusterIdBytes() {
-      java.lang.Object ref = clusterId_;
+        getClusterBytes() {
+      java.lang.Object ref = cluster_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        clusterId_ = b;
+        cluster_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string cluster_id = 1;</code>
+     * <code>string cluster = 1;</code>
      */
-    public Builder setClusterId(
+    public Builder setCluster(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      clusterId_ = value;
+      cluster_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string cluster_id = 1;</code>
+     * <code>string cluster = 1;</code>
      */
-    public Builder clearClusterId() {
+    public Builder clearCluster() {
       
-      clusterId_ = getDefaultInstance().getClusterId();
+      cluster_ = getDefaultInstance().getCluster();
       onChanged();
       return this;
     }
     /**
-     * <code>string cluster_id = 1;</code>
+     * <code>string cluster = 1;</code>
      */
-    public Builder setClusterIdBytes(
+    public Builder setClusterBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      clusterId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object name_ = "";
-    /**
-     * <code>string name = 2;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string name = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string name = 2;</code>
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 2;</code>
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 2;</code>
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
+      cluster_ = value;
       onChanged();
       return this;
     }

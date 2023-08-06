@@ -12,5 +12,8 @@ import java.util.Map;
  */
 public class IndexTemplateMetaData extends IndexTemplateMeta {
 
+    /**
+     * 索引
+     */
     public Map<String, IndexMetaData> indexMetas;
 }

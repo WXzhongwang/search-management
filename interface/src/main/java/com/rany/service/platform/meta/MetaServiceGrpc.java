@@ -365,6 +365,45 @@ public final class MetaServiceGrpc {
               com.rany.service.platform.meta.ListIndexAliasNameReply.getDefaultInstance()))
           .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("ListIndexAliasName"))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.AttachIndexRequest,
+      com.rany.service.platform.meta.AttachIndexReply> METHOD_ATTACH_INDEX =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.AttachIndexRequest, com.rany.service.platform.meta.AttachIndexReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "AttachIndex"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.AttachIndexRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.AttachIndexReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("AttachIndex"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.DetachIndexRequest,
+      com.rany.service.platform.meta.DetachIndexReply> METHOD_DETACH_INDEX =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.DetachIndexRequest, com.rany.service.platform.meta.DetachIndexReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "DetachIndex"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.DetachIndexRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.DetachIndexReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("DetachIndex"))
+          .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<com.rany.service.platform.meta.RefreshIndexRequest,
+      com.rany.service.platform.meta.RefreshIndexReply> METHOD_REFRESH_INDEX =
+      io.grpc.MethodDescriptor.<com.rany.service.platform.meta.RefreshIndexRequest, com.rany.service.platform.meta.RefreshIndexReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "MetaService", "RefreshIndex"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.RefreshIndexRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              com.rany.service.platform.meta.RefreshIndexReply.getDefaultInstance()))
+          .setSchemaDescriptor(new MetaServiceMethodDescriptorSupplier("RefreshIndex"))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -587,6 +626,27 @@ public final class MetaServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_LIST_INDEX_ALIAS_NAME, responseObserver);
     }
 
+    /**
+     */
+    public void attachIndex(com.rany.service.platform.meta.AttachIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.AttachIndexReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_ATTACH_INDEX, responseObserver);
+    }
+
+    /**
+     */
+    public void detachIndex(com.rany.service.platform.meta.DetachIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DetachIndexReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_DETACH_INDEX, responseObserver);
+    }
+
+    /**
+     */
+    public void refreshIndex(com.rany.service.platform.meta.RefreshIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.RefreshIndexReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_REFRESH_INDEX, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -771,6 +831,27 @@ public final class MetaServiceGrpc {
                 com.rany.service.platform.meta.ListIndexAliasNameRequest,
                 com.rany.service.platform.meta.ListIndexAliasNameReply>(
                   this, METHODID_LIST_INDEX_ALIAS_NAME)))
+          .addMethod(
+            METHOD_ATTACH_INDEX,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.AttachIndexRequest,
+                com.rany.service.platform.meta.AttachIndexReply>(
+                  this, METHODID_ATTACH_INDEX)))
+          .addMethod(
+            METHOD_DETACH_INDEX,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.DetachIndexRequest,
+                com.rany.service.platform.meta.DetachIndexReply>(
+                  this, METHODID_DETACH_INDEX)))
+          .addMethod(
+            METHOD_REFRESH_INDEX,
+            asyncUnaryCall(
+              new MethodHandlers<
+                com.rany.service.platform.meta.RefreshIndexRequest,
+                com.rany.service.platform.meta.RefreshIndexReply>(
+                  this, METHODID_REFRESH_INDEX)))
           .build();
     }
   }
@@ -1012,6 +1093,30 @@ public final class MetaServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_LIST_INDEX_ALIAS_NAME, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void attachIndex(com.rany.service.platform.meta.AttachIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.AttachIndexReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_ATTACH_INDEX, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void detachIndex(com.rany.service.platform.meta.DetachIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DetachIndexReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_DETACH_INDEX, getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void refreshIndex(com.rany.service.platform.meta.RefreshIndexRequest request,
+        io.grpc.stub.StreamObserver<com.rany.service.platform.meta.RefreshIndexReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_REFRESH_INDEX, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1224,6 +1329,27 @@ public final class MetaServiceGrpc {
     public com.rany.service.platform.meta.ListIndexAliasNameReply listIndexAliasName(com.rany.service.platform.meta.ListIndexAliasNameRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_LIST_INDEX_ALIAS_NAME, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.AttachIndexReply attachIndex(com.rany.service.platform.meta.AttachIndexRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_ATTACH_INDEX, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.DetachIndexReply detachIndex(com.rany.service.platform.meta.DetachIndexRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_DETACH_INDEX, getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.rany.service.platform.meta.RefreshIndexReply refreshIndex(com.rany.service.platform.meta.RefreshIndexRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_REFRESH_INDEX, getCallOptions(), request);
     }
   }
 
@@ -1464,6 +1590,30 @@ public final class MetaServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_LIST_INDEX_ALIAS_NAME, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.AttachIndexReply> attachIndex(
+        com.rany.service.platform.meta.AttachIndexRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_ATTACH_INDEX, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.DetachIndexReply> detachIndex(
+        com.rany.service.platform.meta.DetachIndexRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_DETACH_INDEX, getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.rany.service.platform.meta.RefreshIndexReply> refreshIndex(
+        com.rany.service.platform.meta.RefreshIndexRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_REFRESH_INDEX, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_CLUSTER = 0;
@@ -1492,6 +1642,9 @@ public final class MetaServiceGrpc {
   private static final int METHODID_LIST_INDEX_DETAILS = 23;
   private static final int METHODID_LIST_INDEX_NAME = 24;
   private static final int METHODID_LIST_INDEX_ALIAS_NAME = 25;
+  private static final int METHODID_ATTACH_INDEX = 26;
+  private static final int METHODID_DETACH_INDEX = 27;
+  private static final int METHODID_REFRESH_INDEX = 28;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1614,6 +1767,18 @@ public final class MetaServiceGrpc {
           serviceImpl.listIndexAliasName((com.rany.service.platform.meta.ListIndexAliasNameRequest) request,
               (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.ListIndexAliasNameReply>) responseObserver);
           break;
+        case METHODID_ATTACH_INDEX:
+          serviceImpl.attachIndex((com.rany.service.platform.meta.AttachIndexRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.AttachIndexReply>) responseObserver);
+          break;
+        case METHODID_DETACH_INDEX:
+          serviceImpl.detachIndex((com.rany.service.platform.meta.DetachIndexRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.DetachIndexReply>) responseObserver);
+          break;
+        case METHODID_REFRESH_INDEX:
+          serviceImpl.refreshIndex((com.rany.service.platform.meta.RefreshIndexRequest) request,
+              (io.grpc.stub.StreamObserver<com.rany.service.platform.meta.RefreshIndexReply>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -1701,6 +1866,9 @@ public final class MetaServiceGrpc {
               .addMethod(METHOD_LIST_INDEX_DETAILS)
               .addMethod(METHOD_LIST_INDEX_NAME)
               .addMethod(METHOD_LIST_INDEX_ALIAS_NAME)
+              .addMethod(METHOD_ATTACH_INDEX)
+              .addMethod(METHOD_DETACH_INDEX)
+              .addMethod(METHOD_REFRESH_INDEX)
               .build();
         }
       }

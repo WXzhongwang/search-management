@@ -8,7 +8,32 @@ public interface GetIndexRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 index_id = 1;</code>
+   * <code>string name = 1;</code>
    */
-  int getIndexId();
+  java.lang.String getName();
+  /**
+   * <code>string name = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
+
+  /**
+   * <code>string project = 2;</code>
+   */
+  java.lang.String getProject();
+  /**
+   * <code>string project = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectBytes();
+
+  /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  java.lang.String getIndexTemplate();
+  /**
+   * <code>string indexTemplate = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexTemplateBytes();
 }

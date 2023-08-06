@@ -14,5 +14,8 @@ import java.util.HashMap;
  */
 public class ProjectMetaData extends ProjectMeta {
 
+    /**
+     * 索引模版
+     */
     public HashMap<String, IndexTemplateMetaData> indexTemplateMetaData;
 }

@@ -8,22 +8,12 @@ public interface ListProjectRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string cluster_id = 1;</code>
+   * <code>string cluster = 1;</code>
    */
-  java.lang.String getClusterId();
+  java.lang.String getCluster();
   /**
-   * <code>string cluster_id = 1;</code>
+   * <code>string cluster = 1;</code>
    */
   com.google.protobuf.ByteString
-      getClusterIdBytes();
-
-  /**
-   * <code>string name = 2;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+      getClusterBytes();
 }

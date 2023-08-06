@@ -405,7 +405,7 @@ public class Proxy implements Bootstrap {
 
     public List<String> listProject(ProjectListRequest projectListRequest) {
         ListProjectRequest request = ListProjectRequest.newBuilder()
-                .setName(projectListRequest.getName())
+                .setCluster(projectListRequest.getCluster())
                 .build();
         ListProjectReply reply = null;
         try {
@@ -423,7 +423,7 @@ public class Proxy implements Bootstrap {
 
     public List<ProjectInfo> listProjectDetails(ProjectListRequest projectListRequest) {
         ListProjectDetailsRequest request = ListProjectDetailsRequest.newBuilder()
-                .setCluster(projectListRequest.getName())
+                .setCluster(projectListRequest.getCluster())
                 .build();
         ListProjectDetailsReply reply = null;
         try {
@@ -438,8 +438,6 @@ public class Proxy implements Bootstrap {
         }
         return reply.getProjectsList();
     }
-
-
 
     public void createIndexTemplate(IndexTemplateCreateRequest indexTemplateCreateRequest) {
         AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexTemplateCreateRequest.getAutoIndexRollingPolicy());
@@ -465,7 +463,6 @@ public class Proxy implements Bootstrap {
                     "Fail to create index template with message: " + e.getMessage());
         }
     }
-
 
     public void updateIndexTemplate(IndexTemplateUpdateRequest request)  {
         UpdateIndexTemplateRequest.Builder builder = UpdateIndexTemplateRequest.newBuilder();
@@ -511,8 +508,6 @@ public class Proxy implements Bootstrap {
         }
     }
 
-
-
     public void deleteIndexTemplate(IndexTemplateDeleteRequest request)  {
         DeleteIndexTemplateRequest.Builder builder = DeleteIndexTemplateRequest.newBuilder();
         builder.setName(request.getName()).setProject(request.getProjectName());
@@ -530,7 +525,6 @@ public class Proxy implements Bootstrap {
                     "Fail to delete index template with message: " + e.getMessage());
         }
     }
-
 
     public List<String> listIndexTemplate(IndexTemplateListRequest listRequest)  {
         ListIndexTemplateRequest request = ListIndexTemplateRequest.newBuilder()
@@ -570,7 +564,6 @@ public class Proxy implements Bootstrap {
         return reply.getTemplatesList();
     }
 
-
     public void createIndex(IndexCreateRequest indexCreateRequest)  {
         AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexCreateRequest.getAutoIndexRollingPolicy());
         CreateIndexRequest request = CreateIndexRequest.newBuilder()
@@ -592,6 +585,26 @@ public class Proxy implements Bootstrap {
             throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
                     "Fail to create index with message: " + e.getMessage());
         }
+    }
+
+    public IndexInfo getIndex(IndexGetRequest indexGetRequest)  {
+        GetIndexRequest.Builder builder = GetIndexRequest.newBuilder();
+        builder.setProject(indexGetRequest.getProject());
+        builder.setName(indexGetRequest.getName());
+        builder.setIndexTemplate(indexGetRequest.getTemplate());
+        GetIndexReply reply = null;
+        GetIndexRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.getIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to get index with message: " + e.getMessage());
+        }
+        return reply.getIndex();
     }
 
     public void deleteIndex(IndexDeleteRequest deleteIndexRequest)  {
@@ -683,8 +696,7 @@ public class Proxy implements Bootstrap {
         }
         return reply.getIndicesList();
     }
-
-
+    
     public List<IndexNameEntry> listIndexName(IndexListNameRequest listIndexNameRequest)  {
         ListIndexNameRequest.Builder builder = ListIndexNameRequest.newBuilder();
         builder.setCluster(listIndexNameRequest.getCluster());
@@ -721,4 +733,61 @@ public class Proxy implements Bootstrap {
         return reply.getIndexAliasNamesList();
     }
 
+    public void attachIndex(IndexAttachRequest attachIndexRequest)  {
+        AttachIndexRequest.Builder builder = AttachIndexRequest.newBuilder();
+        builder.setProject(attachIndexRequest.getProject());
+        builder.setName(attachIndexRequest.getName());
+        builder.setIndexTemplate(attachIndexRequest.getTemplate());
+        AttachIndexReply reply = null;
+        AttachIndexRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.attachIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to attach index with message: " + e.getMessage());
+        }
+    }
+
+    public void detachIndex(IndexDetachRequest detachRequest)  {
+        DetachIndexRequest.Builder builder = DetachIndexRequest.newBuilder();
+        builder.setProject(detachRequest.getProject());
+        builder.setName(detachRequest.getName());
+        builder.setIndexTemplate(detachRequest.getTemplate());
+        DetachIndexReply reply = null;
+        DetachIndexRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.detachIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to detach index with message: " + e.getMessage());
+        }
+    }
+
+
+    public void refreshIndex(IndexRefreshRequest refreshRequest)  {
+        RefreshIndexRequest.Builder builder = RefreshIndexRequest.newBuilder();
+        builder.setProject(refreshRequest.getProject());
+        builder.setName(refreshRequest.getName());
+        builder.setIndexTemplate(refreshRequest.getTemplate());
+        RefreshIndexReply reply = null;
+        RefreshIndexRequest request = builder.build();
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.refreshIndex(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to refresh index with message: " + e.getMessage());
+        }
+    }
 }

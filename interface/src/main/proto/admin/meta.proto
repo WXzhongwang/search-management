@@ -45,6 +45,11 @@ service MetaService {
   rpc ListIndexDetails (ListIndexDetailsRequest) returns (ListIndexDetailsReply) {}
   rpc ListIndexName (ListIndexNameRequest) returns (ListIndexNameReply) {}
   rpc ListIndexAliasName (ListIndexAliasNameRequest) returns (ListIndexAliasNameReply) {}
+
+
+  rpc AttachIndex (AttachIndexRequest) returns (AttachIndexReply) {}
+  rpc DetachIndex (DetachIndexRequest) returns (DetachIndexReply) {}
+  rpc RefreshIndex (RefreshIndexRequest) returns (RefreshIndexReply) {}
 }
 
 message CreateClusterRequest {
@@ -225,8 +230,7 @@ enum ProjectStatus {
 }
 
 message ListProjectRequest {
-  string cluster_id = 1;
-  string name = 2;
+  string cluster = 1;
 }
 
 message ListProjectReply {
@@ -355,7 +359,9 @@ message CreateIndexReply {
 }
 
 message GetIndexRequest {
-  int32 index_id = 1;
+  string name = 1;
+  string project = 2;
+  string indexTemplate = 3;
 }
 
 message GetIndexReply {
@@ -468,4 +474,37 @@ message ListIndexAliasNameReply {
   int32 code = 1;
   string message = 2;
   repeated IndexNameEntry indexAliasNames = 3;
+}
+
+message AttachIndexRequest {
+  string name = 1;
+  string project = 2;
+  string indexTemplate = 3;
+}
+
+message AttachIndexReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message DetachIndexRequest {
+  string name = 1;
+  string project = 2;
+  string indexTemplate = 3;
+}
+
+message DetachIndexReply {
+  int32 code = 1;
+  string message = 2;
+}
+
+message RefreshIndexRequest {
+  string name = 1;
+  string project = 2;
+  string indexTemplate = 3;
+}
+
+message RefreshIndexReply {
+  int32 code = 1;
+  string message = 2;
 }

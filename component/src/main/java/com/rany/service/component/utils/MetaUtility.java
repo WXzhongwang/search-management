@@ -125,5 +125,13 @@ public class MetaUtility {
         return projectName + "." + indexGroupName + "." + aliasName;
     }
 
+    public static String getAliasName(String fullAliasName) {
+        String[] parts = fullAliasName.split("\\.");
+        if (parts.length == 3) {
+            return parts[2];
+        } else {
+            return "";
+        }
+    }
 
 }

@@ -575,16 +575,24 @@ public class MasterServiceInternalImpl {
                     if (DataTypeUtils.isInternalIndex(tmpIndexMeta.fullName)) {
                         continue;
                     }
+                    String projectName = null, indexTemplateName = null, indexName = null;
+
                     if (DataTypeUtils.isLegacy(tmpIndexMeta.fullName)) {
                         // 非常规索引待定
-                        continue;
+                        Pair<String, String> namePair = legacyIndexNameMap.get(tmpIndexMeta.name);
+                        if (namePair == null) {
+                            // This index is not managed by meta service, it should be deleted in someway;
+                        } else {
+                            projectName = namePair.getValue();
+                            indexTemplateName = namePair.getKey();
+                            indexName = tmpIndexMeta.name;
+                        }
+                    } else {
+                        String[] parts = tmpIndexMeta.fullName.split("\\.");
+                        projectName = parts[0];
+                        indexTemplateName = parts[1];
+                        indexName = parts[2];
                     }
-                    String projectName = null, indexTemplateName = null, indexName = null;
-                    String[] parts = tmpIndexMeta.fullName.split("\\.");
-                    projectName = parts[0];
-                    indexTemplateName = parts[1];
-                    indexName = parts[2];
-
                     if (projectName == null || indexTemplateName == null) {
                         continue;
                     }
@@ -1759,5 +1767,195 @@ public class MasterServiceInternalImpl {
             readLock.unlock();
         }
         return result;
+    }
+
+
+    public void attachIndex(String indexName, String projectName, String indexTemplateName) {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+
+        try {
+            writeLock.lock();
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exists in project [%s].", indexTemplateName, projectName));
+            }
+            if (templateMetaData.indexMetas.containsKey(indexName)) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(),
+                        String.format("Index [%s] already exist in IndexTemplate [%s] and project [%s]", indexName, indexTemplateName, projectName));
+            }
+
+            // Put a new index meta into the IndexTemplate meta;
+            IndexMetaData indexMeta = new IndexMetaData();
+            indexMeta.name = indexName;
+            indexMeta.fullName = indexMeta.name;
+            indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+            indexMeta.gmtModified = indexMeta.gmtCreate;
+            indexMeta.docs = 0;
+            indexMeta.totalData = 0;
+            indexMeta.legacy = true;
+            indexMeta.tags = null;
+            indexMeta.health = Constants.UNKNOWN;
+
+
+            AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
+            IndexMetaData tmpIndexMeta = client.acquireIndexSchema(indexMeta.fullName);
+            List<String> aliases = new ArrayList<>();
+            for (String alias : tmpIndexMeta.aliases) {
+                String aliasName = MetaUtility.getAliasName(alias);
+                String fullAliasName = MetaUtility.combineFullAliasName(projectName, indexTemplateName, aliasName);
+                // If the original alias name is equal to correct full alias name, add this alias;
+                if (fullAliasName.equalsIgnoreCase(alias)) {
+                    aliases.add(aliasName);
+                }
+            }
+            String mappings = tmpIndexMeta.mapping;
+            String settings = tmpIndexMeta.setting;
+            indexMeta.aliases = aliases;
+            indexMeta.mapping = mappings;
+            indexMeta.setting = settings;
+
+            metaStore.insertIndex(indexMeta);
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into persistent storage.",
+                    projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+
+
+
+            templateMetaData.indexMetas.put(indexMeta.name, indexMeta);
+            legacyIndexNameMap.put(indexMeta.name, new Pair<>(templateMetaData.templateName, projectMeta.projectName));
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into memory.",
+                    projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+        }  finally {
+            writeLock.unlock();
+        }
+    }
+
+    public void detachIndex(String indexName, String projectName, String indexTemplateName)  {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+
+        try {
+            writeLock.lock();
+            writeLock.lock();
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exists in project [%s].", indexTemplateName, projectName));
+            }
+            if (templateMetaData.indexMetas.containsKey(indexName)) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(),
+                        String.format("Index [%s] already exist in IndexTemplate [%s] and project [%s]", indexName, indexTemplateName, projectName));
+            }
+
+            metaStore.deleteIndex(projectName, indexTemplateName, indexName);
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been deleted from persistent storage.",
+                    projectName, indexTemplateName, indexName);
+
+            IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
+            templateMetaData.indexMetas.remove(indexName);
+            if (indexMeta.legacy) {
+                legacyIndexNameMap.remove(indexName);
+                logger.info("Index name [{}] has been removed from legacy index name mapping.", indexName);
+            }
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been deleted from memory.",
+                    projectName, indexTemplateName, indexName);
+        }  finally {
+            writeLock.unlock();
+        }
+    }
+
+    public IndexInfo getIndex(String projectName, String IndexTemplateName, String indexName) {
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        IndexInfo result = null;
+        try {
+            long startGetLock = System.nanoTime();
+            readLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData IndexTemplateMeta = projectMeta.indexTemplateMetaData.get(IndexTemplateName);
+            if (IndexTemplateMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exist in project [%s].", IndexTemplateName, projectName));
+            }
+            IndexMetaData indexMeta = IndexTemplateMeta.indexMetas.get(indexName);
+            if (indexMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Index [%s] does not exist in indexTemplate [%s] and project [%s].", indexName, IndexTemplateName, projectName));
+            }
+            result = MetaUtility.build(projectMeta.clusterName, projectName, IndexTemplateName, indexMeta);
+            logger.info("getIndex is called with projectName={} and indexTemplateName={} and indexName={}.", projectName, IndexTemplateName, indexName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndex: getLock:{} ms.", (endGetLock - startGetLock) / 1000000);
+        }  finally {
+            readLock.unlock();
+        }
+        return result;
+    }
+
+
+    public void refreshIndex(String projectName, String indexTemplateName, String indexName)  {
+        ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
+        try {
+            long startGetLock = System.nanoTime();
+            writeLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("IndexTemplate [%s] does not exist in project [%s].", indexTemplateName, projectName));
+            }
+            IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
+            if (indexMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
+                        String.format("Index [%s] does not exist in indexTemplate [%s] and project [%s].", indexName, indexTemplateName, projectName));
+            }
+
+            AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
+            String fullIndexName = null;
+            if (indexMeta.legacy) {
+                fullIndexName = indexMeta.name;
+            } else {
+                fullIndexName = MetaUtility.combineFullIndexName(projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+            }
+            IndexMetaData tmpIndexMeta = client.acquireIndexSchema(fullIndexName);
+            indexMeta.mapping = tmpIndexMeta.mapping;
+            indexMeta.setting = tmpIndexMeta.setting;
+            List<String> aliases = new ArrayList<>();
+            for (String alias : tmpIndexMeta.aliases) {
+                String aliasName = MetaUtility.getAliasName(alias);
+                String fullAliasName = MetaUtility.combineFullAliasName(projectMeta.projectName, templateMetaData.templateName, aliasName);
+                if (fullAliasName.equalsIgnoreCase(alias)) {
+                    aliases.add(aliasName);
+                }
+            }
+            indexMeta.aliases = aliases;
+
+            logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been refreshed from elastic cluster.",
+                    projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
+
+            logger.info("refreshIndex is called with projectName={} and indexTemplateName={} and indexName={}.", projectName, indexTemplateName, indexName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::refreshIndex: getLock:{} ms.", (endGetLock - startGetLock) / 1000000);
+        } finally {
+            writeLock.unlock();
+        }
     }
 }

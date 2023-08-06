@@ -41,7 +41,9 @@ public class AdminClient {
     }
 
     public void init() {
-        this.adminProxy.start();
+        if (!this.adminProxy.start()) {
+            throw new RuntimeException("Admin client start occur an error...");
+        }
     }
 
     public void shutdown() {
@@ -139,6 +141,11 @@ public class AdminClient {
         adminProxy.createIndex(indexCreateRequest);
     }
 
+    public IndexInfo createIndex(IndexGetRequest indexGetRequest) {
+        indexGetRequest.check();
+        return adminProxy.getIndex(indexGetRequest);
+    }
+
     public void deleteIndex(IndexDeleteRequest indexDeleteRequest) {
         indexDeleteRequest.check();
         adminProxy.deleteIndex(indexDeleteRequest);
@@ -167,6 +174,21 @@ public class AdminClient {
     public List<IndexNameEntry> listIndexAlias(IndexListAliasRequest listIndexRequest) {
         listIndexRequest.check();
         return adminProxy.listIndexAlias(listIndexRequest);
+    }
+
+    public void attachIndex(IndexAttachRequest attachIndexRequest) {
+        attachIndexRequest.check();
+        adminProxy.attachIndex(attachIndexRequest);
+    }
+
+    public void detachIndex(IndexDetachRequest detachIndexRequest) {
+        detachIndexRequest.check();
+        adminProxy.detachIndex(detachIndexRequest);
+    }
+
+    public void refreshIndex(IndexRefreshRequest refreshRequest) {
+        refreshRequest.check();
+        adminProxy.refreshIndex(refreshRequest);
     }
 }
 

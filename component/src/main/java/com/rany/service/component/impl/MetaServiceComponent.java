@@ -259,7 +259,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListProjectReply.Builder builder = ListProjectReply.newBuilder();
 
         // set properties
-        List<ProjectInfo> projects = internal.listProjects(request.getName());
+        List<ProjectInfo> projects = internal.listProjects(request.getCluster());
         if (projects != null && !projects.isEmpty()) {
             for (int i = 0; i < projects.size(); ++i) {
                 builder.addProjects(projects.get(i).getName());
@@ -452,6 +452,27 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
     }
 
     @Override
+    public void getIndex(GetIndexRequest request, StreamObserver<GetIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+        GetIndexReply.Builder builder = GetIndexReply.newBuilder();
+        internal.getIndex(request.getProject(), request.getIndexTemplate(), request.getName());
+
+        GetIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
     public void deleteIndex(DeleteIndexRequest request, StreamObserver<DeleteIndexReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
         MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
@@ -554,7 +575,6 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         responseObserver.onCompleted();
     }
 
-
     @Override
     public void listIndexName(ListIndexNameRequest request, StreamObserver<ListIndexNameReply> responseObserver) {
         CommonReturnCode code = CommonReturnCode.SUCCEED;
@@ -600,6 +620,70 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         }
 
         ListIndexAliasNameReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void attachIndex(AttachIndexRequest request, StreamObserver<AttachIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+
+        internal.attachIndex(request.getName(), request.getProject(), request.getIndexTemplate());
+        AttachIndexReply.Builder builder = AttachIndexReply.newBuilder();
+        AttachIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void detachIndex(DetachIndexRequest request, StreamObserver<DetachIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+
+        internal.detachIndex(request.getName(), request.getProject(), request.getIndexTemplate());
+        DetachIndexReply.Builder builder = DetachIndexReply.newBuilder();
+        DetachIndexReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+
+    @Override
+    public void refreshIndex(RefreshIndexRequest request, StreamObserver<RefreshIndexReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+
+
+        internal.refreshIndex(request.getName(), request.getProject(), request.getIndexTemplate());
+        RefreshIndexReply.Builder builder = RefreshIndexReply.newBuilder();
+        RefreshIndexReply reply = builder
                 .setCode(code.getCode())
                 .setMessage(code.getMessage())
                 .build();
