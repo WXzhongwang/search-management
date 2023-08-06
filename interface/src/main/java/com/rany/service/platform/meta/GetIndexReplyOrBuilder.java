@@ -4,34 +4,37 @@
 package com.rany.service.platform.meta;
 
 public interface GetIndexReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:GetIndexReply)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:GetIndexReply)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  int getCode();
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    int getCode();
 
-  /**
-   * <code>string message = 2;</code>
-   */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
 
-  /**
-   * <code>.IndexInfo index = 3;</code>
-   */
-  boolean hasIndex();
-  /**
-   * <code>.IndexInfo index = 3;</code>
-   */
-  com.rany.service.platform.meta.IndexInfo getIndex();
-  /**
-   * <code>.IndexInfo index = 3;</code>
-   */
-  com.rany.service.platform.meta.IndexInfoOrBuilder getIndexOrBuilder();
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getMessageBytes();
+
+    /**
+     * <code>.IndexInfo index = 3;</code>
+     */
+    boolean hasIndex();
+
+    /**
+     * <code>.IndexInfo index = 3;</code>
+     */
+    com.rany.service.platform.meta.IndexInfo getIndex();
+
+    /**
+     * <code>.IndexInfo index = 3;</code>
+     */
+    com.rany.service.platform.meta.IndexInfoOrBuilder getIndexOrBuilder();
 }

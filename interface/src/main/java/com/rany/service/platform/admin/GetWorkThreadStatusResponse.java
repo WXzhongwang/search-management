@@ -6,625 +6,665 @@ package com.rany.service.platform.admin;
 /**
  * Protobuf type {@code GetWorkThreadStatusResponse}
  */
-public  final class GetWorkThreadStatusResponse extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:GetWorkThreadStatusResponse)
-    GetWorkThreadStatusResponseOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use GetWorkThreadStatusResponse.newBuilder() to construct.
-  private GetWorkThreadStatusResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private GetWorkThreadStatusResponse() {
-    code_ = 0;
-    message_ = "";
-    running_ = false;
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private GetWorkThreadStatusResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-          case 8: {
-
-            code_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            message_ = s;
-            break;
-          }
-          case 24: {
-
-            running_ = input.readBool();
-            break;
-          }
+public final class GetWorkThreadStatusResponse extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:GetWorkThreadStatusResponse)
+        GetWorkThreadStatusResponseOrBuilder {
+    public static final int CODE_FIELD_NUMBER = 1;
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    public static final int RUNNING_FIELD_NUMBER = 3;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:GetWorkThreadStatusResponse)
+    private static final com.rany.service.platform.admin.GetWorkThreadStatusResponse DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<GetWorkThreadStatusResponse>
+            PARSER = new com.google.protobuf.AbstractParser<GetWorkThreadStatusResponse>() {
+        public GetWorkThreadStatusResponse parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new GetWorkThreadStatusResponse(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
+    };
+
+    static {
+        DEFAULT_INSTANCE = new com.rany.service.platform.admin.GetWorkThreadStatusResponse();
     }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
-  }
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            com.rany.service.platform.admin.GetWorkThreadStatusResponse.class, com.rany.service.platform.admin.GetWorkThreadStatusResponse.Builder.class);
-  }
+    private int code_;
+    private volatile java.lang.Object message_;
+    private boolean running_;
+    private byte memoizedIsInitialized = -1;
 
-  public static final int CODE_FIELD_NUMBER = 1;
-  private int code_;
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  public int getCode() {
-    return code_;
-  }
-
-  public static final int MESSAGE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object message_;
-  /**
-   * <code>string message = 2;</code>
-   */
-  public java.lang.String getMessage() {
-    java.lang.Object ref = message_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      message_ = s;
-      return s;
+    // Use GetWorkThreadStatusResponse.newBuilder() to construct.
+    private GetWorkThreadStatusResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
     }
-  }
-  /**
-   * <code>string message = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getMessageBytes() {
-    java.lang.Object ref = message_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      message_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
+
+    private GetWorkThreadStatusResponse() {
+        code_ = 0;
+        message_ = "";
+        running_ = false;
     }
-  }
 
-  public static final int RUNNING_FIELD_NUMBER = 3;
-  private boolean running_;
-  /**
-   * <code>bool running = 3;</code>
-   */
-  public boolean getRunning() {
-    return running_;
-  }
+    private GetWorkThreadStatusResponse(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    default: {
+                        if (!parseUnknownFieldProto3(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                    case 8: {
 
-  private byte memoizedIsInitialized = -1;
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
+                        code_ = input.readInt32();
+                        break;
+                    }
+                    case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-    memoizedIsInitialized = 1;
-    return true;
-  }
+                        message_ = s;
+                        break;
+                    }
+                    case 24: {
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (code_ != 0) {
-      output.writeInt32(1, code_);
+                        running_ = input.readBool();
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
     }
-    if (!getMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
-    }
-    if (running_ != false) {
-      output.writeBool(3, running_);
-    }
-    unknownFields.writeTo(output);
-  }
 
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (code_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, code_);
-    }
-    if (!getMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
-    }
-    if (running_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, running_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof com.rany.service.platform.admin.GetWorkThreadStatusResponse)) {
-      return super.equals(obj);
-    }
-    com.rany.service.platform.admin.GetWorkThreadStatusResponse other = (com.rany.service.platform.admin.GetWorkThreadStatusResponse) obj;
-
-    boolean result = true;
-    result = result && (getCode()
-        == other.getCode());
-    result = result && getMessage()
-        .equals(other.getMessage());
-    result = result && (getRunning()
-        == other.getRunning());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + CODE_FIELD_NUMBER;
-    hash = (53 * hash) + getCode();
-    hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-    hash = (53 * hash) + getMessage().hashCode();
-    hash = (37 * hash) + RUNNING_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getRunning());
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(com.rany.service.platform.admin.GetWorkThreadStatusResponse prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * Protobuf type {@code GetWorkThreadStatusResponse}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:GetWorkThreadStatusResponse)
-      com.rany.service.platform.admin.GetWorkThreadStatusResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
+    getDescriptor() {
+        return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.rany.service.platform.admin.GetWorkThreadStatusResponse prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<GetWorkThreadStatusResponse> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.rany.service.platform.admin.GetWorkThreadStatusResponse.class, com.rany.service.platform.admin.GetWorkThreadStatusResponse.Builder.class);
+    internalGetFieldAccessorTable() {
+        return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        com.rany.service.platform.admin.GetWorkThreadStatusResponse.class, com.rany.service.platform.admin.GetWorkThreadStatusResponse.Builder.class);
     }
 
-    // Construct using com.rany.service.platform.admin.GetWorkThreadStatusResponse.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
-    public Builder clear() {
-      super.clear();
-      code_ = 0;
-
-      message_ = "";
-
-      running_ = false;
-
-      return this;
-    }
-
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
-    }
-
-    public com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstanceForType() {
-      return com.rany.service.platform.admin.GetWorkThreadStatusResponse.getDefaultInstance();
-    }
-
-    public com.rany.service.platform.admin.GetWorkThreadStatusResponse build() {
-      com.rany.service.platform.admin.GetWorkThreadStatusResponse result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    public com.rany.service.platform.admin.GetWorkThreadStatusResponse buildPartial() {
-      com.rany.service.platform.admin.GetWorkThreadStatusResponse result = new com.rany.service.platform.admin.GetWorkThreadStatusResponse(this);
-      result.code_ = code_;
-      result.message_ = message_;
-      result.running_ = running_;
-      onBuilt();
-      return result;
-    }
-
-    public Builder clone() {
-      return (Builder) super.clone();
-    }
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return (Builder) super.setField(field, value);
-    }
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
-    }
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
-    }
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
-    }
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
-    }
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rany.service.platform.admin.GetWorkThreadStatusResponse) {
-        return mergeFrom((com.rany.service.platform.admin.GetWorkThreadStatusResponse)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(com.rany.service.platform.admin.GetWorkThreadStatusResponse other) {
-      if (other == com.rany.service.platform.admin.GetWorkThreadStatusResponse.getDefaultInstance()) return this;
-      if (other.getCode() != 0) {
-        setCode(other.getCode());
-      }
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
-        onChanged();
-      }
-      if (other.getRunning() != false) {
-        setRunning(other.getRunning());
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      com.rany.service.platform.admin.GetWorkThreadStatusResponse parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.rany.service.platform.admin.GetWorkThreadStatusResponse) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
-    }
-
-    private int code_ ;
     /**
      * <code>int32 code = 1;</code>
      */
     public int getCode() {
-      return code_;
-    }
-    /**
-     * <code>int32 code = 1;</code>
-     */
-    public Builder setCode(int value) {
-      
-      code_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 code = 1;</code>
-     */
-    public Builder clearCode() {
-      
-      code_ = 0;
-      onChanged();
-      return this;
+        return code_;
     }
 
-    private java.lang.Object message_ = "";
     /**
      * <code>string message = 2;</code>
      */
     public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+        java.lang.Object ref = message_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            message_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string message = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string message = 2;</code>
-     */
-    public Builder setMessage(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      message_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string message = 2;</code>
-     */
-    public Builder clearMessage() {
-      
-      message_ = getDefaultInstance().getMessage();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string message = 2;</code>
-     */
-    public Builder setMessageBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      message_ = value;
-      onChanged();
-      return this;
+    getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            message_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
-    private boolean running_ ;
     /**
      * <code>bool running = 3;</code>
      */
     public boolean getRunning() {
-      return running_;
+        return running_;
     }
+
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (code_ != 0) {
+            output.writeInt32(1, code_);
+        }
+        if (!getMessageBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+        }
+        if (running_ != false) {
+            output.writeBool(3, running_);
+        }
+        unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (code_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeInt32Size(1, code_);
+        }
+        if (!getMessageBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
+        }
+        if (running_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(3, running_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof com.rany.service.platform.admin.GetWorkThreadStatusResponse)) {
+            return super.equals(obj);
+        }
+        com.rany.service.platform.admin.GetWorkThreadStatusResponse other = (com.rany.service.platform.admin.GetWorkThreadStatusResponse) obj;
+
+        boolean result = true;
+        result = result && (getCode()
+                == other.getCode());
+        result = result && getMessage()
+                .equals(other.getMessage());
+        result = result && (getRunning()
+                == other.getRunning());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCode();
+        hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getMessage().hashCode();
+        hash = (37 * hash) + RUNNING_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getRunning());
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetWorkThreadStatusResponse> getParserForType() {
+        return PARSER;
+    }
+
+    public com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
     /**
-     * <code>bool running = 3;</code>
+     * Protobuf type {@code GetWorkThreadStatusResponse}
      */
-    public Builder setRunning(boolean value) {
-      
-      running_ = value;
-      onChanged();
-      return this;
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:GetWorkThreadStatusResponse)
+            com.rany.service.platform.admin.GetWorkThreadStatusResponseOrBuilder {
+        private int code_;
+        private java.lang.Object message_ = "";
+        private boolean running_;
+
+        // Construct using com.rany.service.platform.admin.GetWorkThreadStatusResponse.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.rany.service.platform.admin.GetWorkThreadStatusResponse.class, com.rany.service.platform.admin.GetWorkThreadStatusResponse.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        public Builder clear() {
+            super.clear();
+            code_ = 0;
+
+            message_ = "";
+
+            running_ = false;
+
+            return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return com.rany.service.platform.admin.SearchMiddlePlatformAdminService.internal_static_GetWorkThreadStatusResponse_descriptor;
+        }
+
+        public com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstanceForType() {
+            return com.rany.service.platform.admin.GetWorkThreadStatusResponse.getDefaultInstance();
+        }
+
+        public com.rany.service.platform.admin.GetWorkThreadStatusResponse build() {
+            com.rany.service.platform.admin.GetWorkThreadStatusResponse result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        public com.rany.service.platform.admin.GetWorkThreadStatusResponse buildPartial() {
+            com.rany.service.platform.admin.GetWorkThreadStatusResponse result = new com.rany.service.platform.admin.GetWorkThreadStatusResponse(this);
+            result.code_ = code_;
+            result.message_ = message_;
+            result.running_ = running_;
+            onBuilt();
+            return result;
+        }
+
+        public Builder clone() {
+            return (Builder) super.clone();
+        }
+
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return (Builder) super.setField(field, value);
+        }
+
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+        }
+
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+        }
+
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+        }
+
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.rany.service.platform.admin.GetWorkThreadStatusResponse) {
+                return mergeFrom((com.rany.service.platform.admin.GetWorkThreadStatusResponse) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(com.rany.service.platform.admin.GetWorkThreadStatusResponse other) {
+            if (other == com.rany.service.platform.admin.GetWorkThreadStatusResponse.getDefaultInstance()) return this;
+            if (other.getCode() != 0) {
+                setCode(other.getCode());
+            }
+            if (!other.getMessage().isEmpty()) {
+                message_ = other.message_;
+                onChanged();
+            }
+            if (other.getRunning() != false) {
+                setRunning(other.getRunning());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            com.rany.service.platform.admin.GetWorkThreadStatusResponse parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (com.rany.service.platform.admin.GetWorkThreadStatusResponse) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>int32 code = 1;</code>
+         */
+        public int getCode() {
+            return code_;
+        }
+
+        /**
+         * <code>int32 code = 1;</code>
+         */
+        public Builder setCode(int value) {
+
+            code_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>int32 code = 1;</code>
+         */
+        public Builder clearCode() {
+
+            code_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         */
+        public java.lang.String getMessage() {
+            java.lang.Object ref = message_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                message_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         */
+        public Builder setMessage(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            message_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getMessageBytes() {
+            java.lang.Object ref = message_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                message_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         */
+        public Builder setMessageBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            message_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string message = 2;</code>
+         */
+        public Builder clearMessage() {
+
+            message_ = getDefaultInstance().getMessage();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool running = 3;</code>
+         */
+        public boolean getRunning() {
+            return running_;
+        }
+
+        /**
+         * <code>bool running = 3;</code>
+         */
+        public Builder setRunning(boolean value) {
+
+            running_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool running = 3;</code>
+         */
+        public Builder clearRunning() {
+
+            running_ = false;
+            onChanged();
+            return this;
+        }
+
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:GetWorkThreadStatusResponse)
     }
-    /**
-     * <code>bool running = 3;</code>
-     */
-    public Builder clearRunning() {
-      
-      running_ = false;
-      onChanged();
-      return this;
-    }
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
-    }
-
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
-    }
-
-
-    // @@protoc_insertion_point(builder_scope:GetWorkThreadStatusResponse)
-  }
-
-  // @@protoc_insertion_point(class_scope:GetWorkThreadStatusResponse)
-  private static final com.rany.service.platform.admin.GetWorkThreadStatusResponse DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new com.rany.service.platform.admin.GetWorkThreadStatusResponse();
-  }
-
-  public static com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<GetWorkThreadStatusResponse>
-      PARSER = new com.google.protobuf.AbstractParser<GetWorkThreadStatusResponse>() {
-    public GetWorkThreadStatusResponse parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetWorkThreadStatusResponse(input, extensionRegistry);
-    }
-  };
-
-  public static com.google.protobuf.Parser<GetWorkThreadStatusResponse> parser() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public com.google.protobuf.Parser<GetWorkThreadStatusResponse> getParserForType() {
-    return PARSER;
-  }
-
-  public com.rany.service.platform.admin.GetWorkThreadStatusResponse getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
 
 }
 

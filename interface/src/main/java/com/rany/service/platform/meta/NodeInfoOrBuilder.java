@@ -4,116 +4,125 @@
 package com.rany.service.platform.meta;
 
 public interface NodeInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:NodeInfo)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:NodeInfo)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 id = 1;</code>
-   */
-  int getId();
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    int getId();
 
-  /**
-   * <code>string name = 2;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 2;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>string ip_address = 3;</code>
-   */
-  java.lang.String getIpAddress();
-  /**
-   * <code>string ip_address = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getIpAddressBytes();
+    /**
+     * <code>string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 
-  /**
-   * <code>bool is_master = 4;</code>
-   */
-  boolean getIsMaster();
+    /**
+     * <code>string ip_address = 3;</code>
+     */
+    java.lang.String getIpAddress();
 
-  /**
-   * <code>double cpu_percent = 5;</code>
-   */
-  double getCpuPercent();
+    /**
+     * <code>string ip_address = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getIpAddressBytes();
 
-  /**
-   * <code>string ram_max = 6;</code>
-   */
-  java.lang.String getRamMax();
-  /**
-   * <code>string ram_max = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getRamMaxBytes();
+    /**
+     * <code>bool is_master = 4;</code>
+     */
+    boolean getIsMaster();
 
-  /**
-   * <code>string ram_current = 7;</code>
-   */
-  java.lang.String getRamCurrent();
-  /**
-   * <code>string ram_current = 7;</code>
-   */
-  com.google.protobuf.ByteString
-      getRamCurrentBytes();
+    /**
+     * <code>double cpu_percent = 5;</code>
+     */
+    double getCpuPercent();
 
-  /**
-   * <code>string heap_max = 8;</code>
-   */
-  java.lang.String getHeapMax();
-  /**
-   * <code>string heap_max = 8;</code>
-   */
-  com.google.protobuf.ByteString
-      getHeapMaxBytes();
+    /**
+     * <code>string ram_max = 6;</code>
+     */
+    java.lang.String getRamMax();
 
-  /**
-   * <code>string heap_current = 9;</code>
-   */
-  java.lang.String getHeapCurrent();
-  /**
-   * <code>string heap_current = 9;</code>
-   */
-  com.google.protobuf.ByteString
-      getHeapCurrentBytes();
+    /**
+     * <code>string ram_max = 6;</code>
+     */
+    com.google.protobuf.ByteString
+    getRamMaxBytes();
 
-  /**
-   * <code>string disk_avail = 10;</code>
-   */
-  java.lang.String getDiskAvail();
-  /**
-   * <code>string disk_avail = 10;</code>
-   */
-  com.google.protobuf.ByteString
-      getDiskAvailBytes();
+    /**
+     * <code>string ram_current = 7;</code>
+     */
+    java.lang.String getRamCurrent();
 
-  /**
-   * <code>double disk_percent = 11;</code>
-   */
-  double getDiskPercent();
+    /**
+     * <code>string ram_current = 7;</code>
+     */
+    com.google.protobuf.ByteString
+    getRamCurrentBytes();
 
-  /**
-   * <code>string group = 12;</code>
-   */
-  java.lang.String getGroup();
-  /**
-   * <code>string group = 12;</code>
-   */
-  com.google.protobuf.ByteString
-      getGroupBytes();
+    /**
+     * <code>string heap_max = 8;</code>
+     */
+    java.lang.String getHeapMax();
 
-  /**
-   * <code>string tag = 13;</code>
-   */
-  java.lang.String getTag();
-  /**
-   * <code>string tag = 13;</code>
-   */
-  com.google.protobuf.ByteString
-      getTagBytes();
+    /**
+     * <code>string heap_max = 8;</code>
+     */
+    com.google.protobuf.ByteString
+    getHeapMaxBytes();
+
+    /**
+     * <code>string heap_current = 9;</code>
+     */
+    java.lang.String getHeapCurrent();
+
+    /**
+     * <code>string heap_current = 9;</code>
+     */
+    com.google.protobuf.ByteString
+    getHeapCurrentBytes();
+
+    /**
+     * <code>string disk_avail = 10;</code>
+     */
+    java.lang.String getDiskAvail();
+
+    /**
+     * <code>string disk_avail = 10;</code>
+     */
+    com.google.protobuf.ByteString
+    getDiskAvailBytes();
+
+    /**
+     * <code>double disk_percent = 11;</code>
+     */
+    double getDiskPercent();
+
+    /**
+     * <code>string group = 12;</code>
+     */
+    java.lang.String getGroup();
+
+    /**
+     * <code>string group = 12;</code>
+     */
+    com.google.protobuf.ByteString
+    getGroupBytes();
+
+    /**
+     * <code>string tag = 13;</code>
+     */
+    java.lang.String getTag();
+
+    /**
+     * <code>string tag = 13;</code>
+     */
+    com.google.protobuf.ByteString
+    getTagBytes();
 }

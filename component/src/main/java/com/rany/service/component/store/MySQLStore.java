@@ -229,7 +229,7 @@ public class MySQLStore implements IMetaStorage {
         }
     }
 
-    public void deleteIndex(String projectName, String indexGroupName, String indexName)  {
+    public void deleteIndex(String projectName, String indexGroupName, String indexName) {
         String command = String.format("delete from %s where %s=\"%s\"", indexMetaTableName,
                 TableColumnNameConstant.Index.INDEX_META_TABLE_PK_NAME,
                 projectName + "." + indexGroupName + "." + indexName);
@@ -390,7 +390,7 @@ public class MySQLStore implements IMetaStorage {
     @Override
     public void insertIndexTemplate(IndexTemplateMetaData indexTemplateMetaData) {
         StringBuilder aliasListString = new StringBuilder();
-        for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++ i) {
+        for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++i) {
             if (i != 0) {
                 aliasListString.append("@");
             }
@@ -449,26 +449,26 @@ public class MySQLStore implements IMetaStorage {
                     public void setValues(PreparedStatement preparedStatement) throws SQLException {
                         int parameterIndex = 1;
                         if (indexTemplateMetaData.mappings != null) {
-                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.mappings);
+                            preparedStatement.setString(parameterIndex++, indexTemplateMetaData.mappings);
                         }
                         if (indexTemplateMetaData.settings != null) {
-                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.settings);
+                            preparedStatement.setString(parameterIndex++, indexTemplateMetaData.settings);
                         }
                         if (indexTemplateMetaData.aliasList != null) {
                             StringBuffer aliasListString = new StringBuffer();
-                            for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++ i) {
+                            for (int i = 0; i < indexTemplateMetaData.aliasList.size(); ++i) {
                                 if (i != 0) {
                                     aliasListString.append("@");
                                 }
                                 aliasListString.append(indexTemplateMetaData.aliasList.get(i));
                             }
-                            preparedStatement.setString(parameterIndex ++, aliasListString.toString());
+                            preparedStatement.setString(parameterIndex++, aliasListString.toString());
                         }
                         if (indexTemplateMetaData.autoIndexRollingPolicy != null) {
-                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.autoIndexRollingPolicy.toString());
+                            preparedStatement.setString(parameterIndex++, indexTemplateMetaData.autoIndexRollingPolicy.toString());
                         }
                         if (indexTemplateMetaData.autoIndexRollingWindow != null) {
-                            preparedStatement.setString(parameterIndex ++, indexTemplateMetaData.autoIndexRollingWindow.toString());
+                            preparedStatement.setString(parameterIndex++, indexTemplateMetaData.autoIndexRollingWindow.toString());
                         }
                     }
                 }
@@ -477,12 +477,13 @@ public class MySQLStore implements IMetaStorage {
 
 
     @Override
-    public void deleteIndexTemplate(String projectName, String templateName)  {
+    public void deleteIndexTemplate(String projectName, String templateName) {
         String command = String.format("delete from %s where %s=\"%s\"",
                 indexTemplateTableName, TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
                 projectName + "." + templateName);
         jdbcTemplate.update(command);
     }
+
     private List<ClusterMetaData> loadClusterMetas() {
         List<ClusterMetaData> result = new ArrayList<>();
         String command = String.format("select %s,%s,%s,%s,%s,%s,%s,%s from %s",

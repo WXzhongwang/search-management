@@ -26,6 +26,8 @@ public class MetaStoreConfig {
     private String metaStoreEnv;
 
     private IMetaStorage metaStorage;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     public MetaStoreEnum getMetaStoreType() {
         return metaStoreType;
@@ -48,9 +50,6 @@ public class MetaStoreConfig {
     public MySQLMetaStoreProperty mysqlConfig() {
         return new MySQLMetaStoreProperty();
     }
-
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
 
     public IMetaStorage getMetaStorage() {
         return metaStorage;

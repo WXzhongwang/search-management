@@ -4,16 +4,17 @@
 package com.rany.service.platform.meta;
 
 public interface DeleteClusterRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:DeleteClusterRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:DeleteClusterRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
+
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 }

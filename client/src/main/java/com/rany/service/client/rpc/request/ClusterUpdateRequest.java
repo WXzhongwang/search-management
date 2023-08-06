@@ -26,51 +26,51 @@ public class ClusterUpdateRequest extends BaseRequest implements Serializable {
     @NotBlank(message = "集群地址不能为空")
     private String address;
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public void setInternalAddress(String internalAddress) {
-        this.internalAddress = internalAddress;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getStatus() {
         return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getDesc() {
         return desc;
     }
 
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public String getInternalAddress() {
         return internalAddress;
     }
 
+    public void setInternalAddress(String internalAddress) {
+        this.internalAddress = internalAddress;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

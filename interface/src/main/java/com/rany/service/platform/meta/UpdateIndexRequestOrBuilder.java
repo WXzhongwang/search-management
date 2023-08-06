@@ -4,105 +4,115 @@
 package com.rany.service.platform.meta;
 
 public interface UpdateIndexRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:UpdateIndexRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:UpdateIndexRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string project = 1;</code>
-   */
-  java.lang.String getProject();
-  /**
-   * <code>string project = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectBytes();
+    /**
+     * <code>string project = 1;</code>
+     */
+    java.lang.String getProject();
 
-  /**
-   * <code>string indexTemplate = 2;</code>
-   */
-  java.lang.String getIndexTemplate();
-  /**
-   * <code>string indexTemplate = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getIndexTemplateBytes();
+    /**
+     * <code>string project = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getProjectBytes();
 
-  /**
-   * <code>string indexName = 3;</code>
-   */
-  java.lang.String getIndexName();
-  /**
-   * <code>string indexName = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getIndexNameBytes();
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    java.lang.String getIndexTemplate();
 
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 4;</code>
-   */
-  boolean hasMapping();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 4;</code>
-   */
-  com.google.protobuf.StringValue getMapping();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 4;</code>
-   */
-  com.google.protobuf.StringValueOrBuilder getMappingOrBuilder();
+    /**
+     * <code>string indexTemplate = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getIndexTemplateBytes();
 
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 5;</code>
-   */
-  boolean hasSetting();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 5;</code>
-   */
-  com.google.protobuf.StringValue getSetting();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 5;</code>
-   */
-  com.google.protobuf.StringValueOrBuilder getSettingOrBuilder();
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    java.lang.String getIndexName();
 
-  /**
-   * <code>repeated string aliases = 6;</code>
-   */
-  java.util.List<java.lang.String>
-      getAliasesList();
-  /**
-   * <code>repeated string aliases = 6;</code>
-   */
-  int getAliasesCount();
-  /**
-   * <code>repeated string aliases = 6;</code>
-   */
-  java.lang.String getAliases(int index);
-  /**
-   * <code>repeated string aliases = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getAliasesBytes(int index);
+    /**
+     * <code>string indexName = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getIndexNameBytes();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 4;</code>
+     */
+    boolean hasMapping();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 4;</code>
+     */
+    com.google.protobuf.StringValue getMapping();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 4;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getMappingOrBuilder();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 5;</code>
+     */
+    boolean hasSetting();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 5;</code>
+     */
+    com.google.protobuf.StringValue getSetting();
+
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 5;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getSettingOrBuilder();
+
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    java.util.List<java.lang.String>
+    getAliasesList();
+
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    int getAliasesCount();
+
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    java.lang.String getAliases(int index);
+
+    /**
+     * <code>repeated string aliases = 6;</code>
+     */
+    com.google.protobuf.ByteString
+    getAliasesBytes(int index);
 }

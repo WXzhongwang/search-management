@@ -20,6 +20,6 @@ public class ProjectSettingTests {
     @Test
     public void testProjectSetting() {
         JSONObject hot = getGroupSettingJSONObject("hot");
-        Assert.assertTrue(StringUtils.equals((String)hot.get("index.routing.allocation.require.group"), "hot"));
+        Assert.assertTrue(StringUtils.equals((String) hot.get("index.routing.allocation.require.group"), "hot"));
     }
 }

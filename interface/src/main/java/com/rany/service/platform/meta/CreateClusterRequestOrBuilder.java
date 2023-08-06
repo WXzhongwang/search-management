@@ -4,64 +4,70 @@
 package com.rany.service.platform.meta;
 
 public interface CreateClusterRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:CreateClusterRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:CreateClusterRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>.ClusterType cluster = 2;</code>
-   */
-  int getClusterValue();
-  /**
-   * <code>.ClusterType cluster = 2;</code>
-   */
-  com.rany.service.platform.meta.ClusterType getCluster();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 
-  /**
-   * <code>string description = 3;</code>
-   */
-  java.lang.String getDescription();
-  /**
-   * <code>string description = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getDescriptionBytes();
+    /**
+     * <code>.ClusterType cluster = 2;</code>
+     */
+    int getClusterValue();
 
-  /**
-   * <code>.ClusterStatus status = 4;</code>
-   */
-  int getStatusValue();
-  /**
-   * <code>.ClusterStatus status = 4;</code>
-   */
-  com.rany.service.platform.meta.ClusterStatus getStatus();
+    /**
+     * <code>.ClusterType cluster = 2;</code>
+     */
+    com.rany.service.platform.meta.ClusterType getCluster();
 
-  /**
-   * <code>string endpoint = 5;</code>
-   */
-  java.lang.String getEndpoint();
-  /**
-   * <code>string endpoint = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getEndpointBytes();
+    /**
+     * <code>string description = 3;</code>
+     */
+    java.lang.String getDescription();
 
-  /**
-   * <code>string internal_endpoint = 6;</code>
-   */
-  java.lang.String getInternalEndpoint();
-  /**
-   * <code>string internal_endpoint = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getInternalEndpointBytes();
+    /**
+     * <code>string description = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getDescriptionBytes();
+
+    /**
+     * <code>.ClusterStatus status = 4;</code>
+     */
+    int getStatusValue();
+
+    /**
+     * <code>.ClusterStatus status = 4;</code>
+     */
+    com.rany.service.platform.meta.ClusterStatus getStatus();
+
+    /**
+     * <code>string endpoint = 5;</code>
+     */
+    java.lang.String getEndpoint();
+
+    /**
+     * <code>string endpoint = 5;</code>
+     */
+    com.google.protobuf.ByteString
+    getEndpointBytes();
+
+    /**
+     * <code>string internal_endpoint = 6;</code>
+     */
+    java.lang.String getInternalEndpoint();
+
+    /**
+     * <code>string internal_endpoint = 6;</code>
+     */
+    com.google.protobuf.ByteString
+    getInternalEndpointBytes();
 }

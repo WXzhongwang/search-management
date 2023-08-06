@@ -11,7 +11,7 @@ public class JSONUtility {
      * @param add
      */
     public static void merge(JSONObject main, JSONObject add) {
-        if(add == null || main == null){
+        if (add == null || main == null) {
             return;
         }
         for (Map.Entry<String, Object> kv : add.entrySet()) {
@@ -20,7 +20,7 @@ public class JSONUtility {
                 continue;
             }
             Object v = kv.getValue();
-            if (v instanceof JSONObject){
+            if (v instanceof JSONObject) {
                 merge(main.getJSONObject(kv.getKey()), add.getJSONObject(kv.getKey()));
             }
         }

@@ -4,40 +4,44 @@
 package com.rany.service.platform.meta;
 
 public interface ListIndexTemplateReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ListIndexTemplateReply)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ListIndexTemplateReply)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  int getCode();
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    int getCode();
 
-  /**
-   * <code>string message = 2;</code>
-   */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
 
-  /**
-   * <code>repeated string templates = 3;</code>
-   */
-  java.util.List<java.lang.String>
-      getTemplatesList();
-  /**
-   * <code>repeated string templates = 3;</code>
-   */
-  int getTemplatesCount();
-  /**
-   * <code>repeated string templates = 3;</code>
-   */
-  java.lang.String getTemplates(int index);
-  /**
-   * <code>repeated string templates = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getTemplatesBytes(int index);
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getMessageBytes();
+
+    /**
+     * <code>repeated string templates = 3;</code>
+     */
+    java.util.List<java.lang.String>
+    getTemplatesList();
+
+    /**
+     * <code>repeated string templates = 3;</code>
+     */
+    int getTemplatesCount();
+
+    /**
+     * <code>repeated string templates = 3;</code>
+     */
+    java.lang.String getTemplates(int index);
+
+    /**
+     * <code>repeated string templates = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getTemplatesBytes(int index);
 }

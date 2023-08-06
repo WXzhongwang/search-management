@@ -57,6 +57,7 @@ public interface IMetaStorage {
 
     /**
      * 删除索引
+     *
      * @param projectName
      * @param indexGroupName
      * @param indexName
@@ -66,6 +67,7 @@ public interface IMetaStorage {
 
     /**
      * 更新索引
+     *
      * @param indexMetaData
      */
     void updateIndex(IndexMetaData indexMetaData);
@@ -126,7 +128,6 @@ public interface IMetaStorage {
     void insertIndexTemplate(IndexTemplateMetaData indexTemplateMetaData);
 
 
-
     /**
      * 更新模板
      *
@@ -137,6 +138,7 @@ public interface IMetaStorage {
 
     /**
      * 删除模版
+     *
      * @param projectName
      * @param templateName
      */

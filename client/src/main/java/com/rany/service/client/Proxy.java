@@ -45,13 +45,12 @@ public class Proxy implements Bootstrap {
      * 可通过服务名通信
      */
     private final String serviceName;
+    private final long timeout;
     /**
      * 主节点IP地址列表
      */
     private Set<String> masterIpAddress;
     private Integer port;
-    private final long timeout;
-
     /**
      * 标识代理类的启停状态
      */
@@ -130,92 +129,6 @@ public class Proxy implements Bootstrap {
             }
         }
         return true;
-    }
-
-    /**
-     * 心跳线程
-     */
-    private class HeartBeatThread extends Thread {
-        @Override
-        public void run() {
-            boolean connected = true;
-            int heartbeat = 0;
-            List<Boolean> masterFlag = new ArrayList<>();
-            for (int i = 0; i < masterIpAddress.size(); ++i) {
-                masterFlag.add(true);
-            }
-            List<String> masters = Lists.newArrayList(masterIpAddress);
-            while (!startUp) {
-                if (connected) {
-                    try {
-                        Thread.sleep(3000);
-                    } catch (InterruptedException ignore) {
-                    }
-
-                    if (ping(channel)) {
-                        heartbeat = 0;
-                        continue;
-                    } else {
-                        heartbeat++;
-                    }
-                    if (heartbeat == 5) {
-                        // lost connection
-                        connected = false;
-                        masterFlag.set(connectedMasterIndex, false);
-                        logger.error("current master host {} is disconnected,try to connect a new master."
-                                , masters.get(connectedMasterIndex));
-                        heartbeat = 0;
-                    }
-                } else {
-                    boolean found = false;
-                    for (int i = 0; i < masterFlag.size(); ++i) {
-                        if (Boolean.TRUE.equals(masterFlag.get(i))) {
-                            ManagedChannel tmpChannel = NettyChannelBuilder.forAddress(masters.get(i), port)
-                                    .negotiationType(NegotiationType.PLAINTEXT).build();
-                            if (ping(tmpChannel)) {
-                                connectedMasterIndex = i;
-                                channel = tmpChannel;
-                                found = true;
-                                connected = true;
-                                break;
-                            } else {
-                                masterFlag.set(i, false);
-                            }
-                        }
-                    }
-                    if (found) {
-                        logger.info("succeed to connect master {}.", masters.get(connectedMasterIndex));
-                    } else {
-                        logger.error("all master candidates are offline, try to connect them again 30 seconds later.");
-                        for (int i = 0; i < masterIpAddress.size(); ++i) {
-                            masterFlag.set(i, true);
-                        }
-                        try {
-                            Thread.sleep(30000);
-                        } catch (InterruptedException ignore) {
-                        }
-                    }
-                }
-            }
-        }
-
-        private boolean ping(ManagedChannel channel) {
-            boolean result = true;
-            try {
-                AdminServiceGrpc.AdminServiceBlockingStub adminServiceStub =
-                        AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
-                PingRequest request = PingRequest.newBuilder().setPing(Constants.PING).build();
-                PingReply reply = adminServiceStub.ping(request);
-                String pong = reply.getPong();
-                if (!pong.equalsIgnoreCase(Constants.PONG)) {
-                    throw new SearchClientException(ErrorCodeEnum.NO_HEARTBEAT_EXCEPTION);
-                }
-            } catch (Exception e) {
-                // 丢失心跳
-                result = false;
-            }
-            return result;
-        }
     }
 
     public void createCluster(ClusterCreateRequest clusterCreateRequest) {
@@ -464,15 +377,15 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public void updateIndexTemplate(IndexTemplateUpdateRequest request)  {
+    public void updateIndexTemplate(IndexTemplateUpdateRequest request) {
         UpdateIndexTemplateRequest.Builder builder = UpdateIndexTemplateRequest.newBuilder();
         builder.setName(request.getName()).setProject(request.getProjectName());
 
         if (request.getMapping() != null) {
-            builder.setMapping(StringValue.newBuilder().setValue(request.getMapping() ).build());
+            builder.setMapping(StringValue.newBuilder().setValue(request.getMapping()).build());
         }
-        if (request.getSetting()  != null) {
-            builder.setSetting(StringValue.newBuilder().setValue(request.getSetting() ).build());
+        if (request.getSetting() != null) {
+            builder.setSetting(StringValue.newBuilder().setValue(request.getSetting()).build());
         }
         if (request.getAutoIndexRollingPolicy() != null) {
             AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(request.getAutoIndexRollingPolicy());
@@ -489,7 +402,7 @@ public class Proxy implements Bootstrap {
         }
         if (request.getAliases() != null && !request.getAliases().isEmpty()) {
             builder.setUpdateAlias(true);
-            builder.addAllAliases(request.getAliases() );
+            builder.addAllAliases(request.getAliases());
         } else {
             builder.setUpdateAlias(false);
         }
@@ -508,7 +421,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public void deleteIndexTemplate(IndexTemplateDeleteRequest request)  {
+    public void deleteIndexTemplate(IndexTemplateDeleteRequest request) {
         DeleteIndexTemplateRequest.Builder builder = DeleteIndexTemplateRequest.newBuilder();
         builder.setName(request.getName()).setProject(request.getProjectName());
         DeleteIndexTemplateRequest deleteIndexTemplateRequest = builder.build();
@@ -526,7 +439,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public List<String> listIndexTemplate(IndexTemplateListRequest listRequest)  {
+    public List<String> listIndexTemplate(IndexTemplateListRequest listRequest) {
         ListIndexTemplateRequest request = ListIndexTemplateRequest.newBuilder()
                 .setProject(listRequest.getProjectName())
                 .build();
@@ -545,7 +458,7 @@ public class Proxy implements Bootstrap {
         return reply.getTemplatesList();
     }
 
-    public List<IndexTemplateInfo> listIndexTemplateDetails(IndexTemplateListRequest listRequest)  {
+    public List<IndexTemplateInfo> listIndexTemplateDetails(IndexTemplateListRequest listRequest) {
         ListIndexTemplateDetailsRequest request = ListIndexTemplateDetailsRequest.newBuilder()
                 .setProject(listRequest.getProjectName())
                 .build();
@@ -564,7 +477,7 @@ public class Proxy implements Bootstrap {
         return reply.getTemplatesList();
     }
 
-    public void createIndex(IndexCreateRequest indexCreateRequest)  {
+    public void createIndex(IndexCreateRequest indexCreateRequest) {
         AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexCreateRequest.getAutoIndexRollingPolicy());
         CreateIndexRequest request = CreateIndexRequest.newBuilder()
                 .setProject(indexCreateRequest.getProject())
@@ -587,7 +500,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public IndexInfo getIndex(IndexGetRequest indexGetRequest)  {
+    public IndexInfo getIndex(IndexGetRequest indexGetRequest) {
         GetIndexRequest.Builder builder = GetIndexRequest.newBuilder();
         builder.setProject(indexGetRequest.getProject());
         builder.setName(indexGetRequest.getName());
@@ -607,7 +520,7 @@ public class Proxy implements Bootstrap {
         return reply.getIndex();
     }
 
-    public void deleteIndex(IndexDeleteRequest deleteIndexRequest)  {
+    public void deleteIndex(IndexDeleteRequest deleteIndexRequest) {
         DeleteIndexRequest request = DeleteIndexRequest.newBuilder()
                 .setProject(deleteIndexRequest.getProject())
                 .setIndexTemplate(deleteIndexRequest.getTemplate())
@@ -627,7 +540,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public void updateIndex(IndexUpdateRequest indexUpdateRequest)  {
+    public void updateIndex(IndexUpdateRequest indexUpdateRequest) {
         AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexUpdateRequest.getAutoIndexRollingPolicy());
         UpdateIndexRequest.Builder builder = UpdateIndexRequest.newBuilder();
         builder.setProject(indexUpdateRequest.getProject())
@@ -637,10 +550,10 @@ public class Proxy implements Bootstrap {
         UpdateIndexReply reply = null;
 
         if (indexUpdateRequest.getMapping() != null) {
-            builder.setMapping(StringValue.newBuilder().setValue(indexUpdateRequest.getMapping() ).build());
+            builder.setMapping(StringValue.newBuilder().setValue(indexUpdateRequest.getMapping()).build());
         }
-        if (indexUpdateRequest.getSetting()  != null) {
-            builder.setSetting(StringValue.newBuilder().setValue(indexUpdateRequest.getSetting() ).build());
+        if (indexUpdateRequest.getSetting() != null) {
+            builder.setSetting(StringValue.newBuilder().setValue(indexUpdateRequest.getSetting()).build());
         }
         UpdateIndexRequest request = builder.build();
         try {
@@ -655,7 +568,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public List<String> listIndex(IndexListRequest indexListRequest)  {
+    public List<String> listIndex(IndexListRequest indexListRequest) {
         ListIndexRequest.Builder builder = ListIndexRequest.newBuilder();
         builder.setProject(indexListRequest.getProject())
                 .setIndexTemplate(indexListRequest.getTemplate())
@@ -676,7 +589,7 @@ public class Proxy implements Bootstrap {
         return reply.getIndicesList();
     }
 
-    public List<IndexInfo> listIndexDetails(IndexListDetailsRequest indexListRequest)  {
+    public List<IndexInfo> listIndexDetails(IndexListDetailsRequest indexListRequest) {
         ListIndexDetailsRequest.Builder builder = ListIndexDetailsRequest.newBuilder();
         builder.setProject(indexListRequest.getProject())
                 .setIndexTemplate(indexListRequest.getTemplate())
@@ -696,8 +609,8 @@ public class Proxy implements Bootstrap {
         }
         return reply.getIndicesList();
     }
-    
-    public List<IndexNameEntry> listIndexName(IndexListNameRequest listIndexNameRequest)  {
+
+    public List<IndexNameEntry> listIndexName(IndexListNameRequest listIndexNameRequest) {
         ListIndexNameRequest.Builder builder = ListIndexNameRequest.newBuilder();
         builder.setCluster(listIndexNameRequest.getCluster());
         ListIndexNameReply reply = null;
@@ -715,7 +628,7 @@ public class Proxy implements Bootstrap {
         return reply.getIndexNamesList();
     }
 
-    public List<IndexNameEntry> listIndexAlias(IndexListAliasRequest listIndexAliasRequest)  {
+    public List<IndexNameEntry> listIndexAlias(IndexListAliasRequest listIndexAliasRequest) {
         ListIndexAliasNameRequest.Builder builder = ListIndexAliasNameRequest.newBuilder();
         builder.setCluster(listIndexAliasRequest.getCluster());
         ListIndexAliasNameReply reply = null;
@@ -733,7 +646,7 @@ public class Proxy implements Bootstrap {
         return reply.getIndexAliasNamesList();
     }
 
-    public void attachIndex(IndexAttachRequest attachIndexRequest)  {
+    public void attachIndex(IndexAttachRequest attachIndexRequest) {
         AttachIndexRequest.Builder builder = AttachIndexRequest.newBuilder();
         builder.setProject(attachIndexRequest.getProject());
         builder.setName(attachIndexRequest.getName());
@@ -752,7 +665,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-    public void detachIndex(IndexDetachRequest detachRequest)  {
+    public void detachIndex(IndexDetachRequest detachRequest) {
         DetachIndexRequest.Builder builder = DetachIndexRequest.newBuilder();
         builder.setProject(detachRequest.getProject());
         builder.setName(detachRequest.getName());
@@ -771,8 +684,7 @@ public class Proxy implements Bootstrap {
         }
     }
 
-
-    public void refreshIndex(IndexRefreshRequest refreshRequest)  {
+    public void refreshIndex(IndexRefreshRequest refreshRequest) {
         RefreshIndexRequest.Builder builder = RefreshIndexRequest.newBuilder();
         builder.setProject(refreshRequest.getProject());
         builder.setName(refreshRequest.getName());
@@ -788,6 +700,92 @@ public class Proxy implements Bootstrap {
         } catch (Exception e) {
             throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
                     "Fail to refresh index with message: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 心跳线程
+     */
+    private class HeartBeatThread extends Thread {
+        @Override
+        public void run() {
+            boolean connected = true;
+            int heartbeat = 0;
+            List<Boolean> masterFlag = new ArrayList<>();
+            for (int i = 0; i < masterIpAddress.size(); ++i) {
+                masterFlag.add(true);
+            }
+            List<String> masters = Lists.newArrayList(masterIpAddress);
+            while (!startUp) {
+                if (connected) {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException ignore) {
+                    }
+
+                    if (ping(channel)) {
+                        heartbeat = 0;
+                        continue;
+                    } else {
+                        heartbeat++;
+                    }
+                    if (heartbeat == 5) {
+                        // lost connection
+                        connected = false;
+                        masterFlag.set(connectedMasterIndex, false);
+                        logger.error("current master host {} is disconnected,try to connect a new master."
+                                , masters.get(connectedMasterIndex));
+                        heartbeat = 0;
+                    }
+                } else {
+                    boolean found = false;
+                    for (int i = 0; i < masterFlag.size(); ++i) {
+                        if (Boolean.TRUE.equals(masterFlag.get(i))) {
+                            ManagedChannel tmpChannel = NettyChannelBuilder.forAddress(masters.get(i), port)
+                                    .negotiationType(NegotiationType.PLAINTEXT).build();
+                            if (ping(tmpChannel)) {
+                                connectedMasterIndex = i;
+                                channel = tmpChannel;
+                                found = true;
+                                connected = true;
+                                break;
+                            } else {
+                                masterFlag.set(i, false);
+                            }
+                        }
+                    }
+                    if (found) {
+                        logger.info("succeed to connect master {}.", masters.get(connectedMasterIndex));
+                    } else {
+                        logger.error("all master candidates are offline, try to connect them again 30 seconds later.");
+                        for (int i = 0; i < masterIpAddress.size(); ++i) {
+                            masterFlag.set(i, true);
+                        }
+                        try {
+                            Thread.sleep(30000);
+                        } catch (InterruptedException ignore) {
+                        }
+                    }
+                }
+            }
+        }
+
+        private boolean ping(ManagedChannel channel) {
+            boolean result = true;
+            try {
+                AdminServiceGrpc.AdminServiceBlockingStub adminServiceStub =
+                        AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+                PingRequest request = PingRequest.newBuilder().setPing(Constants.PING).build();
+                PingReply reply = adminServiceStub.ping(request);
+                String pong = reply.getPong();
+                if (!pong.equalsIgnoreCase(Constants.PONG)) {
+                    throw new SearchClientException(ErrorCodeEnum.NO_HEARTBEAT_EXCEPTION);
+                }
+            } catch (Exception e) {
+                // 丢失心跳
+                result = false;
+            }
+            return result;
         }
     }
 }

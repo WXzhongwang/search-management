@@ -4,34 +4,37 @@
 package com.rany.service.platform.meta;
 
 public interface GetClusterInfoReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:GetClusterInfoReply)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:GetClusterInfoReply)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  int getCode();
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    int getCode();
 
-  /**
-   * <code>string message = 2;</code>
-   */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
 
-  /**
-   * <code>.ClusterInfo cluster = 3;</code>
-   */
-  boolean hasCluster();
-  /**
-   * <code>.ClusterInfo cluster = 3;</code>
-   */
-  com.rany.service.platform.meta.ClusterInfo getCluster();
-  /**
-   * <code>.ClusterInfo cluster = 3;</code>
-   */
-  com.rany.service.platform.meta.ClusterInfoOrBuilder getClusterOrBuilder();
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getMessageBytes();
+
+    /**
+     * <code>.ClusterInfo cluster = 3;</code>
+     */
+    boolean hasCluster();
+
+    /**
+     * <code>.ClusterInfo cluster = 3;</code>
+     */
+    com.rany.service.platform.meta.ClusterInfo getCluster();
+
+    /**
+     * <code>.ClusterInfo cluster = 3;</code>
+     */
+    com.rany.service.platform.meta.ClusterInfoOrBuilder getClusterOrBuilder();
 }

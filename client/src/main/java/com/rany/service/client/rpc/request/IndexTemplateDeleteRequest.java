@@ -3,10 +3,7 @@ package com.rany.service.client.rpc.request;
 import com.rany.service.client.rpc.BaseRequest;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author zhongshengwang

@@ -12,9 +12,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest(classes = MasterServiceApplication.class)
 public class AdminClientApiTest {
 
-    private static AdminClient client;
-
     private static final String master = "localhost";
+    private static AdminClient client;
 
     @Before
     public void setUp() throws Exception {

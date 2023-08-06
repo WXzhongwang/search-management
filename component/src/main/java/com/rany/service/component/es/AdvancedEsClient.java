@@ -37,14 +37,13 @@ import java.util.*;
  */
 public class AdvancedEsClient {
 
+    public static final String ES_DOMAIN_SETTINGS_FIELD = "index.routing.allocation.require.domain";
+    public static final String ES_GROUP_SETTINGS_FIELD = "index.routing.allocation.require.group";
     private static final Logger logger = LoggerFactory.getLogger(AdvancedEsClient.class);
-
+    private static final int ES_OPERATION_RETRY_TIME = 3;
     private final String endpoint;
     private final RestClient lowLevelClient;
     private final RestHighLevelClient highLevelClient;
-    public static final String ES_DOMAIN_SETTINGS_FIELD = "index.routing.allocation.require.domain";
-    public static final String ES_GROUP_SETTINGS_FIELD = "index.routing.allocation.require.group";
-    private static final int ES_OPERATION_RETRY_TIME = 3;
 
     public AdvancedEsClient(String endpoint) {
         this.endpoint = endpoint;
@@ -368,13 +367,13 @@ public class AdvancedEsClient {
             }
 
             // update index alias
-            if(aliases.size() != 0){
+            if (aliases.size() != 0) {
                 GetAliasesRequest getAliasesRequest = new GetAliasesRequest();
                 getAliasesRequest.indices(fullIndexName);
                 Set<String> preAliasSet = Sets.newHashSet();
-                Collection<Set<AliasMetadata>> metaSets = highLevelClient.indices().getAlias(getAliasesRequest,RequestOptions.DEFAULT)
+                Collection<Set<AliasMetadata>> metaSets = highLevelClient.indices().getAlias(getAliasesRequest, RequestOptions.DEFAULT)
                         .getAliases().values();
-                if(metaSets.size() == 1) {
+                if (metaSets.size() == 1) {
                     metaSets.forEach(multiMetaSet -> {
                         multiMetaSet.stream().forEach(aliasMetaData -> {
                             preAliasSet.add(aliasMetaData.alias());
@@ -398,7 +397,7 @@ public class AdvancedEsClient {
                             aliasesRequest.addAliasAction(deleteActions);
                         }
                     });
-                    if(aliasesRequest.getAliasActions().size() > 0){
+                    if (aliasesRequest.getAliasActions().size() > 0) {
                         highLevelClient.indices().updateAliases(aliasesRequest, RequestOptions.DEFAULT);
                     }
                 }
@@ -445,7 +444,7 @@ public class AdvancedEsClient {
             } catch (Exception e) {
                 errMessage = String.format("Fail to call acquireIndexSettings from es cluster [%s] with message [%s].", endpoint, e.getMessage());
                 logger.error("Fail to call acquireIndexSettings from es cluster {} with message {} and exception {}. Retry time: {}.", endpoint, e.getMessage(), e.toString(), retryTime);
-                retryTime ++;
+                retryTime++;
             }
         }
         if (retryTime == ES_OPERATION_RETRY_TIME) {

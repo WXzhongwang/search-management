@@ -4,40 +4,44 @@
 package com.rany.service.platform.meta;
 
 public interface ListProjectReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ListProjectReply)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ListProjectReply)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  int getCode();
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    int getCode();
 
-  /**
-   * <code>string message = 2;</code>
-   */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
 
-  /**
-   * <code>repeated string projects = 3;</code>
-   */
-  java.util.List<java.lang.String>
-      getProjectsList();
-  /**
-   * <code>repeated string projects = 3;</code>
-   */
-  int getProjectsCount();
-  /**
-   * <code>repeated string projects = 3;</code>
-   */
-  java.lang.String getProjects(int index);
-  /**
-   * <code>repeated string projects = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectsBytes(int index);
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getMessageBytes();
+
+    /**
+     * <code>repeated string projects = 3;</code>
+     */
+    java.util.List<java.lang.String>
+    getProjectsList();
+
+    /**
+     * <code>repeated string projects = 3;</code>
+     */
+    int getProjectsCount();
+
+    /**
+     * <code>repeated string projects = 3;</code>
+     */
+    java.lang.String getProjects(int index);
+
+    /**
+     * <code>repeated string projects = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getProjectsBytes(int index);
 }

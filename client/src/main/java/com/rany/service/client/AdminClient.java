@@ -17,8 +17,8 @@ import java.util.Set;
 
 public class AdminClient {
 
-    private final Proxy adminProxy;
     private static final long DEFAULT_TIMEOUT_MILLISECONDS = 5000;
+    private final Proxy adminProxy;
 
     public AdminClient(String inprocServerName) {
         adminProxy = new Proxy(inprocServerName, DEFAULT_TIMEOUT_MILLISECONDS);

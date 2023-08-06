@@ -4,7 +4,6 @@ import com.rany.service.client.rpc.BaseRequest;
 
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author zhongshengwang

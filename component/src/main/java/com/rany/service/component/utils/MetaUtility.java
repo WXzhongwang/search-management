@@ -74,7 +74,7 @@ public class MetaUtility {
     }
 
 
-    public static IndexTemplateInfo build(String clusterName, String projectName, IndexTemplateMetaData meta,  TemplateMetricCounter counter) {
+    public static IndexTemplateInfo build(String clusterName, String projectName, IndexTemplateMetaData meta, TemplateMetricCounter counter) {
         if (meta == null) {
             return null;
         }
@@ -113,8 +113,6 @@ public class MetaUtility {
                 .setIndexHealth(meta.health)
                 .build();
     }
-
-
 
 
     public static String combineFullIndexName(String projectName, String indexGroupName, String indexName) {

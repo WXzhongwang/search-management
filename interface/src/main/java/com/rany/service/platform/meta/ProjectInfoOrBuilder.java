@@ -4,75 +4,79 @@
 package com.rany.service.platform.meta;
 
 public interface ProjectInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ProjectInfo)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ProjectInfo)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 id = 1;</code>
-   */
-  int getId();
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    int getId();
 
-  /**
-   * <code>string name = 2;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 2;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>string cluster_name = 3;</code>
-   */
-  java.lang.String getClusterName();
-  /**
-   * <code>string cluster_name = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getClusterNameBytes();
+    /**
+     * <code>string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 
-  /**
-   * <code>string description = 4;</code>
-   */
-  java.lang.String getDescription();
-  /**
-   * <code>string description = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getDescriptionBytes();
+    /**
+     * <code>string cluster_name = 3;</code>
+     */
+    java.lang.String getClusterName();
 
-  /**
-   * <code>int32 total_index_number = 5;</code>
-   */
-  int getTotalIndexNumber();
+    /**
+     * <code>string cluster_name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getClusterNameBytes();
 
-  /**
-   * <code>int64 total_doc_number = 6;</code>
-   */
-  long getTotalDocNumber();
+    /**
+     * <code>string description = 4;</code>
+     */
+    java.lang.String getDescription();
 
-  /**
-   * <code>int64 total_data_size = 7;</code>
-   */
-  long getTotalDataSize();
+    /**
+     * <code>string description = 4;</code>
+     */
+    com.google.protobuf.ByteString
+    getDescriptionBytes();
 
-  /**
-   * <code>int32 cluster_id = 8;</code>
-   */
-  int getClusterId();
+    /**
+     * <code>int32 total_index_number = 5;</code>
+     */
+    int getTotalIndexNumber();
 
-  /**
-   * <code>.ProjectStatus status = 9;</code>
-   */
-  int getStatusValue();
-  /**
-   * <code>.ProjectStatus status = 9;</code>
-   */
-  com.rany.service.platform.meta.ProjectStatus getStatus();
+    /**
+     * <code>int64 total_doc_number = 6;</code>
+     */
+    long getTotalDocNumber();
 
-  /**
-   * <code>int32 total_template_number = 17;</code>
-   */
-  int getTotalTemplateNumber();
+    /**
+     * <code>int64 total_data_size = 7;</code>
+     */
+    long getTotalDataSize();
+
+    /**
+     * <code>int32 cluster_id = 8;</code>
+     */
+    int getClusterId();
+
+    /**
+     * <code>.ProjectStatus status = 9;</code>
+     */
+    int getStatusValue();
+
+    /**
+     * <code>.ProjectStatus status = 9;</code>
+     */
+    com.rany.service.platform.meta.ProjectStatus getStatus();
+
+    /**
+     * <code>int32 total_template_number = 17;</code>
+     */
+    int getTotalTemplateNumber();
 }

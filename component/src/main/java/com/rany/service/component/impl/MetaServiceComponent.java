@@ -317,9 +317,9 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
 
         internal.insertIndexTemplate(indexTemplateMetaData);
         CreateIndexTemplateReply reply = CreateIndexTemplateReply.newBuilder()
-        .setCode(code.getCode())
-        .setMessage(code.getMessage())
-        .build();
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
     }
@@ -337,7 +337,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         IndexTemplateMetaData indexTemplateMetaData = new IndexTemplateMetaData();
         indexTemplateMetaData.templateName = request.getName();
         indexTemplateMetaData.mappings = request.hasMapping() ? request.getMapping().getValue() : null;
-        indexTemplateMetaData.settings = request.hasSetting() ? request.getSetting().getValue(): null;
+        indexTemplateMetaData.settings = request.hasSetting() ? request.getSetting().getValue() : null;
         indexTemplateMetaData.aliasList = request.getAliasesList();
         indexTemplateMetaData.autoIndexRollingWindow = request.getAutoIndexRollingWindow();
         indexTemplateMetaData.autoIndexRollingPolicy = request.getAutoIndexRollingPolicy();
@@ -382,7 +382,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexTemplateReply.Builder builder = ListIndexTemplateReply.newBuilder();
         List<IndexTemplateInfo> indexTemplates = internal.getIndexTemplates(request.getProject());
         if (indexTemplates != null) {
-            for (int i = 0; i < indexTemplates.size(); ++ i) {
+            for (int i = 0; i < indexTemplates.size(); ++i) {
                 builder.addTemplates(indexTemplates.get(i).getName());
             }
         }
@@ -406,7 +406,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexTemplateDetailsReply.Builder builder = ListIndexTemplateDetailsReply.newBuilder();
         List<IndexTemplateInfo> indexTemplates = internal.getIndexTemplates(request.getProject());
         if (indexTemplates != null) {
-            for (int i = 0; i < indexTemplates.size(); ++ i) {
+            for (int i = 0; i < indexTemplates.size(); ++i) {
                 builder.addTemplates(indexTemplates.get(i));
             }
         }
@@ -536,7 +536,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexReply.Builder builder = ListIndexReply.newBuilder();
         List<IndexInfo> indices = internal.getIndices(request.getProject(), request.getIndexTemplate());
         if (indices != null) {
-            for (int i = 0; i < indices.size(); ++ i) {
+            for (int i = 0; i < indices.size(); ++i) {
                 builder.addIndices(indices.get(i).getName());
             }
         }
@@ -562,7 +562,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexDetailsReply.Builder builder = ListIndexDetailsReply.newBuilder();
         List<IndexInfo> indices = internal.getIndices(request.getProject(), request.getIndexTemplate());
         if (indices != null) {
-            for (int i = 0; i < indices.size(); ++ i) {
+            for (int i = 0; i < indices.size(); ++i) {
                 builder.addIndices(indices.get(i));
             }
         }
@@ -588,7 +588,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexNameReply.Builder builder = ListIndexNameReply.newBuilder();
         List<IndexNameEntry> indices = internal.getIndexNameList(request.getCluster());
         if (indices != null) {
-            for (int i = 0; i < indices.size(); ++ i) {
+            for (int i = 0; i < indices.size(); ++i) {
                 builder.addIndexNames(indices.get(i));
             }
         }
@@ -614,7 +614,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexAliasNameReply.Builder builder = ListIndexAliasNameReply.newBuilder();
         List<IndexNameEntry> indices = internal.getIndexAliasNameList(request.getCluster());
         if (indices != null) {
-            for (int i = 0; i < indices.size(); ++ i) {
+            for (int i = 0; i < indices.size(); ++i) {
                 builder.addIndexAliasNames(indices.get(i));
             }
         }

@@ -4,6 +4,6 @@
 package com.rany.service.platform.admin;
 
 public interface SuspendWorkThreadRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:SuspendWorkThreadRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:SuspendWorkThreadRequest)
+        com.google.protobuf.MessageOrBuilder {
 }

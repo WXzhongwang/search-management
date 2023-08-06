@@ -38,12 +38,16 @@ public enum ErrorCodeEnum {
     TEMPLATE_NOT_EMPTY(40011, "模板不为空"),
 
 
-
     ;
 
     private int code;
 
     private String message;
+
+    ErrorCodeEnum(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
     public int getCode() {
         return code;
@@ -51,10 +55,5 @@ public enum ErrorCodeEnum {
 
     public String getMessage() {
         return message;
-    }
-
-    ErrorCodeEnum(int code, String message) {
-        this.code = code;
-        this.message = message;
     }
 }

@@ -4,157 +4,170 @@
 package com.rany.service.platform.meta;
 
 public interface IndexInfoOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:IndexInfo)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:IndexInfo)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>string cluster_name = 2;</code>
-   */
-  java.lang.String getClusterName();
-  /**
-   * <code>string cluster_name = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getClusterNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 
-  /**
-   * <code>string project_name = 3;</code>
-   */
-  java.lang.String getProjectName();
-  /**
-   * <code>string project_name = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectNameBytes();
+    /**
+     * <code>string cluster_name = 2;</code>
+     */
+    java.lang.String getClusterName();
 
-  /**
-   * <code>string mapping = 5;</code>
-   */
-  java.lang.String getMapping();
-  /**
-   * <code>string mapping = 5;</code>
-   */
-  com.google.protobuf.ByteString
-      getMappingBytes();
+    /**
+     * <code>string cluster_name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getClusterNameBytes();
 
-  /**
-   * <code>string setting = 6;</code>
-   */
-  java.lang.String getSetting();
-  /**
-   * <code>string setting = 6;</code>
-   */
-  com.google.protobuf.ByteString
-      getSettingBytes();
+    /**
+     * <code>string project_name = 3;</code>
+     */
+    java.lang.String getProjectName();
 
-  /**
-   * <code>repeated string aliases = 7;</code>
-   */
-  java.util.List<java.lang.String>
-      getAliasesList();
-  /**
-   * <code>repeated string aliases = 7;</code>
-   */
-  int getAliasesCount();
-  /**
-   * <code>repeated string aliases = 7;</code>
-   */
-  java.lang.String getAliases(int index);
-  /**
-   * <code>repeated string aliases = 7;</code>
-   */
-  com.google.protobuf.ByteString
-      getAliasesBytes(int index);
+    /**
+     * <code>string project_name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+    getProjectNameBytes();
 
-  /**
-   * <pre>
-   * doc number of this index;
-   * </pre>
-   *
-   * <code>int64 total_doc_number = 8;</code>
-   */
-  long getTotalDocNumber();
+    /**
+     * <code>string mapping = 5;</code>
+     */
+    java.lang.String getMapping();
 
-  /**
-   * <pre>
-   * data size of all shards of this index;
-   * </pre>
-   *
-   * <code>int64 total_data_size = 9;</code>
-   */
-  long getTotalDataSize();
+    /**
+     * <code>string mapping = 5;</code>
+     */
+    com.google.protobuf.ByteString
+    getMappingBytes();
 
-  /**
-   * <code>int32 primary_shard_number = 10;</code>
-   */
-  int getPrimaryShardNumber();
+    /**
+     * <code>string setting = 6;</code>
+     */
+    java.lang.String getSetting();
 
-  /**
-   * <code>int32 replica_shard_number = 11;</code>
-   */
-  int getReplicaShardNumber();
+    /**
+     * <code>string setting = 6;</code>
+     */
+    com.google.protobuf.ByteString
+    getSettingBytes();
 
-  /**
-   * <code>string index_health = 12;</code>
-   */
-  java.lang.String getIndexHealth();
-  /**
-   * <code>string index_health = 12;</code>
-   */
-  com.google.protobuf.ByteString
-      getIndexHealthBytes();
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    java.util.List<java.lang.String>
+    getAliasesList();
 
-  /**
-   * <code>string project_id = 13;</code>
-   */
-  java.lang.String getProjectId();
-  /**
-   * <code>string project_id = 13;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectIdBytes();
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    int getAliasesCount();
 
-  /**
-   * <code>string cluster_id = 14;</code>
-   */
-  java.lang.String getClusterId();
-  /**
-   * <code>string cluster_id = 14;</code>
-   */
-  com.google.protobuf.ByteString
-      getClusterIdBytes();
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    java.lang.String getAliases(int index);
 
-  /**
-   * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-   */
-  int getRollingPolicyValue();
-  /**
-   * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-   */
-  com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy();
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    com.google.protobuf.ByteString
+    getAliasesBytes(int index);
 
-  /**
-   * <code>int32 index_id = 16;</code>
-   */
-  int getIndexId();
+    /**
+     * <pre>
+     * doc number of this index;
+     * </pre>
+     *
+     * <code>int64 total_doc_number = 8;</code>
+     */
+    long getTotalDocNumber();
 
-  /**
-   * <code>string template = 17;</code>
-   */
-  java.lang.String getTemplate();
-  /**
-   * <code>string template = 17;</code>
-   */
-  com.google.protobuf.ByteString
-      getTemplateBytes();
+    /**
+     * <pre>
+     * data size of all shards of this index;
+     * </pre>
+     *
+     * <code>int64 total_data_size = 9;</code>
+     */
+    long getTotalDataSize();
+
+    /**
+     * <code>int32 primary_shard_number = 10;</code>
+     */
+    int getPrimaryShardNumber();
+
+    /**
+     * <code>int32 replica_shard_number = 11;</code>
+     */
+    int getReplicaShardNumber();
+
+    /**
+     * <code>string index_health = 12;</code>
+     */
+    java.lang.String getIndexHealth();
+
+    /**
+     * <code>string index_health = 12;</code>
+     */
+    com.google.protobuf.ByteString
+    getIndexHealthBytes();
+
+    /**
+     * <code>string project_id = 13;</code>
+     */
+    java.lang.String getProjectId();
+
+    /**
+     * <code>string project_id = 13;</code>
+     */
+    com.google.protobuf.ByteString
+    getProjectIdBytes();
+
+    /**
+     * <code>string cluster_id = 14;</code>
+     */
+    java.lang.String getClusterId();
+
+    /**
+     * <code>string cluster_id = 14;</code>
+     */
+    com.google.protobuf.ByteString
+    getClusterIdBytes();
+
+    /**
+     * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     */
+    int getRollingPolicyValue();
+
+    /**
+     * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     */
+    com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy();
+
+    /**
+     * <code>int32 index_id = 16;</code>
+     */
+    int getIndexId();
+
+    /**
+     * <code>string template = 17;</code>
+     */
+    java.lang.String getTemplate();
+
+    /**
+     * <code>string template = 17;</code>
+     */
+    com.google.protobuf.ByteString
+    getTemplateBytes();
 }

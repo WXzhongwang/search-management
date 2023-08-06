@@ -6,996 +6,359 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code UpdateIndexTemplateRequest}
  */
-public  final class UpdateIndexTemplateRequest extends
-    com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:UpdateIndexTemplateRequest)
-    UpdateIndexTemplateRequestOrBuilder {
-private static final long serialVersionUID = 0L;
-  // Use UpdateIndexTemplateRequest.newBuilder() to construct.
-  private UpdateIndexTemplateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-    super(builder);
-  }
-  private UpdateIndexTemplateRequest() {
-    name_ = "";
-    project_ = "";
-    updateAlias_ = false;
-    updatePolicy_ = false;
-    updateWindow_ = false;
-    aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    autoIndexRollingPolicy_ = 0;
-    autoIndexRollingWindow_ = 0;
-  }
-
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private UpdateIndexTemplateRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (mapping_ != null) {
-              subBuilder = mapping_.toBuilder();
-            }
-            mapping_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mapping_);
-              mapping_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (setting_ != null) {
-              subBuilder = setting_.toBuilder();
-            }
-            setting_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(setting_);
-              setting_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            updateAlias_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            updatePolicy_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            updateWindow_ = input.readBool();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-              aliases_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            aliases_.add(s);
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            autoIndexRollingPolicy_ = rawValue;
-            break;
-          }
-          case 80: {
-
-            autoIndexRollingWindow_ = input.readInt32();
-            break;
-          }
+public final class UpdateIndexTemplateRequest extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:UpdateIndexTemplateRequest)
+        UpdateIndexTemplateRequestOrBuilder {
+    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int PROJECT_FIELD_NUMBER = 2;
+    public static final int MAPPING_FIELD_NUMBER = 3;
+    public static final int SETTING_FIELD_NUMBER = 4;
+    public static final int UPDATE_ALIAS_FIELD_NUMBER = 5;
+    public static final int UPDATE_POLICY_FIELD_NUMBER = 6;
+    public static final int UPDATE_WINDOW_FIELD_NUMBER = 7;
+    public static final int ALIASES_FIELD_NUMBER = 8;
+    public static final int AUTO_INDEX_ROLLING_POLICY_FIELD_NUMBER = 9;
+    public static final int AUTO_INDEX_ROLLING_WINDOW_FIELD_NUMBER = 10;
+    private static final long serialVersionUID = 0L;
+    // @@protoc_insertion_point(class_scope:UpdateIndexTemplateRequest)
+    private static final com.rany.service.platform.meta.UpdateIndexTemplateRequest DEFAULT_INSTANCE;
+    private static final com.google.protobuf.Parser<UpdateIndexTemplateRequest>
+            PARSER = new com.google.protobuf.AbstractParser<UpdateIndexTemplateRequest>() {
+        public UpdateIndexTemplateRequest parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return new UpdateIndexTemplateRequest(input, extensionRegistry);
         }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-        aliases_ = aliases_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
-  public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
-  }
+    };
 
-  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(
-            com.rany.service.platform.meta.UpdateIndexTemplateRequest.class, com.rany.service.platform.meta.UpdateIndexTemplateRequest.Builder.class);
-  }
+    static {
+        DEFAULT_INSTANCE = new com.rany.service.platform.meta.UpdateIndexTemplateRequest();
+    }
 
-  private int bitField0_;
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
-  /**
-   * <code>string name = 1;</code>
-   */
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string name = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
+    private int bitField0_;
+    private volatile java.lang.Object name_;
+    private volatile java.lang.Object project_;
+    private com.google.protobuf.StringValue mapping_;
+    private com.google.protobuf.StringValue setting_;
+    private boolean updateAlias_;
+    private boolean updatePolicy_;
+    private boolean updateWindow_;
+    private com.google.protobuf.LazyStringList aliases_;
+    private int autoIndexRollingPolicy_;
+    private int autoIndexRollingWindow_;
+    private byte memoizedIsInitialized = -1;
 
-  public static final int PROJECT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object project_;
-  /**
-   * <code>string project = 2;</code>
-   */
-  public java.lang.String getProject() {
-    java.lang.Object ref = project_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      project_ = s;
-      return s;
+    // Use UpdateIndexTemplateRequest.newBuilder() to construct.
+    private UpdateIndexTemplateRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
     }
-  }
-  /**
-   * <code>string project = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getProjectBytes() {
-    java.lang.Object ref = project_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      project_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
 
-  public static final int MAPPING_FIELD_NUMBER = 3;
-  private com.google.protobuf.StringValue mapping_;
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  public boolean hasMapping() {
-    return mapping_ != null;
-  }
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  public com.google.protobuf.StringValue getMapping() {
-    return mapping_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
-  }
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  public com.google.protobuf.StringValueOrBuilder getMappingOrBuilder() {
-    return getMapping();
-  }
+    private UpdateIndexTemplateRequest() {
+        name_ = "";
+        project_ = "";
+        updateAlias_ = false;
+        updatePolicy_ = false;
+        updateWindow_ = false;
+        aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        autoIndexRollingPolicy_ = 0;
+        autoIndexRollingWindow_ = 0;
+    }
 
-  public static final int SETTING_FIELD_NUMBER = 4;
-  private com.google.protobuf.StringValue setting_;
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  public boolean hasSetting() {
-    return setting_ != null;
-  }
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  public com.google.protobuf.StringValue getSetting() {
-    return setting_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : setting_;
-  }
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  public com.google.protobuf.StringValueOrBuilder getSettingOrBuilder() {
-    return getSetting();
-  }
+    private UpdateIndexTemplateRequest(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+            boolean done = false;
+            while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                    case 0:
+                        done = true;
+                        break;
+                    default: {
+                        if (!parseUnknownFieldProto3(
+                                input, unknownFields, extensionRegistry, tag)) {
+                            done = true;
+                        }
+                        break;
+                    }
+                    case 10: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-  public static final int UPDATE_ALIAS_FIELD_NUMBER = 5;
-  private boolean updateAlias_;
-  /**
-   * <code>bool update_alias = 5;</code>
-   */
-  public boolean getUpdateAlias() {
-    return updateAlias_;
-  }
+                        name_ = s;
+                        break;
+                    }
+                    case 18: {
+                        java.lang.String s = input.readStringRequireUtf8();
 
-  public static final int UPDATE_POLICY_FIELD_NUMBER = 6;
-  private boolean updatePolicy_;
-  /**
-   * <code>bool update_policy = 6;</code>
-   */
-  public boolean getUpdatePolicy() {
-    return updatePolicy_;
-  }
+                        project_ = s;
+                        break;
+                    }
+                    case 26: {
+                        com.google.protobuf.StringValue.Builder subBuilder = null;
+                        if (mapping_ != null) {
+                            subBuilder = mapping_.toBuilder();
+                        }
+                        mapping_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                        if (subBuilder != null) {
+                            subBuilder.mergeFrom(mapping_);
+                            mapping_ = subBuilder.buildPartial();
+                        }
 
-  public static final int UPDATE_WINDOW_FIELD_NUMBER = 7;
-  private boolean updateWindow_;
-  /**
-   * <code>bool update_window = 7;</code>
-   */
-  public boolean getUpdateWindow() {
-    return updateWindow_;
-  }
+                        break;
+                    }
+                    case 34: {
+                        com.google.protobuf.StringValue.Builder subBuilder = null;
+                        if (setting_ != null) {
+                            subBuilder = setting_.toBuilder();
+                        }
+                        setting_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+                        if (subBuilder != null) {
+                            subBuilder.mergeFrom(setting_);
+                            setting_ = subBuilder.buildPartial();
+                        }
 
-  public static final int ALIASES_FIELD_NUMBER = 8;
-  private com.google.protobuf.LazyStringList aliases_;
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  public com.google.protobuf.ProtocolStringList
-      getAliasesList() {
-    return aliases_;
-  }
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  public int getAliasesCount() {
-    return aliases_.size();
-  }
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  public java.lang.String getAliases(int index) {
-    return aliases_.get(index);
-  }
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  public com.google.protobuf.ByteString
-      getAliasesBytes(int index) {
-    return aliases_.getByteString(index);
-  }
+                        break;
+                    }
+                    case 40: {
 
-  public static final int AUTO_INDEX_ROLLING_POLICY_FIELD_NUMBER = 9;
-  private int autoIndexRollingPolicy_;
-  /**
-   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-   */
-  public int getAutoIndexRollingPolicyValue() {
-    return autoIndexRollingPolicy_;
-  }
-  /**
-   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-   */
-  public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
-    com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
-    return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
-  }
+                        updateAlias_ = input.readBool();
+                        break;
+                    }
+                    case 48: {
 
-  public static final int AUTO_INDEX_ROLLING_WINDOW_FIELD_NUMBER = 10;
-  private int autoIndexRollingWindow_;
-  /**
-   * <code>int32 auto_index_rolling_window = 10;</code>
-   */
-  public int getAutoIndexRollingWindow() {
-    return autoIndexRollingWindow_;
-  }
+                        updatePolicy_ = input.readBool();
+                        break;
+                    }
+                    case 56: {
 
-  private byte memoizedIsInitialized = -1;
-  public final boolean isInitialized() {
-    byte isInitialized = memoizedIsInitialized;
-    if (isInitialized == 1) return true;
-    if (isInitialized == 0) return false;
+                        updateWindow_ = input.readBool();
+                        break;
+                    }
+                    case 66: {
+                        java.lang.String s = input.readStringRequireUtf8();
+                        if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                            aliases_ = new com.google.protobuf.LazyStringArrayList();
+                            mutable_bitField0_ |= 0x00000080;
+                        }
+                        aliases_.add(s);
+                        break;
+                    }
+                    case 72: {
+                        int rawValue = input.readEnum();
 
-    memoizedIsInitialized = 1;
-    return true;
-  }
+                        autoIndexRollingPolicy_ = rawValue;
+                        break;
+                    }
+                    case 80: {
 
-  public void writeTo(com.google.protobuf.CodedOutputStream output)
-                      throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+                        autoIndexRollingWindow_ = input.readInt32();
+                        break;
+                    }
+                }
+            }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+        } finally {
+            if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                aliases_ = aliases_.getUnmodifiableView();
+            }
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+        }
     }
-    if (!getProjectBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
-    }
-    if (mapping_ != null) {
-      output.writeMessage(3, getMapping());
-    }
-    if (setting_ != null) {
-      output.writeMessage(4, getSetting());
-    }
-    if (updateAlias_ != false) {
-      output.writeBool(5, updateAlias_);
-    }
-    if (updatePolicy_ != false) {
-      output.writeBool(6, updatePolicy_);
-    }
-    if (updateWindow_ != false) {
-      output.writeBool(7, updateWindow_);
-    }
-    for (int i = 0; i < aliases_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, aliases_.getRaw(i));
-    }
-    if (autoIndexRollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
-      output.writeEnum(9, autoIndexRollingPolicy_);
-    }
-    if (autoIndexRollingWindow_ != 0) {
-      output.writeInt32(10, autoIndexRollingWindow_);
-    }
-    unknownFields.writeTo(output);
-  }
 
-  public int getSerializedSize() {
-    int size = memoizedSize;
-    if (size != -1) return size;
-
-    size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-    }
-    if (!getProjectBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
-    }
-    if (mapping_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getMapping());
-    }
-    if (setting_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getSetting());
-    }
-    if (updateAlias_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, updateAlias_);
-    }
-    if (updatePolicy_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(6, updatePolicy_);
-    }
-    if (updateWindow_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(7, updateWindow_);
-    }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < aliases_.size(); i++) {
-        dataSize += computeStringSizeNoTag(aliases_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getAliasesList().size();
-    }
-    if (autoIndexRollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(9, autoIndexRollingPolicy_);
-    }
-    if (autoIndexRollingWindow_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(10, autoIndexRollingWindow_);
-    }
-    size += unknownFields.getSerializedSize();
-    memoizedSize = size;
-    return size;
-  }
-
-  @java.lang.Override
-  public boolean equals(final java.lang.Object obj) {
-    if (obj == this) {
-     return true;
-    }
-    if (!(obj instanceof com.rany.service.platform.meta.UpdateIndexTemplateRequest)) {
-      return super.equals(obj);
-    }
-    com.rany.service.platform.meta.UpdateIndexTemplateRequest other = (com.rany.service.platform.meta.UpdateIndexTemplateRequest) obj;
-
-    boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getProject()
-        .equals(other.getProject());
-    result = result && (hasMapping() == other.hasMapping());
-    if (hasMapping()) {
-      result = result && getMapping()
-          .equals(other.getMapping());
-    }
-    result = result && (hasSetting() == other.hasSetting());
-    if (hasSetting()) {
-      result = result && getSetting()
-          .equals(other.getSetting());
-    }
-    result = result && (getUpdateAlias()
-        == other.getUpdateAlias());
-    result = result && (getUpdatePolicy()
-        == other.getUpdatePolicy());
-    result = result && (getUpdateWindow()
-        == other.getUpdateWindow());
-    result = result && getAliasesList()
-        .equals(other.getAliasesList());
-    result = result && autoIndexRollingPolicy_ == other.autoIndexRollingPolicy_;
-    result = result && (getAutoIndexRollingWindow()
-        == other.getAutoIndexRollingWindow());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
-  }
-
-  @java.lang.Override
-  public int hashCode() {
-    if (memoizedHashCode != 0) {
-      return memoizedHashCode;
-    }
-    int hash = 41;
-    hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + PROJECT_FIELD_NUMBER;
-    hash = (53 * hash) + getProject().hashCode();
-    if (hasMapping()) {
-      hash = (37 * hash) + MAPPING_FIELD_NUMBER;
-      hash = (53 * hash) + getMapping().hashCode();
-    }
-    if (hasSetting()) {
-      hash = (37 * hash) + SETTING_FIELD_NUMBER;
-      hash = (53 * hash) + getSetting().hashCode();
-    }
-    hash = (37 * hash) + UPDATE_ALIAS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUpdateAlias());
-    hash = (37 * hash) + UPDATE_POLICY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUpdatePolicy());
-    hash = (37 * hash) + UPDATE_WINDOW_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getUpdateWindow());
-    if (getAliasesCount() > 0) {
-      hash = (37 * hash) + ALIASES_FIELD_NUMBER;
-      hash = (53 * hash) + getAliasesList().hashCode();
-    }
-    hash = (37 * hash) + AUTO_INDEX_ROLLING_POLICY_FIELD_NUMBER;
-    hash = (53 * hash) + autoIndexRollingPolicy_;
-    hash = (37 * hash) + AUTO_INDEX_ROLLING_WINDOW_FIELD_NUMBER;
-    hash = (53 * hash) + getAutoIndexRollingWindow();
-    hash = (29 * hash) + unknownFields.hashCode();
-    memoizedHashCode = hash;
-    return hash;
-  }
-
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      java.nio.ByteBuffer data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      java.nio.ByteBuffer data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      com.google.protobuf.ByteString data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      com.google.protobuf.ByteString data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(byte[] data)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      byte[] data,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    return PARSER.parseFrom(data, extensionRegistry);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseDelimitedFrom(java.io.InputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseDelimitedFrom(
-      java.io.InputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      com.google.protobuf.CodedInputStream input)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input);
-  }
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws java.io.IOException {
-    return com.google.protobuf.GeneratedMessageV3
-        .parseWithIOException(PARSER, input, extensionRegistry);
-  }
-
-  public Builder newBuilderForType() { return newBuilder(); }
-  public static Builder newBuilder() {
-    return DEFAULT_INSTANCE.toBuilder();
-  }
-  public static Builder newBuilder(com.rany.service.platform.meta.UpdateIndexTemplateRequest prototype) {
-    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-  }
-  public Builder toBuilder() {
-    return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
-  }
-
-  @java.lang.Override
-  protected Builder newBuilderForType(
-      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-    Builder builder = new Builder(parent);
-    return builder;
-  }
-  /**
-   * Protobuf type {@code UpdateIndexTemplateRequest}
-   */
-  public static final class Builder extends
-      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:UpdateIndexTemplateRequest)
-      com.rany.service.platform.meta.UpdateIndexTemplateRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
+    getDescriptor() {
+        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(com.rany.service.platform.meta.UpdateIndexTemplateRequest prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public static com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<UpdateIndexTemplateRequest> parser() {
+        return PARSER;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.rany.service.platform.meta.UpdateIndexTemplateRequest.class, com.rany.service.platform.meta.UpdateIndexTemplateRequest.Builder.class);
+    internalGetFieldAccessorTable() {
+        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        com.rany.service.platform.meta.UpdateIndexTemplateRequest.class, com.rany.service.platform.meta.UpdateIndexTemplateRequest.Builder.class);
     }
 
-    // Construct using com.rany.service.platform.meta.UpdateIndexTemplateRequest.newBuilder()
-    private Builder() {
-      maybeForceBuilderInitialization();
-    }
-
-    private Builder(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
-    }
-    public Builder clear() {
-      super.clear();
-      name_ = "";
-
-      project_ = "";
-
-      if (mappingBuilder_ == null) {
-        mapping_ = null;
-      } else {
-        mapping_ = null;
-        mappingBuilder_ = null;
-      }
-      if (settingBuilder_ == null) {
-        setting_ = null;
-      } else {
-        setting_ = null;
-        settingBuilder_ = null;
-      }
-      updateAlias_ = false;
-
-      updatePolicy_ = false;
-
-      updateWindow_ = false;
-
-      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
-      autoIndexRollingPolicy_ = 0;
-
-      autoIndexRollingWindow_ = 0;
-
-      return this;
-    }
-
-    public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
-    }
-
-    public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
-      return com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance();
-    }
-
-    public com.rany.service.platform.meta.UpdateIndexTemplateRequest build() {
-      com.rany.service.platform.meta.UpdateIndexTemplateRequest result = buildPartial();
-      if (!result.isInitialized()) {
-        throw newUninitializedMessageException(result);
-      }
-      return result;
-    }
-
-    public com.rany.service.platform.meta.UpdateIndexTemplateRequest buildPartial() {
-      com.rany.service.platform.meta.UpdateIndexTemplateRequest result = new com.rany.service.platform.meta.UpdateIndexTemplateRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.name_ = name_;
-      result.project_ = project_;
-      if (mappingBuilder_ == null) {
-        result.mapping_ = mapping_;
-      } else {
-        result.mapping_ = mappingBuilder_.build();
-      }
-      if (settingBuilder_ == null) {
-        result.setting_ = setting_;
-      } else {
-        result.setting_ = settingBuilder_.build();
-      }
-      result.updateAlias_ = updateAlias_;
-      result.updatePolicy_ = updatePolicy_;
-      result.updateWindow_ = updateWindow_;
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        aliases_ = aliases_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
-      }
-      result.aliases_ = aliases_;
-      result.autoIndexRollingPolicy_ = autoIndexRollingPolicy_;
-      result.autoIndexRollingWindow_ = autoIndexRollingWindow_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
-    }
-
-    public Builder clone() {
-      return (Builder) super.clone();
-    }
-    public Builder setField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return (Builder) super.setField(field, value);
-    }
-    public Builder clearField(
-        com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
-    }
-    public Builder clearOneof(
-        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
-    }
-    public Builder setRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
-    }
-    public Builder addRepeatedField(
-        com.google.protobuf.Descriptors.FieldDescriptor field,
-        java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
-    }
-    public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.rany.service.platform.meta.UpdateIndexTemplateRequest) {
-        return mergeFrom((com.rany.service.platform.meta.UpdateIndexTemplateRequest)other);
-      } else {
-        super.mergeFrom(other);
-        return this;
-      }
-    }
-
-    public Builder mergeFrom(com.rany.service.platform.meta.UpdateIndexTemplateRequest other) {
-      if (other == com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
-      }
-      if (!other.getProject().isEmpty()) {
-        project_ = other.project_;
-        onChanged();
-      }
-      if (other.hasMapping()) {
-        mergeMapping(other.getMapping());
-      }
-      if (other.hasSetting()) {
-        mergeSetting(other.getSetting());
-      }
-      if (other.getUpdateAlias() != false) {
-        setUpdateAlias(other.getUpdateAlias());
-      }
-      if (other.getUpdatePolicy() != false) {
-        setUpdatePolicy(other.getUpdatePolicy());
-      }
-      if (other.getUpdateWindow() != false) {
-        setUpdateWindow(other.getUpdateWindow());
-      }
-      if (!other.aliases_.isEmpty()) {
-        if (aliases_.isEmpty()) {
-          aliases_ = other.aliases_;
-          bitField0_ = (bitField0_ & ~0x00000080);
-        } else {
-          ensureAliasesIsMutable();
-          aliases_.addAll(other.aliases_);
-        }
-        onChanged();
-      }
-      if (other.autoIndexRollingPolicy_ != 0) {
-        setAutoIndexRollingPolicyValue(other.getAutoIndexRollingPolicyValue());
-      }
-      if (other.getAutoIndexRollingWindow() != 0) {
-        setAutoIndexRollingWindow(other.getAutoIndexRollingWindow());
-      }
-      this.mergeUnknownFields(other.unknownFields);
-      onChanged();
-      return this;
-    }
-
-    public final boolean isInitialized() {
-      return true;
-    }
-
-    public Builder mergeFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      com.rany.service.platform.meta.UpdateIndexTemplateRequest parsedMessage = null;
-      try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.rany.service.platform.meta.UpdateIndexTemplateRequest) e.getUnfinishedMessage();
-        throw e.unwrapIOException();
-      } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
-      return this;
-    }
-    private int bitField0_;
-
-    private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            name_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
-      onChanged();
-      return this;
+    getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            name_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
-    private java.lang.Object project_ = "";
     /**
      * <code>string project = 2;</code>
      */
     public java.lang.String getProject() {
-      java.lang.Object ref = project_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        project_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+        java.lang.Object ref = project_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            project_ = s;
+            return s;
+        }
     }
+
     /**
      * <code>string project = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getProjectBytes() {
-      java.lang.Object ref = project_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        project_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string project = 2;</code>
-     */
-    public Builder setProject(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      project_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string project = 2;</code>
-     */
-    public Builder clearProject() {
-      
-      project_ = getDefaultInstance().getProject();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string project = 2;</code>
-     */
-    public Builder setProjectBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      project_ = value;
-      onChanged();
-      return this;
+    getProjectBytes() {
+        java.lang.Object ref = project_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b =
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                            (java.lang.String) ref);
+            project_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
     }
 
-    private com.google.protobuf.StringValue mapping_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> mappingBuilder_;
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1004,8 +367,9 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue mapping = 3;</code>
      */
     public boolean hasMapping() {
-      return mappingBuilder_ != null || mapping_ != null;
+        return mapping_ != null;
     }
+
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1014,102 +378,9 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue mapping = 3;</code>
      */
     public com.google.protobuf.StringValue getMapping() {
-      if (mappingBuilder_ == null) {
         return mapping_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
-      } else {
-        return mappingBuilder_.getMessage();
-      }
     }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    public Builder setMapping(com.google.protobuf.StringValue value) {
-      if (mappingBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        mapping_ = value;
-        onChanged();
-      } else {
-        mappingBuilder_.setMessage(value);
-      }
 
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    public Builder setMapping(
-        com.google.protobuf.StringValue.Builder builderForValue) {
-      if (mappingBuilder_ == null) {
-        mapping_ = builderForValue.build();
-        onChanged();
-      } else {
-        mappingBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    public Builder mergeMapping(com.google.protobuf.StringValue value) {
-      if (mappingBuilder_ == null) {
-        if (mapping_ != null) {
-          mapping_ =
-            com.google.protobuf.StringValue.newBuilder(mapping_).mergeFrom(value).buildPartial();
-        } else {
-          mapping_ = value;
-        }
-        onChanged();
-      } else {
-        mappingBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    public Builder clearMapping() {
-      if (mappingBuilder_ == null) {
-        mapping_ = null;
-        onChanged();
-      } else {
-        mapping_ = null;
-        mappingBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    public com.google.protobuf.StringValue.Builder getMappingBuilder() {
-      
-      onChanged();
-      return getMappingFieldBuilder().getBuilder();
-    }
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1118,37 +389,9 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue mapping = 3;</code>
      */
     public com.google.protobuf.StringValueOrBuilder getMappingOrBuilder() {
-      if (mappingBuilder_ != null) {
-        return mappingBuilder_.getMessageOrBuilder();
-      } else {
-        return mapping_ == null ?
-            com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
-      }
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue mapping = 3;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-        getMappingFieldBuilder() {
-      if (mappingBuilder_ == null) {
-        mappingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                getMapping(),
-                getParentForChildren(),
-                isClean());
-        mapping_ = null;
-      }
-      return mappingBuilder_;
+        return getMapping();
     }
 
-    private com.google.protobuf.StringValue setting_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> settingBuilder_;
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1157,8 +400,9 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue setting = 4;</code>
      */
     public boolean hasSetting() {
-      return settingBuilder_ != null || setting_ != null;
+        return setting_ != null;
     }
+
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1167,102 +411,9 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue setting = 4;</code>
      */
     public com.google.protobuf.StringValue getSetting() {
-      if (settingBuilder_ == null) {
         return setting_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : setting_;
-      } else {
-        return settingBuilder_.getMessage();
-      }
     }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    public Builder setSetting(com.google.protobuf.StringValue value) {
-      if (settingBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        setting_ = value;
-        onChanged();
-      } else {
-        settingBuilder_.setMessage(value);
-      }
 
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    public Builder setSetting(
-        com.google.protobuf.StringValue.Builder builderForValue) {
-      if (settingBuilder_ == null) {
-        setting_ = builderForValue.build();
-        onChanged();
-      } else {
-        settingBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    public Builder mergeSetting(com.google.protobuf.StringValue value) {
-      if (settingBuilder_ == null) {
-        if (setting_ != null) {
-          setting_ =
-            com.google.protobuf.StringValue.newBuilder(setting_).mergeFrom(value).buildPartial();
-        } else {
-          setting_ = value;
-        }
-        onChanged();
-      } else {
-        settingBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    public Builder clearSetting() {
-      if (settingBuilder_ == null) {
-        setting_ = null;
-        onChanged();
-      } else {
-        setting_ = null;
-        settingBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    public com.google.protobuf.StringValue.Builder getSettingBuilder() {
-      
-      onChanged();
-      return getSettingFieldBuilder().getBuilder();
-    }
     /**
      * <pre>
      * Use StringValue to enable optional field;
@@ -1271,321 +422,1256 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue setting = 4;</code>
      */
     public com.google.protobuf.StringValueOrBuilder getSettingOrBuilder() {
-      if (settingBuilder_ != null) {
-        return settingBuilder_.getMessageOrBuilder();
-      } else {
-        return setting_ == null ?
-            com.google.protobuf.StringValue.getDefaultInstance() : setting_;
-      }
-    }
-    /**
-     * <pre>
-     * Use StringValue to enable optional field;
-     * </pre>
-     *
-     * <code>.google.protobuf.StringValue setting = 4;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-        getSettingFieldBuilder() {
-      if (settingBuilder_ == null) {
-        settingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                getSetting(),
-                getParentForChildren(),
-                isClean());
-        setting_ = null;
-      }
-      return settingBuilder_;
+        return getSetting();
     }
 
-    private boolean updateAlias_ ;
     /**
      * <code>bool update_alias = 5;</code>
      */
     public boolean getUpdateAlias() {
-      return updateAlias_;
-    }
-    /**
-     * <code>bool update_alias = 5;</code>
-     */
-    public Builder setUpdateAlias(boolean value) {
-      
-      updateAlias_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool update_alias = 5;</code>
-     */
-    public Builder clearUpdateAlias() {
-      
-      updateAlias_ = false;
-      onChanged();
-      return this;
+        return updateAlias_;
     }
 
-    private boolean updatePolicy_ ;
     /**
      * <code>bool update_policy = 6;</code>
      */
     public boolean getUpdatePolicy() {
-      return updatePolicy_;
-    }
-    /**
-     * <code>bool update_policy = 6;</code>
-     */
-    public Builder setUpdatePolicy(boolean value) {
-      
-      updatePolicy_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool update_policy = 6;</code>
-     */
-    public Builder clearUpdatePolicy() {
-      
-      updatePolicy_ = false;
-      onChanged();
-      return this;
+        return updatePolicy_;
     }
 
-    private boolean updateWindow_ ;
     /**
      * <code>bool update_window = 7;</code>
      */
     public boolean getUpdateWindow() {
-      return updateWindow_;
-    }
-    /**
-     * <code>bool update_window = 7;</code>
-     */
-    public Builder setUpdateWindow(boolean value) {
-      
-      updateWindow_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool update_window = 7;</code>
-     */
-    public Builder clearUpdateWindow() {
-      
-      updateWindow_ = false;
-      onChanged();
-      return this;
+        return updateWindow_;
     }
 
-    private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureAliasesIsMutable() {
-      if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-        aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
-        bitField0_ |= 0x00000080;
-       }
-    }
     /**
      * <code>repeated string aliases = 8;</code>
      */
     public com.google.protobuf.ProtocolStringList
-        getAliasesList() {
-      return aliases_.getUnmodifiableView();
+    getAliasesList() {
+        return aliases_;
     }
+
     /**
      * <code>repeated string aliases = 8;</code>
      */
     public int getAliasesCount() {
-      return aliases_.size();
+        return aliases_.size();
     }
+
     /**
      * <code>repeated string aliases = 8;</code>
      */
     public java.lang.String getAliases(int index) {
-      return aliases_.get(index);
+        return aliases_.get(index);
     }
+
     /**
      * <code>repeated string aliases = 8;</code>
      */
     public com.google.protobuf.ByteString
-        getAliasesBytes(int index) {
-      return aliases_.getByteString(index);
-    }
-    /**
-     * <code>repeated string aliases = 8;</code>
-     */
-    public Builder setAliases(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAliasesIsMutable();
-      aliases_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string aliases = 8;</code>
-     */
-    public Builder addAliases(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAliasesIsMutable();
-      aliases_.add(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string aliases = 8;</code>
-     */
-    public Builder addAllAliases(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureAliasesIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, aliases_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string aliases = 8;</code>
-     */
-    public Builder clearAliases() {
-      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string aliases = 8;</code>
-     */
-    public Builder addAliasesBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      ensureAliasesIsMutable();
-      aliases_.add(value);
-      onChanged();
-      return this;
+    getAliasesBytes(int index) {
+        return aliases_.getByteString(index);
     }
 
-    private int autoIndexRollingPolicy_ = 0;
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
      */
     public int getAutoIndexRollingPolicyValue() {
-      return autoIndexRollingPolicy_;
+        return autoIndexRollingPolicy_;
     }
-    /**
-     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-     */
-    public Builder setAutoIndexRollingPolicyValue(int value) {
-      autoIndexRollingPolicy_ = value;
-      onChanged();
-      return this;
-    }
+
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
      */
     public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
-      com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
-      return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-     */
-    public Builder setAutoIndexRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      autoIndexRollingPolicy_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-     */
-    public Builder clearAutoIndexRollingPolicy() {
-      
-      autoIndexRollingPolicy_ = 0;
-      onChanged();
-      return this;
+        com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
+        return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
     }
 
-    private int autoIndexRollingWindow_ ;
     /**
      * <code>int32 auto_index_rolling_window = 10;</code>
      */
     public int getAutoIndexRollingWindow() {
-      return autoIndexRollingWindow_;
+        return autoIndexRollingWindow_;
     }
+
+    public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+        if (!getNameBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+        }
+        if (!getProjectBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, project_);
+        }
+        if (mapping_ != null) {
+            output.writeMessage(3, getMapping());
+        }
+        if (setting_ != null) {
+            output.writeMessage(4, getSetting());
+        }
+        if (updateAlias_ != false) {
+            output.writeBool(5, updateAlias_);
+        }
+        if (updatePolicy_ != false) {
+            output.writeBool(6, updatePolicy_);
+        }
+        if (updateWindow_ != false) {
+            output.writeBool(7, updateWindow_);
+        }
+        for (int i = 0; i < aliases_.size(); i++) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 8, aliases_.getRaw(i));
+        }
+        if (autoIndexRollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
+            output.writeEnum(9, autoIndexRollingPolicy_);
+        }
+        if (autoIndexRollingWindow_ != 0) {
+            output.writeInt32(10, autoIndexRollingWindow_);
+        }
+        unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!getNameBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+        }
+        if (!getProjectBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, project_);
+        }
+        if (mapping_ != null) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(3, getMapping());
+        }
+        if (setting_ != null) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeMessageSize(4, getSetting());
+        }
+        if (updateAlias_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(5, updateAlias_);
+        }
+        if (updatePolicy_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(6, updatePolicy_);
+        }
+        if (updateWindow_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeBoolSize(7, updateWindow_);
+        }
+        {
+            int dataSize = 0;
+            for (int i = 0; i < aliases_.size(); i++) {
+                dataSize += computeStringSizeNoTag(aliases_.getRaw(i));
+            }
+            size += dataSize;
+            size += 1 * getAliasesList().size();
+        }
+        if (autoIndexRollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeEnumSize(9, autoIndexRollingPolicy_);
+        }
+        if (autoIndexRollingWindow_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+                    .computeInt32Size(10, autoIndexRollingWindow_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof com.rany.service.platform.meta.UpdateIndexTemplateRequest)) {
+            return super.equals(obj);
+        }
+        com.rany.service.platform.meta.UpdateIndexTemplateRequest other = (com.rany.service.platform.meta.UpdateIndexTemplateRequest) obj;
+
+        boolean result = true;
+        result = result && getName()
+                .equals(other.getName());
+        result = result && getProject()
+                .equals(other.getProject());
+        result = result && (hasMapping() == other.hasMapping());
+        if (hasMapping()) {
+            result = result && getMapping()
+                    .equals(other.getMapping());
+        }
+        result = result && (hasSetting() == other.hasSetting());
+        if (hasSetting()) {
+            result = result && getSetting()
+                    .equals(other.getSetting());
+        }
+        result = result && (getUpdateAlias()
+                == other.getUpdateAlias());
+        result = result && (getUpdatePolicy()
+                == other.getUpdatePolicy());
+        result = result && (getUpdateWindow()
+                == other.getUpdateWindow());
+        result = result && getAliasesList()
+                .equals(other.getAliasesList());
+        result = result && autoIndexRollingPolicy_ == other.autoIndexRollingPolicy_;
+        result = result && (getAutoIndexRollingWindow()
+                == other.getAutoIndexRollingWindow());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+        if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+        hash = (37 * hash) + PROJECT_FIELD_NUMBER;
+        hash = (53 * hash) + getProject().hashCode();
+        if (hasMapping()) {
+            hash = (37 * hash) + MAPPING_FIELD_NUMBER;
+            hash = (53 * hash) + getMapping().hashCode();
+        }
+        if (hasSetting()) {
+            hash = (37 * hash) + SETTING_FIELD_NUMBER;
+            hash = (53 * hash) + getSetting().hashCode();
+        }
+        hash = (37 * hash) + UPDATE_ALIAS_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getUpdateAlias());
+        hash = (37 * hash) + UPDATE_POLICY_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getUpdatePolicy());
+        hash = (37 * hash) + UPDATE_WINDOW_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                getUpdateWindow());
+        if (getAliasesCount() > 0) {
+            hash = (37 * hash) + ALIASES_FIELD_NUMBER;
+            hash = (53 * hash) + getAliasesList().hashCode();
+        }
+        hash = (37 * hash) + AUTO_INDEX_ROLLING_POLICY_FIELD_NUMBER;
+        hash = (53 * hash) + autoIndexRollingPolicy_;
+        hash = (37 * hash) + AUTO_INDEX_ROLLING_WINDOW_FIELD_NUMBER;
+        hash = (53 * hash) + getAutoIndexRollingWindow();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+    }
+
+    public Builder newBuilderForType() {
+        return newBuilder();
+    }
+
+    public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UpdateIndexTemplateRequest> getParserForType() {
+        return PARSER;
+    }
+
+    public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+    }
+
     /**
-     * <code>int32 auto_index_rolling_window = 10;</code>
+     * Protobuf type {@code UpdateIndexTemplateRequest}
      */
-    public Builder setAutoIndexRollingWindow(int value) {
-      
-      autoIndexRollingWindow_ = value;
-      onChanged();
-      return this;
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:UpdateIndexTemplateRequest)
+            com.rany.service.platform.meta.UpdateIndexTemplateRequestOrBuilder {
+        private int bitField0_;
+        private java.lang.Object name_ = "";
+        private java.lang.Object project_ = "";
+        private com.google.protobuf.StringValue mapping_ = null;
+        private com.google.protobuf.SingleFieldBuilderV3<
+                com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> mappingBuilder_;
+        private com.google.protobuf.StringValue setting_ = null;
+        private com.google.protobuf.SingleFieldBuilderV3<
+                com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> settingBuilder_;
+        private boolean updateAlias_;
+        private boolean updatePolicy_;
+        private boolean updateWindow_;
+        private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        private int autoIndexRollingPolicy_ = 0;
+        private int autoIndexRollingWindow_;
+
+        // Construct using com.rany.service.platform.meta.UpdateIndexTemplateRequest.newBuilder()
+        private Builder() {
+            maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.rany.service.platform.meta.UpdateIndexTemplateRequest.class, com.rany.service.platform.meta.UpdateIndexTemplateRequest.Builder.class);
+        }
+
+        private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+        }
+
+        public Builder clear() {
+            super.clear();
+            name_ = "";
+
+            project_ = "";
+
+            if (mappingBuilder_ == null) {
+                mapping_ = null;
+            } else {
+                mapping_ = null;
+                mappingBuilder_ = null;
+            }
+            if (settingBuilder_ == null) {
+                setting_ = null;
+            } else {
+                setting_ = null;
+                settingBuilder_ = null;
+            }
+            updateAlias_ = false;
+
+            updatePolicy_ = false;
+
+            updateWindow_ = false;
+
+            aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            bitField0_ = (bitField0_ & ~0x00000080);
+            autoIndexRollingPolicy_ = 0;
+
+            autoIndexRollingWindow_ = 0;
+
+            return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
+        }
+
+        public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
+            return com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance();
+        }
+
+        public com.rany.service.platform.meta.UpdateIndexTemplateRequest build() {
+            com.rany.service.platform.meta.UpdateIndexTemplateRequest result = buildPartial();
+            if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+            }
+            return result;
+        }
+
+        public com.rany.service.platform.meta.UpdateIndexTemplateRequest buildPartial() {
+            com.rany.service.platform.meta.UpdateIndexTemplateRequest result = new com.rany.service.platform.meta.UpdateIndexTemplateRequest(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            result.name_ = name_;
+            result.project_ = project_;
+            if (mappingBuilder_ == null) {
+                result.mapping_ = mapping_;
+            } else {
+                result.mapping_ = mappingBuilder_.build();
+            }
+            if (settingBuilder_ == null) {
+                result.setting_ = setting_;
+            } else {
+                result.setting_ = settingBuilder_.build();
+            }
+            result.updateAlias_ = updateAlias_;
+            result.updatePolicy_ = updatePolicy_;
+            result.updateWindow_ = updateWindow_;
+            if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                aliases_ = aliases_.getUnmodifiableView();
+                bitField0_ = (bitField0_ & ~0x00000080);
+            }
+            result.aliases_ = aliases_;
+            result.autoIndexRollingPolicy_ = autoIndexRollingPolicy_;
+            result.autoIndexRollingWindow_ = autoIndexRollingWindow_;
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+        }
+
+        public Builder clone() {
+            return (Builder) super.clone();
+        }
+
+        public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return (Builder) super.setField(field, value);
+        }
+
+        public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+        }
+
+        public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+        }
+
+        public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, java.lang.Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+        }
+
+        public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                java.lang.Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.rany.service.platform.meta.UpdateIndexTemplateRequest) {
+                return mergeFrom((com.rany.service.platform.meta.UpdateIndexTemplateRequest) other);
+            } else {
+                super.mergeFrom(other);
+                return this;
+            }
+        }
+
+        public Builder mergeFrom(com.rany.service.platform.meta.UpdateIndexTemplateRequest other) {
+            if (other == com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance()) return this;
+            if (!other.getName().isEmpty()) {
+                name_ = other.name_;
+                onChanged();
+            }
+            if (!other.getProject().isEmpty()) {
+                project_ = other.project_;
+                onChanged();
+            }
+            if (other.hasMapping()) {
+                mergeMapping(other.getMapping());
+            }
+            if (other.hasSetting()) {
+                mergeSetting(other.getSetting());
+            }
+            if (other.getUpdateAlias() != false) {
+                setUpdateAlias(other.getUpdateAlias());
+            }
+            if (other.getUpdatePolicy() != false) {
+                setUpdatePolicy(other.getUpdatePolicy());
+            }
+            if (other.getUpdateWindow() != false) {
+                setUpdateWindow(other.getUpdateWindow());
+            }
+            if (!other.aliases_.isEmpty()) {
+                if (aliases_.isEmpty()) {
+                    aliases_ = other.aliases_;
+                    bitField0_ = (bitField0_ & ~0x00000080);
+                } else {
+                    ensureAliasesIsMutable();
+                    aliases_.addAll(other.aliases_);
+                }
+                onChanged();
+            }
+            if (other.autoIndexRollingPolicy_ != 0) {
+                setAutoIndexRollingPolicyValue(other.getAutoIndexRollingPolicyValue());
+            }
+            if (other.getAutoIndexRollingWindow() != 0) {
+                setAutoIndexRollingWindow(other.getAutoIndexRollingWindow());
+            }
+            this.mergeUnknownFields(other.unknownFields);
+            onChanged();
+            return this;
+        }
+
+        public final boolean isInitialized() {
+            return true;
+        }
+
+        public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            com.rany.service.platform.meta.UpdateIndexTemplateRequest parsedMessage = null;
+            try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (com.rany.service.platform.meta.UpdateIndexTemplateRequest) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+            } finally {
+                if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                }
+            }
+            return this;
+        }
+
+        /**
+         * <code>string name = 1;</code>
+         */
+        public java.lang.String getName() {
+            java.lang.Object ref = name_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                name_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string name = 1;</code>
+         */
+        public Builder setName(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            name_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string name = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getNameBytes() {
+            java.lang.Object ref = name_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                name_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string name = 1;</code>
+         */
+        public Builder setNameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            name_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string name = 1;</code>
+         */
+        public Builder clearName() {
+
+            name_ = getDefaultInstance().getName();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string project = 2;</code>
+         */
+        public java.lang.String getProject() {
+            java.lang.Object ref = project_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                project_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <code>string project = 2;</code>
+         */
+        public Builder setProject(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            project_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string project = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getProjectBytes() {
+            java.lang.Object ref = project_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (java.lang.String) ref);
+                project_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <code>string project = 2;</code>
+         */
+        public Builder setProjectBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            project_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>string project = 2;</code>
+         */
+        public Builder clearProject() {
+
+            project_ = getDefaultInstance().getProject();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public boolean hasMapping() {
+            return mappingBuilder_ != null || mapping_ != null;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public com.google.protobuf.StringValue getMapping() {
+            if (mappingBuilder_ == null) {
+                return mapping_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
+            } else {
+                return mappingBuilder_.getMessage();
+            }
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public Builder setMapping(com.google.protobuf.StringValue value) {
+            if (mappingBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                mapping_ = value;
+                onChanged();
+            } else {
+                mappingBuilder_.setMessage(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public Builder setMapping(
+                com.google.protobuf.StringValue.Builder builderForValue) {
+            if (mappingBuilder_ == null) {
+                mapping_ = builderForValue.build();
+                onChanged();
+            } else {
+                mappingBuilder_.setMessage(builderForValue.build());
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public Builder mergeMapping(com.google.protobuf.StringValue value) {
+            if (mappingBuilder_ == null) {
+                if (mapping_ != null) {
+                    mapping_ =
+                            com.google.protobuf.StringValue.newBuilder(mapping_).mergeFrom(value).buildPartial();
+                } else {
+                    mapping_ = value;
+                }
+                onChanged();
+            } else {
+                mappingBuilder_.mergeFrom(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public Builder clearMapping() {
+            if (mappingBuilder_ == null) {
+                mapping_ = null;
+                onChanged();
+            } else {
+                mapping_ = null;
+                mappingBuilder_ = null;
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public com.google.protobuf.StringValue.Builder getMappingBuilder() {
+
+            onChanged();
+            return getMappingFieldBuilder().getBuilder();
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        public com.google.protobuf.StringValueOrBuilder getMappingOrBuilder() {
+            if (mappingBuilder_ != null) {
+                return mappingBuilder_.getMessageOrBuilder();
+            } else {
+                return mapping_ == null ?
+                        com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
+            }
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue mapping = 3;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+                com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>
+        getMappingFieldBuilder() {
+            if (mappingBuilder_ == null) {
+                mappingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                        getMapping(),
+                        getParentForChildren(),
+                        isClean());
+                mapping_ = null;
+            }
+            return mappingBuilder_;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public boolean hasSetting() {
+            return settingBuilder_ != null || setting_ != null;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public com.google.protobuf.StringValue getSetting() {
+            if (settingBuilder_ == null) {
+                return setting_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : setting_;
+            } else {
+                return settingBuilder_.getMessage();
+            }
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public Builder setSetting(com.google.protobuf.StringValue value) {
+            if (settingBuilder_ == null) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                setting_ = value;
+                onChanged();
+            } else {
+                settingBuilder_.setMessage(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public Builder setSetting(
+                com.google.protobuf.StringValue.Builder builderForValue) {
+            if (settingBuilder_ == null) {
+                setting_ = builderForValue.build();
+                onChanged();
+            } else {
+                settingBuilder_.setMessage(builderForValue.build());
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public Builder mergeSetting(com.google.protobuf.StringValue value) {
+            if (settingBuilder_ == null) {
+                if (setting_ != null) {
+                    setting_ =
+                            com.google.protobuf.StringValue.newBuilder(setting_).mergeFrom(value).buildPartial();
+                } else {
+                    setting_ = value;
+                }
+                onChanged();
+            } else {
+                settingBuilder_.mergeFrom(value);
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public Builder clearSetting() {
+            if (settingBuilder_ == null) {
+                setting_ = null;
+                onChanged();
+            } else {
+                setting_ = null;
+                settingBuilder_ = null;
+            }
+
+            return this;
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public com.google.protobuf.StringValue.Builder getSettingBuilder() {
+
+            onChanged();
+            return getSettingFieldBuilder().getBuilder();
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        public com.google.protobuf.StringValueOrBuilder getSettingOrBuilder() {
+            if (settingBuilder_ != null) {
+                return settingBuilder_.getMessageOrBuilder();
+            } else {
+                return setting_ == null ?
+                        com.google.protobuf.StringValue.getDefaultInstance() : setting_;
+            }
+        }
+
+        /**
+         * <pre>
+         * Use StringValue to enable optional field;
+         * </pre>
+         *
+         * <code>.google.protobuf.StringValue setting = 4;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+                com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>
+        getSettingFieldBuilder() {
+            if (settingBuilder_ == null) {
+                settingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                        getSetting(),
+                        getParentForChildren(),
+                        isClean());
+                setting_ = null;
+            }
+            return settingBuilder_;
+        }
+
+        /**
+         * <code>bool update_alias = 5;</code>
+         */
+        public boolean getUpdateAlias() {
+            return updateAlias_;
+        }
+
+        /**
+         * <code>bool update_alias = 5;</code>
+         */
+        public Builder setUpdateAlias(boolean value) {
+
+            updateAlias_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool update_alias = 5;</code>
+         */
+        public Builder clearUpdateAlias() {
+
+            updateAlias_ = false;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool update_policy = 6;</code>
+         */
+        public boolean getUpdatePolicy() {
+            return updatePolicy_;
+        }
+
+        /**
+         * <code>bool update_policy = 6;</code>
+         */
+        public Builder setUpdatePolicy(boolean value) {
+
+            updatePolicy_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool update_policy = 6;</code>
+         */
+        public Builder clearUpdatePolicy() {
+
+            updatePolicy_ = false;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool update_window = 7;</code>
+         */
+        public boolean getUpdateWindow() {
+            return updateWindow_;
+        }
+
+        /**
+         * <code>bool update_window = 7;</code>
+         */
+        public Builder setUpdateWindow(boolean value) {
+
+            updateWindow_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>bool update_window = 7;</code>
+         */
+        public Builder clearUpdateWindow() {
+
+            updateWindow_ = false;
+            onChanged();
+            return this;
+        }
+
+        private void ensureAliasesIsMutable() {
+            if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+                aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
+                bitField0_ |= 0x00000080;
+            }
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public com.google.protobuf.ProtocolStringList
+        getAliasesList() {
+            return aliases_.getUnmodifiableView();
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public int getAliasesCount() {
+            return aliases_.size();
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public java.lang.String getAliases(int index) {
+            return aliases_.get(index);
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAliasesBytes(int index) {
+            return aliases_.getByteString(index);
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public Builder setAliases(
+                int index, java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureAliasesIsMutable();
+            aliases_.set(index, value);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public Builder addAliases(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureAliasesIsMutable();
+            aliases_.add(value);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public Builder addAllAliases(
+                java.lang.Iterable<java.lang.String> values) {
+            ensureAliasesIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, aliases_);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public Builder clearAliases() {
+            aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            bitField0_ = (bitField0_ & ~0x00000080);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>repeated string aliases = 8;</code>
+         */
+        public Builder addAliasesBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+            ensureAliasesIsMutable();
+            aliases_.add(value);
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+         */
+        public int getAutoIndexRollingPolicyValue() {
+            return autoIndexRollingPolicy_;
+        }
+
+        /**
+         * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+         */
+        public Builder setAutoIndexRollingPolicyValue(int value) {
+            autoIndexRollingPolicy_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+         */
+        public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
+            com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
+            return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
+        }
+
+        /**
+         * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+         */
+        public Builder setAutoIndexRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            autoIndexRollingPolicy_ = value.getNumber();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+         */
+        public Builder clearAutoIndexRollingPolicy() {
+
+            autoIndexRollingPolicy_ = 0;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>int32 auto_index_rolling_window = 10;</code>
+         */
+        public int getAutoIndexRollingWindow() {
+            return autoIndexRollingWindow_;
+        }
+
+        /**
+         * <code>int32 auto_index_rolling_window = 10;</code>
+         */
+        public Builder setAutoIndexRollingWindow(int value) {
+
+            autoIndexRollingWindow_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>int32 auto_index_rolling_window = 10;</code>
+         */
+        public Builder clearAutoIndexRollingWindow() {
+
+            autoIndexRollingWindow_ = 0;
+            onChanged();
+            return this;
+        }
+
+        public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:UpdateIndexTemplateRequest)
     }
-    /**
-     * <code>int32 auto_index_rolling_window = 10;</code>
-     */
-    public Builder clearAutoIndexRollingWindow() {
-      
-      autoIndexRollingWindow_ = 0;
-      onChanged();
-      return this;
-    }
-    public final Builder setUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
-    }
-
-    public final Builder mergeUnknownFields(
-        final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.mergeUnknownFields(unknownFields);
-    }
-
-
-    // @@protoc_insertion_point(builder_scope:UpdateIndexTemplateRequest)
-  }
-
-  // @@protoc_insertion_point(class_scope:UpdateIndexTemplateRequest)
-  private static final com.rany.service.platform.meta.UpdateIndexTemplateRequest DEFAULT_INSTANCE;
-  static {
-    DEFAULT_INSTANCE = new com.rany.service.platform.meta.UpdateIndexTemplateRequest();
-  }
-
-  public static com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstance() {
-    return DEFAULT_INSTANCE;
-  }
-
-  private static final com.google.protobuf.Parser<UpdateIndexTemplateRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateIndexTemplateRequest>() {
-    public UpdateIndexTemplateRequest parsePartialFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateIndexTemplateRequest(input, extensionRegistry);
-    }
-  };
-
-  public static com.google.protobuf.Parser<UpdateIndexTemplateRequest> parser() {
-    return PARSER;
-  }
-
-  @java.lang.Override
-  public com.google.protobuf.Parser<UpdateIndexTemplateRequest> getParserForType() {
-    return PARSER;
-  }
-
-  public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
-    return DEFAULT_INSTANCE;
-  }
 
 }
 

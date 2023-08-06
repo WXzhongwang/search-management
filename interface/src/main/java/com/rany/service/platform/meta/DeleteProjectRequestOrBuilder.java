@@ -4,25 +4,27 @@
 package com.rany.service.platform.meta;
 
 public interface DeleteProjectRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:DeleteProjectRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:DeleteProjectRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>.ProjectStatus status = 2;</code>
-   */
-  int getStatusValue();
-  /**
-   * <code>.ProjectStatus status = 2;</code>
-   */
-  com.rany.service.platform.meta.ProjectStatus getStatus();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
+
+    /**
+     * <code>.ProjectStatus status = 2;</code>
+     */
+    int getStatusValue();
+
+    /**
+     * <code>.ProjectStatus status = 2;</code>
+     */
+    com.rany.service.platform.meta.ProjectStatus getStatus();
 }

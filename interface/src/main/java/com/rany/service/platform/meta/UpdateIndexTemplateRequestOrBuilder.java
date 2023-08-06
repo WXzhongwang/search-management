@@ -4,124 +4,134 @@
 package com.rany.service.platform.meta;
 
 public interface UpdateIndexTemplateRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:UpdateIndexTemplateRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:UpdateIndexTemplateRequest)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>string name = 1;</code>
-   */
-  java.lang.String getName();
-  /**
-   * <code>string name = 1;</code>
-   */
-  com.google.protobuf.ByteString
-      getNameBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    java.lang.String getName();
 
-  /**
-   * <code>string project = 2;</code>
-   */
-  java.lang.String getProject();
-  /**
-   * <code>string project = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getProjectBytes();
+    /**
+     * <code>string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+    getNameBytes();
 
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  boolean hasMapping();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  com.google.protobuf.StringValue getMapping();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue mapping = 3;</code>
-   */
-  com.google.protobuf.StringValueOrBuilder getMappingOrBuilder();
+    /**
+     * <code>string project = 2;</code>
+     */
+    java.lang.String getProject();
 
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  boolean hasSetting();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  com.google.protobuf.StringValue getSetting();
-  /**
-   * <pre>
-   * Use StringValue to enable optional field;
-   * </pre>
-   *
-   * <code>.google.protobuf.StringValue setting = 4;</code>
-   */
-  com.google.protobuf.StringValueOrBuilder getSettingOrBuilder();
+    /**
+     * <code>string project = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getProjectBytes();
 
-  /**
-   * <code>bool update_alias = 5;</code>
-   */
-  boolean getUpdateAlias();
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 3;</code>
+     */
+    boolean hasMapping();
 
-  /**
-   * <code>bool update_policy = 6;</code>
-   */
-  boolean getUpdatePolicy();
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 3;</code>
+     */
+    com.google.protobuf.StringValue getMapping();
 
-  /**
-   * <code>bool update_window = 7;</code>
-   */
-  boolean getUpdateWindow();
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue mapping = 3;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getMappingOrBuilder();
 
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  java.util.List<java.lang.String>
-      getAliasesList();
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  int getAliasesCount();
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  java.lang.String getAliases(int index);
-  /**
-   * <code>repeated string aliases = 8;</code>
-   */
-  com.google.protobuf.ByteString
-      getAliasesBytes(int index);
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 4;</code>
+     */
+    boolean hasSetting();
 
-  /**
-   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-   */
-  int getAutoIndexRollingPolicyValue();
-  /**
-   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
-   */
-  com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy();
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 4;</code>
+     */
+    com.google.protobuf.StringValue getSetting();
 
-  /**
-   * <code>int32 auto_index_rolling_window = 10;</code>
-   */
-  int getAutoIndexRollingWindow();
+    /**
+     * <pre>
+     * Use StringValue to enable optional field;
+     * </pre>
+     *
+     * <code>.google.protobuf.StringValue setting = 4;</code>
+     */
+    com.google.protobuf.StringValueOrBuilder getSettingOrBuilder();
+
+    /**
+     * <code>bool update_alias = 5;</code>
+     */
+    boolean getUpdateAlias();
+
+    /**
+     * <code>bool update_policy = 6;</code>
+     */
+    boolean getUpdatePolicy();
+
+    /**
+     * <code>bool update_window = 7;</code>
+     */
+    boolean getUpdateWindow();
+
+    /**
+     * <code>repeated string aliases = 8;</code>
+     */
+    java.util.List<java.lang.String>
+    getAliasesList();
+
+    /**
+     * <code>repeated string aliases = 8;</code>
+     */
+    int getAliasesCount();
+
+    /**
+     * <code>repeated string aliases = 8;</code>
+     */
+    java.lang.String getAliases(int index);
+
+    /**
+     * <code>repeated string aliases = 8;</code>
+     */
+    com.google.protobuf.ByteString
+    getAliasesBytes(int index);
+
+    /**
+     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     */
+    int getAutoIndexRollingPolicyValue();
+
+    /**
+     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     */
+    com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy();
+
+    /**
+     * <code>int32 auto_index_rolling_window = 10;</code>
+     */
+    int getAutoIndexRollingWindow();
 }

@@ -4,6 +4,6 @@
 package com.rany.service.platform.admin;
 
 public interface ResumeWorkThreadRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ResumeWorkThreadRequest)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:ResumeWorkThreadRequest)
+        com.google.protobuf.MessageOrBuilder {
 }

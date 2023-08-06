@@ -4,34 +4,37 @@
 package com.rany.service.platform.meta;
 
 public interface GetIndexTemplateReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:GetIndexTemplateReply)
-    com.google.protobuf.MessageOrBuilder {
+        // @@protoc_insertion_point(interface_extends:GetIndexTemplateReply)
+        com.google.protobuf.MessageOrBuilder {
 
-  /**
-   * <code>int32 code = 1;</code>
-   */
-  int getCode();
+    /**
+     * <code>int32 code = 1;</code>
+     */
+    int getCode();
 
-  /**
-   * <code>string message = 2;</code>
-   */
-  java.lang.String getMessage();
-  /**
-   * <code>string message = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getMessageBytes();
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
 
-  /**
-   * <code>.IndexTemplateInfo template = 3;</code>
-   */
-  boolean hasTemplate();
-  /**
-   * <code>.IndexTemplateInfo template = 3;</code>
-   */
-  com.rany.service.platform.meta.IndexTemplateInfo getTemplate();
-  /**
-   * <code>.IndexTemplateInfo template = 3;</code>
-   */
-  com.rany.service.platform.meta.IndexTemplateInfoOrBuilder getTemplateOrBuilder();
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getMessageBytes();
+
+    /**
+     * <code>.IndexTemplateInfo template = 3;</code>
+     */
+    boolean hasTemplate();
+
+    /**
+     * <code>.IndexTemplateInfo template = 3;</code>
+     */
+    com.rany.service.platform.meta.IndexTemplateInfo getTemplate();
+
+    /**
+     * <code>.IndexTemplateInfo template = 3;</code>
+     */
+    com.rany.service.platform.meta.IndexTemplateInfoOrBuilder getTemplateOrBuilder();
 }
