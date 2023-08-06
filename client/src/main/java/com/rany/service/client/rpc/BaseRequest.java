@@ -18,7 +18,7 @@ public abstract class BaseRequest {
 
     public void check() {
         Map<String, StringBuffer> validate = ValidatorUtil.validate(this);
-        if (!validate.isEmpty()) {
+        if (validate != null && !validate.isEmpty()) {
             String message = StringUtils.join(validate.values(), ",");
             throw new SearchClientException(ErrorCodeEnum.PARAM_CHECK_ERROR.getCode(), message);
         }

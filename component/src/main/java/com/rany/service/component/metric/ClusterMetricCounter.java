@@ -16,4 +16,12 @@ public class ClusterMetricCounter {
     public Integer totalIndex;
     public Integer totalDocs;
     public Integer totalDataSize;
+
+    public ClusterMetricCounter() {
+        totalProject = 0;
+        totalTemplate = 0;
+        totalIndex = 0;
+        totalDocs = 0;
+        totalDataSize = 0;
+    }
 }

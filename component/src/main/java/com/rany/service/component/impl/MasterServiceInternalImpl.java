@@ -280,16 +280,16 @@ public class MasterServiceInternalImpl {
         healthCheckFuture = backgroundTaskExecutor.scheduleAtFixedRate(healthCheckExecutorTask, 0, 120, TimeUnit.SECONDS);
 
         IndexMetricRefresher metricRefresher = new IndexMetricRefresher();
-        metricRefresherFuture = backgroundTaskExecutor.scheduleAtFixedRate(metricRefresher, 0, 30, TimeUnit.SECONDS);
+        // metricRefresherFuture = backgroundTaskExecutor.scheduleAtFixedRate(metricRefresher, 0, 120, TimeUnit.SECONDS);
 
         SyncMetaWorker syncMetaWorker = new SyncMetaWorker();
-        syncMetaFuture = backgroundTaskExecutor.scheduleAtFixedRate(syncMetaWorker, 0, 3600, TimeUnit.SECONDS);
+        // syncMetaFuture = backgroundTaskExecutor.scheduleAtFixedRate(syncMetaWorker, 0, 3600, TimeUnit.SECONDS);
 
         AutoIndexRollingWorker autoIndexRollingWorker = new AutoIndexRollingWorker();
-        autoIndexRollingFuture = backgroundTaskExecutor.scheduleAtFixedRate(autoIndexRollingWorker, 0, 10, TimeUnit.SECONDS);
+        // autoIndexRollingFuture = backgroundTaskExecutor.scheduleAtFixedRate(autoIndexRollingWorker, 0, 10, TimeUnit.SECONDS);
 
         IndexDomainRefreshExecutor indexDomainRefreshExecutorTask = new IndexDomainRefreshExecutor();
-        indexDomainRefreshFuture = backgroundTaskExecutor.scheduleAtFixedRate(indexDomainRefreshExecutorTask, 0, 10, TimeUnit.SECONDS);
+        // indexDomainRefreshFuture = backgroundTaskExecutor.scheduleAtFixedRate(indexDomainRefreshExecutorTask, 0, 10, TimeUnit.SECONDS);
         backgroundRunning = true;
     }
 
@@ -1191,7 +1191,7 @@ public class MasterServiceInternalImpl {
             indexMeta.docs = 0;
             indexMeta.totalData = 0;
             indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
-            ;
+
             indexMeta.gmtModified = indexMeta.gmtCreate;
             indexMeta.health = Constants.UNKNOWN;
 
