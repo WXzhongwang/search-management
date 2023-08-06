@@ -226,7 +226,7 @@ public class AdvancedEsClient {
                     }
                     switch (columnIndex) {
                         case 0:
-                            tmpMeta.fullName = column;
+                            tmpMeta.name = column;
                             break;
                         case 1:
                             tmpMeta.health = column;

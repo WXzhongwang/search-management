@@ -280,16 +280,16 @@ public class MasterServiceInternalImpl {
         healthCheckFuture = backgroundTaskExecutor.scheduleAtFixedRate(healthCheckExecutorTask, 0, 120, TimeUnit.SECONDS);
 
         IndexMetricRefresher metricRefresher = new IndexMetricRefresher();
-        // metricRefresherFuture = backgroundTaskExecutor.scheduleAtFixedRate(metricRefresher, 0, 120, TimeUnit.SECONDS);
+        metricRefresherFuture = backgroundTaskExecutor.scheduleAtFixedRate(metricRefresher, 0, 120, TimeUnit.SECONDS);
 
         SyncMetaWorker syncMetaWorker = new SyncMetaWorker();
-        // syncMetaFuture = backgroundTaskExecutor.scheduleAtFixedRate(syncMetaWorker, 0, 3600, TimeUnit.SECONDS);
+        syncMetaFuture = backgroundTaskExecutor.scheduleAtFixedRate(syncMetaWorker, 0, 3600, TimeUnit.SECONDS);
 
         AutoIndexRollingWorker autoIndexRollingWorker = new AutoIndexRollingWorker();
-        // autoIndexRollingFuture = backgroundTaskExecutor.scheduleAtFixedRate(autoIndexRollingWorker, 0, 10, TimeUnit.SECONDS);
+        autoIndexRollingFuture = backgroundTaskExecutor.scheduleAtFixedRate(autoIndexRollingWorker, 0, 10, TimeUnit.SECONDS);
 
         IndexDomainRefreshExecutor indexDomainRefreshExecutorTask = new IndexDomainRefreshExecutor();
-        // indexDomainRefreshFuture = backgroundTaskExecutor.scheduleAtFixedRate(indexDomainRefreshExecutorTask, 0, 10, TimeUnit.SECONDS);
+        indexDomainRefreshFuture = backgroundTaskExecutor.scheduleAtFixedRate(indexDomainRefreshExecutorTask, 0, 10, TimeUnit.SECONDS);
         backgroundRunning = true;
     }
 
@@ -416,26 +416,26 @@ public class MasterServiceInternalImpl {
                 projectMeta.projectName, templateMeta.templateName, indexMeta.name, indexMeta.fullName);
     }
 
-    private boolean cleanupExpiredIndex(ProjectMeta projectMeta, IndexTemplateMetaData indexGroupMeta, AdvancedEsClient esClient) {
-        if (indexGroupMeta.autoIndexRollingWindow == 0) {
+    private boolean cleanupExpiredIndex(ProjectMeta projectMeta, IndexTemplateMetaData templateMetaData, AdvancedEsClient esClient) {
+        if (templateMetaData.autoIndexRollingWindow == 0) {
             return false;
         }
         boolean result = false;
         LocalDate today = LocalDateTime.now().toLocalDate();
         String expiredIndexName = null;
         boolean useNamePrefix = false;
-        if (indexGroupMeta.autoIndexNamePrefix.equalsIgnoreCase(StringUtils.EMPTY)) {
+        if (templateMetaData.autoIndexNamePrefix.equalsIgnoreCase(StringUtils.EMPTY)) {
             useNamePrefix = false;
         } else {
             useNamePrefix = true;
         }
         List<String> toDeleteIndexList = new ArrayList<>();
-        int expiredOffset = -1 * indexGroupMeta.autoIndexRollingWindow;
-        for (IndexMetaData indexMeta : indexGroupMeta.indexMetas.values()) {
-            switch (indexGroupMeta.autoIndexRollingPolicy) {
+        int expiredOffset = -templateMetaData.autoIndexRollingWindow;
+        for (IndexMetaData indexMeta : templateMetaData.indexMetas.values()) {
+            switch (templateMetaData.autoIndexRollingPolicy) {
                 case DAY:
                     if (useNamePrefix) {
-                        expiredIndexName = String.format("%s-%s", indexGroupMeta.autoIndexNamePrefix, DateUtility.getIndexDayName(today, expiredOffset));
+                        expiredIndexName = String.format("%s-%s", templateMetaData.autoIndexNamePrefix, DateUtility.getIndexDayName(today, expiredOffset));
                     } else {
                         expiredIndexName = String.format("%s", DateUtility.getIndexDayName(today, expiredOffset));
                     }
@@ -445,7 +445,7 @@ public class MasterServiceInternalImpl {
                     break;
                 case MONTH:
                     if (useNamePrefix) {
-                        expiredIndexName = String.format("%s-%s", indexGroupMeta.autoIndexNamePrefix, DateUtility.getIndexMonthName(today, expiredOffset));
+                        expiredIndexName = String.format("%s-%s", templateMetaData.autoIndexNamePrefix, DateUtility.getIndexMonthName(today, expiredOffset));
                     } else {
                         expiredIndexName = String.format("%s", DateUtility.getIndexMonthName(today, expiredOffset));
                     }
@@ -455,7 +455,7 @@ public class MasterServiceInternalImpl {
                     break;
                 case QUARTER:
                     if (useNamePrefix) {
-                        expiredIndexName = String.format("%s-%s", indexGroupMeta.autoIndexNamePrefix, DateUtility.getIndexQuarterName(today, expiredOffset));
+                        expiredIndexName = String.format("%s-%s", templateMetaData.autoIndexNamePrefix, DateUtility.getIndexQuarterName(today, expiredOffset));
                     } else {
                         expiredIndexName = String.format("%s", DateUtility.getIndexQuarterName(today, expiredOffset));
                     }
@@ -465,7 +465,7 @@ public class MasterServiceInternalImpl {
                     break;
                 case HALF_YEAR:
                     if (useNamePrefix) {
-                        expiredIndexName = String.format("%s-%s", indexGroupMeta.autoIndexNamePrefix, DateUtility.getIndexHalfYear(today, expiredOffset));
+                        expiredIndexName = String.format("%s-%s", templateMetaData.autoIndexNamePrefix, DateUtility.getIndexHalfYear(today, expiredOffset));
                     } else {
                         expiredIndexName = String.format("%s", DateUtility.getIndexHalfYear(today, expiredOffset));
                     }
@@ -475,7 +475,7 @@ public class MasterServiceInternalImpl {
                     break;
                 case YEAR:
                     if (useNamePrefix) {
-                        expiredIndexName = String.format("%s-%s", indexGroupMeta.autoIndexNamePrefix, DateUtility.getIndexYearName(today, expiredOffset));
+                        expiredIndexName = String.format("%s-%s", templateMetaData.autoIndexNamePrefix, DateUtility.getIndexYearName(today, expiredOffset));
                     } else {
                         expiredIndexName = String.format("%s", DateUtility.getIndexYearName(today, expiredOffset));
                     }
@@ -488,7 +488,7 @@ public class MasterServiceInternalImpl {
         for (int i = 0; i < toDeleteIndexList.size(); ++i) {
             String toDeleteIndexName = toDeleteIndexList.get(i);
             try {
-                deleteAutoIndex(projectMeta, indexGroupMeta, esClient, indexGroupMeta.indexMetas.get(toDeleteIndexName));
+                deleteAutoIndex(projectMeta, templateMetaData, esClient, templateMetaData.indexMetas.get(toDeleteIndexName));
                 result = true;
             } catch (Exception e) {
             }
@@ -1201,7 +1201,6 @@ public class MasterServiceInternalImpl {
             logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into persistent storage.",
                     projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
 
-            // Update the meta of containing index group, project and cluster object;
             indexTemplateMetaData.indexMetas.put(indexMeta.name, indexMeta);
             logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been written into memory.",
                     projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
@@ -1740,20 +1739,12 @@ public class MasterServiceInternalImpl {
             startHoldWriteLock = System.nanoTime();
             writeLock.lock();
 
-            boolean needCreate = false;
-            boolean needDelete = false;
             for (ProjectMetaData projectMeta : projectMetaMap.values()) {
                 for (IndexTemplateMetaData templateMetaData : projectMeta.indexTemplateMetaData.values()) {
                     if (templateMetaData.autoIndexRollingPolicy != AutoIndexRollingPolicy.NONE) {
-                        needCreate = createRollingIndex(projectMeta, templateMetaData, esClientMap.get(projectMeta.clusterName));
-                        needDelete = cleanupExpiredIndex(projectMeta, templateMetaData, esClientMap.get(projectMeta.clusterName));
-                        if (needCreate || needDelete) {
-                            break;
-                        }
+                        createRollingIndex(projectMeta, templateMetaData, esClientMap.get(projectMeta.clusterName));
+                        cleanupExpiredIndex(projectMeta, templateMetaData, esClientMap.get(projectMeta.clusterName));
                     }
-                }
-                if (needCreate || needDelete) {
-                    break;
                 }
             }
             writeLock.unlock();
@@ -1821,12 +1812,12 @@ public class MasterServiceInternalImpl {
                     continue;
                 }
                 for (IndexMetaData tmpIndexMeta : metaList) {
-                    if (DataTypeUtils.isInternalIndex(tmpIndexMeta.fullName)) {
+                    if (DataTypeUtils.isInternalIndex(tmpIndexMeta.name)) {
                         continue;
                     }
                     String projectName = null, indexTemplateName = null, indexName = null;
 
-                    if (DataTypeUtils.isLegacy(tmpIndexMeta.fullName)) {
+                    if (DataTypeUtils.isLegacy(tmpIndexMeta.name)) {
                         // 非常规索引待定
                         Pair<String, String> namePair = legacyIndexNameMap.get(tmpIndexMeta.name);
                         if (namePair == null) {
@@ -1837,7 +1828,7 @@ public class MasterServiceInternalImpl {
                             indexName = tmpIndexMeta.name;
                         }
                     } else {
-                        String[] parts = tmpIndexMeta.fullName.split("\\.");
+                        String[] parts = tmpIndexMeta.name.split("\\.");
                         projectName = parts[0];
                         indexTemplateName = parts[1];
                         indexName = parts[2];
