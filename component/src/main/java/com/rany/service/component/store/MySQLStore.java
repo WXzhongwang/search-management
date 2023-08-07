@@ -99,6 +99,7 @@ public class MySQLStore implements IMetaStorage {
                                 "%s VARCHAR(256) PRIMARY KEY NOT NULL, \n" +
                                 "%s VARCHAR(256) NOT NULL, \n" +
                                 "%s VARCHAR(1024), \n" +
+                                "%s text, \n" +
                                 "%s DATETIME NOT NULL, \n" +
                                 "%s DATETIME NOT NULL \n" +
                                 ")",
@@ -106,6 +107,7 @@ public class MySQLStore implements IMetaStorage {
                         TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
                         TableColumnNameConstant.Project.PROJECT_META_TABLE_CLUSTER_NAME,
                         TableColumnNameConstant.Project.COLUMN_DESCRIPTION,
+                        TableColumnNameConstant.Project.COLUMN_SETTING,
                         TableColumnNameConstant.Project.COLUMN_CREATE_TIME,
                         TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME);
                 jdbcTemplate.execute(command);
@@ -276,8 +278,8 @@ public class MySQLStore implements IMetaStorage {
         jdbcTemplate.update(
                 command,
                 clusterMetaData.clusterName,
-                clusterMetaData.clusterStatus,
-                clusterMetaData.clusterType,
+                clusterMetaData.clusterStatus.name(),
+                clusterMetaData.clusterType.name(),
                 clusterMetaData.clusterDesc,
                 clusterMetaData.clusterInternalAddress,
                 clusterMetaData.clusterAddress,
@@ -341,7 +343,8 @@ public class MySQLStore implements IMetaStorage {
                 TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME);
         jdbcTemplate.update(
                 command,
-                projectMetaData.clusterName + "." + projectMetaData.projectName,
+                projectMetaData.projectName,
+                projectMetaData.clusterName,
                 projectMetaData.projectDesc,
                 projectMetaData.projectSetting,
                 projectMetaData.gmtCreate,
@@ -397,9 +400,10 @@ public class MySQLStore implements IMetaStorage {
             aliasListString.append(indexTemplateMetaData.aliasList.get(i));
         }
         String command = String.format(
-                "insert into %s (%s, %s, %s, %s, %s, %s, %s, %s, %s) values (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "insert into %s (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 indexTemplateTableName,
                 TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
+                TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PROJECT_NAME,
                 TableColumnNameConstant.IndexTemplate.COLUMN_MAPPINGS,
                 TableColumnNameConstant.IndexTemplate.COLUMN_SETTINGS,
                 TableColumnNameConstant.IndexTemplate.COLUMN_ALIAS,
@@ -410,7 +414,8 @@ public class MySQLStore implements IMetaStorage {
                 TableColumnNameConstant.IndexTemplate.COLUMN_LAST_UPDATE_TIME);
         jdbcTemplate.update(
                 command,
-                indexTemplateMetaData.projectName + "." + indexTemplateMetaData.templateName,
+                indexTemplateMetaData.templateName,
+                indexTemplateMetaData.projectName,
                 indexTemplateMetaData.mappings,
                 indexTemplateMetaData.settings,
                 aliasListString.toString(),
@@ -519,10 +524,11 @@ public class MySQLStore implements IMetaStorage {
 
     private List<ProjectMetaData> loadProjectMeta(String clusterName) {
         List<ProjectMetaData> result = new ArrayList<>();
-        String command = String.format("select %s,%s,%s,%s,%s from %s where %s = '%s'",
+        String command = String.format("select %s,%s,%s,%s,%s,%s from %s where %s = '%s'",
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_CLUSTER_NAME,
                 TableColumnNameConstant.Project.COLUMN_DESCRIPTION,
+                TableColumnNameConstant.Project.COLUMN_SETTING,
                 TableColumnNameConstant.Project.COLUMN_CREATE_TIME,
                 TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME,
                 projectMetaTableName,
@@ -534,9 +540,10 @@ public class MySQLStore implements IMetaStorage {
             projectMeta.projectName = resultSet.getString(1);
             projectMeta.clusterName = clusterName;
             projectMeta.projectDesc = resultSet.getString(3);
-            projectMeta.gmtCreate = resultSet.getTimestamp(4);
-            projectMeta.gmtModified = resultSet.getTimestamp(5);
-            projectMeta.indexTemplateMetaData = new HashMap<>(6);
+            projectMeta.projectSetting = resultSet.getString(4);
+            projectMeta.gmtCreate = resultSet.getTimestamp(5);
+            projectMeta.gmtModified = resultSet.getTimestamp(6);
+            projectMeta.indexTemplateMetaData = new HashMap<>(7);
             result.add(projectMeta);
         });
         return result;

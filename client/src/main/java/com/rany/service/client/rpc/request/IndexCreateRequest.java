@@ -4,7 +4,6 @@ import com.rany.service.client.rpc.BaseRequest;
 
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author zhongshengwang
@@ -14,20 +13,17 @@ import java.util.List;
  */
 public class IndexCreateRequest extends BaseRequest implements Serializable {
 
-    @NotBlank(message = "项目名称不能为空")
+    @NotBlank(message = "索引名称不能为空")
     private String name;
-    @NotBlank(message = "项目状态不能为空")
+    @NotBlank(message = "项目不能为空")
     private String project;
     @NotBlank(message = "集群不能为空")
     private String template;
 
-    @NotBlank(message = "集群不能为空")
+    @NotBlank(message = "mapping不能为空")
     private String mapping;
-    @NotBlank(message = "集群不能为空")
+    @NotBlank(message = "setting不能为空")
     private String setting;
-
-    private List<String> aliases;
-    private String autoIndexRollingPolicy;
 
     public String getName() {
         return name;
@@ -67,21 +63,5 @@ public class IndexCreateRequest extends BaseRequest implements Serializable {
 
     public void setSetting(String setting) {
         this.setting = setting;
-    }
-
-    public List<String> getAliases() {
-        return aliases;
-    }
-
-    public void setAliases(List<String> aliases) {
-        this.aliases = aliases;
-    }
-
-    public String getAutoIndexRollingPolicy() {
-        return autoIndexRollingPolicy;
-    }
-
-    public void setAutoIndexRollingPolicy(String autoIndexRollingPolicy) {
-        this.autoIndexRollingPolicy = autoIndexRollingPolicy;
     }
 }

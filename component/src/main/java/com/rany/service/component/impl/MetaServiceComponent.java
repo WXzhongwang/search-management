@@ -12,6 +12,8 @@ import io.grpc.stub.StreamObserver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -38,6 +40,14 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
 
         // create cluster
         ClusterMeta clusterMeta = new ClusterMeta();
+        clusterMeta.clusterName = request.getName();
+        clusterMeta.clusterDesc = request.getDescription();
+        clusterMeta.clusterAddress = request.getEndpoint();
+        clusterMeta.clusterInternalAddress = request.getInternalEndpoint();
+        clusterMeta.clusterStatus = request.getStatus();
+        clusterMeta.clusterType = request.getCluster();
+        clusterMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+        clusterMeta.gmtModified = clusterMeta.gmtCreate;
         internal.createCluster(clusterMeta);
         CreateClusterReply reply = CreateClusterReply.newBuilder()
                 .setCode(code.getCode())

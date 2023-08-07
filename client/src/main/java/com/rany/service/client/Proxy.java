@@ -478,13 +478,10 @@ public class Proxy implements Bootstrap {
     }
 
     public void createIndex(IndexCreateRequest indexCreateRequest) {
-        AutoIndexRollingPolicy autoIndexRollingPolicy = DateUtility.stringToAutoIndexRollingPolicy(indexCreateRequest.getAutoIndexRollingPolicy());
         CreateIndexRequest request = CreateIndexRequest.newBuilder()
                 .setProject(indexCreateRequest.getProject())
                 .setIndexTemplate(indexCreateRequest.getTemplate())
                 .setName(indexCreateRequest.getName())
-                .addAllAliases(indexCreateRequest.getAliases())
-                .setRollingPolicy(autoIndexRollingPolicy)
                 .build();
         CreateIndexReply reply = null;
 

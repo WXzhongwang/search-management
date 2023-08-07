@@ -554,8 +554,14 @@ public class MasterServiceInternalImpl {
                 throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(), String.format("Cluster [%s] already exists.", cluster.clusterName));
             }
             ClusterMetaData meta = new ClusterMetaData();
-            BeanUtils.copyProperties(cluster, meta);
-
+            meta.clusterName = cluster.clusterName;
+            meta.clusterDesc = cluster.clusterDesc;
+            meta.clusterStatus = cluster.clusterStatus;
+            meta.clusterType = cluster.clusterType;
+            meta.clusterAddress = cluster.clusterAddress;
+            meta.clusterInternalAddress = cluster.clusterInternalAddress;
+            meta.gmtCreate = cluster.gmtCreate;
+            meta.gmtModified = cluster.gmtModified;
             meta.clusterHealth = Constants.UNKNOWN;
             meta.esVersion = "{}";
             meta.nodeMetaList = new ArrayList<NodeMeta>();
@@ -946,6 +952,7 @@ public class MasterServiceInternalImpl {
             templateMetaData.mappings = info.mappings;
             templateMetaData.settings = info.settings;
             templateMetaData.aliasList = new ArrayList<>();
+            templateMetaData.projectName = info.projectName;
             if (info.aliasList.size() > 0) {
                 templateMetaData.aliasList.addAll(info.aliasList);
             }
