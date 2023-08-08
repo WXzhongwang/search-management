@@ -12,4 +12,11 @@ public class ProjectMetricCounter {
     public Integer totalIndex;
     public Integer totalDocs;
     public Integer totalDataSize;
+
+    public ProjectMetricCounter() {
+        this.totalTemplate = 0;
+        this.totalIndex = 0;
+        this.totalDocs = 0;
+        this.totalDataSize = 0;
+    }
 }

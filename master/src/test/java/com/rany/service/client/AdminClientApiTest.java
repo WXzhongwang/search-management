@@ -4,10 +4,13 @@ import com.google.common.collect.Lists;
 import com.rany.service.client.rpc.request.*;
 import com.rany.service.platform.meta.AutoIndexRollingPolicy;
 import com.rany.service.platform.meta.ClusterInfo;
+import com.rany.service.platform.meta.ProjectInfo;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 // @RunWith(SpringJUnit4ClassRunner.class)
 // @SpringBootTest(classes = MasterServiceApplication.class)
@@ -45,7 +48,7 @@ public class AdminClientApiTest {
         clusterCreateRequest.setAddress("127.0.0.1:9200");
         clusterCreateRequest.setInternalAddress("127.0.0.1:9200");
         clusterCreateRequest.setStatus("IN_SERVICE");
-        clusterCreateRequest.setType("HHD");
+        clusterCreateRequest.setType("HDD");
         client.createCluster(clusterCreateRequest);
     }
 
@@ -57,6 +60,44 @@ public class AdminClientApiTest {
         projectCreateRequest.setName("graph");
         projectCreateRequest.setDesc("knowledge graph");
         client.createProject(projectCreateRequest);
+    }
+
+    @Test
+    public void listCluster() {
+        ClusterListRequest clusterListRequest = new ClusterListRequest();
+        List<String> strings = client.listCluster(clusterListRequest);
+        Assert.assertTrue(strings.contains("localhost"));
+    }
+
+    @Test
+    public void listClusterDetails() {
+        ClusterListRequest clusterListRequest = new ClusterListRequest();
+        List<ClusterInfo> clusters = client.listClusterDetails(clusterListRequest);
+        Assert.assertFalse(clusters.isEmpty());
+    }
+
+    @Test
+    public void getProject() {
+        ProjectGetRequest projectGetRequest = new ProjectGetRequest();
+        projectGetRequest.setName("graph");
+        ProjectInfo project = client.getProject(projectGetRequest);
+        Assert.assertEquals("graph", project.getName());
+    }
+
+
+    @Test
+    public void updateProject() {
+        ProjectUpdateRequest projectUpdateRequest = new ProjectUpdateRequest();
+        projectUpdateRequest.setName("graph");
+        projectUpdateRequest.setCluster("localhost");
+        projectUpdateRequest.setDesc("kg graph desc");
+        client.updateProject(projectUpdateRequest);
+
+        ProjectGetRequest projectGetRequest = new ProjectGetRequest();
+        projectGetRequest.setName("graph");
+        ProjectInfo project = client.getProject(projectGetRequest);
+
+        Assert.assertEquals("kg graph desc", project.getDescription());
     }
 
     @Test

@@ -19,6 +19,8 @@ import org.springframework.util.StringUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -353,16 +355,18 @@ public class MySQLStore implements IMetaStorage {
 
     @Override
     public void updateProject(ProjectMetaData projectMetaData) {
+        LocalDateTime localDateTime = projectMetaData.gmtModified.toLocalDateTime();
         String command = String.format("update %s set ", projectMetaTableName);
-        command += String.format(" %s=%d ", TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME, projectMetaData.gmtModified);
+        command += String.format(" %s='%s' ", TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME,
+                localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         if (projectMetaData.projectDesc != null) {
-            command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_DESCRIPTION, projectMetaData.projectDesc);
+            command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_DESCRIPTION);
         }
         if (projectMetaData.projectSetting != null) {
-            command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_SETTING, projectMetaData.projectSetting);
+            command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_SETTING);
         }
         command += String.format(" where %s=\"%s\"", TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
-                projectMetaData.clusterName + "." + projectMetaData.projectName);
+                projectMetaData.projectName);
         jdbcTemplate.update(
                 command,
                 new PreparedStatementSetter() {

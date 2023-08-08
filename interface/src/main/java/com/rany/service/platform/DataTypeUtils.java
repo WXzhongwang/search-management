@@ -11,7 +11,7 @@ import com.rany.service.platform.meta.ClusterType;
  */
 public final class DataTypeUtils {
 
-    private static final String HHD = "HHD";
+    private static final String HDD = "HDD";
     private static final String SSD = "SSD";
 
     private DataTypeUtils() {
@@ -20,7 +20,7 @@ public final class DataTypeUtils {
 
     public static ClusterType convertClusterType(String type) {
         ClusterType result = null;
-        if (type.equalsIgnoreCase(HHD)) {
+        if (type.equalsIgnoreCase(HDD)) {
             result = ClusterType.HDD;
         } else if (type.equalsIgnoreCase(SSD)) {
             result = ClusterType.SSD;

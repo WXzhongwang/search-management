@@ -30,10 +30,7 @@ import org.springframework.beans.BeanUtils;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -813,20 +810,24 @@ public class MasterServiceInternalImpl {
             long endGetLock = System.nanoTime();
             String projectName = project.projectName;
             String projectDesc = project.projectDesc;
+            String projectSetting = project.projectSetting;
             meta = projectMetaMap.get(project.projectName);
             if (meta == null) {
                 throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
                         String.format("Project [%s] does not exist.", projectName));
             }
             long startUpdateMeta = System.nanoTime();
-            meta.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            meta.gmtModified = new Timestamp(new Date().getTime());
             if (projectDesc != null) {
                 meta.projectDesc = projectDesc;
+            }
+            if (projectSetting != null) {
+                meta.projectSetting = projectSetting;
             }
             metaStore.updateProject(meta);
             long endUpdateMeta = System.nanoTime();
             logger.info("ProjectMeta of project [name={}] has been updated in persistent storage with the following content: \n" +
-                    "description={}" +
+                            "description={}",
                     meta.projectName, meta.projectDesc);
             logger.info("ProjectMeta of project [name={}] has been updated in memory.", meta.projectName);
             logger.info("Time breakdown of MasterServiceInternalImpl::updateProject: getLock:{} ms, updateMeta:{} ms.",
