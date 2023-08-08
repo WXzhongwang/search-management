@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 // @RunWith(SpringJUnit4ClassRunner.class)
 // @SpringBootTest(classes = MasterServiceApplication.class)
@@ -99,6 +100,25 @@ public class AdminClientApiTest {
 
         Assert.assertEquals("kg graph desc", project.getDescription());
     }
+
+    @Test
+    public void listProject() {
+        ProjectListRequest projectListRequest = new ProjectListRequest();
+        projectListRequest.setCluster("localhost");
+        List<String> projects = client.listProject(projectListRequest);
+        Assert.assertTrue(projects.contains("graph"));
+    }
+
+    @Test
+    public void listProjectDetails() {
+        ProjectListRequest projectListRequest = new ProjectListRequest();
+        projectListRequest.setCluster("localhost");
+        List<ProjectInfo> projects = client.listProjectDetails(projectListRequest);
+        Assert.assertFalse(projects.isEmpty());
+        List<String> collect = projects.stream().map(ProjectInfo::getName).collect(Collectors.toList());
+        Assert.assertTrue(collect.contains("graph"));
+    }
+
 
     @Test
     public void createIndexTemplate() {
