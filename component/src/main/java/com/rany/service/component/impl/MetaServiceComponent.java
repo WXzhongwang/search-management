@@ -5,6 +5,7 @@ import com.rany.service.common.exception.ErrorCodeEnum;
 import com.rany.service.common.exception.SearchManagementException;
 import com.rany.service.component.meta.ClusterMeta;
 import com.rany.service.component.meta.ProjectMeta;
+import com.rany.service.component.meta.dto.ClusterMetaData;
 import com.rany.service.component.meta.dto.IndexTemplateMetaData;
 import com.rany.service.component.meta.dto.ProjectMetaData;
 import com.rany.service.platform.meta.*;
@@ -13,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,7 +47,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         clusterMeta.clusterInternalAddress = request.getInternalEndpoint();
         clusterMeta.clusterStatus = request.getStatus();
         clusterMeta.clusterType = request.getCluster();
-        clusterMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+        clusterMeta.gmtCreate = new Timestamp(new Date().getTime());
         clusterMeta.gmtModified = clusterMeta.gmtCreate;
         internal.createCluster(clusterMeta);
         CreateClusterReply reply = CreateClusterReply.newBuilder()
@@ -84,7 +85,12 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
             throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(), String.format("Service is in [%s] status.", status));
         }
         // update cluster
-        ClusterMeta clusterMeta = new ClusterMeta();
+        ClusterMeta clusterMeta = new ClusterMetaData();
+        clusterMeta.clusterName = request.getName();
+        clusterMeta.clusterDesc = request.getDescription();
+        clusterMeta.clusterInternalAddress = request.getInternalEndpoint();
+        clusterMeta.clusterStatus = request.getStatus();
+        clusterMeta.gmtModified = new Timestamp(System.currentTimeMillis());
         internal.updateCluster(clusterMeta);
 
         UpdateClusterInfoReply reply = UpdateClusterInfoReply.newBuilder()

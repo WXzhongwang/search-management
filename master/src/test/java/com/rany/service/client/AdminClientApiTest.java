@@ -53,6 +53,17 @@ public class AdminClientApiTest {
         client.createCluster(clusterCreateRequest);
     }
 
+    @Test
+    public void updateCluster() {
+        ClusterUpdateRequest clusterUpdateRequest = new ClusterUpdateRequest();
+        clusterUpdateRequest.setName("dev");
+        clusterUpdateRequest.setDesc("本地开发环境01");
+        clusterUpdateRequest.setAddress("127.0.0.1:9200");
+        clusterUpdateRequest.setInternalAddress("127.0.0.1:9200");
+        clusterUpdateRequest.setStatus("IN_SERVICE");
+        clusterUpdateRequest.setType("HDD");
+        client.updateCluster(clusterUpdateRequest);
+    }
 
     @Test
     public void createProject() {
@@ -62,6 +73,7 @@ public class AdminClientApiTest {
         projectCreateRequest.setDesc("knowledge graph");
         client.createProject(projectCreateRequest);
     }
+
 
     @Test
     public void listCluster() {

@@ -291,8 +291,10 @@ public class MySQLStore implements IMetaStorage {
 
     @Override
     public void updateCluster(ClusterMetaData clusterMetaData) {
+        LocalDateTime localDateTime = clusterMetaData.gmtModified.toLocalDateTime();
+        String updateTime = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String command = String.format("update %s set ", clusterMetaTableName);
-        command += String.format(" %s=%s ", TableColumnNameConstant.Cluster.COLUMN_LAST_UPDATE_TIME, clusterMetaData.gmtModified);
+        command += String.format(" %s='%s' ", TableColumnNameConstant.Cluster.COLUMN_LAST_UPDATE_TIME, updateTime);
         if (clusterMetaData.clusterStatus != null) {
             command += String.format(" ,%s=? ", TableColumnNameConstant.Cluster.COLUMN_CLUSTER_STATUS);
         }
@@ -310,7 +312,7 @@ public class MySQLStore implements IMetaStorage {
                     public void setValues(PreparedStatement preparedStatement) throws SQLException {
                         int parameterIndex = 1;
                         if (clusterMetaData.clusterStatus != null) {
-                            preparedStatement.setString(parameterIndex++, String.valueOf(clusterMetaData.clusterStatus.getNumber()));
+                            preparedStatement.setString(parameterIndex++, clusterMetaData.clusterStatus.name());
                         }
                         if (clusterMetaData.clusterDesc != null) {
                             preparedStatement.setString(parameterIndex++, clusterMetaData.clusterDesc);
@@ -356,9 +358,9 @@ public class MySQLStore implements IMetaStorage {
     @Override
     public void updateProject(ProjectMetaData projectMetaData) {
         LocalDateTime localDateTime = projectMetaData.gmtModified.toLocalDateTime();
+        String updateTime = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String command = String.format("update %s set ", projectMetaTableName);
-        command += String.format(" %s='%s' ", TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME,
-                localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        command += String.format(" %s='%s' ", TableColumnNameConstant.Project.COLUMN_LAST_UPDATE_TIME, updateTime);
         if (projectMetaData.projectDesc != null) {
             command += String.format(" ,%s=? ", TableColumnNameConstant.Project.COLUMN_DESCRIPTION);
         }
@@ -432,8 +434,10 @@ public class MySQLStore implements IMetaStorage {
 
     @Override
     public void updateIndexTemplate(IndexTemplateMetaData indexTemplateMetaData) {
+        LocalDateTime localDateTime = indexTemplateMetaData.gmtModified.toLocalDateTime();
+        String updateTime = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String command = String.format("update %s set ", indexTemplateTableName);
-        command += String.format(" %s=%d ", TableColumnNameConstant.IndexTemplate.COLUMN_LAST_UPDATE_TIME, indexTemplateMetaData.gmtModified);
+        command += String.format(" %s='%s' ", TableColumnNameConstant.IndexTemplate.COLUMN_LAST_UPDATE_TIME, updateTime);
         if (indexTemplateMetaData.mappings != null) {
             command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_MAPPINGS);
         }
@@ -444,10 +448,10 @@ public class MySQLStore implements IMetaStorage {
             command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_ALIAS);
         }
         if (indexTemplateMetaData.autoIndexRollingPolicy != null) {
-            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_POLICY, indexTemplateMetaData.autoIndexRollingPolicy.toString());
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_POLICY);
         }
         if (indexTemplateMetaData.autoIndexRollingWindow != null) {
-            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_WINDOW, indexTemplateMetaData.autoIndexRollingWindow.toString());
+            command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_WINDOW);
         }
         command += String.format(" where %s=\"%s\"", TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME, indexTemplateMetaData.projectName + "." + indexTemplateMetaData.templateName);
 

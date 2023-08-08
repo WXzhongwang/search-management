@@ -25,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.action.admin.indices.settings.get.GetSettingsResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
@@ -619,11 +618,14 @@ public class MasterServiceInternalImpl {
                 throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
                         String.format("Cluster [%s] does not exist.", cluster.clusterName));
             }
-            long lastUpdateTime = System.currentTimeMillis();
             long startUpdateMeta = System.nanoTime();
 
             ClusterMetaData meta = new ClusterMetaData();
-            BeanUtils.copyProperties(cluster, meta);
+            meta.clusterName = cluster.clusterName;
+            meta.clusterDesc = cluster.clusterDesc;
+            meta.clusterInternalAddress = cluster.clusterInternalAddress;
+            meta.clusterStatus = cluster.clusterStatus;
+            meta.gmtModified = cluster.gmtModified;
             metaStore.updateCluster(meta);
 
             long endUpdateMeta = System.nanoTime();
