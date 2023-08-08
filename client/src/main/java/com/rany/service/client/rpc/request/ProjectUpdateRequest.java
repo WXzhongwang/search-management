@@ -15,7 +15,7 @@ public class ProjectUpdateRequest extends BaseRequest implements Serializable {
 
     @NotBlank(message = "项目名称不能为空")
     private String name;
-    @NotBlank(message = "项目状态不能为空")
+    @NotBlank(message = "项目描述不能为空")
     private String desc;
 
     @NotBlank(message = "集群不能为空")
