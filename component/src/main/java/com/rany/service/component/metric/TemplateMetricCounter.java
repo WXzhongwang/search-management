@@ -14,4 +14,10 @@ public class TemplateMetricCounter {
     public Integer totalIndex;
     public Integer totalDocs;
     public Integer totalDataSize;
+
+    public TemplateMetricCounter() {
+        this.totalIndex = 0;
+        this.totalDocs = 0;
+        this.totalDataSize = 0;
+    }
 }

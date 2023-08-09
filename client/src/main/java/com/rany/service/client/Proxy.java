@@ -439,6 +439,26 @@ public class Proxy implements Bootstrap {
         }
     }
 
+    public IndexTemplateInfo getIndexTemplate(IndexTemplateGetRequest request) {
+        GetIndexTemplateRequest.Builder builder = GetIndexTemplateRequest.newBuilder();
+        builder.setName(request.getName()).setProject(request.getProjectName());
+        GetIndexTemplateRequest getIndexTemplateRequest = builder.build();
+        GetIndexTemplateReply reply = null;
+
+        try {
+            metaStub = MetaServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = metaStub.getIndexTemplate(getIndexTemplateRequest);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to get index template with message: " + e.getMessage());
+        }
+        return reply.getTemplate();
+    }
+
+
     public List<String> listIndexTemplate(IndexTemplateListRequest listRequest) {
         ListIndexTemplateRequest request = ListIndexTemplateRequest.newBuilder()
                 .setProject(listRequest.getProjectName())

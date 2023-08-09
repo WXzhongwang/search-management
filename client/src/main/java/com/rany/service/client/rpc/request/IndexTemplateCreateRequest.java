@@ -18,7 +18,7 @@ public class IndexTemplateCreateRequest extends BaseRequest implements Serializa
 
     @NotBlank(message = "项目名称不能为空")
     private String projectName;
-    @NotBlank(message = "模板状态不能为空")
+    @NotBlank(message = "模板名称不能为空")
     private String name;
     @NotBlank(message = "mapping不能为空")
     private String mapping;

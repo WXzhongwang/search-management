@@ -95,7 +95,7 @@ public class AdminClient {
         return adminProxy.getProject(projectGetRequest);
     }
 
-    public void updateProject(ProjectDeleteRequest projectDeleteRequest) {
+    public void deleteProject(ProjectDeleteRequest projectDeleteRequest) {
         projectDeleteRequest.check();
         adminProxy.deleteProject(projectDeleteRequest);
     }
@@ -120,6 +120,13 @@ public class AdminClient {
         indexTemplateUpdateRequest.check();
         adminProxy.updateIndexTemplate(indexTemplateUpdateRequest);
     }
+
+
+    public IndexTemplateInfo getIndexTemplate(IndexTemplateGetRequest indexTemplateGetRequest) {
+        indexTemplateGetRequest.check();
+        return adminProxy.getIndexTemplate(indexTemplateGetRequest);
+    }
+
 
     public void deleteIndexTemplate(IndexTemplateDeleteRequest indexTemplateDeleteRequest) {
         indexTemplateDeleteRequest.check();

@@ -392,7 +392,7 @@ public class MySQLStore implements IMetaStorage {
         String command = String.format("delete from %s where %s=\"%s\"",
                 projectMetaTableName,
                 TableColumnNameConstant.Project.PROJECT_META_TABLE_PK_NAME,
-                clusterName + "." + projectName);
+                projectName);
         jdbcTemplate.update(command);
     }
 
@@ -453,7 +453,8 @@ public class MySQLStore implements IMetaStorage {
         if (indexTemplateMetaData.autoIndexRollingWindow != null) {
             command += String.format(" ,%s=?", TableColumnNameConstant.IndexTemplate.COLUMN_AUTO_INDEX_WINDOW);
         }
-        command += String.format(" where %s=\"%s\"", TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME, indexTemplateMetaData.projectName + "." + indexTemplateMetaData.templateName);
+        command += String.format(" where %s=\"%s\"", TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
+                indexTemplateMetaData.templateName);
 
         jdbcTemplate.update(
                 command,
@@ -493,7 +494,7 @@ public class MySQLStore implements IMetaStorage {
     public void deleteIndexTemplate(String projectName, String templateName) {
         String command = String.format("delete from %s where %s=\"%s\"",
                 indexTemplateTableName, TableColumnNameConstant.IndexTemplate.INDEX_TEMPLATE_TABLE_PK_NAME,
-                projectName + "." + templateName);
+                templateName);
         jdbcTemplate.update(command);
     }
 

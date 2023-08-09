@@ -29,7 +29,10 @@ import org.slf4j.LoggerFactory;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -777,7 +780,7 @@ public class MasterServiceInternalImpl {
             meta.projectDesc = info.projectDesc;
             meta.clusterName = info.clusterName;
             meta.indexTemplateMetaData = new HashMap<String, IndexTemplateMetaData>();
-            meta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+            meta.gmtCreate = new Timestamp(System.currentTimeMillis());
             meta.gmtModified = meta.gmtCreate;
             meta.projectSetting = info.projectSetting;
 
@@ -819,7 +822,7 @@ public class MasterServiceInternalImpl {
                         String.format("Project [%s] does not exist.", projectName));
             }
             long startUpdateMeta = System.nanoTime();
-            meta.gmtModified = new Timestamp(new Date().getTime());
+            meta.gmtModified = new Timestamp(System.currentTimeMillis());
             if (projectDesc != null) {
                 meta.projectDesc = projectDesc;
             }
@@ -963,8 +966,8 @@ public class MasterServiceInternalImpl {
             templateMetaData.autoIndexRollingWindow = info.autoIndexRollingWindow;
             templateMetaData.autoIndexNamePrefix = info.autoIndexNamePrefix;
             templateMetaData.indexMetas = new HashMap<>();
-            templateMetaData.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
-            templateMetaData.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            templateMetaData.gmtCreate = new Timestamp(System.currentTimeMillis());
+            templateMetaData.gmtModified = new Timestamp(System.currentTimeMillis());
 
             // 将项目的setting属性继承到索引组
             // 如果项目存在setting,将集群的继承下去
@@ -1024,8 +1027,8 @@ public class MasterServiceInternalImpl {
                                 template.autoIndexRollingPolicy, templateMetaData.autoIndexRollingPolicy));
             }
 
-            long lastUpdateTime = System.currentTimeMillis();
             long startUpdateMeta = System.nanoTime();
+            templateMetaData.gmtModified = new Timestamp(System.currentTimeMillis());
             metaStore.updateIndexTemplate(templateMetaData);
             long endUpdateMeta = System.nanoTime();
             logger.info("IndexTemplateMeta of index template [project={}][name={}] has been updated in persistent storage with the following content: \n" +
@@ -1050,7 +1053,7 @@ public class MasterServiceInternalImpl {
             if (templateMetaData.autoIndexRollingWindow != null) {
                 template.autoIndexRollingWindow = templateMetaData.autoIndexRollingWindow;
             }
-            template.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            template.gmtModified = new Timestamp(System.currentTimeMillis());
             logger.info("IndexTemplateMeta of index template [project={}][name={}] has been updated in memory.", template.projectName, template.templateName);
             logger.info("Time breakdown of MasterServiceInternalImpl::updateIndexTemplate: getLock:{} ms, updateMeta:{} ms.",
                     (endGetLock - startGetLock) / 1000000,
@@ -1093,6 +1096,38 @@ public class MasterServiceInternalImpl {
         } finally {
             writeLock.unlock();
         }
+    }
+
+
+    public IndexTemplateInfo getIndexTemplate(String projectName, String indexTemplateName) {
+        ReentrantReadWriteLock.ReadLock readLock = lock.readLock();
+        IndexTemplateInfo result = null;
+        try {
+            long startGetLock = System.nanoTime();
+            readLock.lock();
+            long endGetLock = System.nanoTime();
+
+            ProjectMetaData projectMeta = projectMetaMap.get(projectName);
+            if (projectMeta == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(), String.format("Project [%s] does not exist.", projectName));
+            }
+            IndexTemplateMetaData templateMetaData = projectMeta.indexTemplateMetaData.get(indexTemplateName);
+            if (templateMetaData == null) {
+                throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(), String.format("IndexTemplate [%s] does not exist in project [%s].", indexTemplateName, projectName));
+            }
+            long startGetData = System.nanoTime();
+            TemplateMetricCounter counter = MetricUtils.calculateTemplateMetric(templateMetaData);
+            result = MetaUtility.build(projectMeta.clusterName, projectName, templateMetaData, counter);
+            long endGetData = System.nanoTime();
+
+            logger.info("getIndexTemplate is called with projectName={} and indexTemplateName={}.", projectName, indexTemplateName);
+            logger.info("Time breakdown of MasterServiceInternalImpl::getIndexTemplate: getLock:{} ms, getData:{} ms.",
+                    (endGetLock - startGetLock) / 1000000,
+                    (endGetData - startGetData) / 1000000);
+        } finally {
+            readLock.unlock();
+        }
+        return result;
     }
 
     public List<IndexTemplateInfo> getIndexTemplates(String projectName) {

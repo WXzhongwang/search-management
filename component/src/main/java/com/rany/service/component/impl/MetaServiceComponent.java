@@ -352,6 +352,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
 
         IndexTemplateMetaData indexTemplateMetaData = new IndexTemplateMetaData();
         indexTemplateMetaData.templateName = request.getName();
+        indexTemplateMetaData.projectName = request.getProject();
         indexTemplateMetaData.mappings = request.hasMapping() ? request.getMapping().getValue() : null;
         indexTemplateMetaData.settings = request.hasSetting() ? request.getSetting().getValue() : null;
         indexTemplateMetaData.aliasList = request.getAliasesList();
@@ -405,6 +406,27 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         ListIndexTemplateReply reply = builder
                 .setCode(code.getCode())
                 .setMessage(code.getMessage())
+                .build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void getIndexTemplate(GetIndexTemplateRequest request, StreamObserver<GetIndexTemplateReply> responseObserver) {
+        CommonReturnCode code = CommonReturnCode.SUCCEED;
+        MasterServiceInternalImpl.RUNNING_STATUS status = internal.getStatus();
+        if (status != MasterServiceInternalImpl.RUNNING_STATUS.NORMAL) {
+            logger.warn("service is in {} status.", status);
+            throw new SearchManagementException(ErrorCodeEnum.PROTECTED_STATUS.getCode(),
+                    String.format("Service is in [%s] status.", status));
+        }
+        GetIndexTemplateReply.Builder builder = GetIndexTemplateReply.newBuilder();
+        IndexTemplateInfo indexTemplate = internal.getIndexTemplate(request.getProject(), request.getName());
+
+        GetIndexTemplateReply reply = builder
+                .setCode(code.getCode())
+                .setMessage(code.getMessage())
+                .setTemplate(indexTemplate)
                 .build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();
