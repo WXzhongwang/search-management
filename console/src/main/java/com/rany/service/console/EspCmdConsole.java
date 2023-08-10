@@ -20,6 +20,11 @@ public class EspCmdConsole {
 
     public static void main(String[] args) {
         initCliArgs(args);
+        if (commandLine.hasOption("p")) {
+            System.out.println(commandLine.getOptionValue("h"));
+            System.out.println(commandLine.getOptionValue("p"));
+            System.out.println(commandLine.getOptionValue("u"));
+        }
     }
 
     /**
@@ -34,7 +39,7 @@ public class EspCmdConsole {
         // host
         OPTIONS.addOption(Option.builder("h").argName("ipv4").required().hasArg(true).longOpt("host").type(String.class).desc("the host of remote server").build());
         // port
-        OPTIONS.addOption(Option.builder("p").hasArg(true).longOpt("port").type(Short.TYPE).desc("the port of remote server").build());
+        OPTIONS.addOption(Option.builder("p").argName("port").required().hasArg(true).longOpt("port").type(Short.TYPE).desc("the port of remote server").build());
         // user
         OPTIONS.addOption(Option.builder("u").required().hasArg(true).longOpt("user").type(String.class).desc("the user of remote server").build());
         try {
