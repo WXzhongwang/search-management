@@ -279,33 +279,6 @@ public class AdminClientApiTest {
         client.deleteIndex(indexDeleteRequest);
     }
 
-
-    public static JSONObject generateMapping() {
-        JSONObject typeNode = new JSONObject();
-        JSONObject propertyNode = new JSONObject();
-        JSONObject tmpFieldNode = new JSONObject();
-        tmpFieldNode.put("type", "keyword");
-        propertyNode.put("newsId", tmpFieldNode);
-        tmpFieldNode = new JSONObject();
-        tmpFieldNode.put("type", "keyword");
-        propertyNode.put("eventId", tmpFieldNode);
-        tmpFieldNode = new JSONObject();
-        tmpFieldNode.put("type", "date");
-        propertyNode.put("publishTimestamp", tmpFieldNode);
-        tmpFieldNode = new JSONObject();
-        tmpFieldNode.put("type", "text");
-        propertyNode.put("title", tmpFieldNode);
-        tmpFieldNode = new JSONObject();
-        tmpFieldNode.put("type", "text");
-        propertyNode.put("contentText", tmpFieldNode);
-        typeNode.put("properties", propertyNode);
-
-        JSONObject result = new JSONObject();
-        result.put("news", typeNode);
-
-        return result;
-    }
-
     public JSONObject settings() {
         String mappings = "{\n" +
                 "        \"number_of_shards\": 2,\n" +
