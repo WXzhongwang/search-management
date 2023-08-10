@@ -1188,6 +1188,9 @@ public class MasterServiceInternalImpl {
             indexMeta.name = info.getName();
             indexMeta.legacy = false;
             indexMeta.fullName = MetaUtility.combineFullIndexName(projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
+            indexMeta.projectName = info.getProjectName();
+            indexMeta.templateName = info.getTemplate();
+            
             AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
             long startCheckIndex = System.nanoTime();
             if (client.checkIndexExist(indexMeta.fullName)) {
@@ -1228,14 +1231,13 @@ public class MasterServiceInternalImpl {
             long endCreateIndex = System.nanoTime();
             logger.info("Index [project={}][indexTemplate={}][name={}] has been created on ElasticSearch cluster.",
                     projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
-
             indexMeta.aliases = aliases;
             indexMeta.mapping = mappings;
             indexMeta.setting = settings;
             indexMeta.tags = "";
             indexMeta.docs = 0;
             indexMeta.totalData = 0;
-            indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+            indexMeta.gmtCreate = new Timestamp(System.currentTimeMillis());
 
             indexMeta.gmtModified = indexMeta.gmtCreate;
             indexMeta.health = Constants.UNKNOWN;

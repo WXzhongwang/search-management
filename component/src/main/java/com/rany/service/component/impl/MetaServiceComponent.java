@@ -500,11 +500,12 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         }
 
         GetIndexReply.Builder builder = GetIndexReply.newBuilder();
-        internal.getIndex(request.getProject(), request.getIndexTemplate(), request.getName());
+        IndexInfo index = internal.getIndex(request.getProject(), request.getIndexTemplate(), request.getName());
 
         GetIndexReply reply = builder
                 .setCode(code.getCode())
                 .setMessage(code.getMessage())
+                .setIndex(index)
                 .build();
         responseObserver.onNext(reply);
         responseObserver.onCompleted();

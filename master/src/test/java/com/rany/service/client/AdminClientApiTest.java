@@ -1,11 +1,10 @@
 package com.rany.service.client;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
 import com.rany.service.client.rpc.request.*;
-import com.rany.service.platform.meta.AutoIndexRollingPolicy;
-import com.rany.service.platform.meta.ClusterInfo;
-import com.rany.service.platform.meta.IndexTemplateInfo;
-import com.rany.service.platform.meta.ProjectInfo;
+import com.rany.service.platform.meta.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -224,6 +223,21 @@ public class AdminClientApiTest {
         client.deleteIndexTemplate(indexTemplateDeleteRequest);
     }
 
+
+    @Test
+    public void listIndexTemplate() {
+        IndexTemplateListRequest indexTemplateListRequest = new IndexTemplateListRequest();
+        indexTemplateListRequest.setProjectName("graph");
+        List<String> templateNames = client.listIndexTemplate(indexTemplateListRequest);
+        Assert.assertFalse(templateNames.isEmpty());
+        Assert.assertEquals(templateNames.size(), 5);
+
+        IndexTemplateListRequest indexTemplateListDetailsRequest = new IndexTemplateListRequest();
+        indexTemplateListDetailsRequest.setProjectName("graph");
+        List<IndexTemplateInfo> templates = client.listIndexTemplateDetails(indexTemplateListDetailsRequest);
+        Assert.assertFalse(templates.isEmpty());
+    }
+
     @Test
     public void createIndex() {
         IndexCreateRequest indexTemplateCreateRequest = new IndexCreateRequest();
@@ -233,5 +247,107 @@ public class AdminClientApiTest {
         indexTemplateCreateRequest.setMapping("{}");
         indexTemplateCreateRequest.setSetting("{}");
         client.createIndex(indexTemplateCreateRequest);
+    }
+
+
+    @Test
+    public void getIndex() {
+        IndexGetRequest indexGetRequest = new IndexGetRequest();
+        indexGetRequest.setProject("graph");
+        indexGetRequest.setTemplate("test_template");
+        indexGetRequest.setName("test_template-20230811");
+        IndexInfo index = client.getIndex(indexGetRequest);
+        Assert.assertEquals(index.getName(), "test_template-20230811");
+    }
+
+    @Test
+    public void deleteIndex() {
+        IndexCreateRequest indexCreateRequest = new IndexCreateRequest();
+        indexCreateRequest.setProject("graph");
+        indexCreateRequest.setTemplate("test_template_testing");
+        indexCreateRequest.setName("index_xyz");
+        indexCreateRequest.setMapping(mappings().toJSONString());
+        indexCreateRequest.setSetting(settings().toJSONString());
+        client.createIndex(indexCreateRequest);
+
+
+        IndexDeleteRequest indexDeleteRequest = new IndexDeleteRequest();
+        indexDeleteRequest.setProject("graph");
+        indexDeleteRequest.setTemplate("test_template_testing");
+        indexDeleteRequest.setName("index_xyz");
+
+        client.deleteIndex(indexDeleteRequest);
+    }
+
+
+    public static JSONObject generateMapping() {
+        JSONObject typeNode = new JSONObject();
+        JSONObject propertyNode = new JSONObject();
+        JSONObject tmpFieldNode = new JSONObject();
+        tmpFieldNode.put("type", "keyword");
+        propertyNode.put("newsId", tmpFieldNode);
+        tmpFieldNode = new JSONObject();
+        tmpFieldNode.put("type", "keyword");
+        propertyNode.put("eventId", tmpFieldNode);
+        tmpFieldNode = new JSONObject();
+        tmpFieldNode.put("type", "date");
+        propertyNode.put("publishTimestamp", tmpFieldNode);
+        tmpFieldNode = new JSONObject();
+        tmpFieldNode.put("type", "text");
+        propertyNode.put("title", tmpFieldNode);
+        tmpFieldNode = new JSONObject();
+        tmpFieldNode.put("type", "text");
+        propertyNode.put("contentText", tmpFieldNode);
+        typeNode.put("properties", propertyNode);
+
+        JSONObject result = new JSONObject();
+        result.put("news", typeNode);
+
+        return result;
+    }
+
+    public JSONObject settings() {
+        String mappings = "{\n" +
+                "        \"number_of_shards\": 2,\n" +
+                "        \"number_of_replicas\": 1\n" +
+                "    }";
+        return JSON.parseObject(mappings);
+    }
+
+    public JSONObject mappings() {
+        String mappings = "{\n" +
+                "\t\"dynamic\": \"false\",\n" +
+                "\t\"properties\": {\n" +
+                "\t\t\"id\": {\n" +
+                "\t\t\t\"type\": \"long\"\n" +
+                "\t\t},\n" +
+                "\t\t\"pid\": {\n" +
+                "\t\t\t\"type\": \"keyword\"\n" +
+                "\t\t},\n" +
+                "\t\t\"appear_num\": {\n" +
+                "\t\t\t\"type\": \"integer\"\n" +
+                "\t\t},\n" +
+                "\t\t\"ape_id\": {\n" +
+                "\t\t\t\"type\": \"keyword\"\n" +
+                "\t\t},\n" +
+                "\t\t\"last_event_time\": {\n" +
+                "\t\t\t\"type\": \"date\",\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd HH:mm:ss\"\n" +
+                "\t\t},\n" +
+                "\t\t\"storage_date\": {\n" +
+                "\t\t\t\"type\": \"date\",\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd\"\n" +
+                "\t\t},\n" +
+                "\t\t\"event_time\": {\n" +
+                "\t\t\t\"type\": \"date\",\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd\"\n" +
+                "\t\t},\n" +
+                "\t\t\"create_time\": {\n" +
+                "\t\t\t\"type\": \"date\",\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd HH:mm:ss\"\n" +
+                "\t\t}\n" +
+                "\t}\n" +
+                "}";
+        return JSON.parseObject(mappings);
     }
 }

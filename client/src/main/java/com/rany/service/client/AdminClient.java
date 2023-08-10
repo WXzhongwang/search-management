@@ -148,7 +148,7 @@ public class AdminClient {
         adminProxy.createIndex(indexCreateRequest);
     }
 
-    public IndexInfo createIndex(IndexGetRequest indexGetRequest) {
+    public IndexInfo getIndex(IndexGetRequest indexGetRequest) {
         indexGetRequest.check();
         return adminProxy.getIndex(indexGetRequest);
     }

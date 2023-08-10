@@ -502,6 +502,8 @@ public class Proxy implements Bootstrap {
                 .setProject(indexCreateRequest.getProject())
                 .setIndexTemplate(indexCreateRequest.getTemplate())
                 .setName(indexCreateRequest.getName())
+                .setMapping(StringValue.newBuilder().setValue(indexCreateRequest.getMapping()).build())
+                .setSetting(StringValue.newBuilder().setValue(indexCreateRequest.getSetting()).build())
                 .build();
         CreateIndexReply reply = null;
 
