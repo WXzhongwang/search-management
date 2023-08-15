@@ -279,11 +279,63 @@ public class AdminClientApiTest {
         client.deleteIndex(indexDeleteRequest);
     }
 
+
+    @Test
+    public void updateIndex() {
+        IndexUpdateRequest indexUpdateRequest = new IndexUpdateRequest();
+        indexUpdateRequest.setProject("graph");
+        indexUpdateRequest.setTemplate("test_template_for_delete");
+        indexUpdateRequest.setName("test_template_for_delete-20230815");
+        indexUpdateRequest.setMapping(newMapping().toJSONString());
+        client.updateIndex(indexUpdateRequest);
+    }
+
     public JSONObject settings() {
         String mappings = "{\n" +
                 "        \"number_of_shards\": 2,\n" +
                 "        \"number_of_replicas\": 1\n" +
                 "    }";
+        return JSON.parseObject(mappings);
+    }
+
+    public JSONObject newMapping() {
+        String mappings = "{\n" +
+                "\t\"dynamic\": \"false\",\n" +
+                "\t\"properties\": {\n" +
+                "\t\t\"add_new_field_time\": {\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd HH:mm:ss\",\n" +
+                "\t\t\t\"type\": \"date\"\n" +
+                "\t\t},\n" +
+                "\t\t\"last_event_time\": {\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd HH:mm:ss\",\n" +
+                "\t\t\t\"type\": \"date\"\n" +
+                "\t\t},\n" +
+                "\t\t\"storage_date\": {\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd\",\n" +
+                "\t\t\t\"type\": \"date\"\n" +
+                "\t\t},\n" +
+                "\t\t\"create_time\": {\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd HH:mm:ss\",\n" +
+                "\t\t\t\"type\": \"date\"\n" +
+                "\t\t},\n" +
+                "\t\t\"pid\": {\n" +
+                "\t\t\t\"type\": \"keyword\"\n" +
+                "\t\t},\n" +
+                "\t\t\"appear_num\": {\n" +
+                "\t\t\t\"type\": \"integer\"\n" +
+                "\t\t},\n" +
+                "\t\t\"id\": {\n" +
+                "\t\t\t\"type\": \"long\"\n" +
+                "\t\t},\n" +
+                "\t\t\"ape_id\": {\n" +
+                "\t\t\t\"type\": \"keyword\"\n" +
+                "\t\t},\n" +
+                "\t\t\"event_time\": {\n" +
+                "\t\t\t\"format\": \"yyyy-MM-dd\",\n" +
+                "\t\t\t\"type\": \"date\"\n" +
+                "\t\t}\n" +
+                "\t}\n" +
+                "}";
         return JSON.parseObject(mappings);
     }
 

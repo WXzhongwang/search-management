@@ -14,16 +14,14 @@ import java.util.List;
  */
 public class IndexUpdateRequest extends BaseRequest implements Serializable {
 
-    @NotBlank(message = "项目名称不能为空")
+    @NotBlank(message = "集群不能为空")
     private String name;
-    @NotBlank(message = "项目状态不能为空")
+    @NotBlank(message = "项目不能为空")
     private String project;
-    @NotBlank(message = "集群不能为空")
+    @NotBlank(message = "模板不能为空")
     private String template;
-
-    @NotBlank(message = "集群不能为空")
+    
     private String mapping;
-    @NotBlank(message = "集群不能为空")
     private String setting;
 
     private List<String> aliases;

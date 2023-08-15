@@ -348,7 +348,7 @@ public class AdvancedEsClient {
 
     public void updateIndex(String fullIndexName, String mappings, String settings, List<String> aliases) {
         try {
-            if (mappings != null) {
+            if (mappings != null && !mappings.isEmpty()) {
                 HttpEntity inputEntity = new NStringEntity(mappings, ContentType.APPLICATION_JSON);
                 Request request = new Request("PUT", "/" + fullIndexName + "/_mapping");
                 request.setEntity(inputEntity);
@@ -357,7 +357,7 @@ public class AdvancedEsClient {
                 HttpEntity outputEntity = response.getEntity();
             }
 
-            if (settings != null) {
+            if (settings != null && !settings.isEmpty()) {
                 HttpEntity inputEntity = new NStringEntity(settings, ContentType.APPLICATION_JSON);
                 Request request = new Request("PUT", "/" + fullIndexName + "/_settings");
                 request.setEntity(inputEntity);
