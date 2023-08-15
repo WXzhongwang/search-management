@@ -290,6 +290,42 @@ public class AdminClientApiTest {
         client.updateIndex(indexUpdateRequest);
     }
 
+    @Test
+    public void listIndex() {
+        IndexListRequest indexUpdateRequest = new IndexListRequest();
+        indexUpdateRequest.setCluster("localhost");
+        indexUpdateRequest.setProject("graph");
+        indexUpdateRequest.setTemplate("test_template_for_delete");
+        List<String> indexNames = client.listIndex(indexUpdateRequest);
+        Assert.assertFalse(indexNames.isEmpty());
+    }
+
+    @Test
+    public void listIndexDetails() {
+        IndexListDetailsRequest indexUpdateRequest = new IndexListDetailsRequest();
+        indexUpdateRequest.setCluster("localhost");
+        indexUpdateRequest.setProject("graph");
+        indexUpdateRequest.setTemplate("test_template_for_delete");
+        List<IndexInfo> indexNames = client.listIndexDetails(indexUpdateRequest);
+        Assert.assertFalse(indexNames.isEmpty());
+    }
+
+    @Test
+    public void listIndexName() {
+        IndexListNameRequest indexUpdateRequest = new IndexListNameRequest();
+        indexUpdateRequest.setCluster("localhost");
+        List<IndexNameEntry> indexNames = client.listIndexName(indexUpdateRequest);
+        Assert.assertFalse(indexNames.isEmpty());
+    }
+
+    @Test
+    public void listIndexAlias() {
+        IndexListAliasRequest indexListAliasRequest = new IndexListAliasRequest();
+        indexListAliasRequest.setCluster("localhost");
+        List<IndexNameEntry> indexNames = client.listIndexAlias(indexListAliasRequest);
+        Assert.assertFalse(indexNames.isEmpty());
+    }
+
     public JSONObject settings() {
         String mappings = "{\n" +
                 "        \"number_of_shards\": 2,\n" +
