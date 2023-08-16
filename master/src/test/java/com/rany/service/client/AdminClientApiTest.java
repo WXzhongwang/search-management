@@ -345,6 +345,15 @@ public class AdminClientApiTest {
         client.detachIndex(detachIndexRequest);
     }
 
+    @Test
+    public void refreshIndex() {
+        IndexRefreshRequest refreshIndexRequest = new IndexRefreshRequest();
+        refreshIndexRequest.setName("test_index_create");
+        refreshIndexRequest.setProject("big_data_test");
+        refreshIndexRequest.setTemplate("media_resource");
+        client.refreshIndex(refreshIndexRequest);
+    }
+
     public JSONObject settings() {
         String mappings = "{\n" +
                 "        \"number_of_shards\": 2,\n" +

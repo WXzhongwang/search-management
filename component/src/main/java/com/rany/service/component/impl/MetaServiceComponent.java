@@ -720,7 +720,7 @@ public class MetaServiceComponent extends MetaServiceGrpc.MetaServiceImplBase {
         }
 
 
-        internal.refreshIndex(request.getName(), request.getProject(), request.getIndexTemplate());
+        internal.refreshIndex(request.getProject(), request.getIndexTemplate(), request.getName());
         RefreshIndexReply.Builder builder = RefreshIndexReply.newBuilder();
         RefreshIndexReply reply = builder
                 .setCode(code.getCode())
