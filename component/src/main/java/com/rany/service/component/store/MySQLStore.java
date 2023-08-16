@@ -233,17 +233,23 @@ public class MySQLStore implements IMetaStorage {
         }
     }
 
-    public void deleteIndex(String projectName, String indexGroupName, String indexName) {
-        String command = String.format("delete from %s where %s=\"%s\"", indexMetaTableName,
+    public void deleteIndex(String projectName, String templateName, String indexName) {
+        String command = String.format("delete from %s where %s=\"%s\" and %s=\"%s\" and %s=\"%s\"", indexMetaTableName,
                 TableColumnNameConstant.Index.INDEX_META_TABLE_PK_NAME,
-                projectName + "." + indexGroupName + "." + indexName);
+                indexName,
+                TableColumnNameConstant.Index.INDEX_META_TABLE_PROJECT_NAME,
+                projectName,
+                TableColumnNameConstant.Index.INDEX_META_TABLE_TEMPLATE_NAME,
+                templateName);
         jdbcTemplate.execute(command);
     }
 
     @Override
     public void updateIndex(IndexMetaData indexMetaData) {
+        LocalDateTime localDateTime = indexMetaData.gmtModified.toLocalDateTime();
+        String updateTime = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String command = String.format("update %s set ", indexMetaTableName);
-        command += String.format(" %s=%d ", TableColumnNameConstant.Index.COLUMN_LAST_UPDATE_TIME, indexMetaData.gmtModified);
+        command += String.format(" %s=%d ", TableColumnNameConstant.Index.COLUMN_LAST_UPDATE_TIME, updateTime);
         if (indexMetaData.tags != null) {
             command += String.format(" ,%s=? ", TableColumnNameConstant.Index.COLUMN_INDEX_TAGS);
         }

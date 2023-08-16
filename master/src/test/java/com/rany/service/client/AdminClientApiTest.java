@@ -326,6 +326,25 @@ public class AdminClientApiTest {
         Assert.assertFalse(indexNames.isEmpty());
     }
 
+
+    @Test
+    public void attachIndex() {
+        IndexAttachRequest attachIndexRequest = new IndexAttachRequest();
+        attachIndexRequest.setName("test_index_create");
+        attachIndexRequest.setProject("big_data_test");
+        attachIndexRequest.setTemplate("media_resource");
+        client.attachIndex(attachIndexRequest);
+    }
+
+    @Test
+    public void detachIndex() {
+        IndexDetachRequest detachIndexRequest = new IndexDetachRequest();
+        detachIndexRequest.setName("test_index_create");
+        detachIndexRequest.setProject("big_data_test");
+        detachIndexRequest.setTemplate("media_resource");
+        client.detachIndex(detachIndexRequest);
+    }
+
     public JSONObject settings() {
         String mappings = "{\n" +
                 "        \"number_of_shards\": 2,\n" +

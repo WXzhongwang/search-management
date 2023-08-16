@@ -1190,7 +1190,7 @@ public class MasterServiceInternalImpl {
             indexMeta.fullName = MetaUtility.combineFullIndexName(projectMeta.projectName, indexTemplateMetaData.templateName, indexMeta.name);
             indexMeta.projectName = info.getProjectName();
             indexMeta.templateName = info.getTemplate();
-            
+
             AdvancedEsClient client = esClientMap.get(projectMeta.clusterName);
             long startCheckIndex = System.nanoTime();
             if (client.checkIndexExist(indexMeta.fullName)) {
@@ -1543,6 +1543,8 @@ public class MasterServiceInternalImpl {
             IndexMetaData indexMeta = new IndexMetaData();
             indexMeta.name = indexName;
             indexMeta.fullName = indexMeta.name;
+            indexMeta.projectName = projectName;
+            indexMeta.templateName = indexTemplateName;
             indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
             indexMeta.gmtModified = indexMeta.gmtCreate;
             indexMeta.docs = 0;
@@ -1599,16 +1601,16 @@ public class MasterServiceInternalImpl {
                 throw new SearchManagementException(ErrorCodeEnum.OBJECT_NOT_EXIST.getCode(),
                         String.format("IndexTemplate [%s] does not exists in project [%s].", indexTemplateName, projectName));
             }
-            if (templateMetaData.indexMetas.containsKey(indexName)) {
+            IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
+            if (indexMeta == null) {
                 throw new SearchManagementException(ErrorCodeEnum.OBJECT_ALREADY_EXIST.getCode(),
-                        String.format("Index [%s] already exist in IndexTemplate [%s] and project [%s]", indexName, indexTemplateName, projectName));
+                        String.format("Index [%s] does not exist in IndexTemplate [%s] and project [%s]", indexName, indexTemplateName, projectName));
             }
 
             metaStore.deleteIndex(projectName, indexTemplateName, indexName);
             logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been deleted from persistent storage.",
                     projectName, indexTemplateName, indexName);
 
-            IndexMetaData indexMeta = templateMetaData.indexMetas.get(indexName);
             templateMetaData.indexMetas.remove(indexName);
             if (indexMeta.legacy) {
                 legacyIndexNameMap.remove(indexName);
