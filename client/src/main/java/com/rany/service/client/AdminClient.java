@@ -197,6 +197,36 @@ public class AdminClient {
         refreshRequest.check();
         adminProxy.refreshIndex(refreshRequest);
     }
+
+
+    public void setServiceReadOnly() {
+        adminProxy.setServiceReadOnly();
+    }
+
+
+    public void setServiceSuspend() {
+        adminProxy.setServiceSuspend();
+    }
+
+    public void setServiceNormal() {
+        adminProxy.setServiceNormal();
+    }
+
+    public String getServiceMode() {
+        return adminProxy.getServiceMode();
+    }
+
+    public void suspendBackgroundExecutors() {
+        adminProxy.suspendBackgroundExecutors();
+    }
+
+    public void resumeBackgroundExecutors() {
+        adminProxy.resumeBackgroundExecutors();
+    }
+
+    public boolean getBackgroundExecutorsStatus() {
+        return adminProxy.getBackgroundExecutorsStatus();
+    }
 }
 
 

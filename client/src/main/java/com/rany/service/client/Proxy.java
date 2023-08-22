@@ -11,9 +11,7 @@ import com.rany.service.common.exception.SearchClientException;
 import com.rany.service.common.exception.SearchManagementException;
 import com.rany.service.common.toolkit.DateUtility;
 import com.rany.service.platform.DataTypeUtils;
-import com.rany.service.platform.admin.AdminServiceGrpc;
-import com.rany.service.platform.admin.PingReply;
-import com.rany.service.platform.admin.PingRequest;
+import com.rany.service.platform.admin.*;
 import com.rany.service.platform.meta.*;
 import io.grpc.ManagedChannel;
 import io.grpc.inprocess.InProcessChannelBuilder;
@@ -721,6 +719,122 @@ public class Proxy implements Bootstrap {
                     "Fail to refresh index with message: " + e.getMessage());
         }
     }
+
+
+    public void setServiceReadOnly() {
+        SetReadOnlyRequest request = SetReadOnlyRequest.newBuilder().build();
+        ReadOnlyResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.setServiceReadOnly(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call setReadOnly with message: " + e.getMessage());
+        }
+    }
+
+    public void setServiceNormal() {
+        SetInServiceRequest request = SetInServiceRequest.newBuilder().build();
+        InServiceResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.setServiceInService(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call setNormal with message: " + e.getMessage());
+        }
+    }
+
+    public void setServiceSuspend() {
+        SetSuspendRequest request = SetSuspendRequest.newBuilder().build();
+        SuspendResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.setServiceSuspend(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call setSuspend with message: " + e.getMessage());
+        }
+    }
+
+    public String getServiceMode() {
+        GetServiceModeRequest request = GetServiceModeRequest.newBuilder().build();
+        ServiceModeResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.getServiceMode(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call getServiceMode with message: " + e.getMessage());
+        }
+        return reply.getMode();
+    }
+
+    public void suspendBackgroundExecutors() {
+        SuspendWorkThreadRequest request = SuspendWorkThreadRequest.newBuilder().build();
+        SuspendWorkThreadResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.suspendBackendThreads(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call suspendBackgroundExecutors with message: " + e.getMessage());
+        }
+    }
+
+    public void resumeBackgroundExecutors() {
+        ResumeWorkThreadRequest request = ResumeWorkThreadRequest.newBuilder().build();
+        ResumeWorkThreadResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.resumeBackendThreads(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call resumeBackgroundExecutors with message: " + e.getMessage());
+        }
+    }
+
+    public boolean getBackgroundExecutorsStatus() {
+        GetWorkThreadStatusRequest request = GetWorkThreadStatusRequest.newBuilder().build();
+        GetWorkThreadStatusResponse reply = null;
+
+        try {
+            adminServiceStub = AdminServiceGrpc.newBlockingStub(channel).withDeadlineAfter(timeout, TimeUnit.MILLISECONDS);
+            reply = adminServiceStub.getBackendThreadsStatus(request);
+            if (reply.getCode() != CommonReturnCode.SUCCEED.getCode()) {
+                throw new SearchManagementException(reply.getCode(), reply.getMessage());
+            }
+        } catch (Exception e) {
+            throw new SearchManagementException(ErrorCodeEnum.UNKNOWN.getCode(),
+                    "Fail to call getBackgroundExecutorsStatus with message: " + e.getMessage());
+        }
+        return reply.getRunning();
+    }
+
 
     /**
      * 心跳线程

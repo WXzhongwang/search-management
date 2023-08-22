@@ -37,6 +37,10 @@
             <artifactId>commons-cli</artifactId>
             <version>${common-cli.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.rany.service</groupId>
+            <artifactId>client</artifactId>
+        </dependency>
     </dependencies>
 
 

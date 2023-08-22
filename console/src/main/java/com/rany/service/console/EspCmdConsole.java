@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  * @email 18668485565163.com
  */
 public class EspCmdConsole {
-    private static Options OPTIONS = new Options();
+    private static final Options OPTIONS = new Options();
     private static CommandLine commandLine;
     private static String HELP_STRING = null;
 
