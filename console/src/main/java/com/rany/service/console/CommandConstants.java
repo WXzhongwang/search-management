@@ -48,7 +48,7 @@ public class CommandConstants {
     public static final String SET_SERVICE_NORMAL = "set_normal";
     public static final String SET_SERVICE_SUSPEND = "set_suspend";
     public static final String GET_SERVICE_MODE = "get_mode";
-    public static final String SUSPEND_BACKGROUND_EXECUTORS = "suspend_bk_executors";
-    public static final String RESUME_BACKGROUND_EXECUTORS = "resume_bk_executors";
-    public static final String GET_BACKGROUND_EXECUTORS_STATUS = "get_bk_executors_status";
+    public static final String SUSPEND_BACKGROUND_EXECUTORS = "suspend_background_executors";
+    public static final String RESUME_BACKGROUND_EXECUTORS = "resume_background_executors";
+    public static final String GET_BACKGROUND_EXECUTORS_STATUS = "get_background_executors_status";
 }
