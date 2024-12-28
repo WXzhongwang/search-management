@@ -4,22 +4,21 @@
 package com.rany.service.platform.meta;
 
 public interface DeleteClusterReplyOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:DeleteClusterReply)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:DeleteClusterReply)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>int32 code = 1;</code>
-     */
-    int getCode();
+  /**
+   * <code>int32 code = 1;</code>
+   */
+  int getCode();
 
-    /**
-     * <code>string message = 2;</code>
-     */
-    java.lang.String getMessage();
-
-    /**
-     * <code>string message = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
+  /**
+   * <code>string message = 2;</code>
+   */
+  java.lang.String getMessage();
+  /**
+   * <code>string message = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 }

@@ -531,3 +531,6 @@ public class CommandConstants {
 }
 
 ```
+
+升级项目版本:
+> mvn versions:set -DnewVersion=1.0.1-SNAPSHOT

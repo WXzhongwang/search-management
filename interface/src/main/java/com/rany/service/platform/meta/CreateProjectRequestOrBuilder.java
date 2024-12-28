@@ -4,50 +4,46 @@
 package com.rany.service.platform.meta;
 
 public interface CreateProjectRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:CreateProjectRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:CreateProjectRequest)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>string name = 1;</code>
-     */
-    java.lang.String getName();
+  /**
+   * <code>string name = 1;</code>
+   */
+  java.lang.String getName();
+  /**
+   * <code>string name = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
 
-    /**
-     * <code>string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getNameBytes();
+  /**
+   * <code>string cluster = 2;</code>
+   */
+  java.lang.String getCluster();
+  /**
+   * <code>string cluster = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getClusterBytes();
 
-    /**
-     * <code>string cluster = 2;</code>
-     */
-    java.lang.String getCluster();
+  /**
+   * <code>string description = 3;</code>
+   */
+  java.lang.String getDescription();
+  /**
+   * <code>string description = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getDescriptionBytes();
 
-    /**
-     * <code>string cluster = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getClusterBytes();
-
-    /**
-     * <code>string description = 3;</code>
-     */
-    java.lang.String getDescription();
-
-    /**
-     * <code>string description = 3;</code>
-     */
-    com.google.protobuf.ByteString
-    getDescriptionBytes();
-
-    /**
-     * <code>string projectSetting = 4;</code>
-     */
-    java.lang.String getProjectSetting();
-
-    /**
-     * <code>string projectSetting = 4;</code>
-     */
-    com.google.protobuf.ByteString
-    getProjectSettingBytes();
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  java.lang.String getProjectSetting();
+  /**
+   * <code>string projectSetting = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectSettingBytes();
 }

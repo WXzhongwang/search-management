@@ -4,44 +4,40 @@
 package com.rany.service.platform.meta;
 
 public interface ListIndexReplyOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:ListIndexReply)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:ListIndexReply)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>int32 code = 1;</code>
-     */
-    int getCode();
+  /**
+   * <code>int32 code = 1;</code>
+   */
+  int getCode();
 
-    /**
-     * <code>string message = 2;</code>
-     */
-    java.lang.String getMessage();
+  /**
+   * <code>string message = 2;</code>
+   */
+  java.lang.String getMessage();
+  /**
+   * <code>string message = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 
-    /**
-     * <code>string message = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
-
-    /**
-     * <code>repeated string indices = 3;</code>
-     */
-    java.util.List<java.lang.String>
-    getIndicesList();
-
-    /**
-     * <code>repeated string indices = 3;</code>
-     */
-    int getIndicesCount();
-
-    /**
-     * <code>repeated string indices = 3;</code>
-     */
-    java.lang.String getIndices(int index);
-
-    /**
-     * <code>repeated string indices = 3;</code>
-     */
-    com.google.protobuf.ByteString
-    getIndicesBytes(int index);
+  /**
+   * <code>repeated string indices = 3;</code>
+   */
+  java.util.List<java.lang.String>
+      getIndicesList();
+  /**
+   * <code>repeated string indices = 3;</code>
+   */
+  int getIndicesCount();
+  /**
+   * <code>repeated string indices = 3;</code>
+   */
+  java.lang.String getIndices(int index);
+  /**
+   * <code>repeated string indices = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndicesBytes(int index);
 }

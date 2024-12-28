@@ -6,2233 +6,2125 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code ClusterInfo}
  */
-public final class ClusterInfo extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:ClusterInfo)
-        ClusterInfoOrBuilder {
-    public static final int ID_FIELD_NUMBER = 1;
-    public static final int NAME_FIELD_NUMBER = 2;
-    public static final int ENDPOINT_FIELD_NUMBER = 3;
-    public static final int INTERNAL_ENDPOINT_FIELD_NUMBER = 4;
-    public static final int TYPE_FIELD_NUMBER = 5;
-    public static final int DESCRIPTION_FIELD_NUMBER = 6;
-    public static final int CREATE_TIME_FIELD_NUMBER = 7;
-    public static final int LAST_UPDATE_TIME_FIELD_NUMBER = 8;
-    public static final int STATUS_FIELD_NUMBER = 9;
-    public static final int ES_VERSION_FIELD_NUMBER = 10;
-    public static final int TOTAL_PROJECT_NUMBER_FIELD_NUMBER = 11;
-    public static final int TOTAL_INDEX_NUMBER_FIELD_NUMBER = 12;
-    public static final int TOTAL_DOC_NUMBER_FIELD_NUMBER = 13;
-    public static final int TOTAL_DATA_SIZE_FIELD_NUMBER = 14;
-    public static final int CLUSTER_HEALTH_FIELD_NUMBER = 15;
-    public static final int NODES_FIELD_NUMBER = 16;
-    public static final int TOTAL_TEMPLATE_NUMBER_FIELD_NUMBER = 17;
-    private static final long serialVersionUID = 0L;
-    // @@protoc_insertion_point(class_scope:ClusterInfo)
-    private static final com.rany.service.platform.meta.ClusterInfo DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<ClusterInfo>
-            PARSER = new com.google.protobuf.AbstractParser<ClusterInfo>() {
-        public ClusterInfo parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new ClusterInfo(input, extensionRegistry);
-        }
-    };
+public  final class ClusterInfo extends
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:ClusterInfo)
+    ClusterInfoOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use ClusterInfo.newBuilder() to construct.
+  private ClusterInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private ClusterInfo() {
+    id_ = 0;
+    name_ = "";
+    endpoint_ = "";
+    internalEndpoint_ = "";
+    type_ = 0;
+    description_ = "";
+    createTime_ = 0L;
+    lastUpdateTime_ = 0L;
+    status_ = 0;
+    esVersion_ = "";
+    totalProjectNumber_ = 0;
+    totalIndexNumber_ = 0;
+    totalDocNumber_ = 0L;
+    totalDataSize_ = 0L;
+    clusterHealth_ = "";
+    nodes_ = java.util.Collections.emptyList();
+    totalTemplateNumber_ = 0;
+  }
 
-    static {
-        DEFAULT_INSTANCE = new com.rany.service.platform.meta.ClusterInfo();
-    }
-
-    private int bitField0_;
-    private int id_;
-    private volatile java.lang.Object name_;
-    private volatile java.lang.Object endpoint_;
-    private volatile java.lang.Object internalEndpoint_;
-    private int type_;
-    private volatile java.lang.Object description_;
-    private long createTime_;
-    private long lastUpdateTime_;
-    private int status_;
-    private volatile java.lang.Object esVersion_;
-    private int totalProjectNumber_;
-    private int totalIndexNumber_;
-    private long totalDocNumber_;
-    private long totalDataSize_;
-    private volatile java.lang.Object clusterHealth_;
-    private java.util.List<com.rany.service.platform.meta.NodeInfo> nodes_;
-    private int totalTemplateNumber_;
-    private byte memoizedIsInitialized = -1;
-
-    // Use ClusterInfo.newBuilder() to construct.
-    private ClusterInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-
-    private ClusterInfo() {
-        id_ = 0;
-        name_ = "";
-        endpoint_ = "";
-        internalEndpoint_ = "";
-        type_ = 0;
-        description_ = "";
-        createTime_ = 0L;
-        lastUpdateTime_ = 0L;
-        status_ = 0;
-        esVersion_ = "";
-        totalProjectNumber_ = 0;
-        totalIndexNumber_ = 0;
-        totalDocNumber_ = 0L;
-        totalDataSize_ = 0L;
-        clusterHealth_ = "";
-        nodes_ = java.util.Collections.emptyList();
-        totalTemplateNumber_ = 0;
-    }
-    private ClusterInfo(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    default: {
-                        if (!parseUnknownFieldProto3(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                    case 8: {
-
-                        id_ = input.readInt32();
-                        break;
-                    }
-                    case 18: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        name_ = s;
-                        break;
-                    }
-                    case 26: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        endpoint_ = s;
-                        break;
-                    }
-                    case 34: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        internalEndpoint_ = s;
-                        break;
-                    }
-                    case 40: {
-                        int rawValue = input.readEnum();
-
-                        type_ = rawValue;
-                        break;
-                    }
-                    case 50: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        description_ = s;
-                        break;
-                    }
-                    case 56: {
-
-                        createTime_ = input.readInt64();
-                        break;
-                    }
-                    case 64: {
-
-                        lastUpdateTime_ = input.readInt64();
-                        break;
-                    }
-                    case 72: {
-                        int rawValue = input.readEnum();
-
-                        status_ = rawValue;
-                        break;
-                    }
-                    case 82: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        esVersion_ = s;
-                        break;
-                    }
-                    case 88: {
-
-                        totalProjectNumber_ = input.readInt32();
-                        break;
-                    }
-                    case 96: {
-
-                        totalIndexNumber_ = input.readInt32();
-                        break;
-                    }
-                    case 104: {
-
-                        totalDocNumber_ = input.readInt64();
-                        break;
-                    }
-                    case 112: {
-
-                        totalDataSize_ = input.readInt64();
-                        break;
-                    }
-                    case 122: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        clusterHealth_ = s;
-                        break;
-                    }
-                    case 130: {
-                        if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                            nodes_ = new java.util.ArrayList<com.rany.service.platform.meta.NodeInfo>();
-                            mutable_bitField0_ |= 0x00008000;
-                        }
-                        nodes_.add(
-                                input.readMessage(com.rany.service.platform.meta.NodeInfo.parser(), extensionRegistry));
-                        break;
-                    }
-                    case 136: {
-
-                        totalTemplateNumber_ = input.readInt32();
-                        break;
-                    }
-                }
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private ClusterInfo(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
-                nodes_ = java.util.Collections.unmodifiableList(nodes_);
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-        }
-    }
+            break;
+          }
+          case 8: {
 
+            id_ = input.readInt32();
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            name_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            endpoint_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            internalEndpoint_ = s;
+            break;
+          }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            type_ = rawValue;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            description_ = s;
+            break;
+          }
+          case 56: {
+
+            createTime_ = input.readInt64();
+            break;
+          }
+          case 64: {
+
+            lastUpdateTime_ = input.readInt64();
+            break;
+          }
+          case 72: {
+            int rawValue = input.readEnum();
+
+            status_ = rawValue;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            esVersion_ = s;
+            break;
+          }
+          case 88: {
+
+            totalProjectNumber_ = input.readInt32();
+            break;
+          }
+          case 96: {
+
+            totalIndexNumber_ = input.readInt32();
+            break;
+          }
+          case 104: {
+
+            totalDocNumber_ = input.readInt64();
+            break;
+          }
+          case 112: {
+
+            totalDataSize_ = input.readInt64();
+            break;
+          }
+          case 122: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clusterHealth_ = s;
+            break;
+          }
+          case 130: {
+            if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+              nodes_ = new java.util.ArrayList<com.rany.service.platform.meta.NodeInfo>();
+              mutable_bitField0_ |= 0x00008000;
+            }
+            nodes_.add(
+                input.readMessage(com.rany.service.platform.meta.NodeInfo.parser(), extensionRegistry));
+            break;
+          }
+          case 136: {
+
+            totalTemplateNumber_ = input.readInt32();
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+        nodes_ = java.util.Collections.unmodifiableList(nodes_);
+      }
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
+  }
+
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            com.rany.service.platform.meta.ClusterInfo.class, com.rany.service.platform.meta.ClusterInfo.Builder.class);
+  }
+
+  private int bitField0_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private int id_;
+  /**
+   * <code>int32 id = 1;</code>
+   */
+  public int getId() {
+    return id_;
+  }
+
+  public static final int NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object name_;
+  /**
+   * <code>string name = 2;</code>
+   */
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string name = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ENDPOINT_FIELD_NUMBER = 3;
+  private volatile java.lang.Object endpoint_;
+  /**
+   * <code>string endpoint = 3;</code>
+   */
+  public java.lang.String getEndpoint() {
+    java.lang.Object ref = endpoint_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      endpoint_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string endpoint = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getEndpointBytes() {
+    java.lang.Object ref = endpoint_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      endpoint_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int INTERNAL_ENDPOINT_FIELD_NUMBER = 4;
+  private volatile java.lang.Object internalEndpoint_;
+  /**
+   * <code>string internal_endpoint = 4;</code>
+   */
+  public java.lang.String getInternalEndpoint() {
+    java.lang.Object ref = internalEndpoint_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      internalEndpoint_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string internal_endpoint = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getInternalEndpointBytes() {
+    java.lang.Object ref = internalEndpoint_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      internalEndpoint_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TYPE_FIELD_NUMBER = 5;
+  private int type_;
+  /**
+   * <code>.ClusterType type = 5;</code>
+   */
+  public int getTypeValue() {
+    return type_;
+  }
+  /**
+   * <code>.ClusterType type = 5;</code>
+   */
+  public com.rany.service.platform.meta.ClusterType getType() {
+    com.rany.service.platform.meta.ClusterType result = com.rany.service.platform.meta.ClusterType.valueOf(type_);
+    return result == null ? com.rany.service.platform.meta.ClusterType.UNRECOGNIZED : result;
+  }
+
+  public static final int DESCRIPTION_FIELD_NUMBER = 6;
+  private volatile java.lang.Object description_;
+  /**
+   * <code>string description = 6;</code>
+   */
+  public java.lang.String getDescription() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      description_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string description = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getDescriptionBytes() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      description_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CREATE_TIME_FIELD_NUMBER = 7;
+  private long createTime_;
+  /**
+   * <code>int64 create_time = 7;</code>
+   */
+  public long getCreateTime() {
+    return createTime_;
+  }
+
+  public static final int LAST_UPDATE_TIME_FIELD_NUMBER = 8;
+  private long lastUpdateTime_;
+  /**
+   * <code>int64 last_update_time = 8;</code>
+   */
+  public long getLastUpdateTime() {
+    return lastUpdateTime_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 9;
+  private int status_;
+  /**
+   * <code>.ClusterStatus status = 9;</code>
+   */
+  public int getStatusValue() {
+    return status_;
+  }
+  /**
+   * <code>.ClusterStatus status = 9;</code>
+   */
+  public com.rany.service.platform.meta.ClusterStatus getStatus() {
+    com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
+    return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
+  }
+
+  public static final int ES_VERSION_FIELD_NUMBER = 10;
+  private volatile java.lang.Object esVersion_;
+  /**
+   * <code>string es_version = 10;</code>
+   */
+  public java.lang.String getEsVersion() {
+    java.lang.Object ref = esVersion_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      esVersion_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string es_version = 10;</code>
+   */
+  public com.google.protobuf.ByteString
+      getEsVersionBytes() {
+    java.lang.Object ref = esVersion_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      esVersion_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TOTAL_PROJECT_NUMBER_FIELD_NUMBER = 11;
+  private int totalProjectNumber_;
+  /**
+   * <code>int32 total_project_number = 11;</code>
+   */
+  public int getTotalProjectNumber() {
+    return totalProjectNumber_;
+  }
+
+  public static final int TOTAL_INDEX_NUMBER_FIELD_NUMBER = 12;
+  private int totalIndexNumber_;
+  /**
+   * <code>int32 total_index_number = 12;</code>
+   */
+  public int getTotalIndexNumber() {
+    return totalIndexNumber_;
+  }
+
+  public static final int TOTAL_DOC_NUMBER_FIELD_NUMBER = 13;
+  private long totalDocNumber_;
+  /**
+   * <code>int64 total_doc_number = 13;</code>
+   */
+  public long getTotalDocNumber() {
+    return totalDocNumber_;
+  }
+
+  public static final int TOTAL_DATA_SIZE_FIELD_NUMBER = 14;
+  private long totalDataSize_;
+  /**
+   * <code>int64 total_data_size = 14;</code>
+   */
+  public long getTotalDataSize() {
+    return totalDataSize_;
+  }
+
+  public static final int CLUSTER_HEALTH_FIELD_NUMBER = 15;
+  private volatile java.lang.Object clusterHealth_;
+  /**
+   * <code>string cluster_health = 15;</code>
+   */
+  public java.lang.String getClusterHealth() {
+    java.lang.Object ref = clusterHealth_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clusterHealth_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string cluster_health = 15;</code>
+   */
+  public com.google.protobuf.ByteString
+      getClusterHealthBytes() {
+    java.lang.Object ref = clusterHealth_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clusterHealth_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NODES_FIELD_NUMBER = 16;
+  private java.util.List<com.rany.service.platform.meta.NodeInfo> nodes_;
+  /**
+   * <code>repeated .NodeInfo nodes = 16;</code>
+   */
+  public java.util.List<com.rany.service.platform.meta.NodeInfo> getNodesList() {
+    return nodes_;
+  }
+  /**
+   * <code>repeated .NodeInfo nodes = 16;</code>
+   */
+  public java.util.List<? extends com.rany.service.platform.meta.NodeInfoOrBuilder> 
+      getNodesOrBuilderList() {
+    return nodes_;
+  }
+  /**
+   * <code>repeated .NodeInfo nodes = 16;</code>
+   */
+  public int getNodesCount() {
+    return nodes_.size();
+  }
+  /**
+   * <code>repeated .NodeInfo nodes = 16;</code>
+   */
+  public com.rany.service.platform.meta.NodeInfo getNodes(int index) {
+    return nodes_.get(index);
+  }
+  /**
+   * <code>repeated .NodeInfo nodes = 16;</code>
+   */
+  public com.rany.service.platform.meta.NodeInfoOrBuilder getNodesOrBuilder(
+      int index) {
+    return nodes_.get(index);
+  }
+
+  public static final int TOTAL_TEMPLATE_NUMBER_FIELD_NUMBER = 17;
+  private int totalTemplateNumber_;
+  /**
+   * <code>int32 total_template_number = 17;</code>
+   */
+  public int getTotalTemplateNumber() {
+    return totalTemplateNumber_;
+  }
+
+  private byte memoizedIsInitialized = -1;
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
+    }
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+    }
+    if (!getEndpointBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endpoint_);
+    }
+    if (!getInternalEndpointBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, internalEndpoint_);
+    }
+    if (type_ != com.rany.service.platform.meta.ClusterType.HDD.getNumber()) {
+      output.writeEnum(5, type_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
+    }
+    if (createTime_ != 0L) {
+      output.writeInt64(7, createTime_);
+    }
+    if (lastUpdateTime_ != 0L) {
+      output.writeInt64(8, lastUpdateTime_);
+    }
+    if (status_ != com.rany.service.platform.meta.ClusterStatus.NULL.getNumber()) {
+      output.writeEnum(9, status_);
+    }
+    if (!getEsVersionBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, esVersion_);
+    }
+    if (totalProjectNumber_ != 0) {
+      output.writeInt32(11, totalProjectNumber_);
+    }
+    if (totalIndexNumber_ != 0) {
+      output.writeInt32(12, totalIndexNumber_);
+    }
+    if (totalDocNumber_ != 0L) {
+      output.writeInt64(13, totalDocNumber_);
+    }
+    if (totalDataSize_ != 0L) {
+      output.writeInt64(14, totalDataSize_);
+    }
+    if (!getClusterHealthBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 15, clusterHealth_);
+    }
+    for (int i = 0; i < nodes_.size(); i++) {
+      output.writeMessage(16, nodes_.get(i));
+    }
+    if (totalTemplateNumber_ != 0) {
+      output.writeInt32(17, totalTemplateNumber_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    if (id_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, id_);
+    }
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+    }
+    if (!getEndpointBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endpoint_);
+    }
+    if (!getInternalEndpointBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, internalEndpoint_);
+    }
+    if (type_ != com.rany.service.platform.meta.ClusterType.HDD.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, type_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
+    }
+    if (createTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(7, createTime_);
+    }
+    if (lastUpdateTime_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(8, lastUpdateTime_);
+    }
+    if (status_ != com.rany.service.platform.meta.ClusterStatus.NULL.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(9, status_);
+    }
+    if (!getEsVersionBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, esVersion_);
+    }
+    if (totalProjectNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, totalProjectNumber_);
+    }
+    if (totalIndexNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(12, totalIndexNumber_);
+    }
+    if (totalDocNumber_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(13, totalDocNumber_);
+    }
+    if (totalDataSize_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(14, totalDataSize_);
+    }
+    if (!getClusterHealthBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, clusterHealth_);
+    }
+    for (int i = 0; i < nodes_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, nodes_.get(i));
+    }
+    if (totalTemplateNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(17, totalTemplateNumber_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof com.rany.service.platform.meta.ClusterInfo)) {
+      return super.equals(obj);
+    }
+    com.rany.service.platform.meta.ClusterInfo other = (com.rany.service.platform.meta.ClusterInfo) obj;
+
+    boolean result = true;
+    result = result && (getId()
+        == other.getId());
+    result = result && getName()
+        .equals(other.getName());
+    result = result && getEndpoint()
+        .equals(other.getEndpoint());
+    result = result && getInternalEndpoint()
+        .equals(other.getInternalEndpoint());
+    result = result && type_ == other.type_;
+    result = result && getDescription()
+        .equals(other.getDescription());
+    result = result && (getCreateTime()
+        == other.getCreateTime());
+    result = result && (getLastUpdateTime()
+        == other.getLastUpdateTime());
+    result = result && status_ == other.status_;
+    result = result && getEsVersion()
+        .equals(other.getEsVersion());
+    result = result && (getTotalProjectNumber()
+        == other.getTotalProjectNumber());
+    result = result && (getTotalIndexNumber()
+        == other.getTotalIndexNumber());
+    result = result && (getTotalDocNumber()
+        == other.getTotalDocNumber());
+    result = result && (getTotalDataSize()
+        == other.getTotalDataSize());
+    result = result && getClusterHealth()
+        .equals(other.getClusterHealth());
+    result = result && getNodesList()
+        .equals(other.getNodesList());
+    result = result && (getTotalTemplateNumber()
+        == other.getTotalTemplateNumber());
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
+  }
+
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + ENDPOINT_FIELD_NUMBER;
+    hash = (53 * hash) + getEndpoint().hashCode();
+    hash = (37 * hash) + INTERNAL_ENDPOINT_FIELD_NUMBER;
+    hash = (53 * hash) + getInternalEndpoint().hashCode();
+    hash = (37 * hash) + TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + type_;
+    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+    hash = (53 * hash) + getDescription().hashCode();
+    hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getCreateTime());
+    hash = (37 * hash) + LAST_UPDATE_TIME_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getLastUpdateTime());
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + status_;
+    hash = (37 * hash) + ES_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getEsVersion().hashCode();
+    hash = (37 * hash) + TOTAL_PROJECT_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalProjectNumber();
+    hash = (37 * hash) + TOTAL_INDEX_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalIndexNumber();
+    hash = (37 * hash) + TOTAL_DOC_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalDocNumber());
+    hash = (37 * hash) + TOTAL_DATA_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalDataSize());
+    hash = (37 * hash) + CLUSTER_HEALTH_FIELD_NUMBER;
+    hash = (53 * hash) + getClusterHealth().hashCode();
+    if (getNodesCount() > 0) {
+      hash = (37 * hash) + NODES_FIELD_NUMBER;
+      hash = (53 * hash) + getNodesList().hashCode();
+    }
+    hash = (37 * hash) + TOTAL_TEMPLATE_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getTotalTemplateNumber();
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.ClusterInfo parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  public static Builder newBuilder(com.rany.service.platform.meta.ClusterInfo prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * Protobuf type {@code ClusterInfo}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:ClusterInfo)
+      com.rany.service.platform.meta.ClusterInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(com.rany.service.platform.meta.ClusterInfo prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static com.rany.service.platform.meta.ClusterInfo getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<ClusterInfo> parser() {
-        return PARSER;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
+        getDescriptor() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.rany.service.platform.meta.ClusterInfo.class, com.rany.service.platform.meta.ClusterInfo.Builder.class);
+        internalGetFieldAccessorTable() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rany.service.platform.meta.ClusterInfo.class, com.rany.service.platform.meta.ClusterInfo.Builder.class);
     }
 
+    // Construct using com.rany.service.platform.meta.ClusterInfo.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
+
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getNodesFieldBuilder();
+      }
+    }
+    public Builder clear() {
+      super.clear();
+      id_ = 0;
+
+      name_ = "";
+
+      endpoint_ = "";
+
+      internalEndpoint_ = "";
+
+      type_ = 0;
+
+      description_ = "";
+
+      createTime_ = 0L;
+
+      lastUpdateTime_ = 0L;
+
+      status_ = 0;
+
+      esVersion_ = "";
+
+      totalProjectNumber_ = 0;
+
+      totalIndexNumber_ = 0;
+
+      totalDocNumber_ = 0L;
+
+      totalDataSize_ = 0L;
+
+      clusterHealth_ = "";
+
+      if (nodesBuilder_ == null) {
+        nodes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+      } else {
+        nodesBuilder_.clear();
+      }
+      totalTemplateNumber_ = 0;
+
+      return this;
+    }
+
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
+    }
+
+    public com.rany.service.platform.meta.ClusterInfo getDefaultInstanceForType() {
+      return com.rany.service.platform.meta.ClusterInfo.getDefaultInstance();
+    }
+
+    public com.rany.service.platform.meta.ClusterInfo build() {
+      com.rany.service.platform.meta.ClusterInfo result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    public com.rany.service.platform.meta.ClusterInfo buildPartial() {
+      com.rany.service.platform.meta.ClusterInfo result = new com.rany.service.platform.meta.ClusterInfo(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      result.id_ = id_;
+      result.name_ = name_;
+      result.endpoint_ = endpoint_;
+      result.internalEndpoint_ = internalEndpoint_;
+      result.type_ = type_;
+      result.description_ = description_;
+      result.createTime_ = createTime_;
+      result.lastUpdateTime_ = lastUpdateTime_;
+      result.status_ = status_;
+      result.esVersion_ = esVersion_;
+      result.totalProjectNumber_ = totalProjectNumber_;
+      result.totalIndexNumber_ = totalIndexNumber_;
+      result.totalDocNumber_ = totalDocNumber_;
+      result.totalDataSize_ = totalDataSize_;
+      result.clusterHealth_ = clusterHealth_;
+      if (nodesBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          nodes_ = java.util.Collections.unmodifiableList(nodes_);
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.nodes_ = nodes_;
+      } else {
+        result.nodes_ = nodesBuilder_.build();
+      }
+      result.totalTemplateNumber_ = totalTemplateNumber_;
+      result.bitField0_ = to_bitField0_;
+      onBuilt();
+      return result;
+    }
+
+    public Builder clone() {
+      return (Builder) super.clone();
+    }
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof com.rany.service.platform.meta.ClusterInfo) {
+        return mergeFrom((com.rany.service.platform.meta.ClusterInfo)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(com.rany.service.platform.meta.ClusterInfo other) {
+      if (other == com.rany.service.platform.meta.ClusterInfo.getDefaultInstance()) return this;
+      if (other.getId() != 0) {
+        setId(other.getId());
+      }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
+      }
+      if (!other.getEndpoint().isEmpty()) {
+        endpoint_ = other.endpoint_;
+        onChanged();
+      }
+      if (!other.getInternalEndpoint().isEmpty()) {
+        internalEndpoint_ = other.internalEndpoint_;
+        onChanged();
+      }
+      if (other.type_ != 0) {
+        setTypeValue(other.getTypeValue());
+      }
+      if (!other.getDescription().isEmpty()) {
+        description_ = other.description_;
+        onChanged();
+      }
+      if (other.getCreateTime() != 0L) {
+        setCreateTime(other.getCreateTime());
+      }
+      if (other.getLastUpdateTime() != 0L) {
+        setLastUpdateTime(other.getLastUpdateTime());
+      }
+      if (other.status_ != 0) {
+        setStatusValue(other.getStatusValue());
+      }
+      if (!other.getEsVersion().isEmpty()) {
+        esVersion_ = other.esVersion_;
+        onChanged();
+      }
+      if (other.getTotalProjectNumber() != 0) {
+        setTotalProjectNumber(other.getTotalProjectNumber());
+      }
+      if (other.getTotalIndexNumber() != 0) {
+        setTotalIndexNumber(other.getTotalIndexNumber());
+      }
+      if (other.getTotalDocNumber() != 0L) {
+        setTotalDocNumber(other.getTotalDocNumber());
+      }
+      if (other.getTotalDataSize() != 0L) {
+        setTotalDataSize(other.getTotalDataSize());
+      }
+      if (!other.getClusterHealth().isEmpty()) {
+        clusterHealth_ = other.clusterHealth_;
+        onChanged();
+      }
+      if (nodesBuilder_ == null) {
+        if (!other.nodes_.isEmpty()) {
+          if (nodes_.isEmpty()) {
+            nodes_ = other.nodes_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensureNodesIsMutable();
+            nodes_.addAll(other.nodes_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.nodes_.isEmpty()) {
+          if (nodesBuilder_.isEmpty()) {
+            nodesBuilder_.dispose();
+            nodesBuilder_ = null;
+            nodes_ = other.nodes_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+            nodesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getNodesFieldBuilder() : null;
+          } else {
+            nodesBuilder_.addAllMessages(other.nodes_);
+          }
+        }
+      }
+      if (other.getTotalTemplateNumber() != 0) {
+        setTotalTemplateNumber(other.getTotalTemplateNumber());
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      com.rany.service.platform.meta.ClusterInfo parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.rany.service.platform.meta.ClusterInfo) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
+    }
+    private int bitField0_;
+
+    private int id_ ;
     /**
      * <code>int32 id = 1;</code>
      */
     public int getId() {
-        return id_;
+      return id_;
+    }
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public Builder setId(int value) {
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 id = 1;</code>
+     */
+    public Builder clearId() {
+      
+      id_ = 0;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object name_ = "";
     /**
      * <code>string name = 2;</code>
      */
     public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            name_ = s;
-            return s;
-        }
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string name = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            name_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 2;</code>
+     */
+    public Builder clearName() {
+      
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 2;</code>
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      name_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object endpoint_ = "";
     /**
      * <code>string endpoint = 3;</code>
      */
     public java.lang.String getEndpoint() {
-        java.lang.Object ref = endpoint_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            endpoint_ = s;
-            return s;
-        }
+      java.lang.Object ref = endpoint_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endpoint_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string endpoint = 3;</code>
      */
     public com.google.protobuf.ByteString
-    getEndpointBytes() {
-        java.lang.Object ref = endpoint_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            endpoint_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getEndpointBytes() {
+      java.lang.Object ref = endpoint_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endpoint_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string endpoint = 3;</code>
+     */
+    public Builder setEndpoint(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      endpoint_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string endpoint = 3;</code>
+     */
+    public Builder clearEndpoint() {
+      
+      endpoint_ = getDefaultInstance().getEndpoint();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string endpoint = 3;</code>
+     */
+    public Builder setEndpointBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      endpoint_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object internalEndpoint_ = "";
     /**
      * <code>string internal_endpoint = 4;</code>
      */
     public java.lang.String getInternalEndpoint() {
-        java.lang.Object ref = internalEndpoint_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            internalEndpoint_ = s;
-            return s;
-        }
+      java.lang.Object ref = internalEndpoint_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        internalEndpoint_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string internal_endpoint = 4;</code>
      */
     public com.google.protobuf.ByteString
-    getInternalEndpointBytes() {
-        java.lang.Object ref = internalEndpoint_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            internalEndpoint_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getInternalEndpointBytes() {
+      java.lang.Object ref = internalEndpoint_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        internalEndpoint_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string internal_endpoint = 4;</code>
+     */
+    public Builder setInternalEndpoint(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      internalEndpoint_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string internal_endpoint = 4;</code>
+     */
+    public Builder clearInternalEndpoint() {
+      
+      internalEndpoint_ = getDefaultInstance().getInternalEndpoint();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string internal_endpoint = 4;</code>
+     */
+    public Builder setInternalEndpointBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      internalEndpoint_ = value;
+      onChanged();
+      return this;
     }
 
+    private int type_ = 0;
     /**
      * <code>.ClusterType type = 5;</code>
      */
     public int getTypeValue() {
-        return type_;
+      return type_;
     }
-
+    /**
+     * <code>.ClusterType type = 5;</code>
+     */
+    public Builder setTypeValue(int value) {
+      type_ = value;
+      onChanged();
+      return this;
+    }
     /**
      * <code>.ClusterType type = 5;</code>
      */
     public com.rany.service.platform.meta.ClusterType getType() {
-        com.rany.service.platform.meta.ClusterType result = com.rany.service.platform.meta.ClusterType.valueOf(type_);
-        return result == null ? com.rany.service.platform.meta.ClusterType.UNRECOGNIZED : result;
+      com.rany.service.platform.meta.ClusterType result = com.rany.service.platform.meta.ClusterType.valueOf(type_);
+      return result == null ? com.rany.service.platform.meta.ClusterType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.ClusterType type = 5;</code>
+     */
+    public Builder setType(com.rany.service.platform.meta.ClusterType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      type_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.ClusterType type = 5;</code>
+     */
+    public Builder clearType() {
+      
+      type_ = 0;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object description_ = "";
     /**
      * <code>string description = 6;</code>
      */
     public java.lang.String getDescription() {
-        java.lang.Object ref = description_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            description_ = s;
-            return s;
-        }
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string description = 6;</code>
      */
     public com.google.protobuf.ByteString
-    getDescriptionBytes() {
-        java.lang.Object ref = description_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            description_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string description = 6;</code>
+     */
+    public Builder setDescription(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      description_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 6;</code>
+     */
+    public Builder clearDescription() {
+      
+      description_ = getDefaultInstance().getDescription();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 6;</code>
+     */
+    public Builder setDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      description_ = value;
+      onChanged();
+      return this;
     }
 
+    private long createTime_ ;
     /**
      * <code>int64 create_time = 7;</code>
      */
     public long getCreateTime() {
-        return createTime_;
+      return createTime_;
+    }
+    /**
+     * <code>int64 create_time = 7;</code>
+     */
+    public Builder setCreateTime(long value) {
+      
+      createTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 create_time = 7;</code>
+     */
+    public Builder clearCreateTime() {
+      
+      createTime_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private long lastUpdateTime_ ;
     /**
      * <code>int64 last_update_time = 8;</code>
      */
     public long getLastUpdateTime() {
-        return lastUpdateTime_;
+      return lastUpdateTime_;
+    }
+    /**
+     * <code>int64 last_update_time = 8;</code>
+     */
+    public Builder setLastUpdateTime(long value) {
+      
+      lastUpdateTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 last_update_time = 8;</code>
+     */
+    public Builder clearLastUpdateTime() {
+      
+      lastUpdateTime_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private int status_ = 0;
     /**
      * <code>.ClusterStatus status = 9;</code>
      */
     public int getStatusValue() {
-        return status_;
+      return status_;
     }
-
+    /**
+     * <code>.ClusterStatus status = 9;</code>
+     */
+    public Builder setStatusValue(int value) {
+      status_ = value;
+      onChanged();
+      return this;
+    }
     /**
      * <code>.ClusterStatus status = 9;</code>
      */
     public com.rany.service.platform.meta.ClusterStatus getStatus() {
-        com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
-        return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
+      com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
+      return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.ClusterStatus status = 9;</code>
+     */
+    public Builder setStatus(com.rany.service.platform.meta.ClusterStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      status_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.ClusterStatus status = 9;</code>
+     */
+    public Builder clearStatus() {
+      
+      status_ = 0;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object esVersion_ = "";
     /**
      * <code>string es_version = 10;</code>
      */
     public java.lang.String getEsVersion() {
-        java.lang.Object ref = esVersion_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            esVersion_ = s;
-            return s;
-        }
+      java.lang.Object ref = esVersion_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        esVersion_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string es_version = 10;</code>
      */
     public com.google.protobuf.ByteString
-    getEsVersionBytes() {
-        java.lang.Object ref = esVersion_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            esVersion_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getEsVersionBytes() {
+      java.lang.Object ref = esVersion_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        esVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string es_version = 10;</code>
+     */
+    public Builder setEsVersion(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      esVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string es_version = 10;</code>
+     */
+    public Builder clearEsVersion() {
+      
+      esVersion_ = getDefaultInstance().getEsVersion();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string es_version = 10;</code>
+     */
+    public Builder setEsVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      esVersion_ = value;
+      onChanged();
+      return this;
     }
 
+    private int totalProjectNumber_ ;
     /**
      * <code>int32 total_project_number = 11;</code>
      */
     public int getTotalProjectNumber() {
-        return totalProjectNumber_;
+      return totalProjectNumber_;
+    }
+    /**
+     * <code>int32 total_project_number = 11;</code>
+     */
+    public Builder setTotalProjectNumber(int value) {
+      
+      totalProjectNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 total_project_number = 11;</code>
+     */
+    public Builder clearTotalProjectNumber() {
+      
+      totalProjectNumber_ = 0;
+      onChanged();
+      return this;
     }
 
+    private int totalIndexNumber_ ;
     /**
      * <code>int32 total_index_number = 12;</code>
      */
     public int getTotalIndexNumber() {
-        return totalIndexNumber_;
+      return totalIndexNumber_;
+    }
+    /**
+     * <code>int32 total_index_number = 12;</code>
+     */
+    public Builder setTotalIndexNumber(int value) {
+      
+      totalIndexNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 total_index_number = 12;</code>
+     */
+    public Builder clearTotalIndexNumber() {
+      
+      totalIndexNumber_ = 0;
+      onChanged();
+      return this;
     }
 
+    private long totalDocNumber_ ;
     /**
      * <code>int64 total_doc_number = 13;</code>
      */
     public long getTotalDocNumber() {
-        return totalDocNumber_;
+      return totalDocNumber_;
+    }
+    /**
+     * <code>int64 total_doc_number = 13;</code>
+     */
+    public Builder setTotalDocNumber(long value) {
+      
+      totalDocNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 total_doc_number = 13;</code>
+     */
+    public Builder clearTotalDocNumber() {
+      
+      totalDocNumber_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private long totalDataSize_ ;
     /**
      * <code>int64 total_data_size = 14;</code>
      */
     public long getTotalDataSize() {
-        return totalDataSize_;
+      return totalDataSize_;
+    }
+    /**
+     * <code>int64 total_data_size = 14;</code>
+     */
+    public Builder setTotalDataSize(long value) {
+      
+      totalDataSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 total_data_size = 14;</code>
+     */
+    public Builder clearTotalDataSize() {
+      
+      totalDataSize_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object clusterHealth_ = "";
     /**
      * <code>string cluster_health = 15;</code>
      */
     public java.lang.String getClusterHealth() {
-        java.lang.Object ref = clusterHealth_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            clusterHealth_ = s;
-            return s;
-        }
+      java.lang.Object ref = clusterHealth_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clusterHealth_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string cluster_health = 15;</code>
      */
     public com.google.protobuf.ByteString
-    getClusterHealthBytes() {
-        java.lang.Object ref = clusterHealth_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            clusterHealth_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getClusterHealthBytes() {
+      java.lang.Object ref = clusterHealth_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clusterHealth_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
+    /**
+     * <code>string cluster_health = 15;</code>
+     */
+    public Builder setClusterHealth(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clusterHealth_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_health = 15;</code>
+     */
+    public Builder clearClusterHealth() {
+      
+      clusterHealth_ = getDefaultInstance().getClusterHealth();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_health = 15;</code>
+     */
+    public Builder setClusterHealthBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clusterHealth_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.util.List<com.rany.service.platform.meta.NodeInfo> nodes_ =
+      java.util.Collections.emptyList();
+    private void ensureNodesIsMutable() {
+      if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+        nodes_ = new java.util.ArrayList<com.rany.service.platform.meta.NodeInfo>(nodes_);
+        bitField0_ |= 0x00008000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder> nodesBuilder_;
 
     /**
      * <code>repeated .NodeInfo nodes = 16;</code>
      */
     public java.util.List<com.rany.service.platform.meta.NodeInfo> getNodesList() {
-        return nodes_;
+      if (nodesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(nodes_);
+      } else {
+        return nodesBuilder_.getMessageList();
+      }
     }
-
-    /**
-     * <code>repeated .NodeInfo nodes = 16;</code>
-     */
-    public java.util.List<? extends com.rany.service.platform.meta.NodeInfoOrBuilder>
-    getNodesOrBuilderList() {
-        return nodes_;
-    }
-
     /**
      * <code>repeated .NodeInfo nodes = 16;</code>
      */
     public int getNodesCount() {
+      if (nodesBuilder_ == null) {
         return nodes_.size();
+      } else {
+        return nodesBuilder_.getCount();
+      }
     }
-
     /**
      * <code>repeated .NodeInfo nodes = 16;</code>
      */
     public com.rany.service.platform.meta.NodeInfo getNodes(int index) {
+      if (nodesBuilder_ == null) {
         return nodes_.get(index);
+      } else {
+        return nodesBuilder_.getMessage(index);
+      }
     }
-
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder setNodes(
+        int index, com.rany.service.platform.meta.NodeInfo value) {
+      if (nodesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureNodesIsMutable();
+        nodes_.set(index, value);
+        onChanged();
+      } else {
+        nodesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder setNodes(
+        int index, com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
+      if (nodesBuilder_ == null) {
+        ensureNodesIsMutable();
+        nodes_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        nodesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder addNodes(com.rany.service.platform.meta.NodeInfo value) {
+      if (nodesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureNodesIsMutable();
+        nodes_.add(value);
+        onChanged();
+      } else {
+        nodesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder addNodes(
+        int index, com.rany.service.platform.meta.NodeInfo value) {
+      if (nodesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureNodesIsMutable();
+        nodes_.add(index, value);
+        onChanged();
+      } else {
+        nodesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder addNodes(
+        com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
+      if (nodesBuilder_ == null) {
+        ensureNodesIsMutable();
+        nodes_.add(builderForValue.build());
+        onChanged();
+      } else {
+        nodesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder addNodes(
+        int index, com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
+      if (nodesBuilder_ == null) {
+        ensureNodesIsMutable();
+        nodes_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        nodesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder addAllNodes(
+        java.lang.Iterable<? extends com.rany.service.platform.meta.NodeInfo> values) {
+      if (nodesBuilder_ == null) {
+        ensureNodesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, nodes_);
+        onChanged();
+      } else {
+        nodesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder clearNodes() {
+      if (nodesBuilder_ == null) {
+        nodes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+      } else {
+        nodesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public Builder removeNodes(int index) {
+      if (nodesBuilder_ == null) {
+        ensureNodesIsMutable();
+        nodes_.remove(index);
+        onChanged();
+      } else {
+        nodesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public com.rany.service.platform.meta.NodeInfo.Builder getNodesBuilder(
+        int index) {
+      return getNodesFieldBuilder().getBuilder(index);
+    }
     /**
      * <code>repeated .NodeInfo nodes = 16;</code>
      */
     public com.rany.service.platform.meta.NodeInfoOrBuilder getNodesOrBuilder(
-            int index) {
-        return nodes_.get(index);
+        int index) {
+      if (nodesBuilder_ == null) {
+        return nodes_.get(index);  } else {
+        return nodesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public java.util.List<? extends com.rany.service.platform.meta.NodeInfoOrBuilder> 
+         getNodesOrBuilderList() {
+      if (nodesBuilder_ != null) {
+        return nodesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(nodes_);
+      }
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public com.rany.service.platform.meta.NodeInfo.Builder addNodesBuilder() {
+      return getNodesFieldBuilder().addBuilder(
+          com.rany.service.platform.meta.NodeInfo.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public com.rany.service.platform.meta.NodeInfo.Builder addNodesBuilder(
+        int index) {
+      return getNodesFieldBuilder().addBuilder(
+          index, com.rany.service.platform.meta.NodeInfo.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .NodeInfo nodes = 16;</code>
+     */
+    public java.util.List<com.rany.service.platform.meta.NodeInfo.Builder> 
+         getNodesBuilderList() {
+      return getNodesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder> 
+        getNodesFieldBuilder() {
+      if (nodesBuilder_ == null) {
+        nodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder>(
+                nodes_,
+                ((bitField0_ & 0x00008000) == 0x00008000),
+                getParentForChildren(),
+                isClean());
+        nodes_ = null;
+      }
+      return nodesBuilder_;
     }
 
+    private int totalTemplateNumber_ ;
     /**
      * <code>int32 total_template_number = 17;</code>
      */
     public int getTotalTemplateNumber() {
-        return totalTemplateNumber_;
+      return totalTemplateNumber_;
     }
-
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (id_ != 0) {
-            output.writeInt32(1, id_);
-        }
-        if (!getNameBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
-        }
-        if (!getEndpointBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endpoint_);
-        }
-        if (!getInternalEndpointBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 4, internalEndpoint_);
-        }
-        if (type_ != com.rany.service.platform.meta.ClusterType.HDD.getNumber()) {
-            output.writeEnum(5, type_);
-        }
-        if (!getDescriptionBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
-        }
-        if (createTime_ != 0L) {
-            output.writeInt64(7, createTime_);
-        }
-        if (lastUpdateTime_ != 0L) {
-            output.writeInt64(8, lastUpdateTime_);
-        }
-        if (status_ != com.rany.service.platform.meta.ClusterStatus.NULL.getNumber()) {
-            output.writeEnum(9, status_);
-        }
-        if (!getEsVersionBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 10, esVersion_);
-        }
-        if (totalProjectNumber_ != 0) {
-            output.writeInt32(11, totalProjectNumber_);
-        }
-        if (totalIndexNumber_ != 0) {
-            output.writeInt32(12, totalIndexNumber_);
-        }
-        if (totalDocNumber_ != 0L) {
-            output.writeInt64(13, totalDocNumber_);
-        }
-        if (totalDataSize_ != 0L) {
-            output.writeInt64(14, totalDataSize_);
-        }
-        if (!getClusterHealthBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 15, clusterHealth_);
-        }
-        for (int i = 0; i < nodes_.size(); i++) {
-            output.writeMessage(16, nodes_.get(i));
-        }
-        if (totalTemplateNumber_ != 0) {
-            output.writeInt32(17, totalTemplateNumber_);
-        }
-        unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (id_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(1, id_);
-        }
-        if (!getNameBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-        }
-        if (!getEndpointBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endpoint_);
-        }
-        if (!getInternalEndpointBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, internalEndpoint_);
-        }
-        if (type_ != com.rany.service.platform.meta.ClusterType.HDD.getNumber()) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeEnumSize(5, type_);
-        }
-        if (!getDescriptionBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
-        }
-        if (createTime_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(7, createTime_);
-        }
-        if (lastUpdateTime_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(8, lastUpdateTime_);
-        }
-        if (status_ != com.rany.service.platform.meta.ClusterStatus.NULL.getNumber()) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeEnumSize(9, status_);
-        }
-        if (!getEsVersionBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, esVersion_);
-        }
-        if (totalProjectNumber_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(11, totalProjectNumber_);
-        }
-        if (totalIndexNumber_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(12, totalIndexNumber_);
-        }
-        if (totalDocNumber_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(13, totalDocNumber_);
-        }
-        if (totalDataSize_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(14, totalDataSize_);
-        }
-        if (!getClusterHealthBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, clusterHealth_);
-        }
-        for (int i = 0; i < nodes_.size(); i++) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeMessageSize(16, nodes_.get(i));
-        }
-        if (totalTemplateNumber_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(17, totalTemplateNumber_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof com.rany.service.platform.meta.ClusterInfo)) {
-            return super.equals(obj);
-        }
-        com.rany.service.platform.meta.ClusterInfo other = (com.rany.service.platform.meta.ClusterInfo) obj;
-
-        boolean result = true;
-        result = result && (getId()
-                == other.getId());
-        result = result && getName()
-                .equals(other.getName());
-        result = result && getEndpoint()
-                .equals(other.getEndpoint());
-        result = result && getInternalEndpoint()
-                .equals(other.getInternalEndpoint());
-        result = result && type_ == other.type_;
-        result = result && getDescription()
-                .equals(other.getDescription());
-        result = result && (getCreateTime()
-                == other.getCreateTime());
-        result = result && (getLastUpdateTime()
-                == other.getLastUpdateTime());
-        result = result && status_ == other.status_;
-        result = result && getEsVersion()
-                .equals(other.getEsVersion());
-        result = result && (getTotalProjectNumber()
-                == other.getTotalProjectNumber());
-        result = result && (getTotalIndexNumber()
-                == other.getTotalIndexNumber());
-        result = result && (getTotalDocNumber()
-                == other.getTotalDocNumber());
-        result = result && (getTotalDataSize()
-                == other.getTotalDataSize());
-        result = result && getClusterHealth()
-                .equals(other.getClusterHealth());
-        result = result && getNodesList()
-                .equals(other.getNodesList());
-        result = result && (getTotalTemplateNumber()
-                == other.getTotalTemplateNumber());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-        hash = (37 * hash) + ENDPOINT_FIELD_NUMBER;
-        hash = (53 * hash) + getEndpoint().hashCode();
-        hash = (37 * hash) + INTERNAL_ENDPOINT_FIELD_NUMBER;
-        hash = (53 * hash) + getInternalEndpoint().hashCode();
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + type_;
-        hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-        hash = (53 * hash) + getDescription().hashCode();
-        hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getCreateTime());
-        hash = (37 * hash) + LAST_UPDATE_TIME_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getLastUpdateTime());
-        hash = (37 * hash) + STATUS_FIELD_NUMBER;
-        hash = (53 * hash) + status_;
-        hash = (37 * hash) + ES_VERSION_FIELD_NUMBER;
-        hash = (53 * hash) + getEsVersion().hashCode();
-        hash = (37 * hash) + TOTAL_PROJECT_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalProjectNumber();
-        hash = (37 * hash) + TOTAL_INDEX_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalIndexNumber();
-        hash = (37 * hash) + TOTAL_DOC_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotalDocNumber());
-        hash = (37 * hash) + TOTAL_DATA_SIZE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotalDataSize());
-        hash = (37 * hash) + CLUSTER_HEALTH_FIELD_NUMBER;
-        hash = (53 * hash) + getClusterHealth().hashCode();
-        if (getNodesCount() > 0) {
-            hash = (37 * hash) + NODES_FIELD_NUMBER;
-            hash = (53 * hash) + getNodesList().hashCode();
-        }
-        hash = (37 * hash) + TOTAL_TEMPLATE_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getTotalTemplateNumber();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ClusterInfo> getParserForType() {
-        return PARSER;
-    }
-
-    public com.rany.service.platform.meta.ClusterInfo getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-    }
-
     /**
-     * Protobuf type {@code ClusterInfo}
+     * <code>int32 total_template_number = 17;</code>
      */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ClusterInfo)
-            com.rany.service.platform.meta.ClusterInfoOrBuilder {
-        private int bitField0_;
-        private int id_;
-        private java.lang.Object name_ = "";
-        private java.lang.Object endpoint_ = "";
-        private java.lang.Object internalEndpoint_ = "";
-        private int type_ = 0;
-        private java.lang.Object description_ = "";
-        private long createTime_;
-        private long lastUpdateTime_;
-        private int status_ = 0;
-        private java.lang.Object esVersion_ = "";
-        private int totalProjectNumber_;
-        private int totalIndexNumber_;
-        private long totalDocNumber_;
-        private long totalDataSize_;
-        private java.lang.Object clusterHealth_ = "";
-        private java.util.List<com.rany.service.platform.meta.NodeInfo> nodes_ =
-                java.util.Collections.emptyList();
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder> nodesBuilder_;
-        private int totalTemplateNumber_;
-
-        // Construct using com.rany.service.platform.meta.ClusterInfo.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.rany.service.platform.meta.ClusterInfo.class, com.rany.service.platform.meta.ClusterInfo.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-                getNodesFieldBuilder();
-            }
-        }
-
-        public Builder clear() {
-            super.clear();
-            id_ = 0;
-
-            name_ = "";
-
-            endpoint_ = "";
-
-            internalEndpoint_ = "";
-
-            type_ = 0;
-
-            description_ = "";
-
-            createTime_ = 0L;
-
-            lastUpdateTime_ = 0L;
-
-            status_ = 0;
-
-            esVersion_ = "";
-
-            totalProjectNumber_ = 0;
-
-            totalIndexNumber_ = 0;
-
-            totalDocNumber_ = 0L;
-
-            totalDataSize_ = 0L;
-
-            clusterHealth_ = "";
-
-            if (nodesBuilder_ == null) {
-                nodes_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00008000);
-            } else {
-                nodesBuilder_.clear();
-            }
-            totalTemplateNumber_ = 0;
-
-            return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ClusterInfo_descriptor;
-        }
-
-        public com.rany.service.platform.meta.ClusterInfo getDefaultInstanceForType() {
-            return com.rany.service.platform.meta.ClusterInfo.getDefaultInstance();
-        }
-
-        public com.rany.service.platform.meta.ClusterInfo build() {
-            com.rany.service.platform.meta.ClusterInfo result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        public com.rany.service.platform.meta.ClusterInfo buildPartial() {
-            com.rany.service.platform.meta.ClusterInfo result = new com.rany.service.platform.meta.ClusterInfo(this);
-            int from_bitField0_ = bitField0_;
-            int to_bitField0_ = 0;
-            result.id_ = id_;
-            result.name_ = name_;
-            result.endpoint_ = endpoint_;
-            result.internalEndpoint_ = internalEndpoint_;
-            result.type_ = type_;
-            result.description_ = description_;
-            result.createTime_ = createTime_;
-            result.lastUpdateTime_ = lastUpdateTime_;
-            result.status_ = status_;
-            result.esVersion_ = esVersion_;
-            result.totalProjectNumber_ = totalProjectNumber_;
-            result.totalIndexNumber_ = totalIndexNumber_;
-            result.totalDocNumber_ = totalDocNumber_;
-            result.totalDataSize_ = totalDataSize_;
-            result.clusterHealth_ = clusterHealth_;
-            if (nodesBuilder_ == null) {
-                if (((bitField0_ & 0x00008000) == 0x00008000)) {
-                    nodes_ = java.util.Collections.unmodifiableList(nodes_);
-                    bitField0_ = (bitField0_ & ~0x00008000);
-                }
-                result.nodes_ = nodes_;
-            } else {
-                result.nodes_ = nodesBuilder_.build();
-            }
-            result.totalTemplateNumber_ = totalTemplateNumber_;
-            result.bitField0_ = to_bitField0_;
-            onBuilt();
-            return result;
-        }
-
-        public Builder clone() {
-            return (Builder) super.clone();
-        }
-
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.setField(field, value);
-        }
-
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
-        }
-
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
-        }
-
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
-        }
-
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.addRepeatedField(field, value);
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.rany.service.platform.meta.ClusterInfo) {
-                return mergeFrom((com.rany.service.platform.meta.ClusterInfo) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(com.rany.service.platform.meta.ClusterInfo other) {
-            if (other == com.rany.service.platform.meta.ClusterInfo.getDefaultInstance()) return this;
-            if (other.getId() != 0) {
-                setId(other.getId());
-            }
-            if (!other.getName().isEmpty()) {
-                name_ = other.name_;
-                onChanged();
-            }
-            if (!other.getEndpoint().isEmpty()) {
-                endpoint_ = other.endpoint_;
-                onChanged();
-            }
-            if (!other.getInternalEndpoint().isEmpty()) {
-                internalEndpoint_ = other.internalEndpoint_;
-                onChanged();
-            }
-            if (other.type_ != 0) {
-                setTypeValue(other.getTypeValue());
-            }
-            if (!other.getDescription().isEmpty()) {
-                description_ = other.description_;
-                onChanged();
-            }
-            if (other.getCreateTime() != 0L) {
-                setCreateTime(other.getCreateTime());
-            }
-            if (other.getLastUpdateTime() != 0L) {
-                setLastUpdateTime(other.getLastUpdateTime());
-            }
-            if (other.status_ != 0) {
-                setStatusValue(other.getStatusValue());
-            }
-            if (!other.getEsVersion().isEmpty()) {
-                esVersion_ = other.esVersion_;
-                onChanged();
-            }
-            if (other.getTotalProjectNumber() != 0) {
-                setTotalProjectNumber(other.getTotalProjectNumber());
-            }
-            if (other.getTotalIndexNumber() != 0) {
-                setTotalIndexNumber(other.getTotalIndexNumber());
-            }
-            if (other.getTotalDocNumber() != 0L) {
-                setTotalDocNumber(other.getTotalDocNumber());
-            }
-            if (other.getTotalDataSize() != 0L) {
-                setTotalDataSize(other.getTotalDataSize());
-            }
-            if (!other.getClusterHealth().isEmpty()) {
-                clusterHealth_ = other.clusterHealth_;
-                onChanged();
-            }
-            if (nodesBuilder_ == null) {
-                if (!other.nodes_.isEmpty()) {
-                    if (nodes_.isEmpty()) {
-                        nodes_ = other.nodes_;
-                        bitField0_ = (bitField0_ & ~0x00008000);
-                    } else {
-                        ensureNodesIsMutable();
-                        nodes_.addAll(other.nodes_);
-                    }
-                    onChanged();
-                }
-            } else {
-                if (!other.nodes_.isEmpty()) {
-                    if (nodesBuilder_.isEmpty()) {
-                        nodesBuilder_.dispose();
-                        nodesBuilder_ = null;
-                        nodes_ = other.nodes_;
-                        bitField0_ = (bitField0_ & ~0x00008000);
-                        nodesBuilder_ =
-                                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                        getNodesFieldBuilder() : null;
-                    } else {
-                        nodesBuilder_.addAllMessages(other.nodes_);
-                    }
-                }
-            }
-            if (other.getTotalTemplateNumber() != 0) {
-                setTotalTemplateNumber(other.getTotalTemplateNumber());
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            com.rany.service.platform.meta.ClusterInfo parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.rany.service.platform.meta.ClusterInfo) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        /**
-         * <code>int32 id = 1;</code>
-         */
-        public int getId() {
-            return id_;
-        }
-
-        /**
-         * <code>int32 id = 1;</code>
-         */
-        public Builder setId(int value) {
-
-            id_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 id = 1;</code>
-         */
-        public Builder clearId() {
-
-            id_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 2;</code>
-         */
-        public java.lang.String getName() {
-            java.lang.Object ref = name_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                name_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string name = 2;</code>
-         */
-        public Builder setName(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            name_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getNameBytes() {
-            java.lang.Object ref = name_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                name_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string name = 2;</code>
-         */
-        public Builder setNameBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            name_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 2;</code>
-         */
-        public Builder clearName() {
-
-            name_ = getDefaultInstance().getName();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string endpoint = 3;</code>
-         */
-        public java.lang.String getEndpoint() {
-            java.lang.Object ref = endpoint_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                endpoint_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string endpoint = 3;</code>
-         */
-        public Builder setEndpoint(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            endpoint_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string endpoint = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-        getEndpointBytes() {
-            java.lang.Object ref = endpoint_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                endpoint_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string endpoint = 3;</code>
-         */
-        public Builder setEndpointBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            endpoint_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string endpoint = 3;</code>
-         */
-        public Builder clearEndpoint() {
-
-            endpoint_ = getDefaultInstance().getEndpoint();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internal_endpoint = 4;</code>
-         */
-        public java.lang.String getInternalEndpoint() {
-            java.lang.Object ref = internalEndpoint_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                internalEndpoint_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string internal_endpoint = 4;</code>
-         */
-        public Builder setInternalEndpoint(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            internalEndpoint_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internal_endpoint = 4;</code>
-         */
-        public com.google.protobuf.ByteString
-        getInternalEndpointBytes() {
-            java.lang.Object ref = internalEndpoint_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                internalEndpoint_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string internal_endpoint = 4;</code>
-         */
-        public Builder setInternalEndpointBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            internalEndpoint_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string internal_endpoint = 4;</code>
-         */
-        public Builder clearInternalEndpoint() {
-
-            internalEndpoint_ = getDefaultInstance().getInternalEndpoint();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterType type = 5;</code>
-         */
-        public int getTypeValue() {
-            return type_;
-        }
-
-        /**
-         * <code>.ClusterType type = 5;</code>
-         */
-        public Builder setTypeValue(int value) {
-            type_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterType type = 5;</code>
-         */
-        public com.rany.service.platform.meta.ClusterType getType() {
-            com.rany.service.platform.meta.ClusterType result = com.rany.service.platform.meta.ClusterType.valueOf(type_);
-            return result == null ? com.rany.service.platform.meta.ClusterType.UNRECOGNIZED : result;
-        }
-
-        /**
-         * <code>.ClusterType type = 5;</code>
-         */
-        public Builder setType(com.rany.service.platform.meta.ClusterType value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            type_ = value.getNumber();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterType type = 5;</code>
-         */
-        public Builder clearType() {
-
-            type_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string description = 6;</code>
-         */
-        public java.lang.String getDescription() {
-            java.lang.Object ref = description_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                description_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string description = 6;</code>
-         */
-        public Builder setDescription(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            description_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string description = 6;</code>
-         */
-        public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-            java.lang.Object ref = description_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                description_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string description = 6;</code>
-         */
-        public Builder setDescriptionBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            description_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string description = 6;</code>
-         */
-        public Builder clearDescription() {
-
-            description_ = getDefaultInstance().getDescription();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 create_time = 7;</code>
-         */
-        public long getCreateTime() {
-            return createTime_;
-        }
-
-        /**
-         * <code>int64 create_time = 7;</code>
-         */
-        public Builder setCreateTime(long value) {
-
-            createTime_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 create_time = 7;</code>
-         */
-        public Builder clearCreateTime() {
-
-            createTime_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 last_update_time = 8;</code>
-         */
-        public long getLastUpdateTime() {
-            return lastUpdateTime_;
-        }
-
-        /**
-         * <code>int64 last_update_time = 8;</code>
-         */
-        public Builder setLastUpdateTime(long value) {
-
-            lastUpdateTime_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 last_update_time = 8;</code>
-         */
-        public Builder clearLastUpdateTime() {
-
-            lastUpdateTime_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterStatus status = 9;</code>
-         */
-        public int getStatusValue() {
-            return status_;
-        }
-
-        /**
-         * <code>.ClusterStatus status = 9;</code>
-         */
-        public Builder setStatusValue(int value) {
-            status_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterStatus status = 9;</code>
-         */
-        public com.rany.service.platform.meta.ClusterStatus getStatus() {
-            com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
-            return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
-        }
-
-        /**
-         * <code>.ClusterStatus status = 9;</code>
-         */
-        public Builder setStatus(com.rany.service.platform.meta.ClusterStatus value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            status_ = value.getNumber();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.ClusterStatus status = 9;</code>
-         */
-        public Builder clearStatus() {
-
-            status_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string es_version = 10;</code>
-         */
-        public java.lang.String getEsVersion() {
-            java.lang.Object ref = esVersion_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                esVersion_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string es_version = 10;</code>
-         */
-        public Builder setEsVersion(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            esVersion_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string es_version = 10;</code>
-         */
-        public com.google.protobuf.ByteString
-        getEsVersionBytes() {
-            java.lang.Object ref = esVersion_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                esVersion_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string es_version = 10;</code>
-         */
-        public Builder setEsVersionBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            esVersion_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string es_version = 10;</code>
-         */
-        public Builder clearEsVersion() {
-
-            esVersion_ = getDefaultInstance().getEsVersion();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 total_project_number = 11;</code>
-         */
-        public int getTotalProjectNumber() {
-            return totalProjectNumber_;
-        }
-
-        /**
-         * <code>int32 total_project_number = 11;</code>
-         */
-        public Builder setTotalProjectNumber(int value) {
-
-            totalProjectNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 total_project_number = 11;</code>
-         */
-        public Builder clearTotalProjectNumber() {
-
-            totalProjectNumber_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 total_index_number = 12;</code>
-         */
-        public int getTotalIndexNumber() {
-            return totalIndexNumber_;
-        }
-
-        /**
-         * <code>int32 total_index_number = 12;</code>
-         */
-        public Builder setTotalIndexNumber(int value) {
-
-            totalIndexNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 total_index_number = 12;</code>
-         */
-        public Builder clearTotalIndexNumber() {
-
-            totalIndexNumber_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 total_doc_number = 13;</code>
-         */
-        public long getTotalDocNumber() {
-            return totalDocNumber_;
-        }
-
-        /**
-         * <code>int64 total_doc_number = 13;</code>
-         */
-        public Builder setTotalDocNumber(long value) {
-
-            totalDocNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 total_doc_number = 13;</code>
-         */
-        public Builder clearTotalDocNumber() {
-
-            totalDocNumber_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 total_data_size = 14;</code>
-         */
-        public long getTotalDataSize() {
-            return totalDataSize_;
-        }
-
-        /**
-         * <code>int64 total_data_size = 14;</code>
-         */
-        public Builder setTotalDataSize(long value) {
-
-            totalDataSize_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int64 total_data_size = 14;</code>
-         */
-        public Builder clearTotalDataSize() {
-
-            totalDataSize_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_health = 15;</code>
-         */
-        public java.lang.String getClusterHealth() {
-            java.lang.Object ref = clusterHealth_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                clusterHealth_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_health = 15;</code>
-         */
-        public Builder setClusterHealth(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            clusterHealth_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_health = 15;</code>
-         */
-        public com.google.protobuf.ByteString
-        getClusterHealthBytes() {
-            java.lang.Object ref = clusterHealth_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                clusterHealth_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_health = 15;</code>
-         */
-        public Builder setClusterHealthBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            clusterHealth_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_health = 15;</code>
-         */
-        public Builder clearClusterHealth() {
-
-            clusterHealth_ = getDefaultInstance().getClusterHealth();
-            onChanged();
-            return this;
-        }
-
-        private void ensureNodesIsMutable() {
-            if (!((bitField0_ & 0x00008000) == 0x00008000)) {
-                nodes_ = new java.util.ArrayList<com.rany.service.platform.meta.NodeInfo>(nodes_);
-                bitField0_ |= 0x00008000;
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public java.util.List<com.rany.service.platform.meta.NodeInfo> getNodesList() {
-            if (nodesBuilder_ == null) {
-                return java.util.Collections.unmodifiableList(nodes_);
-            } else {
-                return nodesBuilder_.getMessageList();
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public int getNodesCount() {
-            if (nodesBuilder_ == null) {
-                return nodes_.size();
-            } else {
-                return nodesBuilder_.getCount();
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public com.rany.service.platform.meta.NodeInfo getNodes(int index) {
-            if (nodesBuilder_ == null) {
-                return nodes_.get(index);
-            } else {
-                return nodesBuilder_.getMessage(index);
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder setNodes(
-                int index, com.rany.service.platform.meta.NodeInfo value) {
-            if (nodesBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureNodesIsMutable();
-                nodes_.set(index, value);
-                onChanged();
-            } else {
-                nodesBuilder_.setMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder setNodes(
-                int index, com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
-            if (nodesBuilder_ == null) {
-                ensureNodesIsMutable();
-                nodes_.set(index, builderForValue.build());
-                onChanged();
-            } else {
-                nodesBuilder_.setMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder addNodes(com.rany.service.platform.meta.NodeInfo value) {
-            if (nodesBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureNodesIsMutable();
-                nodes_.add(value);
-                onChanged();
-            } else {
-                nodesBuilder_.addMessage(value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder addNodes(
-                int index, com.rany.service.platform.meta.NodeInfo value) {
-            if (nodesBuilder_ == null) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureNodesIsMutable();
-                nodes_.add(index, value);
-                onChanged();
-            } else {
-                nodesBuilder_.addMessage(index, value);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder addNodes(
-                com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
-            if (nodesBuilder_ == null) {
-                ensureNodesIsMutable();
-                nodes_.add(builderForValue.build());
-                onChanged();
-            } else {
-                nodesBuilder_.addMessage(builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder addNodes(
-                int index, com.rany.service.platform.meta.NodeInfo.Builder builderForValue) {
-            if (nodesBuilder_ == null) {
-                ensureNodesIsMutable();
-                nodes_.add(index, builderForValue.build());
-                onChanged();
-            } else {
-                nodesBuilder_.addMessage(index, builderForValue.build());
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder addAllNodes(
-                java.lang.Iterable<? extends com.rany.service.platform.meta.NodeInfo> values) {
-            if (nodesBuilder_ == null) {
-                ensureNodesIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, nodes_);
-                onChanged();
-            } else {
-                nodesBuilder_.addAllMessages(values);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder clearNodes() {
-            if (nodesBuilder_ == null) {
-                nodes_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00008000);
-                onChanged();
-            } else {
-                nodesBuilder_.clear();
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public Builder removeNodes(int index) {
-            if (nodesBuilder_ == null) {
-                ensureNodesIsMutable();
-                nodes_.remove(index);
-                onChanged();
-            } else {
-                nodesBuilder_.remove(index);
-            }
-            return this;
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public com.rany.service.platform.meta.NodeInfo.Builder getNodesBuilder(
-                int index) {
-            return getNodesFieldBuilder().getBuilder(index);
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public com.rany.service.platform.meta.NodeInfoOrBuilder getNodesOrBuilder(
-                int index) {
-            if (nodesBuilder_ == null) {
-                return nodes_.get(index);
-            } else {
-                return nodesBuilder_.getMessageOrBuilder(index);
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public java.util.List<? extends com.rany.service.platform.meta.NodeInfoOrBuilder>
-        getNodesOrBuilderList() {
-            if (nodesBuilder_ != null) {
-                return nodesBuilder_.getMessageOrBuilderList();
-            } else {
-                return java.util.Collections.unmodifiableList(nodes_);
-            }
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public com.rany.service.platform.meta.NodeInfo.Builder addNodesBuilder() {
-            return getNodesFieldBuilder().addBuilder(
-                    com.rany.service.platform.meta.NodeInfo.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public com.rany.service.platform.meta.NodeInfo.Builder addNodesBuilder(
-                int index) {
-            return getNodesFieldBuilder().addBuilder(
-                    index, com.rany.service.platform.meta.NodeInfo.getDefaultInstance());
-        }
-
-        /**
-         * <code>repeated .NodeInfo nodes = 16;</code>
-         */
-        public java.util.List<com.rany.service.platform.meta.NodeInfo.Builder>
-        getNodesBuilderList() {
-            return getNodesFieldBuilder().getBuilderList();
-        }
-
-        private com.google.protobuf.RepeatedFieldBuilderV3<
-                com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder>
-        getNodesFieldBuilder() {
-            if (nodesBuilder_ == null) {
-                nodesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                        com.rany.service.platform.meta.NodeInfo, com.rany.service.platform.meta.NodeInfo.Builder, com.rany.service.platform.meta.NodeInfoOrBuilder>(
-                        nodes_,
-                        ((bitField0_ & 0x00008000) == 0x00008000),
-                        getParentForChildren(),
-                        isClean());
-                nodes_ = null;
-            }
-            return nodesBuilder_;
-        }
-
-        /**
-         * <code>int32 total_template_number = 17;</code>
-         */
-        public int getTotalTemplateNumber() {
-            return totalTemplateNumber_;
-        }
-
-        /**
-         * <code>int32 total_template_number = 17;</code>
-         */
-        public Builder setTotalTemplateNumber(int value) {
-
-            totalTemplateNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 total_template_number = 17;</code>
-         */
-        public Builder clearTotalTemplateNumber() {
-
-            totalTemplateNumber_ = 0;
-            onChanged();
-            return this;
-        }
-
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:ClusterInfo)
+    public Builder setTotalTemplateNumber(int value) {
+      
+      totalTemplateNumber_ = value;
+      onChanged();
+      return this;
     }
+    /**
+     * <code>int32 total_template_number = 17;</code>
+     */
+    public Builder clearTotalTemplateNumber() {
+      
+      totalTemplateNumber_ = 0;
+      onChanged();
+      return this;
+    }
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFieldsProto3(unknownFields);
+    }
+
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
+    }
+
+
+    // @@protoc_insertion_point(builder_scope:ClusterInfo)
+  }
+
+  // @@protoc_insertion_point(class_scope:ClusterInfo)
+  private static final com.rany.service.platform.meta.ClusterInfo DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new com.rany.service.platform.meta.ClusterInfo();
+  }
+
+  public static com.rany.service.platform.meta.ClusterInfo getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  private static final com.google.protobuf.Parser<ClusterInfo>
+      PARSER = new com.google.protobuf.AbstractParser<ClusterInfo>() {
+    public ClusterInfo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ClusterInfo(input, extensionRegistry);
+    }
+  };
+
+  public static com.google.protobuf.Parser<ClusterInfo> parser() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public com.google.protobuf.Parser<ClusterInfo> getParserForType() {
+    return PARSER;
+  }
+
+  public com.rany.service.platform.meta.ClusterInfo getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 

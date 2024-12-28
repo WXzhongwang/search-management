@@ -4,6 +4,6 @@
 package com.rany.service.platform.meta;
 
 public interface ListClusterDetailsRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:ListClusterDetailsRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:ListClusterDetailsRequest)
+    com.google.protobuf.MessageOrBuilder {
 }

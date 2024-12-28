@@ -4,252 +4,248 @@
 package com.rany.service.platform.admin;
 
 public final class SearchMiddlePlatformAdminService {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_PingRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_PingRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_PingReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_PingReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SetReadOnlyRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SetReadOnlyRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ReadOnlyResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ReadOnlyResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SetInServiceRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SetInServiceRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_InServiceResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_InServiceResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SetSuspendRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SetSuspendRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SuspendResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SuspendResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetServiceModeRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetServiceModeRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ServiceModeResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ServiceModeResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SuspendWorkThreadRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SuspendWorkThreadRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_SuspendWorkThreadResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_SuspendWorkThreadResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ResumeWorkThreadRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ResumeWorkThreadRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ResumeWorkThreadResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ResumeWorkThreadResponse_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetWorkThreadStatusRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetWorkThreadStatusRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetWorkThreadStatusResponse_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetWorkThreadStatusResponse_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+  private SearchMiddlePlatformAdminService() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\021admin/admin.proto\"\033\n\013PingRequest\022\014\n\004pi" +
-                        "ng\030\001 \001(\t\"\031\n\tPingReply\022\014\n\004pong\030\001 \001(\t\"\024\n\022S" +
-                        "etReadOnlyRequest\"1\n\020ReadOnlyResponse\022\014\n" +
-                        "\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\025\n\023SetInSer" +
-                        "viceRequest\"2\n\021InServiceResponse\022\014\n\004code" +
-                        "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\023\n\021SetSuspendReq" +
-                        "uest\"0\n\017SuspendResponse\022\014\n\004code\030\001 \001(\005\022\017\n" +
-                        "\007message\030\002 \001(\t\"\027\n\025GetServiceModeRequest\"" +
-                        "B\n\023ServiceModeResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007" +
-                        "message\030\002 \001(\t\022\014\n\004mode\030\003 \001(\t\"\032\n\030SuspendWo",
-                "rkThreadRequest\":\n\031SuspendWorkThreadResp" +
-                        "onse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\031\n\027R" +
-                        "esumeWorkThreadRequest\"9\n\030ResumeWorkThre" +
-                        "adResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(" +
-                        "\t\"\034\n\032GetWorkThreadStatusRequest\"M\n\033GetWo" +
-                        "rkThreadStatusResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007" +
-                        "message\030\002 \001(\t\022\017\n\007running\030\003 \001(\0102\255\004\n\014Admin" +
-                        "Service\022\"\n\004Ping\022\014.PingRequest\032\n.PingRepl" +
-                        "y\"\000\022>\n\022SetServiceReadOnly\022\023.SetReadOnlyR" +
-                        "equest\032\021.ReadOnlyResponse\"\000\022A\n\023SetServic",
-                "eInService\022\024.SetInServiceRequest\032\022.InSer" +
-                        "viceResponse\"\000\022;\n\021SetServiceSuspend\022\022.Se" +
-                        "tSuspendRequest\032\020.SuspendResponse\"\000\022@\n\016G" +
-                        "etServiceMode\022\026.GetServiceModeRequest\032\024." +
-                        "ServiceModeResponse\"\000\022P\n\025SuspendBackendT" +
-                        "hreads\022\031.SuspendWorkThreadRequest\032\032.Susp" +
-                        "endWorkThreadResponse\"\000\022M\n\024ResumeBackend" +
-                        "Threads\022\030.ResumeWorkThreadRequest\032\031.Resu" +
-                        "meWorkThreadResponse\"\000\022V\n\027GetBackendThre" +
-                        "adsStatus\022\033.GetWorkThreadStatusRequest\032\034",
-                ".GetWorkThreadStatusResponse\"\000BE\n\037com.ra" +
-                        "ny.service.platform.adminB SearchMiddleP" +
-                        "latformAdminServiceP\001b\006proto3"
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PingRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PingRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_PingReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_PingReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SetReadOnlyRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SetReadOnlyRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ReadOnlyResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ReadOnlyResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SetInServiceRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SetInServiceRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_InServiceResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_InServiceResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SetSuspendRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SetSuspendRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SuspendResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SuspendResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetServiceModeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetServiceModeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ServiceModeResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ServiceModeResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SuspendWorkThreadRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SuspendWorkThreadRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_SuspendWorkThreadResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_SuspendWorkThreadResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResumeWorkThreadRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ResumeWorkThreadRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ResumeWorkThreadResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ResumeWorkThreadResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetWorkThreadStatusRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetWorkThreadStatusRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetWorkThreadStatusResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetWorkThreadStatusResponse_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\021admin/admin.proto\"\033\n\013PingRequest\022\014\n\004pi" +
+      "ng\030\001 \001(\t\"\031\n\tPingReply\022\014\n\004pong\030\001 \001(\t\"\024\n\022S" +
+      "etReadOnlyRequest\"1\n\020ReadOnlyResponse\022\014\n" +
+      "\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\025\n\023SetInSer" +
+      "viceRequest\"2\n\021InServiceResponse\022\014\n\004code" +
+      "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\023\n\021SetSuspendReq" +
+      "uest\"0\n\017SuspendResponse\022\014\n\004code\030\001 \001(\005\022\017\n" +
+      "\007message\030\002 \001(\t\"\027\n\025GetServiceModeRequest\"" +
+      "B\n\023ServiceModeResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007" +
+      "message\030\002 \001(\t\022\014\n\004mode\030\003 \001(\t\"\032\n\030SuspendWo",
+      "rkThreadRequest\":\n\031SuspendWorkThreadResp" +
+      "onse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\031\n\027R" +
+      "esumeWorkThreadRequest\"9\n\030ResumeWorkThre" +
+      "adResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(" +
+      "\t\"\034\n\032GetWorkThreadStatusRequest\"M\n\033GetWo" +
+      "rkThreadStatusResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007" +
+      "message\030\002 \001(\t\022\017\n\007running\030\003 \001(\0102\255\004\n\014Admin" +
+      "Service\022\"\n\004Ping\022\014.PingRequest\032\n.PingRepl" +
+      "y\"\000\022>\n\022SetServiceReadOnly\022\023.SetReadOnlyR" +
+      "equest\032\021.ReadOnlyResponse\"\000\022A\n\023SetServic",
+      "eInService\022\024.SetInServiceRequest\032\022.InSer" +
+      "viceResponse\"\000\022;\n\021SetServiceSuspend\022\022.Se" +
+      "tSuspendRequest\032\020.SuspendResponse\"\000\022@\n\016G" +
+      "etServiceMode\022\026.GetServiceModeRequest\032\024." +
+      "ServiceModeResponse\"\000\022P\n\025SuspendBackendT" +
+      "hreads\022\031.SuspendWorkThreadRequest\032\032.Susp" +
+      "endWorkThreadResponse\"\000\022M\n\024ResumeBackend" +
+      "Threads\022\030.ResumeWorkThreadRequest\032\031.Resu" +
+      "meWorkThreadResponse\"\000\022V\n\027GetBackendThre" +
+      "adsStatus\022\033.GetWorkThreadStatusRequest\032\034",
+      ".GetWorkThreadStatusResponse\"\000BE\n\037com.ra" +
+      "ny.service.platform.adminB SearchMiddleP" +
+      "latformAdminServiceP\001b\006proto3"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
         };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        }, assigner);
-        internal_static_PingRequest_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_PingRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_PingRequest_descriptor,
-                new java.lang.String[]{"Ping",});
-        internal_static_PingReply_descriptor =
-                getDescriptor().getMessageTypes().get(1);
-        internal_static_PingReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_PingReply_descriptor,
-                new java.lang.String[]{"Pong",});
-        internal_static_SetReadOnlyRequest_descriptor =
-                getDescriptor().getMessageTypes().get(2);
-        internal_static_SetReadOnlyRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SetReadOnlyRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_ReadOnlyResponse_descriptor =
-                getDescriptor().getMessageTypes().get(3);
-        internal_static_ReadOnlyResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ReadOnlyResponse_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_SetInServiceRequest_descriptor =
-                getDescriptor().getMessageTypes().get(4);
-        internal_static_SetInServiceRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SetInServiceRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_InServiceResponse_descriptor =
-                getDescriptor().getMessageTypes().get(5);
-        internal_static_InServiceResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_InServiceResponse_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_SetSuspendRequest_descriptor =
-                getDescriptor().getMessageTypes().get(6);
-        internal_static_SetSuspendRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SetSuspendRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_SuspendResponse_descriptor =
-                getDescriptor().getMessageTypes().get(7);
-        internal_static_SuspendResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SuspendResponse_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetServiceModeRequest_descriptor =
-                getDescriptor().getMessageTypes().get(8);
-        internal_static_GetServiceModeRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetServiceModeRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_ServiceModeResponse_descriptor =
-                getDescriptor().getMessageTypes().get(9);
-        internal_static_ServiceModeResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ServiceModeResponse_descriptor,
-                new java.lang.String[]{"Code", "Message", "Mode",});
-        internal_static_SuspendWorkThreadRequest_descriptor =
-                getDescriptor().getMessageTypes().get(10);
-        internal_static_SuspendWorkThreadRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SuspendWorkThreadRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_SuspendWorkThreadResponse_descriptor =
-                getDescriptor().getMessageTypes().get(11);
-        internal_static_SuspendWorkThreadResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_SuspendWorkThreadResponse_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_ResumeWorkThreadRequest_descriptor =
-                getDescriptor().getMessageTypes().get(12);
-        internal_static_ResumeWorkThreadRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ResumeWorkThreadRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_ResumeWorkThreadResponse_descriptor =
-                getDescriptor().getMessageTypes().get(13);
-        internal_static_ResumeWorkThreadResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ResumeWorkThreadResponse_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetWorkThreadStatusRequest_descriptor =
-                getDescriptor().getMessageTypes().get(14);
-        internal_static_GetWorkThreadStatusRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetWorkThreadStatusRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_GetWorkThreadStatusResponse_descriptor =
-                getDescriptor().getMessageTypes().get(15);
-        internal_static_GetWorkThreadStatusResponse_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetWorkThreadStatusResponse_descriptor,
-                new java.lang.String[]{"Code", "Message", "Running",});
-    }
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
+    internal_static_PingRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_PingRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PingRequest_descriptor,
+        new java.lang.String[] { "Ping", });
+    internal_static_PingReply_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_PingReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_PingReply_descriptor,
+        new java.lang.String[] { "Pong", });
+    internal_static_SetReadOnlyRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_SetReadOnlyRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SetReadOnlyRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_ReadOnlyResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_ReadOnlyResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ReadOnlyResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_SetInServiceRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_SetInServiceRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SetInServiceRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_InServiceResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_InServiceResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_InServiceResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_SetSuspendRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_SetSuspendRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SetSuspendRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_SuspendResponse_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_SuspendResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SuspendResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetServiceModeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_GetServiceModeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetServiceModeRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_ServiceModeResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_ServiceModeResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ServiceModeResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", "Mode", });
+    internal_static_SuspendWorkThreadRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_SuspendWorkThreadRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SuspendWorkThreadRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_SuspendWorkThreadResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_SuspendWorkThreadResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SuspendWorkThreadResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_ResumeWorkThreadRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_ResumeWorkThreadRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ResumeWorkThreadRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_ResumeWorkThreadResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_ResumeWorkThreadResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ResumeWorkThreadResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetWorkThreadStatusRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_GetWorkThreadStatusRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetWorkThreadStatusRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_GetWorkThreadStatusResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_GetWorkThreadStatusResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetWorkThreadStatusResponse_descriptor,
+        new java.lang.String[] { "Code", "Message", "Running", });
+  }
 
-    private SearchMiddlePlatformAdminService() {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

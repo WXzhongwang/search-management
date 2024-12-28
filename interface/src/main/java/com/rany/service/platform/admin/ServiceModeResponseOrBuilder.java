@@ -4,33 +4,31 @@
 package com.rany.service.platform.admin;
 
 public interface ServiceModeResponseOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:ServiceModeResponse)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:ServiceModeResponse)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>int32 code = 1;</code>
-     */
-    int getCode();
+  /**
+   * <code>int32 code = 1;</code>
+   */
+  int getCode();
 
-    /**
-     * <code>string message = 2;</code>
-     */
-    java.lang.String getMessage();
+  /**
+   * <code>string message = 2;</code>
+   */
+  java.lang.String getMessage();
+  /**
+   * <code>string message = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 
-    /**
-     * <code>string message = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getMessageBytes();
-
-    /**
-     * <code>string mode = 3;</code>
-     */
-    java.lang.String getMode();
-
-    /**
-     * <code>string mode = 3;</code>
-     */
-    com.google.protobuf.ByteString
-    getModeBytes();
+  /**
+   * <code>string mode = 3;</code>
+   */
+  java.lang.String getMode();
+  /**
+   * <code>string mode = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getModeBytes();
 }

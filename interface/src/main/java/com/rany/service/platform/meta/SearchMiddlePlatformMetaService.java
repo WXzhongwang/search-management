@@ -4,967 +4,963 @@
 package com.rany.service.platform.meta;
 
 public final class SearchMiddlePlatformMetaService {
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateClusterRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateClusterRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateClusterReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateClusterReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetClusterInfoRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetClusterInfoRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetClusterInfoReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetClusterInfoReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ClusterInfo_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ClusterInfo_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_NodeInfo_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_NodeInfo_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateClusterInfoRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateClusterInfoRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateClusterInfoReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateClusterInfoReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteClusterRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteClusterRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteClusterReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteClusterReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListClusterRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListClusterRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListClusterReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListClusterReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListClusterDetailsRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListClusterDetailsRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListClusterDetailsReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListClusterDetailsReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateProjectRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateProjectRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateProjectReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateProjectReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteProjectRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteProjectRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteProjectReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteProjectReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateProjectRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateProjectRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateProjectReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateProjectReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetProjectRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetProjectRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetProjectReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetProjectReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ProjectInfo_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ProjectInfo_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListProjectRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListProjectRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListProjectReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListProjectReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListProjectDetailsRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListProjectDetailsRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListProjectDetailsReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListProjectDetailsReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateIndexTemplateRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateIndexTemplateRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateIndexTemplateReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateIndexTemplateReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetIndexTemplateRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetIndexTemplateRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetIndexTemplateReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetIndexTemplateReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateIndexTemplateRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateIndexTemplateRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateIndexTemplateReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateIndexTemplateReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteIndexTemplateRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteIndexTemplateRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteIndexTemplateReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteIndexTemplateReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexTemplateRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexTemplateRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexTemplateReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexTemplateReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexTemplateDetailsRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexTemplateDetailsRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexTemplateDetailsReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexTemplateDetailsReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_IndexTemplateInfo_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_IndexTemplateInfo_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_CreateIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_CreateIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_GetIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_GetIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_IndexInfo_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_IndexInfo_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_UpdateIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_UpdateIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DeleteIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DeleteIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexDetailsRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexDetailsRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexDetailsReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexDetailsReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_IndexNameEntry_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_IndexNameEntry_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexNameRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexNameRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexNameReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexNameReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexAliasNameRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexAliasNameRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_ListIndexAliasNameReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_ListIndexAliasNameReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_AttachIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_AttachIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_AttachIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_AttachIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DetachIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DetachIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_DetachIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_DetachIndexReply_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_RefreshIndexRequest_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_RefreshIndexRequest_fieldAccessorTable;
-    static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_RefreshIndexReply_descriptor;
-    static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_RefreshIndexReply_fieldAccessorTable;
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+  private SearchMiddlePlatformMetaService() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\020admin/meta.proto\032\036google/protobuf/wrap" +
-                        "pers.proto\"\245\001\n\024CreateClusterRequest\022\014\n\004n" +
-                        "ame\030\001 \001(\t\022\035\n\007cluster\030\002 \001(\0162\014.ClusterType" +
-                        "\022\023\n\013description\030\003 \001(\t\022\036\n\006status\030\004 \001(\0162\016." +
-                        "ClusterStatus\022\020\n\010endpoint\030\005 \001(\t\022\031\n\021inter" +
-                        "nal_endpoint\030\006 \001(\t\"3\n\022CreateClusterReply" +
-                        "\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"%\n\025GetCl" +
-                        "usterInfoRequest\022\014\n\004name\030\001 \001(\t\"S\n\023GetClu" +
-                        "sterInfoReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002" +
-                        " \001(\t\022\035\n\007cluster\030\003 \001(\0132\014.ClusterInfo\"\246\003\n\013",
-                "ClusterInfo\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n" +
-                        "\010endpoint\030\003 \001(\t\022\031\n\021internal_endpoint\030\004 \001" +
-                        "(\t\022\032\n\004type\030\005 \001(\0162\014.ClusterType\022\023\n\013descri" +
-                        "ption\030\006 \001(\t\022\023\n\013create_time\030\007 \001(\003\022\030\n\020last" +
-                        "_update_time\030\010 \001(\003\022\036\n\006status\030\t \001(\0162\016.Clu" +
-                        "sterStatus\022\022\n\nes_version\030\n \001(\t\022\034\n\024total_" +
-                        "project_number\030\013 \001(\005\022\032\n\022total_index_numb" +
-                        "er\030\014 \001(\005\022\030\n\020total_doc_number\030\r \001(\003\022\027\n\017to" +
-                        "tal_data_size\030\016 \001(\003\022\026\n\016cluster_health\030\017 " +
-                        "\001(\t\022\030\n\005nodes\030\020 \003(\0132\t.NodeInfo\022\035\n\025total_t",
-                "emplate_number\030\021 \001(\005\"\364\001\n\010NodeInfo\022\n\n\002id\030" +
-                        "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\022\n\nip_address\030\003 \001(\t\022" +
-                        "\021\n\tis_master\030\004 \001(\010\022\023\n\013cpu_percent\030\005 \001(\001\022" +
-                        "\017\n\007ram_max\030\006 \001(\t\022\023\n\013ram_current\030\007 \001(\t\022\020\n" +
-                        "\010heap_max\030\010 \001(\t\022\024\n\014heap_current\030\t \001(\t\022\022\n" +
-                        "\ndisk_avail\030\n \001(\t\022\024\n\014disk_percent\030\013 \001(\001\022" +
-                        "\r\n\005group\030\014 \001(\t\022\013\n\003tag\030\r \001(\t\"\204\001\n\030UpdateCl" +
-                        "usterInfoRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
-                        "(\t\022\036\n\006status\030\003 \001(\0162\016.ClusterStatus\022\023\n\013de" +
-                        "scription\030\004 \001(\t\022\031\n\021internal_endpoint\030\005 \001",
-                "(\t\"7\n\026UpdateClusterInfoReply\022\014\n\004code\030\001 \001" +
-                        "(\005\022\017\n\007message\030\002 \001(\t\"$\n\024DeleteClusterRequ" +
-                        "est\022\014\n\004name\030\001 \001(\t\"3\n\022DeleteClusterReply\022" +
-                        "\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\024\n\022ListCl" +
-                        "usterRequest\"C\n\020ListClusterReply\022\014\n\004code" +
-                        "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\020\n\010clusters\030\003 \003(" +
-                        "\t\"\033\n\031ListClusterDetailsRequest\"X\n\027ListCl" +
-                        "usterDetailsReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
-                        "ge\030\002 \001(\t\022\036\n\010clusters\030\003 \003(\0132\014.ClusterInfo" +
-                        "\"b\n\024CreateProjectRequest\022\014\n\004name\030\001 \001(\t\022\017",
-                "\n\007cluster\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016" +
-                        "projectSetting\030\004 \001(\t\"3\n\022CreateProjectRep" +
-                        "ly\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"D\n\024Del" +
-                        "eteProjectRequest\022\014\n\004name\030\001 \001(\t\022\036\n\006statu" +
-                        "s\030\002 \001(\0162\016.ProjectStatus\"3\n\022DeleteProject" +
-                        "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"]\n\024" +
-                        "UpdateProjectRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name" +
-                        "\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016projectSe" +
-                        "tting\030\004 \001(\t\"3\n\022UpdateProjectReply\022\014\n\004cod" +
-                        "e\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"!\n\021GetProjectRe",
-                "quest\022\014\n\004name\030\001 \001(\t\"O\n\017GetProjectReply\022\014" +
-                        "\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\035\n\007project" +
-                        "\030\003 \001(\0132\014.ProjectInfo\"\364\001\n\013ProjectInfo\022\n\n\002" +
-                        "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\024\n\014cluster_name\030\003" +
-                        " \001(\t\022\023\n\013description\030\004 \001(\t\022\032\n\022total_index" +
-                        "_number\030\005 \001(\005\022\030\n\020total_doc_number\030\006 \001(\003\022" +
-                        "\027\n\017total_data_size\030\007 \001(\003\022\022\n\ncluster_id\030\010" +
-                        " \001(\005\022\036\n\006status\030\t \001(\0162\016.ProjectStatus\022\035\n\025" +
-                        "total_template_number\030\021 \001(\005\"%\n\022ListProje" +
-                        "ctRequest\022\017\n\007cluster\030\001 \001(\t\"C\n\020ListProjec",
-                "tReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\020\n" +
-                        "\010projects\030\003 \003(\t\",\n\031ListProjectDetailsReq" +
-                        "uest\022\017\n\007cluster\030\001 \001(\t\"X\n\027ListProjectDeta" +
-                        "ilsReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
-                        "\036\n\010projects\030\003 \003(\0132\014.ProjectInfo\"\355\001\n\032Crea" +
-                        "teIndexTemplateRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007" +
-                        "project\030\002 \001(\t\022\017\n\007mapping\030\003 \001(\t\022\017\n\007settin" +
-                        "g\030\004 \001(\t\022\017\n\007aliases\030\005 \003(\t\022:\n\031auto_index_r" +
-                        "olling_policy\030\006 \001(\0162\027.AutoIndexRollingPo" +
-                        "licy\022!\n\031auto_index_rolling_window\030\007 \001(\005\022",
-                "\036\n\026auto_index_name_prefix\030\010 \001(\t\"9\n\030Creat" +
-                        "eIndexTemplateReply\022\014\n\004code\030\001 \001(\005\022\017\n\007mes" +
-                        "sage\030\002 \001(\t\"8\n\027GetIndexTemplateRequest\022\014\n" +
-                        "\004name\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\"\\\n\025GetIndex" +
-                        "TemplateReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002" +
-                        " \001(\t\022$\n\010template\030\003 \001(\0132\022.IndexTemplateIn" +
-                        "fo\"\315\002\n\032UpdateIndexTemplateRequest\022\014\n\004nam" +
-                        "e\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022-\n\007mapping\030\003 \001(" +
-                        "\0132\034.google.protobuf.StringValue\022-\n\007setti" +
-                        "ng\030\004 \001(\0132\034.google.protobuf.StringValue\022\024",
-                "\n\014update_alias\030\005 \001(\010\022\025\n\rupdate_policy\030\006 " +
-                        "\001(\010\022\025\n\rupdate_window\030\007 \001(\010\022\017\n\007aliases\030\010 " +
-                        "\003(\t\022:\n\031auto_index_rolling_policy\030\t \001(\0162\027" +
-                        ".AutoIndexRollingPolicy\022!\n\031auto_index_ro" +
-                        "lling_window\030\n \001(\005\"9\n\030UpdateIndexTemplat" +
-                        "eReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\";\n" +
-                        "\032DeleteIndexTemplateRequest\022\014\n\004name\030\001 \001(" +
-                        "\t\022\017\n\007project\030\002 \001(\t\"9\n\030DeleteIndexTemplat" +
-                        "eReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"+\n" +
-                        "\030ListIndexTemplateRequest\022\017\n\007project\030\001 \001",
-                "(\t\"J\n\026ListIndexTemplateReply\022\014\n\004code\030\001 \001" +
-                        "(\005\022\017\n\007message\030\002 \001(\t\022\021\n\ttemplates\030\003 \003(\t\"2" +
-                        "\n\037ListIndexTemplateDetailsRequest\022\017\n\007pro" +
-                        "ject\030\001 \001(\t\"e\n\035ListIndexTemplateDetailsRe" +
-                        "ply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022%\n\tte" +
-                        "mplates\030\003 \003(\0132\022.IndexTemplateInfo\"\304\002\n\021In" +
-                        "dexTemplateInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007cluster" +
-                        "\030\002 \001(\t\022\017\n\007project\030\003 \001(\t\022\017\n\007mapping\030\004 \001(\t" +
-                        "\022\017\n\007setting\030\005 \001(\t\022\017\n\007aliases\030\006 \003(\t\022:\n\031au" +
-                        "to_index_rolling_policy\030\007 \001(\0162\027.AutoInde",
-                "xRollingPolicy\022!\n\031auto_index_rolling_win" +
-                        "dow\030\010 \001(\005\022\036\n\026auto_index_name_prefix\030\t \001(" +
-                        "\t\022\032\n\022total_index_number\030\n \001(\005\022\030\n\020total_d" +
-                        "oc_number\030\013 \001(\003\022\027\n\017total_data_size\030\014 \001(\003" +
-                        "\"\352\001\n\022CreateIndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n" +
-                        "\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\022\017\n" +
-                        "\007aliases\030\004 \003(\t\022-\n\007mapping\030\005 \001(\0132\034.google" +
-                        ".protobuf.StringValue\022-\n\007setting\030\006 \001(\0132\034" +
-                        ".google.protobuf.StringValue\022/\n\016rolling_" +
-                        "policy\030\007 \001(\0162\027.AutoIndexRollingPolicy\"1\n",
-                "\020CreateIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
-                        "ge\030\002 \001(\t\"G\n\017GetIndexRequest\022\014\n\004name\030\001 \001(" +
-                        "\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(" +
-                        "\t\"I\n\rGetIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007mess" +
-                        "age\030\002 \001(\t\022\031\n\005index\030\003 \001(\0132\n.IndexInfo\"\372\002\n" +
-                        "\tIndexInfo\022\014\n\004name\030\001 \001(\t\022\024\n\014cluster_name" +
-                        "\030\002 \001(\t\022\024\n\014project_name\030\003 \001(\t\022\017\n\007mapping\030" +
-                        "\005 \001(\t\022\017\n\007setting\030\006 \001(\t\022\017\n\007aliases\030\007 \003(\t\022" +
-                        "\030\n\020total_doc_number\030\010 \001(\003\022\027\n\017total_data_" +
-                        "size\030\t \001(\003\022\034\n\024primary_shard_number\030\n \001(\005",
-                "\022\034\n\024replica_shard_number\030\013 \001(\005\022\024\n\014index_" +
-                        "health\030\014 \001(\t\022\022\n\nproject_id\030\r \001(\t\022\022\n\nclus" +
-                        "ter_id\030\016 \001(\t\022/\n\016rolling_policy\030\017 \001(\0162\027.A" +
-                        "utoIndexRollingPolicy\022\020\n\010index_id\030\020 \001(\005\022" +
-                        "\020\n\010template\030\021 \001(\t\"\276\001\n\022UpdateIndexRequest" +
-                        "\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 \001(\t" +
-                        "\022\021\n\tindexName\030\003 \001(\t\022-\n\007mapping\030\004 \001(\0132\034.g" +
-                        "oogle.protobuf.StringValue\022-\n\007setting\030\005 " +
-                        "\001(\0132\034.google.protobuf.StringValue\022\017\n\007ali" +
-                        "ases\030\006 \003(\t\"1\n\020UpdateIndexReply\022\014\n\004code\030\001",
-                " \001(\005\022\017\n\007message\030\002 \001(\t\"O\n\022DeleteIndexRequ" +
-                        "est\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
-                        "\001(\t\022\021\n\tindexName\030\003 \001(\t\"1\n\020DeleteIndexRep" +
-                        "ly\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"K\n\020Lis" +
-                        "tIndexRequest\022\017\n\007cluster\030\001 \001(\t\022\017\n\007projec" +
-                        "t\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\"@\n\016ListIn" +
-                        "dexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
-                        "\017\n\007indices\030\003 \003(\t\"R\n\027ListIndexDetailsRequ" +
-                        "est\022\017\n\007cluster\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\025\n" +
-                        "\rindexTemplate\030\003 \001(\t\"S\n\025ListIndexDetails",
-                "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\033\n\007" +
-                        "indices\030\003 \003(\0132\n.IndexInfo\"}\n\016IndexNameEn" +
-                        "try\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
-                        "\001(\t\022\021\n\tindexName\030\003 \001(\t\022\021\n\tfull_name\030\004 \001(" +
-                        "\t\022\016\n\006domain\030\005 \001(\t\022\r\n\005group\030\006 \001(\t\"\'\n\024List" +
-                        "IndexNameRequest\022\017\n\007cluster\030\001 \001(\t\"X\n\022Lis" +
-                        "tIndexNameReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message" +
-                        "\030\002 \001(\t\022#\n\nindexNames\030\003 \003(\0132\017.IndexNameEn" +
-                        "try\",\n\031ListIndexAliasNameRequest\022\017\n\007clus" +
-                        "ter\030\001 \001(\t\"b\n\027ListIndexAliasNameReply\022\014\n\004",
-                "code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022(\n\017indexAlia" +
-                        "sNames\030\003 \003(\0132\017.IndexNameEntry\"J\n\022AttachI" +
-                        "ndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007project\030\002 \001" +
-                        "(\t\022\025\n\rindexTemplate\030\003 \001(\t\"1\n\020AttachIndex" +
-                        "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"J\n\022" +
-                        "DetachIndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007proj" +
-                        "ect\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\"1\n\020Deta" +
-                        "chIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 " +
-                        "\001(\t\"K\n\023RefreshIndexRequest\022\014\n\004name\030\001 \001(\t" +
-                        "\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t",
-                "\"2\n\021RefreshIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007m" +
-                        "essage\030\002 \001(\t*\037\n\013ClusterType\022\007\n\003HDD\020\000\022\007\n\003" +
-                        "SSD\020\001*S\n\rClusterStatus\022\010\n\004NULL\020\000\022\014\n\010CREA" +
-                        "TING\020\001\022\016\n\nIN_SERVICE\020\002\022\014\n\010DISABLED\020\003\022\014\n\010" +
-                        "DELETING\020\004*\'\n\rProjectStatus\022\n\n\006NORMAL\020\000\022" +
-                        "\n\n\006DELETE\020\001*\\\n\026AutoIndexRollingPolicy\022\010\n" +
-                        "\004NONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MONTH\020\002\022\013\n\007QUARTER\020\003" +
-                        "\022\r\n\tHALF_YEAR\020\004\022\010\n\004YEAR\020\0052\214\017\n\013MetaServic" +
-                        "e\022=\n\rCreateCluster\022\025.CreateClusterReques" +
-                        "t\032\023.CreateClusterReply\"\000\022=\n\rDeleteCluste",
-                "r\022\025.DeleteClusterRequest\032\023.DeleteCluster" +
-                        "Reply\"\000\022E\n\rUpdateCluster\022\031.UpdateCluster" +
-                        "InfoRequest\032\027.UpdateClusterInfoReply\"\000\022@" +
-                        "\n\016GetClusterInfo\022\026.GetClusterInfoRequest" +
-                        "\032\024.GetClusterInfoReply\"\000\0227\n\013ListCluster\022" +
-                        "\023.ListClusterRequest\032\021.ListClusterReply\"" +
-                        "\000\022L\n\022ListClusterDetails\022\032.ListClusterDet" +
-                        "ailsRequest\032\030.ListClusterDetailsReply\"\000\022" +
-                        "=\n\rCreateProject\022\025.CreateProjectRequest\032" +
-                        "\023.CreateProjectReply\"\000\022=\n\rDeleteProject\022",
-                "\025.DeleteProjectRequest\032\023.DeleteProjectRe" +
-                        "ply\"\000\022=\n\rUpdateProject\022\025.UpdateProjectRe" +
-                        "quest\032\023.UpdateProjectReply\"\000\0224\n\nGetProje" +
-                        "ct\022\022.GetProjectRequest\032\020.GetProjectReply" +
-                        "\"\000\0227\n\013ListProject\022\023.ListProjectRequest\032\021" +
-                        ".ListProjectReply\"\000\022L\n\022ListProjectDetail" +
-                        "s\022\032.ListProjectDetailsRequest\032\030.ListProj" +
-                        "ectDetailsReply\"\000\022O\n\023CreateIndexTemplate" +
-                        "\022\033.CreateIndexTemplateRequest\032\031.CreateIn" +
-                        "dexTemplateReply\"\000\022F\n\020GetIndexTemplate\022\030",
-                ".GetIndexTemplateRequest\032\026.GetIndexTempl" +
-                        "ateReply\"\000\022O\n\023UpdateIndexTemplate\022\033.Upda" +
-                        "teIndexTemplateRequest\032\031.UpdateIndexTemp" +
-                        "lateReply\"\000\022O\n\023DeleteIndexTemplate\022\033.Del" +
-                        "eteIndexTemplateRequest\032\031.DeleteIndexTem" +
-                        "plateReply\"\000\022I\n\021ListIndexTemplate\022\031.List" +
-                        "IndexTemplateRequest\032\027.ListIndexTemplate" +
-                        "Reply\"\000\022^\n\030ListIndexTemplateDetails\022 .Li" +
-                        "stIndexTemplateDetailsRequest\032\036.ListInde" +
-                        "xTemplateDetailsReply\"\000\0227\n\013CreateIndex\022\023",
-                ".CreateIndexRequest\032\021.CreateIndexReply\"\000" +
-                        "\022.\n\010GetIndex\022\020.GetIndexRequest\032\016.GetInde" +
-                        "xReply\"\000\0227\n\013UpdateIndex\022\023.UpdateIndexReq" +
-                        "uest\032\021.UpdateIndexReply\"\000\0227\n\013DeleteIndex" +
-                        "\022\023.DeleteIndexRequest\032\021.DeleteIndexReply" +
-                        "\"\000\0221\n\tListIndex\022\021.ListIndexRequest\032\017.Lis" +
-                        "tIndexReply\"\000\022F\n\020ListIndexDetails\022\030.List" +
-                        "IndexDetailsRequest\032\026.ListIndexDetailsRe" +
-                        "ply\"\000\022=\n\rListIndexName\022\025.ListIndexNameRe" +
-                        "quest\032\023.ListIndexNameReply\"\000\022L\n\022ListInde",
-                "xAliasName\022\032.ListIndexAliasNameRequest\032\030" +
-                        ".ListIndexAliasNameReply\"\000\0227\n\013AttachInde" +
-                        "x\022\023.AttachIndexRequest\032\021.AttachIndexRepl" +
-                        "y\"\000\0227\n\013DetachIndex\022\023.DetachIndexRequest\032" +
-                        "\021.DetachIndexReply\"\000\022:\n\014RefreshIndex\022\024.R" +
-                        "efreshIndexRequest\032\022.RefreshIndexReply\"\000" +
-                        "BC\n\036com.rany.service.platform.metaB\037Sear" +
-                        "chMiddlePlatformMetaServiceP\001b\006proto3"
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateClusterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateClusterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateClusterReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateClusterReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetClusterInfoRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetClusterInfoRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetClusterInfoReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetClusterInfoReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ClusterInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ClusterInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_NodeInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_NodeInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateClusterInfoRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateClusterInfoRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateClusterInfoReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateClusterInfoReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteClusterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteClusterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteClusterReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteClusterReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListClusterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListClusterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListClusterReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListClusterReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListClusterDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListClusterDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListClusterDetailsReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListClusterDetailsReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateProjectRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateProjectRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateProjectReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateProjectReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteProjectRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteProjectRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteProjectReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteProjectReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateProjectRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateProjectRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateProjectReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateProjectReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetProjectRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetProjectRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetProjectReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetProjectReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ProjectInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ProjectInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListProjectRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListProjectRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListProjectReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListProjectReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListProjectDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListProjectDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListProjectDetailsReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListProjectDetailsReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateIndexTemplateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateIndexTemplateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateIndexTemplateReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateIndexTemplateReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetIndexTemplateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetIndexTemplateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetIndexTemplateReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetIndexTemplateReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateIndexTemplateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateIndexTemplateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateIndexTemplateReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateIndexTemplateReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteIndexTemplateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteIndexTemplateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteIndexTemplateReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteIndexTemplateReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexTemplateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexTemplateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexTemplateReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexTemplateReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexTemplateDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexTemplateDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexTemplateDetailsReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexTemplateDetailsReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_IndexTemplateInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_IndexTemplateInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CreateIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CreateIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_IndexInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_IndexInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UpdateIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UpdateIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeleteIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeleteIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexDetailsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexDetailsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexDetailsReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexDetailsReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_IndexNameEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_IndexNameEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexNameRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexNameRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexNameReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexNameReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexAliasNameRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexAliasNameRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ListIndexAliasNameReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ListIndexAliasNameReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AttachIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AttachIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AttachIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AttachIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DetachIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DetachIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DetachIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DetachIndexReply_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RefreshIndexRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RefreshIndexRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_RefreshIndexReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_RefreshIndexReply_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+  static {
+    java.lang.String[] descriptorData = {
+      "\n\020admin/meta.proto\032\036google/protobuf/wrap" +
+      "pers.proto\"\245\001\n\024CreateClusterRequest\022\014\n\004n" +
+      "ame\030\001 \001(\t\022\035\n\007cluster\030\002 \001(\0162\014.ClusterType" +
+      "\022\023\n\013description\030\003 \001(\t\022\036\n\006status\030\004 \001(\0162\016." +
+      "ClusterStatus\022\020\n\010endpoint\030\005 \001(\t\022\031\n\021inter" +
+      "nal_endpoint\030\006 \001(\t\"3\n\022CreateClusterReply" +
+      "\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"%\n\025GetCl" +
+      "usterInfoRequest\022\014\n\004name\030\001 \001(\t\"S\n\023GetClu" +
+      "sterInfoReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002" +
+      " \001(\t\022\035\n\007cluster\030\003 \001(\0132\014.ClusterInfo\"\246\003\n\013",
+      "ClusterInfo\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n" +
+      "\010endpoint\030\003 \001(\t\022\031\n\021internal_endpoint\030\004 \001" +
+      "(\t\022\032\n\004type\030\005 \001(\0162\014.ClusterType\022\023\n\013descri" +
+      "ption\030\006 \001(\t\022\023\n\013create_time\030\007 \001(\003\022\030\n\020last" +
+      "_update_time\030\010 \001(\003\022\036\n\006status\030\t \001(\0162\016.Clu" +
+      "sterStatus\022\022\n\nes_version\030\n \001(\t\022\034\n\024total_" +
+      "project_number\030\013 \001(\005\022\032\n\022total_index_numb" +
+      "er\030\014 \001(\005\022\030\n\020total_doc_number\030\r \001(\003\022\027\n\017to" +
+      "tal_data_size\030\016 \001(\003\022\026\n\016cluster_health\030\017 " +
+      "\001(\t\022\030\n\005nodes\030\020 \003(\0132\t.NodeInfo\022\035\n\025total_t",
+      "emplate_number\030\021 \001(\005\"\364\001\n\010NodeInfo\022\n\n\002id\030" +
+      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\022\n\nip_address\030\003 \001(\t\022" +
+      "\021\n\tis_master\030\004 \001(\010\022\023\n\013cpu_percent\030\005 \001(\001\022" +
+      "\017\n\007ram_max\030\006 \001(\t\022\023\n\013ram_current\030\007 \001(\t\022\020\n" +
+      "\010heap_max\030\010 \001(\t\022\024\n\014heap_current\030\t \001(\t\022\022\n" +
+      "\ndisk_avail\030\n \001(\t\022\024\n\014disk_percent\030\013 \001(\001\022" +
+      "\r\n\005group\030\014 \001(\t\022\013\n\003tag\030\r \001(\t\"\204\001\n\030UpdateCl" +
+      "usterInfoRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
+      "(\t\022\036\n\006status\030\003 \001(\0162\016.ClusterStatus\022\023\n\013de" +
+      "scription\030\004 \001(\t\022\031\n\021internal_endpoint\030\005 \001",
+      "(\t\"7\n\026UpdateClusterInfoReply\022\014\n\004code\030\001 \001" +
+      "(\005\022\017\n\007message\030\002 \001(\t\"$\n\024DeleteClusterRequ" +
+      "est\022\014\n\004name\030\001 \001(\t\"3\n\022DeleteClusterReply\022" +
+      "\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\024\n\022ListCl" +
+      "usterRequest\"C\n\020ListClusterReply\022\014\n\004code" +
+      "\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\020\n\010clusters\030\003 \003(" +
+      "\t\"\033\n\031ListClusterDetailsRequest\"X\n\027ListCl" +
+      "usterDetailsReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
+      "ge\030\002 \001(\t\022\036\n\010clusters\030\003 \003(\0132\014.ClusterInfo" +
+      "\"b\n\024CreateProjectRequest\022\014\n\004name\030\001 \001(\t\022\017",
+      "\n\007cluster\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016" +
+      "projectSetting\030\004 \001(\t\"3\n\022CreateProjectRep" +
+      "ly\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"D\n\024Del" +
+      "eteProjectRequest\022\014\n\004name\030\001 \001(\t\022\036\n\006statu" +
+      "s\030\002 \001(\0162\016.ProjectStatus\"3\n\022DeleteProject" +
+      "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"]\n\024" +
+      "UpdateProjectRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name" +
+      "\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016projectSe" +
+      "tting\030\004 \001(\t\"3\n\022UpdateProjectReply\022\014\n\004cod" +
+      "e\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"!\n\021GetProjectRe",
+      "quest\022\014\n\004name\030\001 \001(\t\"O\n\017GetProjectReply\022\014" +
+      "\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\035\n\007project" +
+      "\030\003 \001(\0132\014.ProjectInfo\"\364\001\n\013ProjectInfo\022\n\n\002" +
+      "id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\024\n\014cluster_name\030\003" +
+      " \001(\t\022\023\n\013description\030\004 \001(\t\022\032\n\022total_index" +
+      "_number\030\005 \001(\005\022\030\n\020total_doc_number\030\006 \001(\003\022" +
+      "\027\n\017total_data_size\030\007 \001(\003\022\022\n\ncluster_id\030\010" +
+      " \001(\005\022\036\n\006status\030\t \001(\0162\016.ProjectStatus\022\035\n\025" +
+      "total_template_number\030\021 \001(\005\"%\n\022ListProje" +
+      "ctRequest\022\017\n\007cluster\030\001 \001(\t\"C\n\020ListProjec",
+      "tReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\020\n" +
+      "\010projects\030\003 \003(\t\",\n\031ListProjectDetailsReq" +
+      "uest\022\017\n\007cluster\030\001 \001(\t\"X\n\027ListProjectDeta" +
+      "ilsReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
+      "\036\n\010projects\030\003 \003(\0132\014.ProjectInfo\"\355\001\n\032Crea" +
+      "teIndexTemplateRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007" +
+      "project\030\002 \001(\t\022\017\n\007mapping\030\003 \001(\t\022\017\n\007settin" +
+      "g\030\004 \001(\t\022\017\n\007aliases\030\005 \003(\t\022:\n\031auto_index_r" +
+      "olling_policy\030\006 \001(\0162\027.AutoIndexRollingPo" +
+      "licy\022!\n\031auto_index_rolling_window\030\007 \001(\005\022",
+      "\036\n\026auto_index_name_prefix\030\010 \001(\t\"9\n\030Creat" +
+      "eIndexTemplateReply\022\014\n\004code\030\001 \001(\005\022\017\n\007mes" +
+      "sage\030\002 \001(\t\"8\n\027GetIndexTemplateRequest\022\014\n" +
+      "\004name\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\"\\\n\025GetIndex" +
+      "TemplateReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002" +
+      " \001(\t\022$\n\010template\030\003 \001(\0132\022.IndexTemplateIn" +
+      "fo\"\315\002\n\032UpdateIndexTemplateRequest\022\014\n\004nam" +
+      "e\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022-\n\007mapping\030\003 \001(" +
+      "\0132\034.google.protobuf.StringValue\022-\n\007setti" +
+      "ng\030\004 \001(\0132\034.google.protobuf.StringValue\022\024",
+      "\n\014update_alias\030\005 \001(\010\022\025\n\rupdate_policy\030\006 " +
+      "\001(\010\022\025\n\rupdate_window\030\007 \001(\010\022\017\n\007aliases\030\010 " +
+      "\003(\t\022:\n\031auto_index_rolling_policy\030\t \001(\0162\027" +
+      ".AutoIndexRollingPolicy\022!\n\031auto_index_ro" +
+      "lling_window\030\n \001(\005\"9\n\030UpdateIndexTemplat" +
+      "eReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\";\n" +
+      "\032DeleteIndexTemplateRequest\022\014\n\004name\030\001 \001(" +
+      "\t\022\017\n\007project\030\002 \001(\t\"9\n\030DeleteIndexTemplat" +
+      "eReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"+\n" +
+      "\030ListIndexTemplateRequest\022\017\n\007project\030\001 \001",
+      "(\t\"J\n\026ListIndexTemplateReply\022\014\n\004code\030\001 \001" +
+      "(\005\022\017\n\007message\030\002 \001(\t\022\021\n\ttemplates\030\003 \003(\t\"2" +
+      "\n\037ListIndexTemplateDetailsRequest\022\017\n\007pro" +
+      "ject\030\001 \001(\t\"e\n\035ListIndexTemplateDetailsRe" +
+      "ply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022%\n\tte" +
+      "mplates\030\003 \003(\0132\022.IndexTemplateInfo\"\304\002\n\021In" +
+      "dexTemplateInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007cluster" +
+      "\030\002 \001(\t\022\017\n\007project\030\003 \001(\t\022\017\n\007mapping\030\004 \001(\t" +
+      "\022\017\n\007setting\030\005 \001(\t\022\017\n\007aliases\030\006 \003(\t\022:\n\031au" +
+      "to_index_rolling_policy\030\007 \001(\0162\027.AutoInde",
+      "xRollingPolicy\022!\n\031auto_index_rolling_win" +
+      "dow\030\010 \001(\005\022\036\n\026auto_index_name_prefix\030\t \001(" +
+      "\t\022\032\n\022total_index_number\030\n \001(\005\022\030\n\020total_d" +
+      "oc_number\030\013 \001(\003\022\027\n\017total_data_size\030\014 \001(\003" +
+      "\"\352\001\n\022CreateIndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n" +
+      "\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\022\017\n" +
+      "\007aliases\030\004 \003(\t\022-\n\007mapping\030\005 \001(\0132\034.google" +
+      ".protobuf.StringValue\022-\n\007setting\030\006 \001(\0132\034" +
+      ".google.protobuf.StringValue\022/\n\016rolling_" +
+      "policy\030\007 \001(\0162\027.AutoIndexRollingPolicy\"1\n",
+      "\020CreateIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
+      "ge\030\002 \001(\t\"G\n\017GetIndexRequest\022\014\n\004name\030\001 \001(" +
+      "\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(" +
+      "\t\"I\n\rGetIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007mess" +
+      "age\030\002 \001(\t\022\031\n\005index\030\003 \001(\0132\n.IndexInfo\"\372\002\n" +
+      "\tIndexInfo\022\014\n\004name\030\001 \001(\t\022\024\n\014cluster_name" +
+      "\030\002 \001(\t\022\024\n\014project_name\030\003 \001(\t\022\017\n\007mapping\030" +
+      "\005 \001(\t\022\017\n\007setting\030\006 \001(\t\022\017\n\007aliases\030\007 \003(\t\022" +
+      "\030\n\020total_doc_number\030\010 \001(\003\022\027\n\017total_data_" +
+      "size\030\t \001(\003\022\034\n\024primary_shard_number\030\n \001(\005",
+      "\022\034\n\024replica_shard_number\030\013 \001(\005\022\024\n\014index_" +
+      "health\030\014 \001(\t\022\022\n\nproject_id\030\r \001(\t\022\022\n\nclus" +
+      "ter_id\030\016 \001(\t\022/\n\016rolling_policy\030\017 \001(\0162\027.A" +
+      "utoIndexRollingPolicy\022\020\n\010index_id\030\020 \001(\005\022" +
+      "\020\n\010template\030\021 \001(\t\"\276\001\n\022UpdateIndexRequest" +
+      "\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 \001(\t" +
+      "\022\021\n\tindexName\030\003 \001(\t\022-\n\007mapping\030\004 \001(\0132\034.g" +
+      "oogle.protobuf.StringValue\022-\n\007setting\030\005 " +
+      "\001(\0132\034.google.protobuf.StringValue\022\017\n\007ali" +
+      "ases\030\006 \003(\t\"1\n\020UpdateIndexReply\022\014\n\004code\030\001",
+      " \001(\005\022\017\n\007message\030\002 \001(\t\"O\n\022DeleteIndexRequ" +
+      "est\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
+      "\001(\t\022\021\n\tindexName\030\003 \001(\t\"1\n\020DeleteIndexRep" +
+      "ly\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"K\n\020Lis" +
+      "tIndexRequest\022\017\n\007cluster\030\001 \001(\t\022\017\n\007projec" +
+      "t\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\"@\n\016ListIn" +
+      "dexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
+      "\017\n\007indices\030\003 \003(\t\"R\n\027ListIndexDetailsRequ" +
+      "est\022\017\n\007cluster\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\025\n" +
+      "\rindexTemplate\030\003 \001(\t\"S\n\025ListIndexDetails",
+      "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\033\n\007" +
+      "indices\030\003 \003(\0132\n.IndexInfo\"}\n\016IndexNameEn" +
+      "try\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
+      "\001(\t\022\021\n\tindexName\030\003 \001(\t\022\021\n\tfull_name\030\004 \001(" +
+      "\t\022\016\n\006domain\030\005 \001(\t\022\r\n\005group\030\006 \001(\t\"\'\n\024List" +
+      "IndexNameRequest\022\017\n\007cluster\030\001 \001(\t\"X\n\022Lis" +
+      "tIndexNameReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message" +
+      "\030\002 \001(\t\022#\n\nindexNames\030\003 \003(\0132\017.IndexNameEn" +
+      "try\",\n\031ListIndexAliasNameRequest\022\017\n\007clus" +
+      "ter\030\001 \001(\t\"b\n\027ListIndexAliasNameReply\022\014\n\004",
+      "code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022(\n\017indexAlia" +
+      "sNames\030\003 \003(\0132\017.IndexNameEntry\"J\n\022AttachI" +
+      "ndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007project\030\002 \001" +
+      "(\t\022\025\n\rindexTemplate\030\003 \001(\t\"1\n\020AttachIndex" +
+      "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"J\n\022" +
+      "DetachIndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007proj" +
+      "ect\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\"1\n\020Deta" +
+      "chIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 " +
+      "\001(\t\"K\n\023RefreshIndexRequest\022\014\n\004name\030\001 \001(\t" +
+      "\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t",
+      "\"2\n\021RefreshIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007m" +
+      "essage\030\002 \001(\t*\037\n\013ClusterType\022\007\n\003HDD\020\000\022\007\n\003" +
+      "SSD\020\001*S\n\rClusterStatus\022\010\n\004NULL\020\000\022\014\n\010CREA" +
+      "TING\020\001\022\016\n\nIN_SERVICE\020\002\022\014\n\010DISABLED\020\003\022\014\n\010" +
+      "DELETING\020\004*\'\n\rProjectStatus\022\n\n\006NORMAL\020\000\022" +
+      "\n\n\006DELETE\020\001*\\\n\026AutoIndexRollingPolicy\022\010\n" +
+      "\004NONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MONTH\020\002\022\013\n\007QUARTER\020\003" +
+      "\022\r\n\tHALF_YEAR\020\004\022\010\n\004YEAR\020\0052\214\017\n\013MetaServic" +
+      "e\022=\n\rCreateCluster\022\025.CreateClusterReques" +
+      "t\032\023.CreateClusterReply\"\000\022=\n\rDeleteCluste",
+      "r\022\025.DeleteClusterRequest\032\023.DeleteCluster" +
+      "Reply\"\000\022E\n\rUpdateCluster\022\031.UpdateCluster" +
+      "InfoRequest\032\027.UpdateClusterInfoReply\"\000\022@" +
+      "\n\016GetClusterInfo\022\026.GetClusterInfoRequest" +
+      "\032\024.GetClusterInfoReply\"\000\0227\n\013ListCluster\022" +
+      "\023.ListClusterRequest\032\021.ListClusterReply\"" +
+      "\000\022L\n\022ListClusterDetails\022\032.ListClusterDet" +
+      "ailsRequest\032\030.ListClusterDetailsReply\"\000\022" +
+      "=\n\rCreateProject\022\025.CreateProjectRequest\032" +
+      "\023.CreateProjectReply\"\000\022=\n\rDeleteProject\022",
+      "\025.DeleteProjectRequest\032\023.DeleteProjectRe" +
+      "ply\"\000\022=\n\rUpdateProject\022\025.UpdateProjectRe" +
+      "quest\032\023.UpdateProjectReply\"\000\0224\n\nGetProje" +
+      "ct\022\022.GetProjectRequest\032\020.GetProjectReply" +
+      "\"\000\0227\n\013ListProject\022\023.ListProjectRequest\032\021" +
+      ".ListProjectReply\"\000\022L\n\022ListProjectDetail" +
+      "s\022\032.ListProjectDetailsRequest\032\030.ListProj" +
+      "ectDetailsReply\"\000\022O\n\023CreateIndexTemplate" +
+      "\022\033.CreateIndexTemplateRequest\032\031.CreateIn" +
+      "dexTemplateReply\"\000\022F\n\020GetIndexTemplate\022\030",
+      ".GetIndexTemplateRequest\032\026.GetIndexTempl" +
+      "ateReply\"\000\022O\n\023UpdateIndexTemplate\022\033.Upda" +
+      "teIndexTemplateRequest\032\031.UpdateIndexTemp" +
+      "lateReply\"\000\022O\n\023DeleteIndexTemplate\022\033.Del" +
+      "eteIndexTemplateRequest\032\031.DeleteIndexTem" +
+      "plateReply\"\000\022I\n\021ListIndexTemplate\022\031.List" +
+      "IndexTemplateRequest\032\027.ListIndexTemplate" +
+      "Reply\"\000\022^\n\030ListIndexTemplateDetails\022 .Li" +
+      "stIndexTemplateDetailsRequest\032\036.ListInde" +
+      "xTemplateDetailsReply\"\000\0227\n\013CreateIndex\022\023",
+      ".CreateIndexRequest\032\021.CreateIndexReply\"\000" +
+      "\022.\n\010GetIndex\022\020.GetIndexRequest\032\016.GetInde" +
+      "xReply\"\000\0227\n\013UpdateIndex\022\023.UpdateIndexReq" +
+      "uest\032\021.UpdateIndexReply\"\000\0227\n\013DeleteIndex" +
+      "\022\023.DeleteIndexRequest\032\021.DeleteIndexReply" +
+      "\"\000\0221\n\tListIndex\022\021.ListIndexRequest\032\017.Lis" +
+      "tIndexReply\"\000\022F\n\020ListIndexDetails\022\030.List" +
+      "IndexDetailsRequest\032\026.ListIndexDetailsRe" +
+      "ply\"\000\022=\n\rListIndexName\022\025.ListIndexNameRe" +
+      "quest\032\023.ListIndexNameReply\"\000\022L\n\022ListInde",
+      "xAliasName\022\032.ListIndexAliasNameRequest\032\030" +
+      ".ListIndexAliasNameReply\"\000\0227\n\013AttachInde" +
+      "x\022\023.AttachIndexRequest\032\021.AttachIndexRepl" +
+      "y\"\000\0227\n\013DetachIndex\022\023.DetachIndexRequest\032" +
+      "\021.DetachIndexReply\"\000\022:\n\014RefreshIndex\022\024.R" +
+      "efreshIndexRequest\032\022.RefreshIndexReply\"\000" +
+      "BC\n\036com.rany.service.platform.metaB\037Sear" +
+      "chMiddlePlatformMetaServiceP\001b\006proto3"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
         };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                                com.google.protobuf.WrappersProto.getDescriptor(),
-                        }, assigner);
-        internal_static_CreateClusterRequest_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_CreateClusterRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateClusterRequest_descriptor,
-                new java.lang.String[]{"Name", "Cluster", "Description", "Status", "Endpoint", "InternalEndpoint",});
-        internal_static_CreateClusterReply_descriptor =
-                getDescriptor().getMessageTypes().get(1);
-        internal_static_CreateClusterReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateClusterReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetClusterInfoRequest_descriptor =
-                getDescriptor().getMessageTypes().get(2);
-        internal_static_GetClusterInfoRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetClusterInfoRequest_descriptor,
-                new java.lang.String[]{"Name",});
-        internal_static_GetClusterInfoReply_descriptor =
-                getDescriptor().getMessageTypes().get(3);
-        internal_static_GetClusterInfoReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetClusterInfoReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Cluster",});
-        internal_static_ClusterInfo_descriptor =
-                getDescriptor().getMessageTypes().get(4);
-        internal_static_ClusterInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ClusterInfo_descriptor,
-                new java.lang.String[]{"Id", "Name", "Endpoint", "InternalEndpoint", "Type", "Description", "CreateTime", "LastUpdateTime", "Status", "EsVersion", "TotalProjectNumber", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize", "ClusterHealth", "Nodes", "TotalTemplateNumber",});
-        internal_static_NodeInfo_descriptor =
-                getDescriptor().getMessageTypes().get(5);
-        internal_static_NodeInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_NodeInfo_descriptor,
-                new java.lang.String[]{"Id", "Name", "IpAddress", "IsMaster", "CpuPercent", "RamMax", "RamCurrent", "HeapMax", "HeapCurrent", "DiskAvail", "DiskPercent", "Group", "Tag",});
-        internal_static_UpdateClusterInfoRequest_descriptor =
-                getDescriptor().getMessageTypes().get(6);
-        internal_static_UpdateClusterInfoRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateClusterInfoRequest_descriptor,
-                new java.lang.String[]{"Id", "Name", "Status", "Description", "InternalEndpoint",});
-        internal_static_UpdateClusterInfoReply_descriptor =
-                getDescriptor().getMessageTypes().get(7);
-        internal_static_UpdateClusterInfoReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateClusterInfoReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_DeleteClusterRequest_descriptor =
-                getDescriptor().getMessageTypes().get(8);
-        internal_static_DeleteClusterRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteClusterRequest_descriptor,
-                new java.lang.String[]{"Name",});
-        internal_static_DeleteClusterReply_descriptor =
-                getDescriptor().getMessageTypes().get(9);
-        internal_static_DeleteClusterReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteClusterReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_ListClusterRequest_descriptor =
-                getDescriptor().getMessageTypes().get(10);
-        internal_static_ListClusterRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListClusterRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_ListClusterReply_descriptor =
-                getDescriptor().getMessageTypes().get(11);
-        internal_static_ListClusterReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListClusterReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Clusters",});
-        internal_static_ListClusterDetailsRequest_descriptor =
-                getDescriptor().getMessageTypes().get(12);
-        internal_static_ListClusterDetailsRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListClusterDetailsRequest_descriptor,
-                new java.lang.String[]{});
-        internal_static_ListClusterDetailsReply_descriptor =
-                getDescriptor().getMessageTypes().get(13);
-        internal_static_ListClusterDetailsReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListClusterDetailsReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Clusters",});
-        internal_static_CreateProjectRequest_descriptor =
-                getDescriptor().getMessageTypes().get(14);
-        internal_static_CreateProjectRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateProjectRequest_descriptor,
-                new java.lang.String[]{"Name", "Cluster", "Description", "ProjectSetting",});
-        internal_static_CreateProjectReply_descriptor =
-                getDescriptor().getMessageTypes().get(15);
-        internal_static_CreateProjectReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateProjectReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_DeleteProjectRequest_descriptor =
-                getDescriptor().getMessageTypes().get(16);
-        internal_static_DeleteProjectRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteProjectRequest_descriptor,
-                new java.lang.String[]{"Name", "Status",});
-        internal_static_DeleteProjectReply_descriptor =
-                getDescriptor().getMessageTypes().get(17);
-        internal_static_DeleteProjectReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteProjectReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_UpdateProjectRequest_descriptor =
-                getDescriptor().getMessageTypes().get(18);
-        internal_static_UpdateProjectRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateProjectRequest_descriptor,
-                new java.lang.String[]{"Id", "Name", "Description", "ProjectSetting",});
-        internal_static_UpdateProjectReply_descriptor =
-                getDescriptor().getMessageTypes().get(19);
-        internal_static_UpdateProjectReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateProjectReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetProjectRequest_descriptor =
-                getDescriptor().getMessageTypes().get(20);
-        internal_static_GetProjectRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetProjectRequest_descriptor,
-                new java.lang.String[]{"Name",});
-        internal_static_GetProjectReply_descriptor =
-                getDescriptor().getMessageTypes().get(21);
-        internal_static_GetProjectReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetProjectReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Project",});
-        internal_static_ProjectInfo_descriptor =
-                getDescriptor().getMessageTypes().get(22);
-        internal_static_ProjectInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ProjectInfo_descriptor,
-                new java.lang.String[]{"Id", "Name", "ClusterName", "Description", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize", "ClusterId", "Status", "TotalTemplateNumber",});
-        internal_static_ListProjectRequest_descriptor =
-                getDescriptor().getMessageTypes().get(23);
-        internal_static_ListProjectRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListProjectRequest_descriptor,
-                new java.lang.String[]{"Cluster",});
-        internal_static_ListProjectReply_descriptor =
-                getDescriptor().getMessageTypes().get(24);
-        internal_static_ListProjectReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListProjectReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Projects",});
-        internal_static_ListProjectDetailsRequest_descriptor =
-                getDescriptor().getMessageTypes().get(25);
-        internal_static_ListProjectDetailsRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListProjectDetailsRequest_descriptor,
-                new java.lang.String[]{"Cluster",});
-        internal_static_ListProjectDetailsReply_descriptor =
-                getDescriptor().getMessageTypes().get(26);
-        internal_static_ListProjectDetailsReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListProjectDetailsReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Projects",});
-        internal_static_CreateIndexTemplateRequest_descriptor =
-                getDescriptor().getMessageTypes().get(27);
-        internal_static_CreateIndexTemplateRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateIndexTemplateRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "Mapping", "Setting", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow", "AutoIndexNamePrefix",});
-        internal_static_CreateIndexTemplateReply_descriptor =
-                getDescriptor().getMessageTypes().get(28);
-        internal_static_CreateIndexTemplateReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateIndexTemplateReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetIndexTemplateRequest_descriptor =
-                getDescriptor().getMessageTypes().get(29);
-        internal_static_GetIndexTemplateRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetIndexTemplateRequest_descriptor,
-                new java.lang.String[]{"Name", "Project",});
-        internal_static_GetIndexTemplateReply_descriptor =
-                getDescriptor().getMessageTypes().get(30);
-        internal_static_GetIndexTemplateReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetIndexTemplateReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Template",});
-        internal_static_UpdateIndexTemplateRequest_descriptor =
-                getDescriptor().getMessageTypes().get(31);
-        internal_static_UpdateIndexTemplateRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateIndexTemplateRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "Mapping", "Setting", "UpdateAlias", "UpdatePolicy", "UpdateWindow", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow",});
-        internal_static_UpdateIndexTemplateReply_descriptor =
-                getDescriptor().getMessageTypes().get(32);
-        internal_static_UpdateIndexTemplateReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateIndexTemplateReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_DeleteIndexTemplateRequest_descriptor =
-                getDescriptor().getMessageTypes().get(33);
-        internal_static_DeleteIndexTemplateRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteIndexTemplateRequest_descriptor,
-                new java.lang.String[]{"Name", "Project",});
-        internal_static_DeleteIndexTemplateReply_descriptor =
-                getDescriptor().getMessageTypes().get(34);
-        internal_static_DeleteIndexTemplateReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteIndexTemplateReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_ListIndexTemplateRequest_descriptor =
-                getDescriptor().getMessageTypes().get(35);
-        internal_static_ListIndexTemplateRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexTemplateRequest_descriptor,
-                new java.lang.String[]{"Project",});
-        internal_static_ListIndexTemplateReply_descriptor =
-                getDescriptor().getMessageTypes().get(36);
-        internal_static_ListIndexTemplateReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexTemplateReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Templates",});
-        internal_static_ListIndexTemplateDetailsRequest_descriptor =
-                getDescriptor().getMessageTypes().get(37);
-        internal_static_ListIndexTemplateDetailsRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexTemplateDetailsRequest_descriptor,
-                new java.lang.String[]{"Project",});
-        internal_static_ListIndexTemplateDetailsReply_descriptor =
-                getDescriptor().getMessageTypes().get(38);
-        internal_static_ListIndexTemplateDetailsReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexTemplateDetailsReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Templates",});
-        internal_static_IndexTemplateInfo_descriptor =
-                getDescriptor().getMessageTypes().get(39);
-        internal_static_IndexTemplateInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_IndexTemplateInfo_descriptor,
-                new java.lang.String[]{"Name", "Cluster", "Project", "Mapping", "Setting", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow", "AutoIndexNamePrefix", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize",});
-        internal_static_CreateIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(40);
-        internal_static_CreateIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateIndexRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "IndexTemplate", "Aliases", "Mapping", "Setting", "RollingPolicy",});
-        internal_static_CreateIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(41);
-        internal_static_CreateIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_CreateIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_GetIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(42);
-        internal_static_GetIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetIndexRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "IndexTemplate",});
-        internal_static_GetIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(43);
-        internal_static_GetIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_GetIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Index",});
-        internal_static_IndexInfo_descriptor =
-                getDescriptor().getMessageTypes().get(44);
-        internal_static_IndexInfo_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_IndexInfo_descriptor,
-                new java.lang.String[]{"Name", "ClusterName", "ProjectName", "Mapping", "Setting", "Aliases", "TotalDocNumber", "TotalDataSize", "PrimaryShardNumber", "ReplicaShardNumber", "IndexHealth", "ProjectId", "ClusterId", "RollingPolicy", "IndexId", "Template",});
-        internal_static_UpdateIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(45);
-        internal_static_UpdateIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateIndexRequest_descriptor,
-                new java.lang.String[]{"Project", "IndexTemplate", "IndexName", "Mapping", "Setting", "Aliases",});
-        internal_static_UpdateIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(46);
-        internal_static_UpdateIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_UpdateIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_DeleteIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(47);
-        internal_static_DeleteIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteIndexRequest_descriptor,
-                new java.lang.String[]{"Project", "IndexTemplate", "IndexName",});
-        internal_static_DeleteIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(48);
-        internal_static_DeleteIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DeleteIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_ListIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(49);
-        internal_static_ListIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexRequest_descriptor,
-                new java.lang.String[]{"Cluster", "Project", "IndexTemplate",});
-        internal_static_ListIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(50);
-        internal_static_ListIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Indices",});
-        internal_static_ListIndexDetailsRequest_descriptor =
-                getDescriptor().getMessageTypes().get(51);
-        internal_static_ListIndexDetailsRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexDetailsRequest_descriptor,
-                new java.lang.String[]{"Cluster", "Project", "IndexTemplate",});
-        internal_static_ListIndexDetailsReply_descriptor =
-                getDescriptor().getMessageTypes().get(52);
-        internal_static_ListIndexDetailsReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexDetailsReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "Indices",});
-        internal_static_IndexNameEntry_descriptor =
-                getDescriptor().getMessageTypes().get(53);
-        internal_static_IndexNameEntry_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_IndexNameEntry_descriptor,
-                new java.lang.String[]{"Project", "IndexTemplate", "IndexName", "FullName", "Domain", "Group",});
-        internal_static_ListIndexNameRequest_descriptor =
-                getDescriptor().getMessageTypes().get(54);
-        internal_static_ListIndexNameRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexNameRequest_descriptor,
-                new java.lang.String[]{"Cluster",});
-        internal_static_ListIndexNameReply_descriptor =
-                getDescriptor().getMessageTypes().get(55);
-        internal_static_ListIndexNameReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexNameReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "IndexNames",});
-        internal_static_ListIndexAliasNameRequest_descriptor =
-                getDescriptor().getMessageTypes().get(56);
-        internal_static_ListIndexAliasNameRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexAliasNameRequest_descriptor,
-                new java.lang.String[]{"Cluster",});
-        internal_static_ListIndexAliasNameReply_descriptor =
-                getDescriptor().getMessageTypes().get(57);
-        internal_static_ListIndexAliasNameReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_ListIndexAliasNameReply_descriptor,
-                new java.lang.String[]{"Code", "Message", "IndexAliasNames",});
-        internal_static_AttachIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(58);
-        internal_static_AttachIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_AttachIndexRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "IndexTemplate",});
-        internal_static_AttachIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(59);
-        internal_static_AttachIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_AttachIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_DetachIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(60);
-        internal_static_DetachIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DetachIndexRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "IndexTemplate",});
-        internal_static_DetachIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(61);
-        internal_static_DetachIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_DetachIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        internal_static_RefreshIndexRequest_descriptor =
-                getDescriptor().getMessageTypes().get(62);
-        internal_static_RefreshIndexRequest_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_RefreshIndexRequest_descriptor,
-                new java.lang.String[]{"Name", "Project", "IndexTemplate",});
-        internal_static_RefreshIndexReply_descriptor =
-                getDescriptor().getMessageTypes().get(63);
-        internal_static_RefreshIndexReply_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_RefreshIndexReply_descriptor,
-                new java.lang.String[]{"Code", "Message",});
-        com.google.protobuf.WrappersProto.getDescriptor();
-    }
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.WrappersProto.getDescriptor(),
+        }, assigner);
+    internal_static_CreateClusterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_CreateClusterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateClusterRequest_descriptor,
+        new java.lang.String[] { "Name", "Cluster", "Description", "Status", "Endpoint", "InternalEndpoint", });
+    internal_static_CreateClusterReply_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_CreateClusterReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateClusterReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetClusterInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_GetClusterInfoRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetClusterInfoRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_GetClusterInfoReply_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_GetClusterInfoReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetClusterInfoReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Cluster", });
+    internal_static_ClusterInfo_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_ClusterInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ClusterInfo_descriptor,
+        new java.lang.String[] { "Id", "Name", "Endpoint", "InternalEndpoint", "Type", "Description", "CreateTime", "LastUpdateTime", "Status", "EsVersion", "TotalProjectNumber", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize", "ClusterHealth", "Nodes", "TotalTemplateNumber", });
+    internal_static_NodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_NodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_NodeInfo_descriptor,
+        new java.lang.String[] { "Id", "Name", "IpAddress", "IsMaster", "CpuPercent", "RamMax", "RamCurrent", "HeapMax", "HeapCurrent", "DiskAvail", "DiskPercent", "Group", "Tag", });
+    internal_static_UpdateClusterInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_UpdateClusterInfoRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateClusterInfoRequest_descriptor,
+        new java.lang.String[] { "Id", "Name", "Status", "Description", "InternalEndpoint", });
+    internal_static_UpdateClusterInfoReply_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_UpdateClusterInfoReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateClusterInfoReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_DeleteClusterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_DeleteClusterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteClusterRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_DeleteClusterReply_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_DeleteClusterReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteClusterReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_ListClusterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_ListClusterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListClusterRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_ListClusterReply_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_ListClusterReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListClusterReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Clusters", });
+    internal_static_ListClusterDetailsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_ListClusterDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListClusterDetailsRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_ListClusterDetailsReply_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_ListClusterDetailsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListClusterDetailsReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Clusters", });
+    internal_static_CreateProjectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_CreateProjectRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateProjectRequest_descriptor,
+        new java.lang.String[] { "Name", "Cluster", "Description", "ProjectSetting", });
+    internal_static_CreateProjectReply_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_CreateProjectReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateProjectReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_DeleteProjectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_DeleteProjectRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteProjectRequest_descriptor,
+        new java.lang.String[] { "Name", "Status", });
+    internal_static_DeleteProjectReply_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_DeleteProjectReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteProjectReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_UpdateProjectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_UpdateProjectRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateProjectRequest_descriptor,
+        new java.lang.String[] { "Id", "Name", "Description", "ProjectSetting", });
+    internal_static_UpdateProjectReply_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_UpdateProjectReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateProjectReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetProjectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_GetProjectRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetProjectRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_GetProjectReply_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_GetProjectReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetProjectReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Project", });
+    internal_static_ProjectInfo_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_ProjectInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ProjectInfo_descriptor,
+        new java.lang.String[] { "Id", "Name", "ClusterName", "Description", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize", "ClusterId", "Status", "TotalTemplateNumber", });
+    internal_static_ListProjectRequest_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_ListProjectRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListProjectRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListProjectReply_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_ListProjectReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListProjectReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Projects", });
+    internal_static_ListProjectDetailsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_ListProjectDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListProjectDetailsRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListProjectDetailsReply_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_ListProjectDetailsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListProjectDetailsReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Projects", });
+    internal_static_CreateIndexTemplateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_CreateIndexTemplateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateIndexTemplateRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "Mapping", "Setting", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow", "AutoIndexNamePrefix", });
+    internal_static_CreateIndexTemplateReply_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_CreateIndexTemplateReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateIndexTemplateReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetIndexTemplateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_GetIndexTemplateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetIndexTemplateRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", });
+    internal_static_GetIndexTemplateReply_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_GetIndexTemplateReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetIndexTemplateReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Template", });
+    internal_static_UpdateIndexTemplateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_UpdateIndexTemplateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateIndexTemplateRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "Mapping", "Setting", "UpdateAlias", "UpdatePolicy", "UpdateWindow", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow", });
+    internal_static_UpdateIndexTemplateReply_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_UpdateIndexTemplateReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateIndexTemplateReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_DeleteIndexTemplateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(33);
+    internal_static_DeleteIndexTemplateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteIndexTemplateRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", });
+    internal_static_DeleteIndexTemplateReply_descriptor =
+      getDescriptor().getMessageTypes().get(34);
+    internal_static_DeleteIndexTemplateReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteIndexTemplateReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_ListIndexTemplateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(35);
+    internal_static_ListIndexTemplateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexTemplateRequest_descriptor,
+        new java.lang.String[] { "Project", });
+    internal_static_ListIndexTemplateReply_descriptor =
+      getDescriptor().getMessageTypes().get(36);
+    internal_static_ListIndexTemplateReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexTemplateReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Templates", });
+    internal_static_ListIndexTemplateDetailsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(37);
+    internal_static_ListIndexTemplateDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexTemplateDetailsRequest_descriptor,
+        new java.lang.String[] { "Project", });
+    internal_static_ListIndexTemplateDetailsReply_descriptor =
+      getDescriptor().getMessageTypes().get(38);
+    internal_static_ListIndexTemplateDetailsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexTemplateDetailsReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Templates", });
+    internal_static_IndexTemplateInfo_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_IndexTemplateInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_IndexTemplateInfo_descriptor,
+        new java.lang.String[] { "Name", "Cluster", "Project", "Mapping", "Setting", "Aliases", "AutoIndexRollingPolicy", "AutoIndexRollingWindow", "AutoIndexNamePrefix", "TotalIndexNumber", "TotalDocNumber", "TotalDataSize", });
+    internal_static_CreateIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(40);
+    internal_static_CreateIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateIndexRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", "Aliases", "Mapping", "Setting", "RollingPolicy", });
+    internal_static_CreateIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(41);
+    internal_static_CreateIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CreateIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_GetIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(42);
+    internal_static_GetIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetIndexRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", });
+    internal_static_GetIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(43);
+    internal_static_GetIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Index", });
+    internal_static_IndexInfo_descriptor =
+      getDescriptor().getMessageTypes().get(44);
+    internal_static_IndexInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_IndexInfo_descriptor,
+        new java.lang.String[] { "Name", "ClusterName", "ProjectName", "Mapping", "Setting", "Aliases", "TotalDocNumber", "TotalDataSize", "PrimaryShardNumber", "ReplicaShardNumber", "IndexHealth", "ProjectId", "ClusterId", "RollingPolicy", "IndexId", "Template", });
+    internal_static_UpdateIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(45);
+    internal_static_UpdateIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateIndexRequest_descriptor,
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "Mapping", "Setting", "Aliases", });
+    internal_static_UpdateIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(46);
+    internal_static_UpdateIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UpdateIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_DeleteIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(47);
+    internal_static_DeleteIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteIndexRequest_descriptor,
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", });
+    internal_static_DeleteIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(48);
+    internal_static_DeleteIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeleteIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_ListIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(49);
+    internal_static_ListIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexRequest_descriptor,
+        new java.lang.String[] { "Cluster", "Project", "IndexTemplate", });
+    internal_static_ListIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(50);
+    internal_static_ListIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Indices", });
+    internal_static_ListIndexDetailsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(51);
+    internal_static_ListIndexDetailsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexDetailsRequest_descriptor,
+        new java.lang.String[] { "Cluster", "Project", "IndexTemplate", });
+    internal_static_ListIndexDetailsReply_descriptor =
+      getDescriptor().getMessageTypes().get(52);
+    internal_static_ListIndexDetailsReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexDetailsReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "Indices", });
+    internal_static_IndexNameEntry_descriptor =
+      getDescriptor().getMessageTypes().get(53);
+    internal_static_IndexNameEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_IndexNameEntry_descriptor,
+        new java.lang.String[] { "Project", "IndexTemplate", "IndexName", "FullName", "Domain", "Group", });
+    internal_static_ListIndexNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(54);
+    internal_static_ListIndexNameRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexNameRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListIndexNameReply_descriptor =
+      getDescriptor().getMessageTypes().get(55);
+    internal_static_ListIndexNameReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexNameReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "IndexNames", });
+    internal_static_ListIndexAliasNameRequest_descriptor =
+      getDescriptor().getMessageTypes().get(56);
+    internal_static_ListIndexAliasNameRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexAliasNameRequest_descriptor,
+        new java.lang.String[] { "Cluster", });
+    internal_static_ListIndexAliasNameReply_descriptor =
+      getDescriptor().getMessageTypes().get(57);
+    internal_static_ListIndexAliasNameReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ListIndexAliasNameReply_descriptor,
+        new java.lang.String[] { "Code", "Message", "IndexAliasNames", });
+    internal_static_AttachIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(58);
+    internal_static_AttachIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AttachIndexRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", });
+    internal_static_AttachIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(59);
+    internal_static_AttachIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AttachIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_DetachIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(60);
+    internal_static_DetachIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DetachIndexRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", });
+    internal_static_DetachIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(61);
+    internal_static_DetachIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DetachIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    internal_static_RefreshIndexRequest_descriptor =
+      getDescriptor().getMessageTypes().get(62);
+    internal_static_RefreshIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RefreshIndexRequest_descriptor,
+        new java.lang.String[] { "Name", "Project", "IndexTemplate", });
+    internal_static_RefreshIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(63);
+    internal_static_RefreshIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_RefreshIndexReply_descriptor,
+        new java.lang.String[] { "Code", "Message", });
+    com.google.protobuf.WrappersProto.getDescriptor();
+  }
 
-    private SearchMiddlePlatformMetaService() {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
-
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
-    }
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    // @@protoc_insertion_point(outer_class_scope)
+  // @@protoc_insertion_point(outer_class_scope)
 }

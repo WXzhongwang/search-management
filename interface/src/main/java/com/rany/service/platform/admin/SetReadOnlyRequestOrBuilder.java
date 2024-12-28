@@ -4,6 +4,6 @@
 package com.rany.service.platform.admin;
 
 public interface SetReadOnlyRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:SetReadOnlyRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:SetReadOnlyRequest)
+    com.google.protobuf.MessageOrBuilder {
 }

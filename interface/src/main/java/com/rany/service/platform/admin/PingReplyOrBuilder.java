@@ -4,17 +4,16 @@
 package com.rany.service.platform.admin;
 
 public interface PingReplyOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:PingReply)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:PingReply)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>string pong = 1;</code>
-     */
-    java.lang.String getPong();
-
-    /**
-     * <code>string pong = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getPongBytes();
+  /**
+   * <code>string pong = 1;</code>
+   */
+  java.lang.String getPong();
+  /**
+   * <code>string pong = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getPongBytes();
 }

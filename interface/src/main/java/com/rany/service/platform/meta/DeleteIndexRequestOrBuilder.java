@@ -4,39 +4,36 @@
 package com.rany.service.platform.meta;
 
 public interface DeleteIndexRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:DeleteIndexRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:DeleteIndexRequest)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>string project = 1;</code>
-     */
-    java.lang.String getProject();
+  /**
+   * <code>string project = 1;</code>
+   */
+  java.lang.String getProject();
+  /**
+   * <code>string project = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectBytes();
 
-    /**
-     * <code>string project = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getProjectBytes();
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  java.lang.String getIndexTemplate();
+  /**
+   * <code>string indexTemplate = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexTemplateBytes();
 
-    /**
-     * <code>string indexTemplate = 2;</code>
-     */
-    java.lang.String getIndexTemplate();
-
-    /**
-     * <code>string indexTemplate = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getIndexTemplateBytes();
-
-    /**
-     * <code>string indexName = 3;</code>
-     */
-    java.lang.String getIndexName();
-
-    /**
-     * <code>string indexName = 3;</code>
-     */
-    com.google.protobuf.ByteString
-    getIndexNameBytes();
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  java.lang.String getIndexName();
+  /**
+   * <code>string indexName = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getIndexNameBytes();
 }

@@ -103,8 +103,8 @@ public class AdminClientApiTest {
     @Test
     public void createProject() {
         ProjectCreateRequest projectCreateRequest = new ProjectCreateRequest();
-        projectCreateRequest.setCluster("localhost");
-        projectCreateRequest.setName("graph");
+        projectCreateRequest.setCluster("dev");
+        projectCreateRequest.setName("kg");
         projectCreateRequest.setDesc("knowledge graph");
         client.createProject(projectCreateRequest);
     }

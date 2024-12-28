@@ -7,187 +7,181 @@ package com.rany.service.platform.meta;
  * Protobuf enum {@code AutoIndexRollingPolicy}
  */
 public enum AutoIndexRollingPolicy
-        implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <pre>
-     * Index policy is not set
-     * </pre>
-     *
-     * <code>NONE = 0;</code>
-     */
-    NONE(0),
-    /**
-     * <pre>
-     * Index is auto-created daily with the format of name: indexname-20180521
-     * </pre>
-     *
-     * <code>DAY = 1;</code>
-     */
-    DAY(1),
-    /**
-     * <pre>
-     * Index is auto-created monthly with the format of name: indexname-201801
-     * </pre>
-     *
-     * <code>MONTH = 2;</code>
-     */
-    MONTH(2),
-    /**
-     * <pre>
-     * Index is auto-created quaterly with the format of name: indexname-2018Q3
-     * </pre>
-     *
-     * <code>QUARTER = 3;</code>
-     */
-    QUARTER(3),
-    /**
-     * <pre>
-     * Index is auto-created semiyearly with the format of name: indexname-2018S1
-     * </pre>
-     *
-     * <code>HALF_YEAR = 4;</code>
-     */
-    HALF_YEAR(4),
-    /**
-     * <pre>
-     * Index is auto-created yearly with the format of name: indexname-2018
-     * </pre>
-     *
-     * <code>YEAR = 5;</code>
-     */
-    YEAR(5),
-    UNRECOGNIZED(-1),
-    ;
+    implements com.google.protobuf.ProtocolMessageEnum {
+  /**
+   * <pre>
+   * Index policy is not set
+   * </pre>
+   *
+   * <code>NONE = 0;</code>
+   */
+  NONE(0),
+  /**
+   * <pre>
+   * Index is auto-created daily with the format of name: indexname-20180521
+   * </pre>
+   *
+   * <code>DAY = 1;</code>
+   */
+  DAY(1),
+  /**
+   * <pre>
+   * Index is auto-created monthly with the format of name: indexname-201801
+   * </pre>
+   *
+   * <code>MONTH = 2;</code>
+   */
+  MONTH(2),
+  /**
+   * <pre>
+   * Index is auto-created quaterly with the format of name: indexname-2018Q3
+   * </pre>
+   *
+   * <code>QUARTER = 3;</code>
+   */
+  QUARTER(3),
+  /**
+   * <pre>
+   * Index is auto-created semiyearly with the format of name: indexname-2018S1
+   * </pre>
+   *
+   * <code>HALF_YEAR = 4;</code>
+   */
+  HALF_YEAR(4),
+  /**
+   * <pre>
+   * Index is auto-created yearly with the format of name: indexname-2018
+   * </pre>
+   *
+   * <code>YEAR = 5;</code>
+   */
+  YEAR(5),
+  UNRECOGNIZED(-1),
+  ;
 
-    /**
-     * <pre>
-     * Index policy is not set
-     * </pre>
-     *
-     * <code>NONE = 0;</code>
-     */
-    public static final int NONE_VALUE = 0;
-    /**
-     * <pre>
-     * Index is auto-created daily with the format of name: indexname-20180521
-     * </pre>
-     *
-     * <code>DAY = 1;</code>
-     */
-    public static final int DAY_VALUE = 1;
-    /**
-     * <pre>
-     * Index is auto-created monthly with the format of name: indexname-201801
-     * </pre>
-     *
-     * <code>MONTH = 2;</code>
-     */
-    public static final int MONTH_VALUE = 2;
-    /**
-     * <pre>
-     * Index is auto-created quaterly with the format of name: indexname-2018Q3
-     * </pre>
-     *
-     * <code>QUARTER = 3;</code>
-     */
-    public static final int QUARTER_VALUE = 3;
-    /**
-     * <pre>
-     * Index is auto-created semiyearly with the format of name: indexname-2018S1
-     * </pre>
-     *
-     * <code>HALF_YEAR = 4;</code>
-     */
-    public static final int HALF_YEAR_VALUE = 4;
-    /**
-     * <pre>
-     * Index is auto-created yearly with the format of name: indexname-2018
-     * </pre>
-     *
-     * <code>YEAR = 5;</code>
-     */
-    public static final int YEAR_VALUE = 5;
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-            AutoIndexRollingPolicy> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<AutoIndexRollingPolicy>() {
-                public AutoIndexRollingPolicy findValueByNumber(int number) {
-                    return AutoIndexRollingPolicy.forNumber(number);
-                }
-            };
-    private static final AutoIndexRollingPolicy[] VALUES = values();
-    private final int value;
+  /**
+   * <pre>
+   * Index policy is not set
+   * </pre>
+   *
+   * <code>NONE = 0;</code>
+   */
+  public static final int NONE_VALUE = 0;
+  /**
+   * <pre>
+   * Index is auto-created daily with the format of name: indexname-20180521
+   * </pre>
+   *
+   * <code>DAY = 1;</code>
+   */
+  public static final int DAY_VALUE = 1;
+  /**
+   * <pre>
+   * Index is auto-created monthly with the format of name: indexname-201801
+   * </pre>
+   *
+   * <code>MONTH = 2;</code>
+   */
+  public static final int MONTH_VALUE = 2;
+  /**
+   * <pre>
+   * Index is auto-created quaterly with the format of name: indexname-2018Q3
+   * </pre>
+   *
+   * <code>QUARTER = 3;</code>
+   */
+  public static final int QUARTER_VALUE = 3;
+  /**
+   * <pre>
+   * Index is auto-created semiyearly with the format of name: indexname-2018S1
+   * </pre>
+   *
+   * <code>HALF_YEAR = 4;</code>
+   */
+  public static final int HALF_YEAR_VALUE = 4;
+  /**
+   * <pre>
+   * Index is auto-created yearly with the format of name: indexname-2018
+   * </pre>
+   *
+   * <code>YEAR = 5;</code>
+   */
+  public static final int YEAR_VALUE = 5;
 
-    private AutoIndexRollingPolicy(int value) {
-        this.value = value;
+
+  public final int getNumber() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalArgumentException(
+          "Can't get the number of an unknown enum value.");
     }
+    return value;
+  }
 
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static AutoIndexRollingPolicy valueOf(int value) {
-        return forNumber(value);
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
+  @java.lang.Deprecated
+  public static AutoIndexRollingPolicy valueOf(int value) {
+    return forNumber(value);
+  }
+
+  public static AutoIndexRollingPolicy forNumber(int value) {
+    switch (value) {
+      case 0: return NONE;
+      case 1: return DAY;
+      case 2: return MONTH;
+      case 3: return QUARTER;
+      case 4: return HALF_YEAR;
+      case 5: return YEAR;
+      default: return null;
     }
+  }
 
-    public static AutoIndexRollingPolicy forNumber(int value) {
-        switch (value) {
-            case 0:
-                return NONE;
-            case 1:
-                return DAY;
-            case 2:
-                return MONTH;
-            case 3:
-                return QUARTER;
-            case 4:
-                return HALF_YEAR;
-            case 5:
-                return YEAR;
-            default:
-                return null;
-        }
+  public static com.google.protobuf.Internal.EnumLiteMap<AutoIndexRollingPolicy>
+      internalGetValueMap() {
+    return internalValueMap;
+  }
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      AutoIndexRollingPolicy> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<AutoIndexRollingPolicy>() {
+          public AutoIndexRollingPolicy findValueByNumber(int number) {
+            return AutoIndexRollingPolicy.forNumber(number);
+          }
+        };
+
+  public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      getValueDescriptor() {
+    return getDescriptor().getValues().get(ordinal());
+  }
+  public final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptorForType() {
+    return getDescriptor();
+  }
+  public static final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptor() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.getDescriptor().getEnumTypes().get(3);
+  }
+
+  private static final AutoIndexRollingPolicy[] VALUES = values();
+
+  public static AutoIndexRollingPolicy valueOf(
+      com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    if (desc.getType() != getDescriptor()) {
+      throw new java.lang.IllegalArgumentException(
+        "EnumValueDescriptor is not for this type.");
     }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<AutoIndexRollingPolicy>
-    internalGetValueMap() {
-        return internalValueMap;
+    if (desc.getIndex() == -1) {
+      return UNRECOGNIZED;
     }
+    return VALUES[desc.getIndex()];
+  }
 
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.getDescriptor().getEnumTypes().get(3);
-    }
+  private final int value;
 
-    public static AutoIndexRollingPolicy valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-                    "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-            return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-    }
+  private AutoIndexRollingPolicy(int value) {
+    this.value = value;
+  }
 
-    public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
-                    "Can't get the number of an unknown enum value.");
-        }
-        return value;
-    }
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
-        return getDescriptor();
-    }
-
-    // @@protoc_insertion_point(enum_scope:AutoIndexRollingPolicy)
+  // @@protoc_insertion_point(enum_scope:AutoIndexRollingPolicy)
 }
 

@@ -4,17 +4,16 @@
 package com.rany.service.platform.meta;
 
 public interface ListProjectDetailsRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:ListProjectDetailsRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:ListProjectDetailsRequest)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>string cluster = 1;</code>
-     */
-    java.lang.String getCluster();
-
-    /**
-     * <code>string cluster = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getClusterBytes();
+  /**
+   * <code>string cluster = 1;</code>
+   */
+  java.lang.String getCluster();
+  /**
+   * <code>string cluster = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getClusterBytes();
 }

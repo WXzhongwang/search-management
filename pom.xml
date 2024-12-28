@@ -6,7 +6,7 @@
 
     <groupId>com.rany.service</groupId>
     <artifactId>search-management</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>root</name>
     <modules>
         <module>client</module>
@@ -153,26 +153,37 @@
 
             <dependency>
                 <groupId>com.rany.service</groupId>
-                <artifactId>interface</artifactId>
+                <artifactId>search-management-interface</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.rany.service</groupId>
-                <artifactId>common</artifactId>
+                <artifactId>search-management-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.rany.service</groupId>
-                <artifactId>component</artifactId>
+                <artifactId>search-management-component</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.rany.service</groupId>
-                <artifactId>client</artifactId>
+                <artifactId>search-management-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>private-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2470424-release-mtB7Nz</url>
+        </repository>
+        <snapshotRepository>
+            <id>private-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2470424-snapshot-M3PWj7</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>

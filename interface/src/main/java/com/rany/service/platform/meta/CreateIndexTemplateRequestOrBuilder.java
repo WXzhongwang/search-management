@@ -4,98 +4,89 @@
 package com.rany.service.platform.meta;
 
 public interface CreateIndexTemplateRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:CreateIndexTemplateRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:CreateIndexTemplateRequest)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>string name = 1;</code>
-     */
-    java.lang.String getName();
+  /**
+   * <code>string name = 1;</code>
+   */
+  java.lang.String getName();
+  /**
+   * <code>string name = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
 
-    /**
-     * <code>string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-    getNameBytes();
+  /**
+   * <code>string project = 2;</code>
+   */
+  java.lang.String getProject();
+  /**
+   * <code>string project = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getProjectBytes();
 
-    /**
-     * <code>string project = 2;</code>
-     */
-    java.lang.String getProject();
+  /**
+   * <code>string mapping = 3;</code>
+   */
+  java.lang.String getMapping();
+  /**
+   * <code>string mapping = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getMappingBytes();
 
-    /**
-     * <code>string project = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getProjectBytes();
+  /**
+   * <code>string setting = 4;</code>
+   */
+  java.lang.String getSetting();
+  /**
+   * <code>string setting = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getSettingBytes();
 
-    /**
-     * <code>string mapping = 3;</code>
-     */
-    java.lang.String getMapping();
+  /**
+   * <code>repeated string aliases = 5;</code>
+   */
+  java.util.List<java.lang.String>
+      getAliasesList();
+  /**
+   * <code>repeated string aliases = 5;</code>
+   */
+  int getAliasesCount();
+  /**
+   * <code>repeated string aliases = 5;</code>
+   */
+  java.lang.String getAliases(int index);
+  /**
+   * <code>repeated string aliases = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getAliasesBytes(int index);
 
-    /**
-     * <code>string mapping = 3;</code>
-     */
-    com.google.protobuf.ByteString
-    getMappingBytes();
+  /**
+   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
+   */
+  int getAutoIndexRollingPolicyValue();
+  /**
+   * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
+   */
+  com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy();
 
-    /**
-     * <code>string setting = 4;</code>
-     */
-    java.lang.String getSetting();
+  /**
+   * <code>int32 auto_index_rolling_window = 7;</code>
+   */
+  int getAutoIndexRollingWindow();
 
-    /**
-     * <code>string setting = 4;</code>
-     */
-    com.google.protobuf.ByteString
-    getSettingBytes();
-
-    /**
-     * <code>repeated string aliases = 5;</code>
-     */
-    java.util.List<java.lang.String>
-    getAliasesList();
-
-    /**
-     * <code>repeated string aliases = 5;</code>
-     */
-    int getAliasesCount();
-
-    /**
-     * <code>repeated string aliases = 5;</code>
-     */
-    java.lang.String getAliases(int index);
-
-    /**
-     * <code>repeated string aliases = 5;</code>
-     */
-    com.google.protobuf.ByteString
-    getAliasesBytes(int index);
-
-    /**
-     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
-     */
-    int getAutoIndexRollingPolicyValue();
-
-    /**
-     * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
-     */
-    com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy();
-
-    /**
-     * <code>int32 auto_index_rolling_window = 7;</code>
-     */
-    int getAutoIndexRollingWindow();
-
-    /**
-     * <code>string auto_index_name_prefix = 8;</code>
-     */
-    java.lang.String getAutoIndexNamePrefix();
-
-    /**
-     * <code>string auto_index_name_prefix = 8;</code>
-     */
-    com.google.protobuf.ByteString
-    getAutoIndexNamePrefixBytes();
+  /**
+   * <code>string auto_index_name_prefix = 8;</code>
+   */
+  java.lang.String getAutoIndexNamePrefix();
+  /**
+   * <code>string auto_index_name_prefix = 8;</code>
+   */
+  com.google.protobuf.ByteString
+      getAutoIndexNamePrefixBytes();
 }

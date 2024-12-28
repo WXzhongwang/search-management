@@ -4,6 +4,6 @@
 package com.rany.service.platform.admin;
 
 public interface SetSuspendRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:SetSuspendRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:SetSuspendRequest)
+    com.google.protobuf.MessageOrBuilder {
 }

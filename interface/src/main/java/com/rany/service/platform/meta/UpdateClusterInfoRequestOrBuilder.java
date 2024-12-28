@@ -4,54 +4,50 @@
 package com.rany.service.platform.meta;
 
 public interface UpdateClusterInfoRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:UpdateClusterInfoRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:UpdateClusterInfoRequest)
+    com.google.protobuf.MessageOrBuilder {
 
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    int getId();
+  /**
+   * <code>int32 id = 1;</code>
+   */
+  int getId();
 
-    /**
-     * <code>string name = 2;</code>
-     */
-    java.lang.String getName();
+  /**
+   * <code>string name = 2;</code>
+   */
+  java.lang.String getName();
+  /**
+   * <code>string name = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getNameBytes();
 
-    /**
-     * <code>string name = 2;</code>
-     */
-    com.google.protobuf.ByteString
-    getNameBytes();
+  /**
+   * <code>.ClusterStatus status = 3;</code>
+   */
+  int getStatusValue();
+  /**
+   * <code>.ClusterStatus status = 3;</code>
+   */
+  com.rany.service.platform.meta.ClusterStatus getStatus();
 
-    /**
-     * <code>.ClusterStatus status = 3;</code>
-     */
-    int getStatusValue();
+  /**
+   * <code>string description = 4;</code>
+   */
+  java.lang.String getDescription();
+  /**
+   * <code>string description = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getDescriptionBytes();
 
-    /**
-     * <code>.ClusterStatus status = 3;</code>
-     */
-    com.rany.service.platform.meta.ClusterStatus getStatus();
-
-    /**
-     * <code>string description = 4;</code>
-     */
-    java.lang.String getDescription();
-
-    /**
-     * <code>string description = 4;</code>
-     */
-    com.google.protobuf.ByteString
-    getDescriptionBytes();
-
-    /**
-     * <code>string internal_endpoint = 5;</code>
-     */
-    java.lang.String getInternalEndpoint();
-
-    /**
-     * <code>string internal_endpoint = 5;</code>
-     */
-    com.google.protobuf.ByteString
-    getInternalEndpointBytes();
+  /**
+   * <code>string internal_endpoint = 5;</code>
+   */
+  java.lang.String getInternalEndpoint();
+  /**
+   * <code>string internal_endpoint = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getInternalEndpointBytes();
 }

@@ -7,99 +7,97 @@ package com.rany.service.platform.meta;
  * Protobuf enum {@code ProjectStatus}
  */
 public enum ProjectStatus
-        implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>NORMAL = 0;</code>
-     */
-    NORMAL(0),
-    /**
-     * <code>DELETE = 1;</code>
-     */
-    DELETE(1),
-    UNRECOGNIZED(-1),
-    ;
+    implements com.google.protobuf.ProtocolMessageEnum {
+  /**
+   * <code>NORMAL = 0;</code>
+   */
+  NORMAL(0),
+  /**
+   * <code>DELETE = 1;</code>
+   */
+  DELETE(1),
+  UNRECOGNIZED(-1),
+  ;
 
-    /**
-     * <code>NORMAL = 0;</code>
-     */
-    public static final int NORMAL_VALUE = 0;
-    /**
-     * <code>DELETE = 1;</code>
-     */
-    public static final int DELETE_VALUE = 1;
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-            ProjectStatus> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<ProjectStatus>() {
-                public ProjectStatus findValueByNumber(int number) {
-                    return ProjectStatus.forNumber(number);
-                }
-            };
-    private static final ProjectStatus[] VALUES = values();
-    private final int value;
+  /**
+   * <code>NORMAL = 0;</code>
+   */
+  public static final int NORMAL_VALUE = 0;
+  /**
+   * <code>DELETE = 1;</code>
+   */
+  public static final int DELETE_VALUE = 1;
 
-    private ProjectStatus(int value) {
-        this.value = value;
+
+  public final int getNumber() {
+    if (this == UNRECOGNIZED) {
+      throw new java.lang.IllegalArgumentException(
+          "Can't get the number of an unknown enum value.");
     }
+    return value;
+  }
 
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ProjectStatus valueOf(int value) {
-        return forNumber(value);
+  /**
+   * @deprecated Use {@link #forNumber(int)} instead.
+   */
+  @java.lang.Deprecated
+  public static ProjectStatus valueOf(int value) {
+    return forNumber(value);
+  }
+
+  public static ProjectStatus forNumber(int value) {
+    switch (value) {
+      case 0: return NORMAL;
+      case 1: return DELETE;
+      default: return null;
     }
+  }
 
-    public static ProjectStatus forNumber(int value) {
-        switch (value) {
-            case 0:
-                return NORMAL;
-            case 1:
-                return DELETE;
-            default:
-                return null;
-        }
+  public static com.google.protobuf.Internal.EnumLiteMap<ProjectStatus>
+      internalGetValueMap() {
+    return internalValueMap;
+  }
+  private static final com.google.protobuf.Internal.EnumLiteMap<
+      ProjectStatus> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<ProjectStatus>() {
+          public ProjectStatus findValueByNumber(int number) {
+            return ProjectStatus.forNumber(number);
+          }
+        };
+
+  public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      getValueDescriptor() {
+    return getDescriptor().getValues().get(ordinal());
+  }
+  public final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptorForType() {
+    return getDescriptor();
+  }
+  public static final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptor() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.getDescriptor().getEnumTypes().get(2);
+  }
+
+  private static final ProjectStatus[] VALUES = values();
+
+  public static ProjectStatus valueOf(
+      com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+    if (desc.getType() != getDescriptor()) {
+      throw new java.lang.IllegalArgumentException(
+        "EnumValueDescriptor is not for this type.");
     }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<ProjectStatus>
-    internalGetValueMap() {
-        return internalValueMap;
+    if (desc.getIndex() == -1) {
+      return UNRECOGNIZED;
     }
+    return VALUES[desc.getIndex()];
+  }
 
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.getDescriptor().getEnumTypes().get(2);
-    }
+  private final int value;
 
-    public static ProjectStatus valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-                    "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-            return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-    }
+  private ProjectStatus(int value) {
+    this.value = value;
+  }
 
-    public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
-                    "Can't get the number of an unknown enum value.");
-        }
-        return value;
-    }
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-    }
-
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
-        return getDescriptor();
-    }
-
-    // @@protoc_insertion_point(enum_scope:ProjectStatus)
+  // @@protoc_insertion_point(enum_scope:ProjectStatus)
 }
 

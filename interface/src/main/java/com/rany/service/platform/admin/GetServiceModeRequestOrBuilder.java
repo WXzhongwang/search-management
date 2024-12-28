@@ -4,6 +4,6 @@
 package com.rany.service.platform.admin;
 
 public interface GetServiceModeRequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:GetServiceModeRequest)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:GetServiceModeRequest)
+    com.google.protobuf.MessageOrBuilder {
 }

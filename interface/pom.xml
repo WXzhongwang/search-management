@@ -5,11 +5,11 @@
     <parent>
         <artifactId>search-management</artifactId>
         <groupId>com.rany.service</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0-SNAPSHOT</version>
-    <artifactId>interface</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>search-management-interface</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -43,7 +43,7 @@
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.0</version>
+                <version>0.5.1</version>
                 <configuration>
                     <protocArtifact>com.google.protobuf:protoc:3.4.0:exe:${os.detected.classifier}</protocArtifact>
                     <pluginId>grpc-java</pluginId>

@@ -6,528 +6,1588 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code IndexInfo}
  */
-public final class IndexInfo extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:IndexInfo)
-        IndexInfoOrBuilder {
-    public static final int NAME_FIELD_NUMBER = 1;
-    public static final int CLUSTER_NAME_FIELD_NUMBER = 2;
-    public static final int PROJECT_NAME_FIELD_NUMBER = 3;
-    public static final int MAPPING_FIELD_NUMBER = 5;
-    public static final int SETTING_FIELD_NUMBER = 6;
-    public static final int ALIASES_FIELD_NUMBER = 7;
-    public static final int TOTAL_DOC_NUMBER_FIELD_NUMBER = 8;
-    public static final int TOTAL_DATA_SIZE_FIELD_NUMBER = 9;
-    public static final int PRIMARY_SHARD_NUMBER_FIELD_NUMBER = 10;
-    public static final int REPLICA_SHARD_NUMBER_FIELD_NUMBER = 11;
-    public static final int INDEX_HEALTH_FIELD_NUMBER = 12;
-    public static final int PROJECT_ID_FIELD_NUMBER = 13;
-    public static final int CLUSTER_ID_FIELD_NUMBER = 14;
-    public static final int ROLLING_POLICY_FIELD_NUMBER = 15;
-    public static final int INDEX_ID_FIELD_NUMBER = 16;
-    public static final int TEMPLATE_FIELD_NUMBER = 17;
-    private static final long serialVersionUID = 0L;
-    // @@protoc_insertion_point(class_scope:IndexInfo)
-    private static final com.rany.service.platform.meta.IndexInfo DEFAULT_INSTANCE;
-    private static final com.google.protobuf.Parser<IndexInfo>
-            PARSER = new com.google.protobuf.AbstractParser<IndexInfo>() {
-        public IndexInfo parsePartialFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return new IndexInfo(input, extensionRegistry);
-        }
-    };
+public  final class IndexInfo extends
+    com.google.protobuf.GeneratedMessageV3 implements
+    // @@protoc_insertion_point(message_implements:IndexInfo)
+    IndexInfoOrBuilder {
+private static final long serialVersionUID = 0L;
+  // Use IndexInfo.newBuilder() to construct.
+  private IndexInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    super(builder);
+  }
+  private IndexInfo() {
+    name_ = "";
+    clusterName_ = "";
+    projectName_ = "";
+    mapping_ = "";
+    setting_ = "";
+    aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    totalDocNumber_ = 0L;
+    totalDataSize_ = 0L;
+    primaryShardNumber_ = 0;
+    replicaShardNumber_ = 0;
+    indexHealth_ = "";
+    projectId_ = "";
+    clusterId_ = "";
+    rollingPolicy_ = 0;
+    indexId_ = 0;
+    template_ = "";
+  }
 
-    static {
-        DEFAULT_INSTANCE = new com.rany.service.platform.meta.IndexInfo();
-    }
-
-    private int bitField0_;
-    private volatile java.lang.Object name_;
-    private volatile java.lang.Object clusterName_;
-    private volatile java.lang.Object projectName_;
-    private volatile java.lang.Object mapping_;
-    private volatile java.lang.Object setting_;
-    private com.google.protobuf.LazyStringList aliases_;
-    private long totalDocNumber_;
-    private long totalDataSize_;
-    private int primaryShardNumber_;
-    private int replicaShardNumber_;
-    private volatile java.lang.Object indexHealth_;
-    private volatile java.lang.Object projectId_;
-    private volatile java.lang.Object clusterId_;
-    private int rollingPolicy_;
-    private int indexId_;
-    private volatile java.lang.Object template_;
-    private byte memoizedIsInitialized = -1;
-    // Use IndexInfo.newBuilder() to construct.
-    private IndexInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-    }
-
-    private IndexInfo() {
-        name_ = "";
-        clusterName_ = "";
-        projectName_ = "";
-        mapping_ = "";
-        setting_ = "";
-        aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        totalDocNumber_ = 0L;
-        totalDataSize_ = 0L;
-        primaryShardNumber_ = 0;
-        replicaShardNumber_ = 0;
-        indexHealth_ = "";
-        projectId_ = "";
-        clusterId_ = "";
-        rollingPolicy_ = 0;
-        indexId_ = 0;
-        template_ = "";
-    }
-
-    private IndexInfo(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-            boolean done = false;
-            while (!done) {
-                int tag = input.readTag();
-                switch (tag) {
-                    case 0:
-                        done = true;
-                        break;
-                    default: {
-                        if (!parseUnknownFieldProto3(
-                                input, unknownFields, extensionRegistry, tag)) {
-                            done = true;
-                        }
-                        break;
-                    }
-                    case 10: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        name_ = s;
-                        break;
-                    }
-                    case 18: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        clusterName_ = s;
-                        break;
-                    }
-                    case 26: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        projectName_ = s;
-                        break;
-                    }
-                    case 42: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        mapping_ = s;
-                        break;
-                    }
-                    case 50: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        setting_ = s;
-                        break;
-                    }
-                    case 58: {
-                        java.lang.String s = input.readStringRequireUtf8();
-                        if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                            aliases_ = new com.google.protobuf.LazyStringArrayList();
-                            mutable_bitField0_ |= 0x00000020;
-                        }
-                        aliases_.add(s);
-                        break;
-                    }
-                    case 64: {
-
-                        totalDocNumber_ = input.readInt64();
-                        break;
-                    }
-                    case 72: {
-
-                        totalDataSize_ = input.readInt64();
-                        break;
-                    }
-                    case 80: {
-
-                        primaryShardNumber_ = input.readInt32();
-                        break;
-                    }
-                    case 88: {
-
-                        replicaShardNumber_ = input.readInt32();
-                        break;
-                    }
-                    case 98: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        indexHealth_ = s;
-                        break;
-                    }
-                    case 106: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        projectId_ = s;
-                        break;
-                    }
-                    case 114: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        clusterId_ = s;
-                        break;
-                    }
-                    case 120: {
-                        int rawValue = input.readEnum();
-
-                        rollingPolicy_ = rawValue;
-                        break;
-                    }
-                    case 128: {
-
-                        indexId_ = input.readInt32();
-                        break;
-                    }
-                    case 138: {
-                        java.lang.String s = input.readStringRequireUtf8();
-
-                        template_ = s;
-                        break;
-                    }
-                }
+  @java.lang.Override
+  public final com.google.protobuf.UnknownFieldSet
+  getUnknownFields() {
+    return this.unknownFields;
+  }
+  private IndexInfo(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    this();
+    int mutable_bitField0_ = 0;
+    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+        com.google.protobuf.UnknownFieldSet.newBuilder();
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          default: {
+            if (!parseUnknownFieldProto3(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
             }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                    e).setUnfinishedMessage(this);
-        } finally {
-            if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                aliases_ = aliases_.getUnmodifiableView();
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-        }
-    }
+            break;
+          }
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
+            name_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clusterName_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            projectName_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            mapping_ = s;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            setting_ = s;
+            break;
+          }
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              aliases_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000020;
+            }
+            aliases_.add(s);
+            break;
+          }
+          case 64: {
+
+            totalDocNumber_ = input.readInt64();
+            break;
+          }
+          case 72: {
+
+            totalDataSize_ = input.readInt64();
+            break;
+          }
+          case 80: {
+
+            primaryShardNumber_ = input.readInt32();
+            break;
+          }
+          case 88: {
+
+            replicaShardNumber_ = input.readInt32();
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            indexHealth_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            projectId_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clusterId_ = s;
+            break;
+          }
+          case 120: {
+            int rawValue = input.readEnum();
+
+            rollingPolicy_ = rawValue;
+            break;
+          }
+          case 128: {
+
+            indexId_ = input.readInt32();
+            break;
+          }
+          case 138: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            template_ = s;
+            break;
+          }
+        }
+      }
+    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+      throw e.setUnfinishedMessage(this);
+    } catch (java.io.IOException e) {
+      throw new com.google.protobuf.InvalidProtocolBufferException(
+          e).setUnfinishedMessage(this);
+    } finally {
+      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = aliases_.getUnmodifiableView();
+      }
+      this.unknownFields = unknownFields.build();
+      makeExtensionsImmutable();
+    }
+  }
+  public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
+  }
+
+  protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+    return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            com.rany.service.platform.meta.IndexInfo.class, com.rany.service.platform.meta.IndexInfo.Builder.class);
+  }
+
+  private int bitField0_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
+  /**
+   * <code>string name = 1;</code>
+   */
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string name = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CLUSTER_NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object clusterName_;
+  /**
+   * <code>string cluster_name = 2;</code>
+   */
+  public java.lang.String getClusterName() {
+    java.lang.Object ref = clusterName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clusterName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string cluster_name = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getClusterNameBytes() {
+    java.lang.Object ref = clusterName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clusterName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PROJECT_NAME_FIELD_NUMBER = 3;
+  private volatile java.lang.Object projectName_;
+  /**
+   * <code>string project_name = 3;</code>
+   */
+  public java.lang.String getProjectName() {
+    java.lang.Object ref = projectName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      projectName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string project_name = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getProjectNameBytes() {
+    java.lang.Object ref = projectName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      projectName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MAPPING_FIELD_NUMBER = 5;
+  private volatile java.lang.Object mapping_;
+  /**
+   * <code>string mapping = 5;</code>
+   */
+  public java.lang.String getMapping() {
+    java.lang.Object ref = mapping_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      mapping_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string mapping = 5;</code>
+   */
+  public com.google.protobuf.ByteString
+      getMappingBytes() {
+    java.lang.Object ref = mapping_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      mapping_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int SETTING_FIELD_NUMBER = 6;
+  private volatile java.lang.Object setting_;
+  /**
+   * <code>string setting = 6;</code>
+   */
+  public java.lang.String getSetting() {
+    java.lang.Object ref = setting_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      setting_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string setting = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getSettingBytes() {
+    java.lang.Object ref = setting_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      setting_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ALIASES_FIELD_NUMBER = 7;
+  private com.google.protobuf.LazyStringList aliases_;
+  /**
+   * <code>repeated string aliases = 7;</code>
+   */
+  public com.google.protobuf.ProtocolStringList
+      getAliasesList() {
+    return aliases_;
+  }
+  /**
+   * <code>repeated string aliases = 7;</code>
+   */
+  public int getAliasesCount() {
+    return aliases_.size();
+  }
+  /**
+   * <code>repeated string aliases = 7;</code>
+   */
+  public java.lang.String getAliases(int index) {
+    return aliases_.get(index);
+  }
+  /**
+   * <code>repeated string aliases = 7;</code>
+   */
+  public com.google.protobuf.ByteString
+      getAliasesBytes(int index) {
+    return aliases_.getByteString(index);
+  }
+
+  public static final int TOTAL_DOC_NUMBER_FIELD_NUMBER = 8;
+  private long totalDocNumber_;
+  /**
+   * <pre>
+   * doc number of this index;
+   * </pre>
+   *
+   * <code>int64 total_doc_number = 8;</code>
+   */
+  public long getTotalDocNumber() {
+    return totalDocNumber_;
+  }
+
+  public static final int TOTAL_DATA_SIZE_FIELD_NUMBER = 9;
+  private long totalDataSize_;
+  /**
+   * <pre>
+   * data size of all shards of this index;
+   * </pre>
+   *
+   * <code>int64 total_data_size = 9;</code>
+   */
+  public long getTotalDataSize() {
+    return totalDataSize_;
+  }
+
+  public static final int PRIMARY_SHARD_NUMBER_FIELD_NUMBER = 10;
+  private int primaryShardNumber_;
+  /**
+   * <code>int32 primary_shard_number = 10;</code>
+   */
+  public int getPrimaryShardNumber() {
+    return primaryShardNumber_;
+  }
+
+  public static final int REPLICA_SHARD_NUMBER_FIELD_NUMBER = 11;
+  private int replicaShardNumber_;
+  /**
+   * <code>int32 replica_shard_number = 11;</code>
+   */
+  public int getReplicaShardNumber() {
+    return replicaShardNumber_;
+  }
+
+  public static final int INDEX_HEALTH_FIELD_NUMBER = 12;
+  private volatile java.lang.Object indexHealth_;
+  /**
+   * <code>string index_health = 12;</code>
+   */
+  public java.lang.String getIndexHealth() {
+    java.lang.Object ref = indexHealth_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      indexHealth_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string index_health = 12;</code>
+   */
+  public com.google.protobuf.ByteString
+      getIndexHealthBytes() {
+    java.lang.Object ref = indexHealth_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      indexHealth_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int PROJECT_ID_FIELD_NUMBER = 13;
+  private volatile java.lang.Object projectId_;
+  /**
+   * <code>string project_id = 13;</code>
+   */
+  public java.lang.String getProjectId() {
+    java.lang.Object ref = projectId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      projectId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string project_id = 13;</code>
+   */
+  public com.google.protobuf.ByteString
+      getProjectIdBytes() {
+    java.lang.Object ref = projectId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      projectId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CLUSTER_ID_FIELD_NUMBER = 14;
+  private volatile java.lang.Object clusterId_;
+  /**
+   * <code>string cluster_id = 14;</code>
+   */
+  public java.lang.String getClusterId() {
+    java.lang.Object ref = clusterId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clusterId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string cluster_id = 14;</code>
+   */
+  public com.google.protobuf.ByteString
+      getClusterIdBytes() {
+    java.lang.Object ref = clusterId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clusterId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ROLLING_POLICY_FIELD_NUMBER = 15;
+  private int rollingPolicy_;
+  /**
+   * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   */
+  public int getRollingPolicyValue() {
+    return rollingPolicy_;
+  }
+  /**
+   * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   */
+  public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
+    com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
+    return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
+  }
+
+  public static final int INDEX_ID_FIELD_NUMBER = 16;
+  private int indexId_;
+  /**
+   * <code>int32 index_id = 16;</code>
+   */
+  public int getIndexId() {
+    return indexId_;
+  }
+
+  public static final int TEMPLATE_FIELD_NUMBER = 17;
+  private volatile java.lang.Object template_;
+  /**
+   * <code>string template = 17;</code>
+   */
+  public java.lang.String getTemplate() {
+    java.lang.Object ref = template_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      template_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string template = 17;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTemplateBytes() {
+    java.lang.Object ref = template_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      template_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  private byte memoizedIsInitialized = -1;
+  public final boolean isInitialized() {
+    byte isInitialized = memoizedIsInitialized;
+    if (isInitialized == 1) return true;
+    if (isInitialized == 0) return false;
+
+    memoizedIsInitialized = 1;
+    return true;
+  }
+
+  public void writeTo(com.google.protobuf.CodedOutputStream output)
+                      throws java.io.IOException {
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+    }
+    if (!getClusterNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clusterName_);
+    }
+    if (!getProjectNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectName_);
+    }
+    if (!getMappingBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, mapping_);
+    }
+    if (!getSettingBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, setting_);
+    }
+    for (int i = 0; i < aliases_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, aliases_.getRaw(i));
+    }
+    if (totalDocNumber_ != 0L) {
+      output.writeInt64(8, totalDocNumber_);
+    }
+    if (totalDataSize_ != 0L) {
+      output.writeInt64(9, totalDataSize_);
+    }
+    if (primaryShardNumber_ != 0) {
+      output.writeInt32(10, primaryShardNumber_);
+    }
+    if (replicaShardNumber_ != 0) {
+      output.writeInt32(11, replicaShardNumber_);
+    }
+    if (!getIndexHealthBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, indexHealth_);
+    }
+    if (!getProjectIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, projectId_);
+    }
+    if (!getClusterIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, clusterId_);
+    }
+    if (rollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
+      output.writeEnum(15, rollingPolicy_);
+    }
+    if (indexId_ != 0) {
+      output.writeInt32(16, indexId_);
+    }
+    if (!getTemplateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 17, template_);
+    }
+    unknownFields.writeTo(output);
+  }
+
+  public int getSerializedSize() {
+    int size = memoizedSize;
+    if (size != -1) return size;
+
+    size = 0;
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+    }
+    if (!getClusterNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clusterName_);
+    }
+    if (!getProjectNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, projectName_);
+    }
+    if (!getMappingBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, mapping_);
+    }
+    if (!getSettingBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, setting_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < aliases_.size(); i++) {
+        dataSize += computeStringSizeNoTag(aliases_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getAliasesList().size();
+    }
+    if (totalDocNumber_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(8, totalDocNumber_);
+    }
+    if (totalDataSize_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(9, totalDataSize_);
+    }
+    if (primaryShardNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(10, primaryShardNumber_);
+    }
+    if (replicaShardNumber_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(11, replicaShardNumber_);
+    }
+    if (!getIndexHealthBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, indexHealth_);
+    }
+    if (!getProjectIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, projectId_);
+    }
+    if (!getClusterIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, clusterId_);
+    }
+    if (rollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(15, rollingPolicy_);
+    }
+    if (indexId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(16, indexId_);
+    }
+    if (!getTemplateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, template_);
+    }
+    size += unknownFields.getSerializedSize();
+    memoizedSize = size;
+    return size;
+  }
+
+  @java.lang.Override
+  public boolean equals(final java.lang.Object obj) {
+    if (obj == this) {
+     return true;
+    }
+    if (!(obj instanceof com.rany.service.platform.meta.IndexInfo)) {
+      return super.equals(obj);
+    }
+    com.rany.service.platform.meta.IndexInfo other = (com.rany.service.platform.meta.IndexInfo) obj;
+
+    boolean result = true;
+    result = result && getName()
+        .equals(other.getName());
+    result = result && getClusterName()
+        .equals(other.getClusterName());
+    result = result && getProjectName()
+        .equals(other.getProjectName());
+    result = result && getMapping()
+        .equals(other.getMapping());
+    result = result && getSetting()
+        .equals(other.getSetting());
+    result = result && getAliasesList()
+        .equals(other.getAliasesList());
+    result = result && (getTotalDocNumber()
+        == other.getTotalDocNumber());
+    result = result && (getTotalDataSize()
+        == other.getTotalDataSize());
+    result = result && (getPrimaryShardNumber()
+        == other.getPrimaryShardNumber());
+    result = result && (getReplicaShardNumber()
+        == other.getReplicaShardNumber());
+    result = result && getIndexHealth()
+        .equals(other.getIndexHealth());
+    result = result && getProjectId()
+        .equals(other.getProjectId());
+    result = result && getClusterId()
+        .equals(other.getClusterId());
+    result = result && rollingPolicy_ == other.rollingPolicy_;
+    result = result && (getIndexId()
+        == other.getIndexId());
+    result = result && getTemplate()
+        .equals(other.getTemplate());
+    result = result && unknownFields.equals(other.unknownFields);
+    return result;
+  }
+
+  @java.lang.Override
+  public int hashCode() {
+    if (memoizedHashCode != 0) {
+      return memoizedHashCode;
+    }
+    int hash = 41;
+    hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + CLUSTER_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getClusterName().hashCode();
+    hash = (37 * hash) + PROJECT_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getProjectName().hashCode();
+    hash = (37 * hash) + MAPPING_FIELD_NUMBER;
+    hash = (53 * hash) + getMapping().hashCode();
+    hash = (37 * hash) + SETTING_FIELD_NUMBER;
+    hash = (53 * hash) + getSetting().hashCode();
+    if (getAliasesCount() > 0) {
+      hash = (37 * hash) + ALIASES_FIELD_NUMBER;
+      hash = (53 * hash) + getAliasesList().hashCode();
+    }
+    hash = (37 * hash) + TOTAL_DOC_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalDocNumber());
+    hash = (37 * hash) + TOTAL_DATA_SIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalDataSize());
+    hash = (37 * hash) + PRIMARY_SHARD_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getPrimaryShardNumber();
+    hash = (37 * hash) + REPLICA_SHARD_NUMBER_FIELD_NUMBER;
+    hash = (53 * hash) + getReplicaShardNumber();
+    hash = (37 * hash) + INDEX_HEALTH_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexHealth().hashCode();
+    hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getProjectId().hashCode();
+    hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getClusterId().hashCode();
+    hash = (37 * hash) + ROLLING_POLICY_FIELD_NUMBER;
+    hash = (53 * hash) + rollingPolicy_;
+    hash = (37 * hash) + INDEX_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getIndexId();
+    hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
+    hash = (53 * hash) + getTemplate().hashCode();
+    hash = (29 * hash) + unknownFields.hashCode();
+    memoizedHashCode = hash;
+    return hash;
+  }
+
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      java.nio.ByteBuffer data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      java.nio.ByteBuffer data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      com.google.protobuf.ByteString data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      com.google.protobuf.ByteString data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(byte[] data)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      byte[] data,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    return PARSER.parseFrom(data, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseDelimitedFrom(java.io.InputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseDelimitedFrom(
+      java.io.InputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input);
+  }
+  public static com.rany.service.platform.meta.IndexInfo parseFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws java.io.IOException {
+    return com.google.protobuf.GeneratedMessageV3
+        .parseWithIOException(PARSER, input, extensionRegistry);
+  }
+
+  public Builder newBuilderForType() { return newBuilder(); }
+  public static Builder newBuilder() {
+    return DEFAULT_INSTANCE.toBuilder();
+  }
+  public static Builder newBuilder(com.rany.service.platform.meta.IndexInfo prototype) {
+    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+  }
+  public Builder toBuilder() {
+    return this == DEFAULT_INSTANCE
+        ? new Builder() : new Builder().mergeFrom(this);
+  }
+
+  @java.lang.Override
+  protected Builder newBuilderForType(
+      com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+    Builder builder = new Builder(parent);
+    return builder;
+  }
+  /**
+   * Protobuf type {@code IndexInfo}
+   */
+  public static final class Builder extends
+      com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+      // @@protoc_insertion_point(builder_implements:IndexInfo)
+      com.rany.service.platform.meta.IndexInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-                .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-    }
-
-    public static Builder newBuilder(com.rany.service.platform.meta.IndexInfo prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-
-    public static com.rany.service.platform.meta.IndexInfo getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
-
-    public static com.google.protobuf.Parser<IndexInfo> parser() {
-        return PARSER;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
+        getDescriptor() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-        return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.rany.service.platform.meta.IndexInfo.class, com.rany.service.platform.meta.IndexInfo.Builder.class);
+        internalGetFieldAccessorTable() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.rany.service.platform.meta.IndexInfo.class, com.rany.service.platform.meta.IndexInfo.Builder.class);
     }
 
+    // Construct using com.rany.service.platform.meta.IndexInfo.newBuilder()
+    private Builder() {
+      maybeForceBuilderInitialization();
+    }
+
+    private Builder(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+      }
+    }
+    public Builder clear() {
+      super.clear();
+      name_ = "";
+
+      clusterName_ = "";
+
+      projectName_ = "";
+
+      mapping_ = "";
+
+      setting_ = "";
+
+      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      totalDocNumber_ = 0L;
+
+      totalDataSize_ = 0L;
+
+      primaryShardNumber_ = 0;
+
+      replicaShardNumber_ = 0;
+
+      indexHealth_ = "";
+
+      projectId_ = "";
+
+      clusterId_ = "";
+
+      rollingPolicy_ = 0;
+
+      indexId_ = 0;
+
+      template_ = "";
+
+      return this;
+    }
+
+    public com.google.protobuf.Descriptors.Descriptor
+        getDescriptorForType() {
+      return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
+    }
+
+    public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
+      return com.rany.service.platform.meta.IndexInfo.getDefaultInstance();
+    }
+
+    public com.rany.service.platform.meta.IndexInfo build() {
+      com.rany.service.platform.meta.IndexInfo result = buildPartial();
+      if (!result.isInitialized()) {
+        throw newUninitializedMessageException(result);
+      }
+      return result;
+    }
+
+    public com.rany.service.platform.meta.IndexInfo buildPartial() {
+      com.rany.service.platform.meta.IndexInfo result = new com.rany.service.platform.meta.IndexInfo(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      result.name_ = name_;
+      result.clusterName_ = clusterName_;
+      result.projectName_ = projectName_;
+      result.mapping_ = mapping_;
+      result.setting_ = setting_;
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = aliases_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.aliases_ = aliases_;
+      result.totalDocNumber_ = totalDocNumber_;
+      result.totalDataSize_ = totalDataSize_;
+      result.primaryShardNumber_ = primaryShardNumber_;
+      result.replicaShardNumber_ = replicaShardNumber_;
+      result.indexHealth_ = indexHealth_;
+      result.projectId_ = projectId_;
+      result.clusterId_ = clusterId_;
+      result.rollingPolicy_ = rollingPolicy_;
+      result.indexId_ = indexId_;
+      result.template_ = template_;
+      result.bitField0_ = to_bitField0_;
+      onBuilt();
+      return result;
+    }
+
+    public Builder clone() {
+      return (Builder) super.clone();
+    }
+    public Builder setField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.setField(field, value);
+    }
+    public Builder clearField(
+        com.google.protobuf.Descriptors.FieldDescriptor field) {
+      return (Builder) super.clearField(field);
+    }
+    public Builder clearOneof(
+        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+      return (Builder) super.clearOneof(oneof);
+    }
+    public Builder setRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        int index, java.lang.Object value) {
+      return (Builder) super.setRepeatedField(field, index, value);
+    }
+    public Builder addRepeatedField(
+        com.google.protobuf.Descriptors.FieldDescriptor field,
+        java.lang.Object value) {
+      return (Builder) super.addRepeatedField(field, value);
+    }
+    public Builder mergeFrom(com.google.protobuf.Message other) {
+      if (other instanceof com.rany.service.platform.meta.IndexInfo) {
+        return mergeFrom((com.rany.service.platform.meta.IndexInfo)other);
+      } else {
+        super.mergeFrom(other);
+        return this;
+      }
+    }
+
+    public Builder mergeFrom(com.rany.service.platform.meta.IndexInfo other) {
+      if (other == com.rany.service.platform.meta.IndexInfo.getDefaultInstance()) return this;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
+      }
+      if (!other.getClusterName().isEmpty()) {
+        clusterName_ = other.clusterName_;
+        onChanged();
+      }
+      if (!other.getProjectName().isEmpty()) {
+        projectName_ = other.projectName_;
+        onChanged();
+      }
+      if (!other.getMapping().isEmpty()) {
+        mapping_ = other.mapping_;
+        onChanged();
+      }
+      if (!other.getSetting().isEmpty()) {
+        setting_ = other.setting_;
+        onChanged();
+      }
+      if (!other.aliases_.isEmpty()) {
+        if (aliases_.isEmpty()) {
+          aliases_ = other.aliases_;
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          ensureAliasesIsMutable();
+          aliases_.addAll(other.aliases_);
+        }
+        onChanged();
+      }
+      if (other.getTotalDocNumber() != 0L) {
+        setTotalDocNumber(other.getTotalDocNumber());
+      }
+      if (other.getTotalDataSize() != 0L) {
+        setTotalDataSize(other.getTotalDataSize());
+      }
+      if (other.getPrimaryShardNumber() != 0) {
+        setPrimaryShardNumber(other.getPrimaryShardNumber());
+      }
+      if (other.getReplicaShardNumber() != 0) {
+        setReplicaShardNumber(other.getReplicaShardNumber());
+      }
+      if (!other.getIndexHealth().isEmpty()) {
+        indexHealth_ = other.indexHealth_;
+        onChanged();
+      }
+      if (!other.getProjectId().isEmpty()) {
+        projectId_ = other.projectId_;
+        onChanged();
+      }
+      if (!other.getClusterId().isEmpty()) {
+        clusterId_ = other.clusterId_;
+        onChanged();
+      }
+      if (other.rollingPolicy_ != 0) {
+        setRollingPolicyValue(other.getRollingPolicyValue());
+      }
+      if (other.getIndexId() != 0) {
+        setIndexId(other.getIndexId());
+      }
+      if (!other.getTemplate().isEmpty()) {
+        template_ = other.template_;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.unknownFields);
+      onChanged();
+      return this;
+    }
+
+    public final boolean isInitialized() {
+      return true;
+    }
+
+    public Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      com.rany.service.platform.meta.IndexInfo parsedMessage = null;
+      try {
+        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        parsedMessage = (com.rany.service.platform.meta.IndexInfo) e.getUnfinishedMessage();
+        throw e.unwrapIOException();
+      } finally {
+        if (parsedMessage != null) {
+          mergeFrom(parsedMessage);
+        }
+      }
+      return this;
+    }
+    private int bitField0_;
+
+    private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            name_ = s;
-            return s;
-        }
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-    getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            name_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    public Builder clearName() {
+      
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 1;</code>
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      name_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object clusterName_ = "";
     /**
      * <code>string cluster_name = 2;</code>
      */
     public java.lang.String getClusterName() {
-        java.lang.Object ref = clusterName_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            clusterName_ = s;
-            return s;
-        }
+      java.lang.Object ref = clusterName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clusterName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string cluster_name = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getClusterNameBytes() {
-        java.lang.Object ref = clusterName_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            clusterName_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getClusterNameBytes() {
+      java.lang.Object ref = clusterName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clusterName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string cluster_name = 2;</code>
+     */
+    public Builder setClusterName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clusterName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_name = 2;</code>
+     */
+    public Builder clearClusterName() {
+      
+      clusterName_ = getDefaultInstance().getClusterName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_name = 2;</code>
+     */
+    public Builder setClusterNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clusterName_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object projectName_ = "";
     /**
      * <code>string project_name = 3;</code>
      */
     public java.lang.String getProjectName() {
-        java.lang.Object ref = projectName_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            projectName_ = s;
-            return s;
-        }
+      java.lang.Object ref = projectName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        projectName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string project_name = 3;</code>
      */
     public com.google.protobuf.ByteString
-    getProjectNameBytes() {
-        java.lang.Object ref = projectName_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            projectName_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getProjectNameBytes() {
+      java.lang.Object ref = projectName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        projectName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string project_name = 3;</code>
+     */
+    public Builder setProjectName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      projectName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string project_name = 3;</code>
+     */
+    public Builder clearProjectName() {
+      
+      projectName_ = getDefaultInstance().getProjectName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string project_name = 3;</code>
+     */
+    public Builder setProjectNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      projectName_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object mapping_ = "";
     /**
      * <code>string mapping = 5;</code>
      */
     public java.lang.String getMapping() {
-        java.lang.Object ref = mapping_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            mapping_ = s;
-            return s;
-        }
+      java.lang.Object ref = mapping_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        mapping_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string mapping = 5;</code>
      */
     public com.google.protobuf.ByteString
-    getMappingBytes() {
-        java.lang.Object ref = mapping_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            mapping_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getMappingBytes() {
+      java.lang.Object ref = mapping_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        mapping_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string mapping = 5;</code>
+     */
+    public Builder setMapping(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      mapping_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string mapping = 5;</code>
+     */
+    public Builder clearMapping() {
+      
+      mapping_ = getDefaultInstance().getMapping();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string mapping = 5;</code>
+     */
+    public Builder setMappingBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      mapping_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object setting_ = "";
     /**
      * <code>string setting = 6;</code>
      */
     public java.lang.String getSetting() {
-        java.lang.Object ref = setting_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            setting_ = s;
-            return s;
-        }
+      java.lang.Object ref = setting_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        setting_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string setting = 6;</code>
      */
     public com.google.protobuf.ByteString
-    getSettingBytes() {
-        java.lang.Object ref = setting_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            setting_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getSettingBytes() {
+      java.lang.Object ref = setting_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        setting_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string setting = 6;</code>
+     */
+    public Builder setSetting(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      setting_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string setting = 6;</code>
+     */
+    public Builder clearSetting() {
+      
+      setting_ = getDefaultInstance().getSetting();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string setting = 6;</code>
+     */
+    public Builder setSettingBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      setting_ = value;
+      onChanged();
+      return this;
     }
 
+    private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureAliasesIsMutable() {
+      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
+        bitField0_ |= 0x00000020;
+       }
+    }
     /**
      * <code>repeated string aliases = 7;</code>
      */
     public com.google.protobuf.ProtocolStringList
-    getAliasesList() {
-        return aliases_;
+        getAliasesList() {
+      return aliases_.getUnmodifiableView();
     }
-
     /**
      * <code>repeated string aliases = 7;</code>
      */
     public int getAliasesCount() {
-        return aliases_.size();
+      return aliases_.size();
     }
-
     /**
      * <code>repeated string aliases = 7;</code>
      */
     public java.lang.String getAliases(int index) {
-        return aliases_.get(index);
+      return aliases_.get(index);
     }
-
     /**
      * <code>repeated string aliases = 7;</code>
      */
     public com.google.protobuf.ByteString
-    getAliasesBytes(int index) {
-        return aliases_.getByteString(index);
+        getAliasesBytes(int index) {
+      return aliases_.getByteString(index);
+    }
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    public Builder setAliases(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasesIsMutable();
+      aliases_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    public Builder addAliases(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasesIsMutable();
+      aliases_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    public Builder addAllAliases(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureAliasesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, aliases_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    public Builder clearAliases() {
+      aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string aliases = 7;</code>
+     */
+    public Builder addAliasesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureAliasesIsMutable();
+      aliases_.add(value);
+      onChanged();
+      return this;
     }
 
+    private long totalDocNumber_ ;
     /**
      * <pre>
      * doc number of this index;
@@ -536,9 +1596,36 @@ public final class IndexInfo extends
      * <code>int64 total_doc_number = 8;</code>
      */
     public long getTotalDocNumber() {
-        return totalDocNumber_;
+      return totalDocNumber_;
+    }
+    /**
+     * <pre>
+     * doc number of this index;
+     * </pre>
+     *
+     * <code>int64 total_doc_number = 8;</code>
+     */
+    public Builder setTotalDocNumber(long value) {
+      
+      totalDocNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * doc number of this index;
+     * </pre>
+     *
+     * <code>int64 total_doc_number = 8;</code>
+     */
+    public Builder clearTotalDocNumber() {
+      
+      totalDocNumber_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private long totalDataSize_ ;
     /**
      * <pre>
      * data size of all shards of this index;
@@ -547,1667 +1634,478 @@ public final class IndexInfo extends
      * <code>int64 total_data_size = 9;</code>
      */
     public long getTotalDataSize() {
-        return totalDataSize_;
+      return totalDataSize_;
+    }
+    /**
+     * <pre>
+     * data size of all shards of this index;
+     * </pre>
+     *
+     * <code>int64 total_data_size = 9;</code>
+     */
+    public Builder setTotalDataSize(long value) {
+      
+      totalDataSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * data size of all shards of this index;
+     * </pre>
+     *
+     * <code>int64 total_data_size = 9;</code>
+     */
+    public Builder clearTotalDataSize() {
+      
+      totalDataSize_ = 0L;
+      onChanged();
+      return this;
     }
 
+    private int primaryShardNumber_ ;
     /**
      * <code>int32 primary_shard_number = 10;</code>
      */
     public int getPrimaryShardNumber() {
-        return primaryShardNumber_;
+      return primaryShardNumber_;
+    }
+    /**
+     * <code>int32 primary_shard_number = 10;</code>
+     */
+    public Builder setPrimaryShardNumber(int value) {
+      
+      primaryShardNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 primary_shard_number = 10;</code>
+     */
+    public Builder clearPrimaryShardNumber() {
+      
+      primaryShardNumber_ = 0;
+      onChanged();
+      return this;
     }
 
+    private int replicaShardNumber_ ;
     /**
      * <code>int32 replica_shard_number = 11;</code>
      */
     public int getReplicaShardNumber() {
-        return replicaShardNumber_;
+      return replicaShardNumber_;
+    }
+    /**
+     * <code>int32 replica_shard_number = 11;</code>
+     */
+    public Builder setReplicaShardNumber(int value) {
+      
+      replicaShardNumber_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 replica_shard_number = 11;</code>
+     */
+    public Builder clearReplicaShardNumber() {
+      
+      replicaShardNumber_ = 0;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object indexHealth_ = "";
     /**
      * <code>string index_health = 12;</code>
      */
     public java.lang.String getIndexHealth() {
-        java.lang.Object ref = indexHealth_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            indexHealth_ = s;
-            return s;
-        }
+      java.lang.Object ref = indexHealth_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        indexHealth_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string index_health = 12;</code>
      */
     public com.google.protobuf.ByteString
-    getIndexHealthBytes() {
-        java.lang.Object ref = indexHealth_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            indexHealth_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getIndexHealthBytes() {
+      java.lang.Object ref = indexHealth_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        indexHealth_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string index_health = 12;</code>
+     */
+    public Builder setIndexHealth(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      indexHealth_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string index_health = 12;</code>
+     */
+    public Builder clearIndexHealth() {
+      
+      indexHealth_ = getDefaultInstance().getIndexHealth();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string index_health = 12;</code>
+     */
+    public Builder setIndexHealthBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      indexHealth_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object projectId_ = "";
     /**
      * <code>string project_id = 13;</code>
      */
     public java.lang.String getProjectId() {
-        java.lang.Object ref = projectId_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            projectId_ = s;
-            return s;
-        }
+      java.lang.Object ref = projectId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        projectId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string project_id = 13;</code>
      */
     public com.google.protobuf.ByteString
-    getProjectIdBytes() {
-        java.lang.Object ref = projectId_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            projectId_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getProjectIdBytes() {
+      java.lang.Object ref = projectId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        projectId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string project_id = 13;</code>
+     */
+    public Builder setProjectId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      projectId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string project_id = 13;</code>
+     */
+    public Builder clearProjectId() {
+      
+      projectId_ = getDefaultInstance().getProjectId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string project_id = 13;</code>
+     */
+    public Builder setProjectIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      projectId_ = value;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object clusterId_ = "";
     /**
      * <code>string cluster_id = 14;</code>
      */
     public java.lang.String getClusterId() {
-        java.lang.Object ref = clusterId_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            clusterId_ = s;
-            return s;
-        }
+      java.lang.Object ref = clusterId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clusterId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string cluster_id = 14;</code>
      */
     public com.google.protobuf.ByteString
-    getClusterIdBytes() {
-        java.lang.Object ref = clusterId_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            clusterId_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+        getClusterIdBytes() {
+      java.lang.Object ref = clusterId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clusterId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string cluster_id = 14;</code>
+     */
+    public Builder setClusterId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clusterId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_id = 14;</code>
+     */
+    public Builder clearClusterId() {
+      
+      clusterId_ = getDefaultInstance().getClusterId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string cluster_id = 14;</code>
+     */
+    public Builder setClusterIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clusterId_ = value;
+      onChanged();
+      return this;
     }
 
+    private int rollingPolicy_ = 0;
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
      */
     public int getRollingPolicyValue() {
-        return rollingPolicy_;
+      return rollingPolicy_;
     }
-
+    /**
+     * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     */
+    public Builder setRollingPolicyValue(int value) {
+      rollingPolicy_ = value;
+      onChanged();
+      return this;
+    }
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
      */
     public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
-        com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
-        return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
+      com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
+      return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     */
+    public Builder setRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      rollingPolicy_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     */
+    public Builder clearRollingPolicy() {
+      
+      rollingPolicy_ = 0;
+      onChanged();
+      return this;
     }
 
+    private int indexId_ ;
     /**
      * <code>int32 index_id = 16;</code>
      */
     public int getIndexId() {
-        return indexId_;
+      return indexId_;
+    }
+    /**
+     * <code>int32 index_id = 16;</code>
+     */
+    public Builder setIndexId(int value) {
+      
+      indexId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 index_id = 16;</code>
+     */
+    public Builder clearIndexId() {
+      
+      indexId_ = 0;
+      onChanged();
+      return this;
     }
 
+    private java.lang.Object template_ = "";
     /**
      * <code>string template = 17;</code>
      */
     public java.lang.String getTemplate() {
-        java.lang.Object ref = template_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs =
-                    (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            template_ = s;
-            return s;
-        }
+      java.lang.Object ref = template_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        template_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
-
     /**
      * <code>string template = 17;</code>
      */
     public com.google.protobuf.ByteString
-    getTemplateBytes() {
-        java.lang.Object ref = template_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b =
-                    com.google.protobuf.ByteString.copyFromUtf8(
-                            (java.lang.String) ref);
-            template_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
-    }
-
-    public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
-        if (!getNameBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-        }
-        if (!getClusterNameBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clusterName_);
-        }
-        if (!getProjectNameBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectName_);
-        }
-        if (!getMappingBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 5, mapping_);
-        }
-        if (!getSettingBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 6, setting_);
-        }
-        for (int i = 0; i < aliases_.size(); i++) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 7, aliases_.getRaw(i));
-        }
-        if (totalDocNumber_ != 0L) {
-            output.writeInt64(8, totalDocNumber_);
-        }
-        if (totalDataSize_ != 0L) {
-            output.writeInt64(9, totalDataSize_);
-        }
-        if (primaryShardNumber_ != 0) {
-            output.writeInt32(10, primaryShardNumber_);
-        }
-        if (replicaShardNumber_ != 0) {
-            output.writeInt32(11, replicaShardNumber_);
-        }
-        if (!getIndexHealthBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 12, indexHealth_);
-        }
-        if (!getProjectIdBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 13, projectId_);
-        }
-        if (!getClusterIdBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 14, clusterId_);
-        }
-        if (rollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
-            output.writeEnum(15, rollingPolicy_);
-        }
-        if (indexId_ != 0) {
-            output.writeInt32(16, indexId_);
-        }
-        if (!getTemplateBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 17, template_);
-        }
-        unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (!getNameBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-        }
-        if (!getClusterNameBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clusterName_);
-        }
-        if (!getProjectNameBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, projectName_);
-        }
-        if (!getMappingBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, mapping_);
-        }
-        if (!getSettingBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, setting_);
-        }
-        {
-            int dataSize = 0;
-            for (int i = 0; i < aliases_.size(); i++) {
-                dataSize += computeStringSizeNoTag(aliases_.getRaw(i));
-            }
-            size += dataSize;
-            size += 1 * getAliasesList().size();
-        }
-        if (totalDocNumber_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(8, totalDocNumber_);
-        }
-        if (totalDataSize_ != 0L) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt64Size(9, totalDataSize_);
-        }
-        if (primaryShardNumber_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(10, primaryShardNumber_);
-        }
-        if (replicaShardNumber_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(11, replicaShardNumber_);
-        }
-        if (!getIndexHealthBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, indexHealth_);
-        }
-        if (!getProjectIdBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, projectId_);
-        }
-        if (!getClusterIdBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, clusterId_);
-        }
-        if (rollingPolicy_ != com.rany.service.platform.meta.AutoIndexRollingPolicy.NONE.getNumber()) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeEnumSize(15, rollingPolicy_);
-        }
-        if (indexId_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-                    .computeInt32Size(16, indexId_);
-        }
-        if (!getTemplateBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(17, template_);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (!(obj instanceof com.rany.service.platform.meta.IndexInfo)) {
-            return super.equals(obj);
-        }
-        com.rany.service.platform.meta.IndexInfo other = (com.rany.service.platform.meta.IndexInfo) obj;
-
-        boolean result = true;
-        result = result && getName()
-                .equals(other.getName());
-        result = result && getClusterName()
-                .equals(other.getClusterName());
-        result = result && getProjectName()
-                .equals(other.getProjectName());
-        result = result && getMapping()
-                .equals(other.getMapping());
-        result = result && getSetting()
-                .equals(other.getSetting());
-        result = result && getAliasesList()
-                .equals(other.getAliasesList());
-        result = result && (getTotalDocNumber()
-                == other.getTotalDocNumber());
-        result = result && (getTotalDataSize()
-                == other.getTotalDataSize());
-        result = result && (getPrimaryShardNumber()
-                == other.getPrimaryShardNumber());
-        result = result && (getReplicaShardNumber()
-                == other.getReplicaShardNumber());
-        result = result && getIndexHealth()
-                .equals(other.getIndexHealth());
-        result = result && getProjectId()
-                .equals(other.getProjectId());
-        result = result && getClusterId()
-                .equals(other.getClusterId());
-        result = result && rollingPolicy_ == other.rollingPolicy_;
-        result = result && (getIndexId()
-                == other.getIndexId());
-        result = result && getTemplate()
-                .equals(other.getTemplate());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-        if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
-        hash = (37 * hash) + CLUSTER_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getClusterName().hashCode();
-        hash = (37 * hash) + PROJECT_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getProjectName().hashCode();
-        hash = (37 * hash) + MAPPING_FIELD_NUMBER;
-        hash = (53 * hash) + getMapping().hashCode();
-        hash = (37 * hash) + SETTING_FIELD_NUMBER;
-        hash = (53 * hash) + getSetting().hashCode();
-        if (getAliasesCount() > 0) {
-            hash = (37 * hash) + ALIASES_FIELD_NUMBER;
-            hash = (53 * hash) + getAliasesList().hashCode();
-        }
-        hash = (37 * hash) + TOTAL_DOC_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotalDocNumber());
-        hash = (37 * hash) + TOTAL_DATA_SIZE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                getTotalDataSize());
-        hash = (37 * hash) + PRIMARY_SHARD_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getPrimaryShardNumber();
-        hash = (37 * hash) + REPLICA_SHARD_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getReplicaShardNumber();
-        hash = (37 * hash) + INDEX_HEALTH_FIELD_NUMBER;
-        hash = (53 * hash) + getIndexHealth().hashCode();
-        hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getProjectId().hashCode();
-        hash = (37 * hash) + CLUSTER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getClusterId().hashCode();
-        hash = (37 * hash) + ROLLING_POLICY_FIELD_NUMBER;
-        hash = (53 * hash) + rollingPolicy_;
-        hash = (37 * hash) + INDEX_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getIndexId();
-        hash = (37 * hash) + TEMPLATE_FIELD_NUMBER;
-        hash = (53 * hash) + getTemplate().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-    }
-
-    public Builder newBuilderForType() {
-        return newBuilder();
-    }
-
-    public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-                ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<IndexInfo> getParserForType() {
-        return PARSER;
-    }
-
-    public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-    }
-
-    /**
-     * Protobuf type {@code IndexInfo}
-     */
-    public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:IndexInfo)
-            com.rany.service.platform.meta.IndexInfoOrBuilder {
-        private int bitField0_;
-        private java.lang.Object name_ = "";
-        private java.lang.Object clusterName_ = "";
-        private java.lang.Object projectName_ = "";
-        private java.lang.Object mapping_ = "";
-        private java.lang.Object setting_ = "";
-        private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        private long totalDocNumber_;
-        private long totalDataSize_;
-        private int primaryShardNumber_;
-        private int replicaShardNumber_;
-        private java.lang.Object indexHealth_ = "";
-        private java.lang.Object projectId_ = "";
-        private java.lang.Object clusterId_ = "";
-        private int rollingPolicy_ = 0;
-        private int indexId_;
-        private java.lang.Object template_ = "";
-
-        // Construct using com.rany.service.platform.meta.IndexInfo.newBuilder()
-        private Builder() {
-            maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-        }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.rany.service.platform.meta.IndexInfo.class, com.rany.service.platform.meta.IndexInfo.Builder.class);
-        }
-
-        private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-        }
-
-        public Builder clear() {
-            super.clear();
-            name_ = "";
-
-            clusterName_ = "";
-
-            projectName_ = "";
-
-            mapping_ = "";
-
-            setting_ = "";
-
-            aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000020);
-            totalDocNumber_ = 0L;
-
-            totalDataSize_ = 0L;
-
-            primaryShardNumber_ = 0;
-
-            replicaShardNumber_ = 0;
-
-            indexHealth_ = "";
-
-            projectId_ = "";
-
-            clusterId_ = "";
-
-            rollingPolicy_ = 0;
-
-            indexId_ = 0;
-
-            template_ = "";
-
-            return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-        getDescriptorForType() {
-            return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
-        }
-
-        public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
-            return com.rany.service.platform.meta.IndexInfo.getDefaultInstance();
-        }
-
-        public com.rany.service.platform.meta.IndexInfo build() {
-            com.rany.service.platform.meta.IndexInfo result = buildPartial();
-            if (!result.isInitialized()) {
-                throw newUninitializedMessageException(result);
-            }
-            return result;
-        }
-
-        public com.rany.service.platform.meta.IndexInfo buildPartial() {
-            com.rany.service.platform.meta.IndexInfo result = new com.rany.service.platform.meta.IndexInfo(this);
-            int from_bitField0_ = bitField0_;
-            int to_bitField0_ = 0;
-            result.name_ = name_;
-            result.clusterName_ = clusterName_;
-            result.projectName_ = projectName_;
-            result.mapping_ = mapping_;
-            result.setting_ = setting_;
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                aliases_ = aliases_.getUnmodifiableView();
-                bitField0_ = (bitField0_ & ~0x00000020);
-            }
-            result.aliases_ = aliases_;
-            result.totalDocNumber_ = totalDocNumber_;
-            result.totalDataSize_ = totalDataSize_;
-            result.primaryShardNumber_ = primaryShardNumber_;
-            result.replicaShardNumber_ = replicaShardNumber_;
-            result.indexHealth_ = indexHealth_;
-            result.projectId_ = projectId_;
-            result.clusterId_ = clusterId_;
-            result.rollingPolicy_ = rollingPolicy_;
-            result.indexId_ = indexId_;
-            result.template_ = template_;
-            result.bitField0_ = to_bitField0_;
-            onBuilt();
-            return result;
-        }
-
-        public Builder clone() {
-            return (Builder) super.clone();
-        }
-
-        public Builder setField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.setField(field, value);
-        }
-
-        public Builder clearField(
-                com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
-        }
-
-        public Builder clearOneof(
-                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
-        }
-
-        public Builder setRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                int index, java.lang.Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
-        }
-
-        public Builder addRepeatedField(
-                com.google.protobuf.Descriptors.FieldDescriptor field,
-                java.lang.Object value) {
-            return (Builder) super.addRepeatedField(field, value);
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.rany.service.platform.meta.IndexInfo) {
-                return mergeFrom((com.rany.service.platform.meta.IndexInfo) other);
-            } else {
-                super.mergeFrom(other);
-                return this;
-            }
-        }
-
-        public Builder mergeFrom(com.rany.service.platform.meta.IndexInfo other) {
-            if (other == com.rany.service.platform.meta.IndexInfo.getDefaultInstance()) return this;
-            if (!other.getName().isEmpty()) {
-                name_ = other.name_;
-                onChanged();
-            }
-            if (!other.getClusterName().isEmpty()) {
-                clusterName_ = other.clusterName_;
-                onChanged();
-            }
-            if (!other.getProjectName().isEmpty()) {
-                projectName_ = other.projectName_;
-                onChanged();
-            }
-            if (!other.getMapping().isEmpty()) {
-                mapping_ = other.mapping_;
-                onChanged();
-            }
-            if (!other.getSetting().isEmpty()) {
-                setting_ = other.setting_;
-                onChanged();
-            }
-            if (!other.aliases_.isEmpty()) {
-                if (aliases_.isEmpty()) {
-                    aliases_ = other.aliases_;
-                    bitField0_ = (bitField0_ & ~0x00000020);
-                } else {
-                    ensureAliasesIsMutable();
-                    aliases_.addAll(other.aliases_);
-                }
-                onChanged();
-            }
-            if (other.getTotalDocNumber() != 0L) {
-                setTotalDocNumber(other.getTotalDocNumber());
-            }
-            if (other.getTotalDataSize() != 0L) {
-                setTotalDataSize(other.getTotalDataSize());
-            }
-            if (other.getPrimaryShardNumber() != 0) {
-                setPrimaryShardNumber(other.getPrimaryShardNumber());
-            }
-            if (other.getReplicaShardNumber() != 0) {
-                setReplicaShardNumber(other.getReplicaShardNumber());
-            }
-            if (!other.getIndexHealth().isEmpty()) {
-                indexHealth_ = other.indexHealth_;
-                onChanged();
-            }
-            if (!other.getProjectId().isEmpty()) {
-                projectId_ = other.projectId_;
-                onChanged();
-            }
-            if (!other.getClusterId().isEmpty()) {
-                clusterId_ = other.clusterId_;
-                onChanged();
-            }
-            if (other.rollingPolicy_ != 0) {
-                setRollingPolicyValue(other.getRollingPolicyValue());
-            }
-            if (other.getIndexId() != 0) {
-                setIndexId(other.getIndexId());
-            }
-            if (!other.getTemplate().isEmpty()) {
-                template_ = other.template_;
-                onChanged();
-            }
-            this.mergeUnknownFields(other.unknownFields);
-            onChanged();
-            return this;
-        }
-
-        public final boolean isInitialized() {
-            return true;
-        }
-
-        public Builder mergeFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            com.rany.service.platform.meta.IndexInfo parsedMessage = null;
-            try {
-                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                parsedMessage = (com.rany.service.platform.meta.IndexInfo) e.getUnfinishedMessage();
-                throw e.unwrapIOException();
-            } finally {
-                if (parsedMessage != null) {
-                    mergeFrom(parsedMessage);
-                }
-            }
-            return this;
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         */
-        public java.lang.String getName() {
-            java.lang.Object ref = name_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                name_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         */
-        public Builder setName(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            name_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getNameBytes() {
-            java.lang.Object ref = name_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                name_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         */
-        public Builder setNameBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            name_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         */
-        public Builder clearName() {
-
-            name_ = getDefaultInstance().getName();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_name = 2;</code>
-         */
-        public java.lang.String getClusterName() {
-            java.lang.Object ref = clusterName_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                clusterName_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_name = 2;</code>
-         */
-        public Builder setClusterName(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            clusterName_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_name = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getClusterNameBytes() {
-            java.lang.Object ref = clusterName_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                clusterName_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_name = 2;</code>
-         */
-        public Builder setClusterNameBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            clusterName_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_name = 2;</code>
-         */
-        public Builder clearClusterName() {
-
-            clusterName_ = getDefaultInstance().getClusterName();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_name = 3;</code>
-         */
-        public java.lang.String getProjectName() {
-            java.lang.Object ref = projectName_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                projectName_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string project_name = 3;</code>
-         */
-        public Builder setProjectName(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            projectName_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_name = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-        getProjectNameBytes() {
-            java.lang.Object ref = projectName_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                projectName_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string project_name = 3;</code>
-         */
-        public Builder setProjectNameBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            projectName_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_name = 3;</code>
-         */
-        public Builder clearProjectName() {
-
-            projectName_ = getDefaultInstance().getProjectName();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string mapping = 5;</code>
-         */
-        public java.lang.String getMapping() {
-            java.lang.Object ref = mapping_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                mapping_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string mapping = 5;</code>
-         */
-        public Builder setMapping(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            mapping_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string mapping = 5;</code>
-         */
-        public com.google.protobuf.ByteString
-        getMappingBytes() {
-            java.lang.Object ref = mapping_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                mapping_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string mapping = 5;</code>
-         */
-        public Builder setMappingBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            mapping_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string mapping = 5;</code>
-         */
-        public Builder clearMapping() {
-
-            mapping_ = getDefaultInstance().getMapping();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string setting = 6;</code>
-         */
-        public java.lang.String getSetting() {
-            java.lang.Object ref = setting_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                setting_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string setting = 6;</code>
-         */
-        public Builder setSetting(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            setting_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string setting = 6;</code>
-         */
-        public com.google.protobuf.ByteString
-        getSettingBytes() {
-            java.lang.Object ref = setting_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                setting_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string setting = 6;</code>
-         */
-        public Builder setSettingBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            setting_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string setting = 6;</code>
-         */
-        public Builder clearSetting() {
-
-            setting_ = getDefaultInstance().getSetting();
-            onChanged();
-            return this;
-        }
-
-        private void ensureAliasesIsMutable() {
-            if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-                aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
-                bitField0_ |= 0x00000020;
-            }
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public com.google.protobuf.ProtocolStringList
-        getAliasesList() {
-            return aliases_.getUnmodifiableView();
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public int getAliasesCount() {
-            return aliases_.size();
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public java.lang.String getAliases(int index) {
-            return aliases_.get(index);
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public com.google.protobuf.ByteString
-        getAliasesBytes(int index) {
-            return aliases_.getByteString(index);
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public Builder setAliases(
-                int index, java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            ensureAliasesIsMutable();
-            aliases_.set(index, value);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public Builder addAliases(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            ensureAliasesIsMutable();
-            aliases_.add(value);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public Builder addAllAliases(
-                java.lang.Iterable<java.lang.String> values) {
-            ensureAliasesIsMutable();
-            com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                    values, aliases_);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public Builder clearAliases() {
-            aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000020);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>repeated string aliases = 7;</code>
-         */
-        public Builder addAliasesBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-            ensureAliasesIsMutable();
-            aliases_.add(value);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         * doc number of this index;
-         * </pre>
-         *
-         * <code>int64 total_doc_number = 8;</code>
-         */
-        public long getTotalDocNumber() {
-            return totalDocNumber_;
-        }
-
-        /**
-         * <pre>
-         * doc number of this index;
-         * </pre>
-         *
-         * <code>int64 total_doc_number = 8;</code>
-         */
-        public Builder setTotalDocNumber(long value) {
-
-            totalDocNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         * doc number of this index;
-         * </pre>
-         *
-         * <code>int64 total_doc_number = 8;</code>
-         */
-        public Builder clearTotalDocNumber() {
-
-            totalDocNumber_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         * data size of all shards of this index;
-         * </pre>
-         *
-         * <code>int64 total_data_size = 9;</code>
-         */
-        public long getTotalDataSize() {
-            return totalDataSize_;
-        }
-
-        /**
-         * <pre>
-         * data size of all shards of this index;
-         * </pre>
-         *
-         * <code>int64 total_data_size = 9;</code>
-         */
-        public Builder setTotalDataSize(long value) {
-
-            totalDataSize_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         * data size of all shards of this index;
-         * </pre>
-         *
-         * <code>int64 total_data_size = 9;</code>
-         */
-        public Builder clearTotalDataSize() {
-
-            totalDataSize_ = 0L;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 primary_shard_number = 10;</code>
-         */
-        public int getPrimaryShardNumber() {
-            return primaryShardNumber_;
-        }
-
-        /**
-         * <code>int32 primary_shard_number = 10;</code>
-         */
-        public Builder setPrimaryShardNumber(int value) {
-
-            primaryShardNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 primary_shard_number = 10;</code>
-         */
-        public Builder clearPrimaryShardNumber() {
-
-            primaryShardNumber_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 replica_shard_number = 11;</code>
-         */
-        public int getReplicaShardNumber() {
-            return replicaShardNumber_;
-        }
-
-        /**
-         * <code>int32 replica_shard_number = 11;</code>
-         */
-        public Builder setReplicaShardNumber(int value) {
-
-            replicaShardNumber_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 replica_shard_number = 11;</code>
-         */
-        public Builder clearReplicaShardNumber() {
-
-            replicaShardNumber_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string index_health = 12;</code>
-         */
-        public java.lang.String getIndexHealth() {
-            java.lang.Object ref = indexHealth_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                indexHealth_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string index_health = 12;</code>
-         */
-        public Builder setIndexHealth(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            indexHealth_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string index_health = 12;</code>
-         */
-        public com.google.protobuf.ByteString
-        getIndexHealthBytes() {
-            java.lang.Object ref = indexHealth_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                indexHealth_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string index_health = 12;</code>
-         */
-        public Builder setIndexHealthBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            indexHealth_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string index_health = 12;</code>
-         */
-        public Builder clearIndexHealth() {
-
-            indexHealth_ = getDefaultInstance().getIndexHealth();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_id = 13;</code>
-         */
-        public java.lang.String getProjectId() {
-            java.lang.Object ref = projectId_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                projectId_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string project_id = 13;</code>
-         */
-        public Builder setProjectId(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            projectId_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_id = 13;</code>
-         */
-        public com.google.protobuf.ByteString
-        getProjectIdBytes() {
-            java.lang.Object ref = projectId_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                projectId_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string project_id = 13;</code>
-         */
-        public Builder setProjectIdBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            projectId_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string project_id = 13;</code>
-         */
-        public Builder clearProjectId() {
-
-            projectId_ = getDefaultInstance().getProjectId();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_id = 14;</code>
-         */
-        public java.lang.String getClusterId() {
-            java.lang.Object ref = clusterId_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                clusterId_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_id = 14;</code>
-         */
-        public Builder setClusterId(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            clusterId_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_id = 14;</code>
-         */
-        public com.google.protobuf.ByteString
-        getClusterIdBytes() {
-            java.lang.Object ref = clusterId_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                clusterId_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string cluster_id = 14;</code>
-         */
-        public Builder setClusterIdBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            clusterId_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string cluster_id = 14;</code>
-         */
-        public Builder clearClusterId() {
-
-            clusterId_ = getDefaultInstance().getClusterId();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-         */
-        public int getRollingPolicyValue() {
-            return rollingPolicy_;
-        }
-
-        /**
-         * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-         */
-        public Builder setRollingPolicyValue(int value) {
-            rollingPolicy_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-         */
-        public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
-            com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
-            return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
-        }
-
-        /**
-         * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-         */
-        public Builder setRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            rollingPolicy_ = value.getNumber();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
-         */
-        public Builder clearRollingPolicy() {
-
-            rollingPolicy_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 index_id = 16;</code>
-         */
-        public int getIndexId() {
-            return indexId_;
-        }
-
-        /**
-         * <code>int32 index_id = 16;</code>
-         */
-        public Builder setIndexId(int value) {
-
-            indexId_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>int32 index_id = 16;</code>
-         */
-        public Builder clearIndexId() {
-
-            indexId_ = 0;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string template = 17;</code>
-         */
-        public java.lang.String getTemplate() {
-            java.lang.Object ref = template_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                template_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
-        }
-
-        /**
-         * <code>string template = 17;</code>
-         */
-        public Builder setTemplate(
-                java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-
-            template_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string template = 17;</code>
-         */
-        public com.google.protobuf.ByteString
         getTemplateBytes() {
-            java.lang.Object ref = template_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                template_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string template = 17;</code>
-         */
-        public Builder setTemplateBytes(
-                com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-
-            template_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string template = 17;</code>
-         */
-        public Builder clearTemplate() {
-
-            template_ = getDefaultInstance().getTemplate();
-            onChanged();
-            return this;
-        }
-
-        public final Builder setUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-                final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:IndexInfo)
+      java.lang.Object ref = template_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        template_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder setTemplate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      template_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder clearTemplate() {
+      
+      template_ = getDefaultInstance().getTemplate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string template = 17;</code>
+     */
+    public Builder setTemplateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      template_ = value;
+      onChanged();
+      return this;
+    }
+    public final Builder setUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.setUnknownFieldsProto3(unknownFields);
+    }
+
+    public final Builder mergeUnknownFields(
+        final com.google.protobuf.UnknownFieldSet unknownFields) {
+      return super.mergeUnknownFields(unknownFields);
+    }
+
+
+    // @@protoc_insertion_point(builder_scope:IndexInfo)
+  }
+
+  // @@protoc_insertion_point(class_scope:IndexInfo)
+  private static final com.rany.service.platform.meta.IndexInfo DEFAULT_INSTANCE;
+  static {
+    DEFAULT_INSTANCE = new com.rany.service.platform.meta.IndexInfo();
+  }
+
+  public static com.rany.service.platform.meta.IndexInfo getDefaultInstance() {
+    return DEFAULT_INSTANCE;
+  }
+
+  private static final com.google.protobuf.Parser<IndexInfo>
+      PARSER = new com.google.protobuf.AbstractParser<IndexInfo>() {
+    public IndexInfo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IndexInfo(input, extensionRegistry);
+    }
+  };
+
+  public static com.google.protobuf.Parser<IndexInfo> parser() {
+    return PARSER;
+  }
+
+  @java.lang.Override
+  public com.google.protobuf.Parser<IndexInfo> getParserForType() {
+    return PARSER;
+  }
+
+  public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
+    return DEFAULT_INSTANCE;
+  }
 
 }
 
