@@ -9,10 +9,12 @@ public interface ListProjectDetailsRequestOrBuilder extends
 
   /**
    * <code>string cluster = 1;</code>
+   * @return The cluster.
    */
   java.lang.String getCluster();
   /**
    * <code>string cluster = 1;</code>
+   * @return The bytes for cluster.
    */
   com.google.protobuf.ByteString
       getClusterBytes();

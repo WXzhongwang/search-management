@@ -121,6 +121,7 @@ public class MasterServiceInternalImpl {
         } else {
             status = RUNNING_STATUS.NORMAL;
         }
+        logger.info("MasterServiceInternalImpl start successfully. {}", status);
         return true;
     }
 
@@ -394,8 +395,8 @@ public class MasterServiceInternalImpl {
         indexMeta.tags = "";
         indexMeta.docs = 0;
         indexMeta.totalData = 0;
-        indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
-        indexMeta.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+        indexMeta.gmtCreate = new Timestamp(System.currentTimeMillis());
+        indexMeta.gmtModified = new Timestamp(System.currentTimeMillis());
         indexMeta.health = Constants.UNKNOWN;
 
         metaStore.insertIndex(indexMeta);
@@ -1362,14 +1363,23 @@ public class MasterServiceInternalImpl {
             IndexMetaData tmpIndexMeta = client.acquireIndexSchema(fullIndexName);
             indexMeta.mapping = tmpIndexMeta.mapping;
             indexMeta.setting = tmpIndexMeta.setting;
-            if (info.getAliasesList().size() != 0) {
+
+            tmpIndexMeta.name = indexMeta.name;
+            tmpIndexMeta.fullName = indexMeta.fullName;
+            tmpIndexMeta.legacy = indexMeta.legacy;
+            tmpIndexMeta.projectName = indexMeta.projectName;
+            tmpIndexMeta.templateName = indexMeta.templateName;
+            tmpIndexMeta.tags = indexMeta.tags;
+            tmpIndexMeta.gmtModified = new Timestamp(System.currentTimeMillis());
+            tmpIndexMeta.gmtCreate = indexMeta.gmtCreate;
+
+            if (!info.getAliasesList().isEmpty()) {
                 indexMeta.aliases = info.getAliasesList();
             }
             long endUpdateIndex = System.nanoTime();
             logger.info("Index [project={}][indexTemplate={}][name={}] has been updated on ElasticSearch cluster.",
                     info.getProjectName(), info.getTemplate(), info.getName());
 
-            long lastUpdateTime = System.currentTimeMillis();
             long startUpdateMeta = System.nanoTime();
             metaStore.updateIndex(tmpIndexMeta);
             long endUpdateMeta = System.nanoTime();
@@ -1377,7 +1387,7 @@ public class MasterServiceInternalImpl {
                     projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
 
             // Temporarily set "new mapping and setting" to index meta before update real index in ES;
-            indexMeta.gmtModified = new Timestamp(LocalDateTime.now().getNano());
+            indexMeta.gmtModified = new Timestamp(System.currentTimeMillis());
             logger.info("IndexMeta of index [project={}][indexTemplate={}][name={}] has been updated in memory.",
                     projectMeta.projectName, templateMetaData.templateName, indexMeta.name);
             logger.info("Time breakdown of MasterServiceInternalImpl::updateIndex: getLock:{} ms, updateIndex:{} ms, updateMeta:{} ms.",
@@ -1545,7 +1555,7 @@ public class MasterServiceInternalImpl {
             indexMeta.fullName = indexMeta.name;
             indexMeta.projectName = projectName;
             indexMeta.templateName = indexTemplateName;
-            indexMeta.gmtCreate = new Timestamp(LocalDateTime.now().getNano());
+            indexMeta.gmtCreate = new Timestamp(System.currentTimeMillis());
             indexMeta.gmtModified = indexMeta.gmtCreate;
             indexMeta.docs = 0;
             indexMeta.totalData = 0;

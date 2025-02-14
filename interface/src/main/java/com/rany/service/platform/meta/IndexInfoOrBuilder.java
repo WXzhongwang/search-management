@@ -9,69 +9,85 @@ public interface IndexInfoOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string cluster_name = 2;</code>
+   * @return The clusterName.
    */
   java.lang.String getClusterName();
   /**
    * <code>string cluster_name = 2;</code>
+   * @return The bytes for clusterName.
    */
   com.google.protobuf.ByteString
       getClusterNameBytes();
 
   /**
    * <code>string project_name = 3;</code>
+   * @return The projectName.
    */
   java.lang.String getProjectName();
   /**
    * <code>string project_name = 3;</code>
+   * @return The bytes for projectName.
    */
   com.google.protobuf.ByteString
       getProjectNameBytes();
 
   /**
    * <code>string mapping = 5;</code>
+   * @return The mapping.
    */
   java.lang.String getMapping();
   /**
    * <code>string mapping = 5;</code>
+   * @return The bytes for mapping.
    */
   com.google.protobuf.ByteString
       getMappingBytes();
 
   /**
    * <code>string setting = 6;</code>
+   * @return The setting.
    */
   java.lang.String getSetting();
   /**
    * <code>string setting = 6;</code>
+   * @return The bytes for setting.
    */
   com.google.protobuf.ByteString
       getSettingBytes();
 
   /**
    * <code>repeated string aliases = 7;</code>
+   * @return A list containing the aliases.
    */
   java.util.List<java.lang.String>
       getAliasesList();
   /**
    * <code>repeated string aliases = 7;</code>
+   * @return The count of aliases.
    */
   int getAliasesCount();
   /**
    * <code>repeated string aliases = 7;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   java.lang.String getAliases(int index);
   /**
    * <code>repeated string aliases = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   com.google.protobuf.ByteString
       getAliasesBytes(int index);
@@ -82,6 +98,7 @@ public interface IndexInfoOrBuilder extends
    * </pre>
    *
    * <code>int64 total_doc_number = 8;</code>
+   * @return The totalDocNumber.
    */
   long getTotalDocNumber();
 
@@ -91,69 +108,83 @@ public interface IndexInfoOrBuilder extends
    * </pre>
    *
    * <code>int64 total_data_size = 9;</code>
+   * @return The totalDataSize.
    */
   long getTotalDataSize();
 
   /**
    * <code>int32 primary_shard_number = 10;</code>
+   * @return The primaryShardNumber.
    */
   int getPrimaryShardNumber();
 
   /**
    * <code>int32 replica_shard_number = 11;</code>
+   * @return The replicaShardNumber.
    */
   int getReplicaShardNumber();
 
   /**
    * <code>string index_health = 12;</code>
+   * @return The indexHealth.
    */
   java.lang.String getIndexHealth();
   /**
    * <code>string index_health = 12;</code>
+   * @return The bytes for indexHealth.
    */
   com.google.protobuf.ByteString
       getIndexHealthBytes();
 
   /**
    * <code>string project_id = 13;</code>
+   * @return The projectId.
    */
   java.lang.String getProjectId();
   /**
    * <code>string project_id = 13;</code>
+   * @return The bytes for projectId.
    */
   com.google.protobuf.ByteString
       getProjectIdBytes();
 
   /**
    * <code>string cluster_id = 14;</code>
+   * @return The clusterId.
    */
   java.lang.String getClusterId();
   /**
    * <code>string cluster_id = 14;</code>
+   * @return The bytes for clusterId.
    */
   com.google.protobuf.ByteString
       getClusterIdBytes();
 
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   * @return The enum numeric value on the wire for rollingPolicy.
    */
   int getRollingPolicyValue();
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   * @return The rollingPolicy.
    */
   com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy();
 
   /**
    * <code>int32 index_id = 16;</code>
+   * @return The indexId.
    */
   int getIndexId();
 
   /**
    * <code>string template = 17;</code>
+   * @return The template.
    */
   java.lang.String getTemplate();
   /**
    * <code>string template = 17;</code>
+   * @return The bytes for template.
    */
   com.google.protobuf.ByteString
       getTemplateBytes();

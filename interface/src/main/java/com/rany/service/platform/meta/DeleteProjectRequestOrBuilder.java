@@ -9,20 +9,24 @@ public interface DeleteProjectRequestOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>.ProjectStatus status = 2;</code>
+   * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
    * <code>.ProjectStatus status = 2;</code>
+   * @return The status.
    */
   com.rany.service.platform.meta.ProjectStatus getStatus();
 }

@@ -9,10 +9,12 @@ public interface PingReplyOrBuilder extends
 
   /**
    * <code>string pong = 1;</code>
+   * @return The pong.
    */
   java.lang.String getPong();
   /**
    * <code>string pong = 1;</code>
+   * @return The bytes for pong.
    */
   com.google.protobuf.ByteString
       getPongBytes();

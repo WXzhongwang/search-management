@@ -12,10 +12,10 @@ import com.rany.service.component.meta.dto.ProjectMetaData;
 import com.rany.service.platform.DataTypeUtils;
 import com.rany.service.platform.meta.AutoIndexRollingPolicy;
 import org.apache.commons.lang3.EnumUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
-import org.springframework.util.StringUtils;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -249,8 +249,8 @@ public class MySQLStore implements IMetaStorage {
         LocalDateTime localDateTime = indexMetaData.gmtModified.toLocalDateTime();
         String updateTime = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         String command = String.format("update %s set ", indexMetaTableName);
-        command += String.format(" %s=%d ", TableColumnNameConstant.Index.COLUMN_LAST_UPDATE_TIME, updateTime);
-        if (indexMetaData.tags != null) {
+        command += String.format(" %s=\"%s\" ", TableColumnNameConstant.Index.COLUMN_LAST_UPDATE_TIME, updateTime);
+        if (StringUtils.isNotEmpty(indexMetaData.tags)) {
             command += String.format(" ,%s=? ", TableColumnNameConstant.Index.COLUMN_INDEX_TAGS);
         }
         command += String.format(" where %s=\"%s\"",
@@ -261,7 +261,7 @@ public class MySQLStore implements IMetaStorage {
                 new PreparedStatementSetter() {
                     @Override
                     public void setValues(PreparedStatement preparedStatement) throws SQLException {
-                        if (indexMetaData.tags != null) {
+                        if (StringUtils.isNotEmpty(indexMetaData.tags)) {
                             preparedStatement.setString(1, indexMetaData.tags);
                         }
                     }
@@ -640,6 +640,12 @@ public class MySQLStore implements IMetaStorage {
             }
             indexMeta.aliases = new ArrayList<>();
             indexMeta.health = "";
+
+            indexMeta.primaryShards = 0;
+            indexMeta.replicaShards = 0;
+            indexMeta.docs = 0;
+            indexMeta.totalData = 0;
+            
             result.add(indexMeta);
         });
         return result;

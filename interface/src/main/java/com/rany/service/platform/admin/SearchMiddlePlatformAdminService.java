@@ -112,7 +112,7 @@ public final class SearchMiddlePlatformAdminService {
       "uest\"0\n\017SuspendResponse\022\014\n\004code\030\001 \001(\005\022\017\n" +
       "\007message\030\002 \001(\t\"\027\n\025GetServiceModeRequest\"" +
       "B\n\023ServiceModeResponse\022\014\n\004code\030\001 \001(\005\022\017\n\007" +
-      "message\030\002 \001(\t\022\014\n\004mode\030\003 \001(\t\"\032\n\030SuspendWo",
+      "message\030\002 \001(\t\022\014\n\004mode\030\003 \001(\t\"\032\n\030SuspendWo" +
       "rkThreadRequest\":\n\031SuspendWorkThreadResp" +
       "onse\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"\031\n\027R" +
       "esumeWorkThreadRequest\"9\n\030ResumeWorkThre" +
@@ -122,7 +122,7 @@ public final class SearchMiddlePlatformAdminService {
       "message\030\002 \001(\t\022\017\n\007running\030\003 \001(\0102\255\004\n\014Admin" +
       "Service\022\"\n\004Ping\022\014.PingRequest\032\n.PingRepl" +
       "y\"\000\022>\n\022SetServiceReadOnly\022\023.SetReadOnlyR" +
-      "equest\032\021.ReadOnlyResponse\"\000\022A\n\023SetServic",
+      "equest\032\021.ReadOnlyResponse\"\000\022A\n\023SetServic" +
       "eInService\022\024.SetInServiceRequest\032\022.InSer" +
       "viceResponse\"\000\022;\n\021SetServiceSuspend\022\022.Se" +
       "tSuspendRequest\032\020.SuspendResponse\"\000\022@\n\016G" +
@@ -132,23 +132,15 @@ public final class SearchMiddlePlatformAdminService {
       "endWorkThreadResponse\"\000\022M\n\024ResumeBackend" +
       "Threads\022\030.ResumeWorkThreadRequest\032\031.Resu" +
       "meWorkThreadResponse\"\000\022V\n\027GetBackendThre" +
-      "adsStatus\022\033.GetWorkThreadStatusRequest\032\034",
+      "adsStatus\022\033.GetWorkThreadStatusRequest\032\034" +
       ".GetWorkThreadStatusResponse\"\000BE\n\037com.ra" +
       "ny.service.platform.adminB SearchMiddleP" +
       "latformAdminServiceP\001b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_PingRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_PingRequest_fieldAccessorTable = new

@@ -5,11 +5,11 @@
     <parent>
         <artifactId>search-management</artifactId>
         <groupId>com.rany.service</groupId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>search-management-common</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

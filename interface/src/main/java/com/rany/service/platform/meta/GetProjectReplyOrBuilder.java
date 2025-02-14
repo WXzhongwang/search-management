@@ -9,25 +9,30 @@ public interface GetProjectReplyOrBuilder extends
 
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
   int getCode();
 
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
    * <code>.ProjectInfo project = 3;</code>
+   * @return Whether the project field is set.
    */
   boolean hasProject();
   /**
    * <code>.ProjectInfo project = 3;</code>
+   * @return The project.
    */
   com.rany.service.platform.meta.ProjectInfo getProject();
   /**

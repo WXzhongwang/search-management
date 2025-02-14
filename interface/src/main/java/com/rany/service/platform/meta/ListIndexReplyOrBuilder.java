@@ -9,34 +9,43 @@ public interface ListIndexReplyOrBuilder extends
 
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
   int getCode();
 
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
    * <code>repeated string indices = 3;</code>
+   * @return A list containing the indices.
    */
   java.util.List<java.lang.String>
       getIndicesList();
   /**
    * <code>repeated string indices = 3;</code>
+   * @return The count of indices.
    */
   int getIndicesCount();
   /**
    * <code>repeated string indices = 3;</code>
+   * @param index The index of the element to return.
+   * @return The indices at the given index.
    */
   java.lang.String getIndices(int index);
   /**
    * <code>repeated string indices = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the indices at the given index.
    */
   com.google.protobuf.ByteString
       getIndicesBytes(int index);

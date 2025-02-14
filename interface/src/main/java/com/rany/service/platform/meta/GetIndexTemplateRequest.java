@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code GetIndexTemplateRequest}
  */
-public  final class GetIndexTemplateRequest extends
+public final class GetIndexTemplateRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:GetIndexTemplateRequest)
     GetIndexTemplateRequestOrBuilder {
@@ -21,6 +21,13 @@ private static final long serialVersionUID = 0L;
   }
 
   @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new GetIndexTemplateRequest();
+  }
+
+  @java.lang.Override
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
@@ -30,7 +37,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    int mutable_bitField0_ = 0;
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -41,13 +50,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -58,6 +60,13 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             project_ = s;
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -77,6 +86,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_GetIndexTemplateRequest_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_GetIndexTemplateRequest_fieldAccessorTable
@@ -88,7 +98,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -103,7 +115,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -122,7 +136,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object project_;
   /**
    * <code>string project = 2;</code>
+   * @return The project.
    */
+  @java.lang.Override
   public java.lang.String getProject() {
     java.lang.Object ref = project_;
     if (ref instanceof java.lang.String) {
@@ -137,7 +153,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string project = 2;</code>
+   * @return The bytes for project.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProjectBytes() {
     java.lang.Object ref = project_;
@@ -153,6 +171,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -162,6 +181,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getNameBytes().isEmpty()) {
@@ -173,6 +193,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -199,13 +220,12 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.GetIndexTemplateRequest other = (com.rany.service.platform.meta.GetIndexTemplateRequest) obj;
 
-    boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getProject()
-        .equals(other.getProject());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (!getProject()
+        .equals(other.getProject())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -294,6 +314,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -301,6 +322,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.GetIndexTemplateRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -324,6 +346,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_GetIndexTemplateRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_GetIndexTemplateRequest_fieldAccessorTable
@@ -346,6 +369,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       name_ = "";
@@ -355,15 +379,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_GetIndexTemplateRequest_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.GetIndexTemplateRequest getDefaultInstanceForType() {
       return com.rany.service.platform.meta.GetIndexTemplateRequest.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.GetIndexTemplateRequest build() {
       com.rany.service.platform.meta.GetIndexTemplateRequest result = buildPartial();
       if (!result.isInitialized()) {
@@ -372,6 +399,7 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.GetIndexTemplateRequest buildPartial() {
       com.rany.service.platform.meta.GetIndexTemplateRequest result = new com.rany.service.platform.meta.GetIndexTemplateRequest(this);
       result.name_ = name_;
@@ -380,32 +408,39 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.GetIndexTemplateRequest) {
         return mergeFrom((com.rany.service.platform.meta.GetIndexTemplateRequest)other);
@@ -430,10 +465,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -455,6 +492,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -470,6 +508,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -486,6 +525,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -499,6 +540,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -508,6 +550,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -524,6 +568,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object project_ = "";
     /**
      * <code>string project = 2;</code>
+     * @return The project.
      */
     public java.lang.String getProject() {
       java.lang.Object ref = project_;
@@ -539,6 +584,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @return The bytes for project.
      */
     public com.google.protobuf.ByteString
         getProjectBytes() {
@@ -555,6 +601,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @param value The project to set.
+     * @return This builder for chaining.
      */
     public Builder setProject(
         java.lang.String value) {
@@ -568,6 +616,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProject() {
       
@@ -577,6 +626,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @param value The bytes for project to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
@@ -589,11 +640,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -615,11 +668,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<GetIndexTemplateRequest>
       PARSER = new com.google.protobuf.AbstractParser<GetIndexTemplateRequest>() {
+    @java.lang.Override
     public GetIndexTemplateRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetIndexTemplateRequest(input, extensionRegistry);
+      return new GetIndexTemplateRequest(input, extensionRegistry);
     }
   };
 
@@ -632,6 +686,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.GetIndexTemplateRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

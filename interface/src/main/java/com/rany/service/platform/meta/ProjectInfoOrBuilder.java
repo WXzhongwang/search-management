@@ -9,70 +9,84 @@ public interface ProjectInfoOrBuilder extends
 
   /**
    * <code>int32 id = 1;</code>
+   * @return The id.
    */
   int getId();
 
   /**
    * <code>string name = 2;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 2;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string cluster_name = 3;</code>
+   * @return The clusterName.
    */
   java.lang.String getClusterName();
   /**
    * <code>string cluster_name = 3;</code>
+   * @return The bytes for clusterName.
    */
   com.google.protobuf.ByteString
       getClusterNameBytes();
 
   /**
    * <code>string description = 4;</code>
+   * @return The description.
    */
   java.lang.String getDescription();
   /**
    * <code>string description = 4;</code>
+   * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
    * <code>int32 total_index_number = 5;</code>
+   * @return The totalIndexNumber.
    */
   int getTotalIndexNumber();
 
   /**
    * <code>int64 total_doc_number = 6;</code>
+   * @return The totalDocNumber.
    */
   long getTotalDocNumber();
 
   /**
    * <code>int64 total_data_size = 7;</code>
+   * @return The totalDataSize.
    */
   long getTotalDataSize();
 
   /**
    * <code>int32 cluster_id = 8;</code>
+   * @return The clusterId.
    */
   int getClusterId();
 
   /**
    * <code>.ProjectStatus status = 9;</code>
+   * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
    * <code>.ProjectStatus status = 9;</code>
+   * @return The status.
    */
   com.rany.service.platform.meta.ProjectStatus getStatus();
 
   /**
    * <code>int32 total_template_number = 17;</code>
+   * @return The totalTemplateNumber.
    */
   int getTotalTemplateNumber();
 }

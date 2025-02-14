@@ -9,25 +9,30 @@ public interface GetIndexReplyOrBuilder extends
 
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
   int getCode();
 
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
    * <code>.IndexInfo index = 3;</code>
+   * @return Whether the index field is set.
    */
   boolean hasIndex();
   /**
    * <code>.IndexInfo index = 3;</code>
+   * @return The index.
    */
   com.rany.service.platform.meta.IndexInfo getIndex();
   /**

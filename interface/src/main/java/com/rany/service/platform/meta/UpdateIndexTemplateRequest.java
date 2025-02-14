@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code UpdateIndexTemplateRequest}
  */
-public  final class UpdateIndexTemplateRequest extends
+public final class UpdateIndexTemplateRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:UpdateIndexTemplateRequest)
     UpdateIndexTemplateRequestOrBuilder {
@@ -18,12 +18,15 @@ private static final long serialVersionUID = 0L;
   private UpdateIndexTemplateRequest() {
     name_ = "";
     project_ = "";
-    updateAlias_ = false;
-    updatePolicy_ = false;
-    updateWindow_ = false;
     aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     autoIndexRollingPolicy_ = 0;
-    autoIndexRollingWindow_ = 0;
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new UpdateIndexTemplateRequest();
   }
 
   @java.lang.Override
@@ -36,6 +39,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -47,13 +53,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -109,9 +108,9 @@ private static final long serialVersionUID = 0L;
           }
           case 66: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               aliases_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
+              mutable_bitField0_ |= 0x00000001;
             }
             aliases_.add(s);
             break;
@@ -127,6 +126,13 @@ private static final long serialVersionUID = 0L;
             autoIndexRollingWindow_ = input.readInt32();
             break;
           }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -135,7 +141,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
         aliases_ = aliases_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -147,6 +153,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
@@ -154,12 +161,13 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.UpdateIndexTemplateRequest.class, com.rany.service.platform.meta.UpdateIndexTemplateRequest.Builder.class);
   }
 
-  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -174,7 +182,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -193,7 +203,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object project_;
   /**
    * <code>string project = 2;</code>
+   * @return The project.
    */
+  @java.lang.Override
   public java.lang.String getProject() {
     java.lang.Object ref = project_;
     if (ref instanceof java.lang.String) {
@@ -208,7 +220,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string project = 2;</code>
+   * @return The bytes for project.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProjectBytes() {
     java.lang.Object ref = project_;
@@ -231,7 +245,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 3;</code>
+   * @return Whether the mapping field is set.
    */
+  @java.lang.Override
   public boolean hasMapping() {
     return mapping_ != null;
   }
@@ -241,7 +257,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 3;</code>
+   * @return The mapping.
    */
+  @java.lang.Override
   public com.google.protobuf.StringValue getMapping() {
     return mapping_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : mapping_;
   }
@@ -252,6 +270,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.StringValue mapping = 3;</code>
    */
+  @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getMappingOrBuilder() {
     return getMapping();
   }
@@ -264,7 +283,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 4;</code>
+   * @return Whether the setting field is set.
    */
+  @java.lang.Override
   public boolean hasSetting() {
     return setting_ != null;
   }
@@ -274,7 +295,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 4;</code>
+   * @return The setting.
    */
+  @java.lang.Override
   public com.google.protobuf.StringValue getSetting() {
     return setting_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : setting_;
   }
@@ -285,6 +308,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.protobuf.StringValue setting = 4;</code>
    */
+  @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getSettingOrBuilder() {
     return getSetting();
   }
@@ -293,7 +317,9 @@ private static final long serialVersionUID = 0L;
   private boolean updateAlias_;
   /**
    * <code>bool update_alias = 5;</code>
+   * @return The updateAlias.
    */
+  @java.lang.Override
   public boolean getUpdateAlias() {
     return updateAlias_;
   }
@@ -302,7 +328,9 @@ private static final long serialVersionUID = 0L;
   private boolean updatePolicy_;
   /**
    * <code>bool update_policy = 6;</code>
+   * @return The updatePolicy.
    */
+  @java.lang.Override
   public boolean getUpdatePolicy() {
     return updatePolicy_;
   }
@@ -311,7 +339,9 @@ private static final long serialVersionUID = 0L;
   private boolean updateWindow_;
   /**
    * <code>bool update_window = 7;</code>
+   * @return The updateWindow.
    */
+  @java.lang.Override
   public boolean getUpdateWindow() {
     return updateWindow_;
   }
@@ -320,6 +350,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList aliases_;
   /**
    * <code>repeated string aliases = 8;</code>
+   * @return A list containing the aliases.
    */
   public com.google.protobuf.ProtocolStringList
       getAliasesList() {
@@ -327,18 +358,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string aliases = 8;</code>
+   * @return The count of aliases.
    */
   public int getAliasesCount() {
     return aliases_.size();
   }
   /**
    * <code>repeated string aliases = 8;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   public java.lang.String getAliases(int index) {
     return aliases_.get(index);
   }
   /**
    * <code>repeated string aliases = 8;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   public com.google.protobuf.ByteString
       getAliasesBytes(int index) {
@@ -349,14 +385,17 @@ private static final long serialVersionUID = 0L;
   private int autoIndexRollingPolicy_;
   /**
    * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+   * @return The enum numeric value on the wire for autoIndexRollingPolicy.
    */
-  public int getAutoIndexRollingPolicyValue() {
+  @java.lang.Override public int getAutoIndexRollingPolicyValue() {
     return autoIndexRollingPolicy_;
   }
   /**
    * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+   * @return The autoIndexRollingPolicy.
    */
-  public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
+  @java.lang.Override public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
+    @SuppressWarnings("deprecation")
     com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
     return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
   }
@@ -365,12 +404,15 @@ private static final long serialVersionUID = 0L;
   private int autoIndexRollingWindow_;
   /**
    * <code>int32 auto_index_rolling_window = 10;</code>
+   * @return The autoIndexRollingWindow.
    */
+  @java.lang.Override
   public int getAutoIndexRollingWindow() {
     return autoIndexRollingWindow_;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -380,6 +422,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getNameBytes().isEmpty()) {
@@ -415,6 +458,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -477,34 +521,33 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.UpdateIndexTemplateRequest other = (com.rany.service.platform.meta.UpdateIndexTemplateRequest) obj;
 
-    boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getProject()
-        .equals(other.getProject());
-    result = result && (hasMapping() == other.hasMapping());
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (!getProject()
+        .equals(other.getProject())) return false;
+    if (hasMapping() != other.hasMapping()) return false;
     if (hasMapping()) {
-      result = result && getMapping()
-          .equals(other.getMapping());
+      if (!getMapping()
+          .equals(other.getMapping())) return false;
     }
-    result = result && (hasSetting() == other.hasSetting());
+    if (hasSetting() != other.hasSetting()) return false;
     if (hasSetting()) {
-      result = result && getSetting()
-          .equals(other.getSetting());
+      if (!getSetting()
+          .equals(other.getSetting())) return false;
     }
-    result = result && (getUpdateAlias()
-        == other.getUpdateAlias());
-    result = result && (getUpdatePolicy()
-        == other.getUpdatePolicy());
-    result = result && (getUpdateWindow()
-        == other.getUpdateWindow());
-    result = result && getAliasesList()
-        .equals(other.getAliasesList());
-    result = result && autoIndexRollingPolicy_ == other.autoIndexRollingPolicy_;
-    result = result && (getAutoIndexRollingWindow()
-        == other.getAutoIndexRollingWindow());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getUpdateAlias()
+        != other.getUpdateAlias()) return false;
+    if (getUpdatePolicy()
+        != other.getUpdatePolicy()) return false;
+    if (getUpdateWindow()
+        != other.getUpdateWindow()) return false;
+    if (!getAliasesList()
+        .equals(other.getAliasesList())) return false;
+    if (autoIndexRollingPolicy_ != other.autoIndexRollingPolicy_) return false;
+    if (getAutoIndexRollingWindow()
+        != other.getAutoIndexRollingWindow()) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -618,6 +661,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -625,6 +669,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.UpdateIndexTemplateRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -648,6 +693,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_fieldAccessorTable
@@ -670,6 +716,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       name_ = "";
@@ -695,7 +742,7 @@ private static final long serialVersionUID = 0L;
       updateWindow_ = false;
 
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000001);
       autoIndexRollingPolicy_ = 0;
 
       autoIndexRollingWindow_ = 0;
@@ -703,15 +750,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateIndexTemplateRequest_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
       return com.rany.service.platform.meta.UpdateIndexTemplateRequest.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateIndexTemplateRequest build() {
       com.rany.service.platform.meta.UpdateIndexTemplateRequest result = buildPartial();
       if (!result.isInitialized()) {
@@ -720,10 +770,10 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateIndexTemplateRequest buildPartial() {
       com.rany.service.platform.meta.UpdateIndexTemplateRequest result = new com.rany.service.platform.meta.UpdateIndexTemplateRequest(this);
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.name_ = name_;
       result.project_ = project_;
       if (mappingBuilder_ == null) {
@@ -739,44 +789,50 @@ private static final long serialVersionUID = 0L;
       result.updateAlias_ = updateAlias_;
       result.updatePolicy_ = updatePolicy_;
       result.updateWindow_ = updateWindow_;
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         aliases_ = aliases_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.aliases_ = aliases_;
       result.autoIndexRollingPolicy_ = autoIndexRollingPolicy_;
       result.autoIndexRollingWindow_ = autoIndexRollingWindow_;
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.UpdateIndexTemplateRequest) {
         return mergeFrom((com.rany.service.platform.meta.UpdateIndexTemplateRequest)other);
@@ -814,7 +870,7 @@ private static final long serialVersionUID = 0L;
       if (!other.aliases_.isEmpty()) {
         if (aliases_.isEmpty()) {
           aliases_ = other.aliases_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           ensureAliasesIsMutable();
           aliases_.addAll(other.aliases_);
@@ -832,10 +888,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -858,6 +916,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -873,6 +932,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -889,6 +949,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -902,6 +964,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -911,6 +974,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -927,6 +992,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object project_ = "";
     /**
      * <code>string project = 2;</code>
+     * @return The project.
      */
     public java.lang.String getProject() {
       java.lang.Object ref = project_;
@@ -942,6 +1008,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @return The bytes for project.
      */
     public com.google.protobuf.ByteString
         getProjectBytes() {
@@ -958,6 +1025,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @param value The project to set.
+     * @return This builder for chaining.
      */
     public Builder setProject(
         java.lang.String value) {
@@ -971,6 +1040,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProject() {
       
@@ -980,6 +1050,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project = 2;</code>
+     * @param value The bytes for project to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
@@ -993,7 +1065,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.StringValue mapping_ = null;
+    private com.google.protobuf.StringValue mapping_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> mappingBuilder_;
     /**
@@ -1002,6 +1074,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.google.protobuf.StringValue mapping = 3;</code>
+     * @return Whether the mapping field is set.
      */
     public boolean hasMapping() {
       return mappingBuilder_ != null || mapping_ != null;
@@ -1012,6 +1085,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.google.protobuf.StringValue mapping = 3;</code>
+     * @return The mapping.
      */
     public com.google.protobuf.StringValue getMapping() {
       if (mappingBuilder_ == null) {
@@ -1146,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       return mappingBuilder_;
     }
 
-    private com.google.protobuf.StringValue setting_ = null;
+    private com.google.protobuf.StringValue setting_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> settingBuilder_;
     /**
@@ -1155,6 +1229,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.google.protobuf.StringValue setting = 4;</code>
+     * @return Whether the setting field is set.
      */
     public boolean hasSetting() {
       return settingBuilder_ != null || setting_ != null;
@@ -1165,6 +1240,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>.google.protobuf.StringValue setting = 4;</code>
+     * @return The setting.
      */
     public com.google.protobuf.StringValue getSetting() {
       if (settingBuilder_ == null) {
@@ -1302,12 +1378,16 @@ private static final long serialVersionUID = 0L;
     private boolean updateAlias_ ;
     /**
      * <code>bool update_alias = 5;</code>
+     * @return The updateAlias.
      */
+    @java.lang.Override
     public boolean getUpdateAlias() {
       return updateAlias_;
     }
     /**
      * <code>bool update_alias = 5;</code>
+     * @param value The updateAlias to set.
+     * @return This builder for chaining.
      */
     public Builder setUpdateAlias(boolean value) {
       
@@ -1317,6 +1397,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>bool update_alias = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUpdateAlias() {
       
@@ -1328,12 +1409,16 @@ private static final long serialVersionUID = 0L;
     private boolean updatePolicy_ ;
     /**
      * <code>bool update_policy = 6;</code>
+     * @return The updatePolicy.
      */
+    @java.lang.Override
     public boolean getUpdatePolicy() {
       return updatePolicy_;
     }
     /**
      * <code>bool update_policy = 6;</code>
+     * @param value The updatePolicy to set.
+     * @return This builder for chaining.
      */
     public Builder setUpdatePolicy(boolean value) {
       
@@ -1343,6 +1428,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>bool update_policy = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUpdatePolicy() {
       
@@ -1354,12 +1440,16 @@ private static final long serialVersionUID = 0L;
     private boolean updateWindow_ ;
     /**
      * <code>bool update_window = 7;</code>
+     * @return The updateWindow.
      */
+    @java.lang.Override
     public boolean getUpdateWindow() {
       return updateWindow_;
     }
     /**
      * <code>bool update_window = 7;</code>
+     * @param value The updateWindow to set.
+     * @return This builder for chaining.
      */
     public Builder setUpdateWindow(boolean value) {
       
@@ -1369,6 +1459,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>bool update_window = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearUpdateWindow() {
       
@@ -1379,13 +1470,14 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAliasesIsMutable() {
-      if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000001;
        }
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @return A list containing the aliases.
      */
     public com.google.protobuf.ProtocolStringList
         getAliasesList() {
@@ -1393,18 +1485,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @return The count of aliases.
      */
     public int getAliasesCount() {
       return aliases_.size();
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param index The index of the element to return.
+     * @return The aliases at the given index.
      */
     public java.lang.String getAliases(int index) {
       return aliases_.get(index);
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the aliases at the given index.
      */
     public com.google.protobuf.ByteString
         getAliasesBytes(int index) {
@@ -1412,6 +1509,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param index The index to set the value at.
+     * @param value The aliases to set.
+     * @return This builder for chaining.
      */
     public Builder setAliases(
         int index, java.lang.String value) {
@@ -1425,6 +1525,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param value The aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAliases(
         java.lang.String value) {
@@ -1438,6 +1540,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param values The aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAllAliases(
         java.lang.Iterable<java.lang.String> values) {
@@ -1449,15 +1553,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAliases() {
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string aliases = 8;</code>
+     * @param value The bytes of the aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAliasesBytes(
         com.google.protobuf.ByteString value) {
@@ -1474,27 +1581,36 @@ private static final long serialVersionUID = 0L;
     private int autoIndexRollingPolicy_ = 0;
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     * @return The enum numeric value on the wire for autoIndexRollingPolicy.
      */
-    public int getAutoIndexRollingPolicyValue() {
+    @java.lang.Override public int getAutoIndexRollingPolicyValue() {
       return autoIndexRollingPolicy_;
     }
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     * @param value The enum numeric value on the wire for autoIndexRollingPolicy to set.
+     * @return This builder for chaining.
      */
     public Builder setAutoIndexRollingPolicyValue(int value) {
+      
       autoIndexRollingPolicy_ = value;
       onChanged();
       return this;
     }
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     * @return The autoIndexRollingPolicy.
      */
+    @java.lang.Override
     public com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy() {
+      @SuppressWarnings("deprecation")
       com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(autoIndexRollingPolicy_);
       return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
     }
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     * @param value The autoIndexRollingPolicy to set.
+     * @return This builder for chaining.
      */
     public Builder setAutoIndexRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
       if (value == null) {
@@ -1507,6 +1623,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAutoIndexRollingPolicy() {
       
@@ -1518,12 +1635,16 @@ private static final long serialVersionUID = 0L;
     private int autoIndexRollingWindow_ ;
     /**
      * <code>int32 auto_index_rolling_window = 10;</code>
+     * @return The autoIndexRollingWindow.
      */
+    @java.lang.Override
     public int getAutoIndexRollingWindow() {
       return autoIndexRollingWindow_;
     }
     /**
      * <code>int32 auto_index_rolling_window = 10;</code>
+     * @param value The autoIndexRollingWindow to set.
+     * @return This builder for chaining.
      */
     public Builder setAutoIndexRollingWindow(int value) {
       
@@ -1533,6 +1654,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 auto_index_rolling_window = 10;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAutoIndexRollingWindow() {
       
@@ -1540,11 +1662,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1566,11 +1690,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<UpdateIndexTemplateRequest>
       PARSER = new com.google.protobuf.AbstractParser<UpdateIndexTemplateRequest>() {
+    @java.lang.Override
     public UpdateIndexTemplateRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateIndexTemplateRequest(input, extensionRegistry);
+      return new UpdateIndexTemplateRequest(input, extensionRegistry);
     }
   };
 
@@ -1583,6 +1708,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.UpdateIndexTemplateRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

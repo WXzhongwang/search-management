@@ -9,30 +9,36 @@ public interface DeleteIndexRequestOrBuilder extends
 
   /**
    * <code>string project = 1;</code>
+   * @return The project.
    */
   java.lang.String getProject();
   /**
    * <code>string project = 1;</code>
+   * @return The bytes for project.
    */
   com.google.protobuf.ByteString
       getProjectBytes();
 
   /**
    * <code>string indexTemplate = 2;</code>
+   * @return The indexTemplate.
    */
   java.lang.String getIndexTemplate();
   /**
    * <code>string indexTemplate = 2;</code>
+   * @return The bytes for indexTemplate.
    */
   com.google.protobuf.ByteString
       getIndexTemplateBytes();
 
   /**
    * <code>string indexName = 3;</code>
+   * @return The indexName.
    */
   java.lang.String getIndexName();
   /**
    * <code>string indexName = 3;</code>
+   * @return The bytes for indexName.
    */
   com.google.protobuf.ByteString
       getIndexNameBytes();

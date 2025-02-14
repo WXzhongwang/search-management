@@ -9,30 +9,36 @@ public interface UpdateIndexRequestOrBuilder extends
 
   /**
    * <code>string project = 1;</code>
+   * @return The project.
    */
   java.lang.String getProject();
   /**
    * <code>string project = 1;</code>
+   * @return The bytes for project.
    */
   com.google.protobuf.ByteString
       getProjectBytes();
 
   /**
    * <code>string indexTemplate = 2;</code>
+   * @return The indexTemplate.
    */
   java.lang.String getIndexTemplate();
   /**
    * <code>string indexTemplate = 2;</code>
+   * @return The bytes for indexTemplate.
    */
   com.google.protobuf.ByteString
       getIndexTemplateBytes();
 
   /**
    * <code>string indexName = 3;</code>
+   * @return The indexName.
    */
   java.lang.String getIndexName();
   /**
    * <code>string indexName = 3;</code>
+   * @return The bytes for indexName.
    */
   com.google.protobuf.ByteString
       getIndexNameBytes();
@@ -43,6 +49,7 @@ public interface UpdateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 4;</code>
+   * @return Whether the mapping field is set.
    */
   boolean hasMapping();
   /**
@@ -51,6 +58,7 @@ public interface UpdateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 4;</code>
+   * @return The mapping.
    */
   com.google.protobuf.StringValue getMapping();
   /**
@@ -68,6 +76,7 @@ public interface UpdateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 5;</code>
+   * @return Whether the setting field is set.
    */
   boolean hasSetting();
   /**
@@ -76,6 +85,7 @@ public interface UpdateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 5;</code>
+   * @return The setting.
    */
   com.google.protobuf.StringValue getSetting();
   /**
@@ -89,19 +99,25 @@ public interface UpdateIndexRequestOrBuilder extends
 
   /**
    * <code>repeated string aliases = 6;</code>
+   * @return A list containing the aliases.
    */
   java.util.List<java.lang.String>
       getAliasesList();
   /**
    * <code>repeated string aliases = 6;</code>
+   * @return The count of aliases.
    */
   int getAliasesCount();
   /**
    * <code>repeated string aliases = 6;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   java.lang.String getAliases(int index);
   /**
    * <code>repeated string aliases = 6;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   com.google.protobuf.ByteString
       getAliasesBytes(int index);

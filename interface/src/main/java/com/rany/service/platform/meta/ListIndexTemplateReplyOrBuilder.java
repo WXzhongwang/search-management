@@ -9,34 +9,43 @@ public interface ListIndexTemplateReplyOrBuilder extends
 
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
   int getCode();
 
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
    * <code>repeated string templates = 3;</code>
+   * @return A list containing the templates.
    */
   java.util.List<java.lang.String>
       getTemplatesList();
   /**
    * <code>repeated string templates = 3;</code>
+   * @return The count of templates.
    */
   int getTemplatesCount();
   /**
    * <code>repeated string templates = 3;</code>
+   * @param index The index of the element to return.
+   * @return The templates at the given index.
    */
   java.lang.String getTemplates(int index);
   /**
    * <code>repeated string templates = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the templates at the given index.
    */
   com.google.protobuf.ByteString
       getTemplatesBytes(int index);

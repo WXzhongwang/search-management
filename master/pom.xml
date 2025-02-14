@@ -5,10 +5,10 @@
     <parent>
         <artifactId>search-management</artifactId>
         <groupId>com.rany.service</groupId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <artifactId>search-management-master</artifactId>
 
     <properties>
@@ -68,33 +68,133 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <activatedProperties>dev</activatedProperties>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <activatedProperties>test</activatedProperties>
-            </properties>
-        </profile>
-        <profile>
-            <id>pre</id>
-            <properties>
-                <activatedProperties>pre</activatedProperties>
-            </properties>
-        </profile>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <activatedProperties>prod</activatedProperties>
-            </properties>
-        </profile>
-    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/application-${spring.profiles.active}.yml</include>
+                    <include>**/bootstrap-${spring.profiles.active}.yml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.ftl</include>
+                    <include>**/*.properties</include>
+                    <include>**/application.yml</include>
+                    <include>**/bootstrap.yml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.rany.service.MasterServiceApplication</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+
+                <configuration>
+                    <skipTests>true</skipTests>
+                    <skip>true</skip>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+
+            </plugin>
+
+            <!-- 关键配置 子模块下面的所有ut 收集 -->
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.6</version>
+                <executions>
+                    <execution>
+                        <id>report-aggregate</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report-aggregate</goal>
+                        </goals>
+                    </execution>
+                    <execution> <!-- 1 -->
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/boulderai/metabase/**</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                    <execution> <!-- 2 -->
+                        <id>pre-integration-prepare</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution> <!-- 3 -->
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>merge</goal>
+                        </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>**/boulderai/metabase/**</directory>
+                                    <includes>
+                                        <include>*.exec</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
+                        </configuration>
+                    </execution>
+                    <execution> <!-- 4 -->
+                        <id>merged-report-generation</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>2.6</version>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -331,7 +331,7 @@ public class AdvancedEsClient {
                 aliasesNode.put(alias, new JSONObject());
             }
             JSONObject indexJson = new JSONObject();
-            if (aliasesNode.size() > 0) {
+            if (!aliasesNode.isEmpty()) {
                 indexJson.put(Constants.ALIASES, aliasesNode);
             }
             indexJson.put(Constants.SETTING, JSON.parseObject(settings));
@@ -367,7 +367,7 @@ public class AdvancedEsClient {
             }
 
             // update index alias
-            if (aliases.size() != 0) {
+            if (!aliases.isEmpty()) {
                 GetAliasesRequest getAliasesRequest = new GetAliasesRequest();
                 getAliasesRequest.indices(fullIndexName);
                 Set<String> preAliasSet = Sets.newHashSet();

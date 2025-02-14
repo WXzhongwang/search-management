@@ -9,10 +9,12 @@ public interface ListIndexTemplateRequestOrBuilder extends
 
   /**
    * <code>string project = 1;</code>
+   * @return The project.
    */
   java.lang.String getProject();
   /**
    * <code>string project = 1;</code>
+   * @return The bytes for project.
    */
   com.google.protobuf.ByteString
       getProjectBytes();

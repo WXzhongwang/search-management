@@ -5,10 +5,10 @@
     <parent>
         <artifactId>search-management</artifactId>
         <groupId>com.rany.service</groupId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <artifactId>search-management-interface</artifactId>
 
     <properties>
@@ -16,7 +16,12 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+
     <dependencies>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty</artifactId>
@@ -36,18 +41,22 @@
             <extension>
                 <groupId>kr.motd.maven</groupId>
                 <artifactId>os-maven-plugin</artifactId>
-                <version>1.5.0.Final</version>
+                <!--                <version>1.5.0.Final</version>-->
+                <version>1.6.2</version>
             </extension>
         </extensions>
         <plugins>
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.1</version>
+                <version>0.6.1</version>
+                <!--                <version>0.5.0</version>-->
                 <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:3.4.0:exe:${os.detected.classifier}</protocArtifact>
+                    <protocArtifact>com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}
+                    </protocArtifact>
                     <pluginId>grpc-java</pluginId>
-                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.7.0:exe:${os.detected.classifier}</pluginArtifact>
+                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
+                    </pluginArtifact>
                     <!--代表生成的java文件的存放路径-->
                     <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
                     <!--执行compile和compile-custom过程中不覆盖前一步骤生成的文件-->

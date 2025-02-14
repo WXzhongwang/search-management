@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code UpdateClusterInfoRequest}
  */
-public  final class UpdateClusterInfoRequest extends
+public final class UpdateClusterInfoRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:UpdateClusterInfoRequest)
     UpdateClusterInfoRequestOrBuilder {
@@ -16,11 +16,17 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UpdateClusterInfoRequest() {
-    id_ = 0;
     name_ = "";
     status_ = 0;
     description_ = "";
     internalEndpoint_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new UpdateClusterInfoRequest();
   }
 
   @java.lang.Override
@@ -33,7 +39,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    int mutable_bitField0_ = 0;
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -44,13 +52,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             id_ = input.readInt32();
@@ -80,6 +81,13 @@ private static final long serialVersionUID = 0L;
             internalEndpoint_ = s;
             break;
           }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -97,6 +105,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateClusterInfoRequest_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateClusterInfoRequest_fieldAccessorTable
@@ -108,7 +117,9 @@ private static final long serialVersionUID = 0L;
   private int id_;
   /**
    * <code>int32 id = 1;</code>
+   * @return The id.
    */
+  @java.lang.Override
   public int getId() {
     return id_;
   }
@@ -117,7 +128,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <code>string name = 2;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -132,7 +145,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 2;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -151,14 +166,17 @@ private static final long serialVersionUID = 0L;
   private int status_;
   /**
    * <code>.ClusterStatus status = 3;</code>
+   * @return The enum numeric value on the wire for status.
    */
-  public int getStatusValue() {
+  @java.lang.Override public int getStatusValue() {
     return status_;
   }
   /**
    * <code>.ClusterStatus status = 3;</code>
+   * @return The status.
    */
-  public com.rany.service.platform.meta.ClusterStatus getStatus() {
+  @java.lang.Override public com.rany.service.platform.meta.ClusterStatus getStatus() {
+    @SuppressWarnings("deprecation")
     com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
     return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
   }
@@ -167,7 +185,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object description_;
   /**
    * <code>string description = 4;</code>
+   * @return The description.
    */
+  @java.lang.Override
   public java.lang.String getDescription() {
     java.lang.Object ref = description_;
     if (ref instanceof java.lang.String) {
@@ -182,7 +202,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string description = 4;</code>
+   * @return The bytes for description.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDescriptionBytes() {
     java.lang.Object ref = description_;
@@ -201,7 +223,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object internalEndpoint_;
   /**
    * <code>string internal_endpoint = 5;</code>
+   * @return The internalEndpoint.
    */
+  @java.lang.Override
   public java.lang.String getInternalEndpoint() {
     java.lang.Object ref = internalEndpoint_;
     if (ref instanceof java.lang.String) {
@@ -216,7 +240,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string internal_endpoint = 5;</code>
+   * @return The bytes for internalEndpoint.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getInternalEndpointBytes() {
     java.lang.Object ref = internalEndpoint_;
@@ -232,6 +258,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -241,6 +268,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (id_ != 0) {
@@ -261,6 +289,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -298,18 +327,17 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.UpdateClusterInfoRequest other = (com.rany.service.platform.meta.UpdateClusterInfoRequest) obj;
 
-    boolean result = true;
-    result = result && (getId()
-        == other.getId());
-    result = result && getName()
-        .equals(other.getName());
-    result = result && status_ == other.status_;
-    result = result && getDescription()
-        .equals(other.getDescription());
-    result = result && getInternalEndpoint()
-        .equals(other.getInternalEndpoint());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getId()
+        != other.getId()) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (status_ != other.status_) return false;
+    if (!getDescription()
+        .equals(other.getDescription())) return false;
+    if (!getInternalEndpoint()
+        .equals(other.getInternalEndpoint())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -404,6 +432,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -411,6 +440,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.UpdateClusterInfoRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -434,6 +464,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateClusterInfoRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateClusterInfoRequest_fieldAccessorTable
@@ -456,6 +487,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       id_ = 0;
@@ -471,15 +503,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_UpdateClusterInfoRequest_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateClusterInfoRequest getDefaultInstanceForType() {
       return com.rany.service.platform.meta.UpdateClusterInfoRequest.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateClusterInfoRequest build() {
       com.rany.service.platform.meta.UpdateClusterInfoRequest result = buildPartial();
       if (!result.isInitialized()) {
@@ -488,6 +523,7 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.UpdateClusterInfoRequest buildPartial() {
       com.rany.service.platform.meta.UpdateClusterInfoRequest result = new com.rany.service.platform.meta.UpdateClusterInfoRequest(this);
       result.id_ = id_;
@@ -499,32 +535,39 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.UpdateClusterInfoRequest) {
         return mergeFrom((com.rany.service.platform.meta.UpdateClusterInfoRequest)other);
@@ -559,10 +602,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -584,12 +629,16 @@ private static final long serialVersionUID = 0L;
     private int id_ ;
     /**
      * <code>int32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
     /**
      * <code>int32 id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
      */
     public Builder setId(int value) {
       
@@ -599,6 +648,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 id = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearId() {
       
@@ -610,6 +660,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -625,6 +676,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -641,6 +693,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -654,6 +708,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -663,6 +718,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -679,27 +736,36 @@ private static final long serialVersionUID = 0L;
     private int status_ = 0;
     /**
      * <code>.ClusterStatus status = 3;</code>
+     * @return The enum numeric value on the wire for status.
      */
-    public int getStatusValue() {
+    @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
      * <code>.ClusterStatus status = 3;</code>
+     * @param value The enum numeric value on the wire for status to set.
+     * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
+      
       status_ = value;
       onChanged();
       return this;
     }
     /**
      * <code>.ClusterStatus status = 3;</code>
+     * @return The status.
      */
+    @java.lang.Override
     public com.rany.service.platform.meta.ClusterStatus getStatus() {
+      @SuppressWarnings("deprecation")
       com.rany.service.platform.meta.ClusterStatus result = com.rany.service.platform.meta.ClusterStatus.valueOf(status_);
       return result == null ? com.rany.service.platform.meta.ClusterStatus.UNRECOGNIZED : result;
     }
     /**
      * <code>.ClusterStatus status = 3;</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
      */
     public Builder setStatus(com.rany.service.platform.meta.ClusterStatus value) {
       if (value == null) {
@@ -712,6 +778,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>.ClusterStatus status = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearStatus() {
       
@@ -723,6 +790,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <code>string description = 4;</code>
+     * @return The description.
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -738,6 +806,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string description = 4;</code>
+     * @return The bytes for description.
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -754,6 +823,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string description = 4;</code>
+     * @param value The description to set.
+     * @return This builder for chaining.
      */
     public Builder setDescription(
         java.lang.String value) {
@@ -767,6 +838,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string description = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDescription() {
       
@@ -776,6 +848,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string description = 4;</code>
+     * @param value The bytes for description to set.
+     * @return This builder for chaining.
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
@@ -792,6 +866,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object internalEndpoint_ = "";
     /**
      * <code>string internal_endpoint = 5;</code>
+     * @return The internalEndpoint.
      */
     public java.lang.String getInternalEndpoint() {
       java.lang.Object ref = internalEndpoint_;
@@ -807,6 +882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string internal_endpoint = 5;</code>
+     * @return The bytes for internalEndpoint.
      */
     public com.google.protobuf.ByteString
         getInternalEndpointBytes() {
@@ -823,6 +899,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string internal_endpoint = 5;</code>
+     * @param value The internalEndpoint to set.
+     * @return This builder for chaining.
      */
     public Builder setInternalEndpoint(
         java.lang.String value) {
@@ -836,6 +914,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string internal_endpoint = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearInternalEndpoint() {
       
@@ -845,6 +924,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string internal_endpoint = 5;</code>
+     * @param value The bytes for internalEndpoint to set.
+     * @return This builder for chaining.
      */
     public Builder setInternalEndpointBytes(
         com.google.protobuf.ByteString value) {
@@ -857,11 +938,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -883,11 +966,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<UpdateClusterInfoRequest>
       PARSER = new com.google.protobuf.AbstractParser<UpdateClusterInfoRequest>() {
+    @java.lang.Override
     public UpdateClusterInfoRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UpdateClusterInfoRequest(input, extensionRegistry);
+      return new UpdateClusterInfoRequest(input, extensionRegistry);
     }
   };
 
@@ -900,6 +984,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.UpdateClusterInfoRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

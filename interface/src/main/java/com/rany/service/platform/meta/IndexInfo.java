@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code IndexInfo}
  */
-public  final class IndexInfo extends
+public final class IndexInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:IndexInfo)
     IndexInfoOrBuilder {
@@ -22,16 +22,18 @@ private static final long serialVersionUID = 0L;
     mapping_ = "";
     setting_ = "";
     aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    totalDocNumber_ = 0L;
-    totalDataSize_ = 0L;
-    primaryShardNumber_ = 0;
-    replicaShardNumber_ = 0;
     indexHealth_ = "";
     projectId_ = "";
     clusterId_ = "";
     rollingPolicy_ = 0;
-    indexId_ = 0;
     template_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new IndexInfo();
   }
 
   @java.lang.Override
@@ -44,6 +46,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -55,13 +60,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
@@ -94,9 +92,9 @@ private static final long serialVersionUID = 0L;
           }
           case 58: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               aliases_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
+              mutable_bitField0_ |= 0x00000001;
             }
             aliases_.add(s);
             break;
@@ -156,6 +154,13 @@ private static final long serialVersionUID = 0L;
             template_ = s;
             break;
           }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -164,7 +169,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
         aliases_ = aliases_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -176,6 +181,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
@@ -183,12 +189,13 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.IndexInfo.class, com.rany.service.platform.meta.IndexInfo.Builder.class);
   }
 
-  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -203,7 +210,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -222,7 +231,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object clusterName_;
   /**
    * <code>string cluster_name = 2;</code>
+   * @return The clusterName.
    */
+  @java.lang.Override
   public java.lang.String getClusterName() {
     java.lang.Object ref = clusterName_;
     if (ref instanceof java.lang.String) {
@@ -237,7 +248,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string cluster_name = 2;</code>
+   * @return The bytes for clusterName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getClusterNameBytes() {
     java.lang.Object ref = clusterName_;
@@ -256,7 +269,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object projectName_;
   /**
    * <code>string project_name = 3;</code>
+   * @return The projectName.
    */
+  @java.lang.Override
   public java.lang.String getProjectName() {
     java.lang.Object ref = projectName_;
     if (ref instanceof java.lang.String) {
@@ -271,7 +286,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string project_name = 3;</code>
+   * @return The bytes for projectName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProjectNameBytes() {
     java.lang.Object ref = projectName_;
@@ -290,7 +307,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object mapping_;
   /**
    * <code>string mapping = 5;</code>
+   * @return The mapping.
    */
+  @java.lang.Override
   public java.lang.String getMapping() {
     java.lang.Object ref = mapping_;
     if (ref instanceof java.lang.String) {
@@ -305,7 +324,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string mapping = 5;</code>
+   * @return The bytes for mapping.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getMappingBytes() {
     java.lang.Object ref = mapping_;
@@ -324,7 +345,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object setting_;
   /**
    * <code>string setting = 6;</code>
+   * @return The setting.
    */
+  @java.lang.Override
   public java.lang.String getSetting() {
     java.lang.Object ref = setting_;
     if (ref instanceof java.lang.String) {
@@ -339,7 +362,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string setting = 6;</code>
+   * @return The bytes for setting.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getSettingBytes() {
     java.lang.Object ref = setting_;
@@ -358,6 +383,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList aliases_;
   /**
    * <code>repeated string aliases = 7;</code>
+   * @return A list containing the aliases.
    */
   public com.google.protobuf.ProtocolStringList
       getAliasesList() {
@@ -365,18 +391,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string aliases = 7;</code>
+   * @return The count of aliases.
    */
   public int getAliasesCount() {
     return aliases_.size();
   }
   /**
    * <code>repeated string aliases = 7;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   public java.lang.String getAliases(int index) {
     return aliases_.get(index);
   }
   /**
    * <code>repeated string aliases = 7;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   public com.google.protobuf.ByteString
       getAliasesBytes(int index) {
@@ -391,7 +422,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>int64 total_doc_number = 8;</code>
+   * @return The totalDocNumber.
    */
+  @java.lang.Override
   public long getTotalDocNumber() {
     return totalDocNumber_;
   }
@@ -404,7 +437,9 @@ private static final long serialVersionUID = 0L;
    * </pre>
    *
    * <code>int64 total_data_size = 9;</code>
+   * @return The totalDataSize.
    */
+  @java.lang.Override
   public long getTotalDataSize() {
     return totalDataSize_;
   }
@@ -413,7 +448,9 @@ private static final long serialVersionUID = 0L;
   private int primaryShardNumber_;
   /**
    * <code>int32 primary_shard_number = 10;</code>
+   * @return The primaryShardNumber.
    */
+  @java.lang.Override
   public int getPrimaryShardNumber() {
     return primaryShardNumber_;
   }
@@ -422,7 +459,9 @@ private static final long serialVersionUID = 0L;
   private int replicaShardNumber_;
   /**
    * <code>int32 replica_shard_number = 11;</code>
+   * @return The replicaShardNumber.
    */
+  @java.lang.Override
   public int getReplicaShardNumber() {
     return replicaShardNumber_;
   }
@@ -431,7 +470,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object indexHealth_;
   /**
    * <code>string index_health = 12;</code>
+   * @return The indexHealth.
    */
+  @java.lang.Override
   public java.lang.String getIndexHealth() {
     java.lang.Object ref = indexHealth_;
     if (ref instanceof java.lang.String) {
@@ -446,7 +487,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string index_health = 12;</code>
+   * @return The bytes for indexHealth.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getIndexHealthBytes() {
     java.lang.Object ref = indexHealth_;
@@ -465,7 +508,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object projectId_;
   /**
    * <code>string project_id = 13;</code>
+   * @return The projectId.
    */
+  @java.lang.Override
   public java.lang.String getProjectId() {
     java.lang.Object ref = projectId_;
     if (ref instanceof java.lang.String) {
@@ -480,7 +525,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string project_id = 13;</code>
+   * @return The bytes for projectId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getProjectIdBytes() {
     java.lang.Object ref = projectId_;
@@ -499,7 +546,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object clusterId_;
   /**
    * <code>string cluster_id = 14;</code>
+   * @return The clusterId.
    */
+  @java.lang.Override
   public java.lang.String getClusterId() {
     java.lang.Object ref = clusterId_;
     if (ref instanceof java.lang.String) {
@@ -514,7 +563,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string cluster_id = 14;</code>
+   * @return The bytes for clusterId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getClusterIdBytes() {
     java.lang.Object ref = clusterId_;
@@ -533,14 +584,17 @@ private static final long serialVersionUID = 0L;
   private int rollingPolicy_;
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   * @return The enum numeric value on the wire for rollingPolicy.
    */
-  public int getRollingPolicyValue() {
+  @java.lang.Override public int getRollingPolicyValue() {
     return rollingPolicy_;
   }
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+   * @return The rollingPolicy.
    */
-  public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
+  @java.lang.Override public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
+    @SuppressWarnings("deprecation")
     com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
     return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
   }
@@ -549,7 +603,9 @@ private static final long serialVersionUID = 0L;
   private int indexId_;
   /**
    * <code>int32 index_id = 16;</code>
+   * @return The indexId.
    */
+  @java.lang.Override
   public int getIndexId() {
     return indexId_;
   }
@@ -558,7 +614,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object template_;
   /**
    * <code>string template = 17;</code>
+   * @return The template.
    */
+  @java.lang.Override
   public java.lang.String getTemplate() {
     java.lang.Object ref = template_;
     if (ref instanceof java.lang.String) {
@@ -573,7 +631,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string template = 17;</code>
+   * @return The bytes for template.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTemplateBytes() {
     java.lang.Object ref = template_;
@@ -589,6 +649,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -598,6 +659,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (!getNameBytes().isEmpty()) {
@@ -651,6 +713,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -730,40 +793,39 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.IndexInfo other = (com.rany.service.platform.meta.IndexInfo) obj;
 
-    boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getClusterName()
-        .equals(other.getClusterName());
-    result = result && getProjectName()
-        .equals(other.getProjectName());
-    result = result && getMapping()
-        .equals(other.getMapping());
-    result = result && getSetting()
-        .equals(other.getSetting());
-    result = result && getAliasesList()
-        .equals(other.getAliasesList());
-    result = result && (getTotalDocNumber()
-        == other.getTotalDocNumber());
-    result = result && (getTotalDataSize()
-        == other.getTotalDataSize());
-    result = result && (getPrimaryShardNumber()
-        == other.getPrimaryShardNumber());
-    result = result && (getReplicaShardNumber()
-        == other.getReplicaShardNumber());
-    result = result && getIndexHealth()
-        .equals(other.getIndexHealth());
-    result = result && getProjectId()
-        .equals(other.getProjectId());
-    result = result && getClusterId()
-        .equals(other.getClusterId());
-    result = result && rollingPolicy_ == other.rollingPolicy_;
-    result = result && (getIndexId()
-        == other.getIndexId());
-    result = result && getTemplate()
-        .equals(other.getTemplate());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (!getClusterName()
+        .equals(other.getClusterName())) return false;
+    if (!getProjectName()
+        .equals(other.getProjectName())) return false;
+    if (!getMapping()
+        .equals(other.getMapping())) return false;
+    if (!getSetting()
+        .equals(other.getSetting())) return false;
+    if (!getAliasesList()
+        .equals(other.getAliasesList())) return false;
+    if (getTotalDocNumber()
+        != other.getTotalDocNumber()) return false;
+    if (getTotalDataSize()
+        != other.getTotalDataSize()) return false;
+    if (getPrimaryShardNumber()
+        != other.getPrimaryShardNumber()) return false;
+    if (getReplicaShardNumber()
+        != other.getReplicaShardNumber()) return false;
+    if (!getIndexHealth()
+        .equals(other.getIndexHealth())) return false;
+    if (!getProjectId()
+        .equals(other.getProjectId())) return false;
+    if (!getClusterId()
+        .equals(other.getClusterId())) return false;
+    if (rollingPolicy_ != other.rollingPolicy_) return false;
+    if (getIndexId()
+        != other.getIndexId()) return false;
+    if (!getTemplate()
+        .equals(other.getTemplate())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -884,6 +946,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -891,6 +954,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.IndexInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -914,6 +978,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_fieldAccessorTable
@@ -936,6 +1001,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       name_ = "";
@@ -949,7 +1015,7 @@ private static final long serialVersionUID = 0L;
       setting_ = "";
 
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000001);
       totalDocNumber_ = 0L;
 
       totalDataSize_ = 0L;
@@ -973,15 +1039,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_IndexInfo_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
       return com.rany.service.platform.meta.IndexInfo.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.IndexInfo build() {
       com.rany.service.platform.meta.IndexInfo result = buildPartial();
       if (!result.isInitialized()) {
@@ -990,18 +1059,18 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.IndexInfo buildPartial() {
       com.rany.service.platform.meta.IndexInfo result = new com.rany.service.platform.meta.IndexInfo(this);
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.name_ = name_;
       result.clusterName_ = clusterName_;
       result.projectName_ = projectName_;
       result.mapping_ = mapping_;
       result.setting_ = setting_;
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         aliases_ = aliases_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.aliases_ = aliases_;
       result.totalDocNumber_ = totalDocNumber_;
@@ -1014,37 +1083,43 @@ private static final long serialVersionUID = 0L;
       result.rollingPolicy_ = rollingPolicy_;
       result.indexId_ = indexId_;
       result.template_ = template_;
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.IndexInfo) {
         return mergeFrom((com.rany.service.platform.meta.IndexInfo)other);
@@ -1079,7 +1154,7 @@ private static final long serialVersionUID = 0L;
       if (!other.aliases_.isEmpty()) {
         if (aliases_.isEmpty()) {
           aliases_ = other.aliases_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           ensureAliasesIsMutable();
           aliases_.addAll(other.aliases_);
@@ -1125,10 +1200,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1151,6 +1228,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -1166,6 +1244,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -1182,6 +1261,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -1195,6 +1276,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -1204,6 +1286,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 1;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1220,6 +1304,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object clusterName_ = "";
     /**
      * <code>string cluster_name = 2;</code>
+     * @return The clusterName.
      */
     public java.lang.String getClusterName() {
       java.lang.Object ref = clusterName_;
@@ -1235,6 +1320,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_name = 2;</code>
+     * @return The bytes for clusterName.
      */
     public com.google.protobuf.ByteString
         getClusterNameBytes() {
@@ -1251,6 +1337,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_name = 2;</code>
+     * @param value The clusterName to set.
+     * @return This builder for chaining.
      */
     public Builder setClusterName(
         java.lang.String value) {
@@ -1264,6 +1352,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_name = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearClusterName() {
       
@@ -1273,6 +1362,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_name = 2;</code>
+     * @param value The bytes for clusterName to set.
+     * @return This builder for chaining.
      */
     public Builder setClusterNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1289,6 +1380,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object projectName_ = "";
     /**
      * <code>string project_name = 3;</code>
+     * @return The projectName.
      */
     public java.lang.String getProjectName() {
       java.lang.Object ref = projectName_;
@@ -1304,6 +1396,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_name = 3;</code>
+     * @return The bytes for projectName.
      */
     public com.google.protobuf.ByteString
         getProjectNameBytes() {
@@ -1320,6 +1413,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_name = 3;</code>
+     * @param value The projectName to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectName(
         java.lang.String value) {
@@ -1333,6 +1428,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_name = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProjectName() {
       
@@ -1342,6 +1438,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_name = 3;</code>
+     * @param value The bytes for projectName to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1358,6 +1456,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object mapping_ = "";
     /**
      * <code>string mapping = 5;</code>
+     * @return The mapping.
      */
     public java.lang.String getMapping() {
       java.lang.Object ref = mapping_;
@@ -1373,6 +1472,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string mapping = 5;</code>
+     * @return The bytes for mapping.
      */
     public com.google.protobuf.ByteString
         getMappingBytes() {
@@ -1389,6 +1489,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string mapping = 5;</code>
+     * @param value The mapping to set.
+     * @return This builder for chaining.
      */
     public Builder setMapping(
         java.lang.String value) {
@@ -1402,6 +1504,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string mapping = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMapping() {
       
@@ -1411,6 +1514,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string mapping = 5;</code>
+     * @param value The bytes for mapping to set.
+     * @return This builder for chaining.
      */
     public Builder setMappingBytes(
         com.google.protobuf.ByteString value) {
@@ -1427,6 +1532,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object setting_ = "";
     /**
      * <code>string setting = 6;</code>
+     * @return The setting.
      */
     public java.lang.String getSetting() {
       java.lang.Object ref = setting_;
@@ -1442,6 +1548,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string setting = 6;</code>
+     * @return The bytes for setting.
      */
     public com.google.protobuf.ByteString
         getSettingBytes() {
@@ -1458,6 +1565,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string setting = 6;</code>
+     * @param value The setting to set.
+     * @return This builder for chaining.
      */
     public Builder setSetting(
         java.lang.String value) {
@@ -1471,6 +1580,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string setting = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearSetting() {
       
@@ -1480,6 +1590,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string setting = 6;</code>
+     * @param value The bytes for setting to set.
+     * @return This builder for chaining.
      */
     public Builder setSettingBytes(
         com.google.protobuf.ByteString value) {
@@ -1495,13 +1607,14 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAliasesIsMutable() {
-      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         aliases_ = new com.google.protobuf.LazyStringArrayList(aliases_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000001;
        }
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @return A list containing the aliases.
      */
     public com.google.protobuf.ProtocolStringList
         getAliasesList() {
@@ -1509,18 +1622,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @return The count of aliases.
      */
     public int getAliasesCount() {
       return aliases_.size();
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param index The index of the element to return.
+     * @return The aliases at the given index.
      */
     public java.lang.String getAliases(int index) {
       return aliases_.get(index);
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the aliases at the given index.
      */
     public com.google.protobuf.ByteString
         getAliasesBytes(int index) {
@@ -1528,6 +1646,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param index The index to set the value at.
+     * @param value The aliases to set.
+     * @return This builder for chaining.
      */
     public Builder setAliases(
         int index, java.lang.String value) {
@@ -1541,6 +1662,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param value The aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAliases(
         java.lang.String value) {
@@ -1554,6 +1677,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param values The aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAllAliases(
         java.lang.Iterable<java.lang.String> values) {
@@ -1565,15 +1690,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearAliases() {
       aliases_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string aliases = 7;</code>
+     * @param value The bytes of the aliases to add.
+     * @return This builder for chaining.
      */
     public Builder addAliasesBytes(
         com.google.protobuf.ByteString value) {
@@ -1594,7 +1722,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_doc_number = 8;</code>
+     * @return The totalDocNumber.
      */
+    @java.lang.Override
     public long getTotalDocNumber() {
       return totalDocNumber_;
     }
@@ -1604,6 +1734,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_doc_number = 8;</code>
+     * @param value The totalDocNumber to set.
+     * @return This builder for chaining.
      */
     public Builder setTotalDocNumber(long value) {
       
@@ -1617,6 +1749,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_doc_number = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTotalDocNumber() {
       
@@ -1632,7 +1765,9 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_data_size = 9;</code>
+     * @return The totalDataSize.
      */
+    @java.lang.Override
     public long getTotalDataSize() {
       return totalDataSize_;
     }
@@ -1642,6 +1777,8 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_data_size = 9;</code>
+     * @param value The totalDataSize to set.
+     * @return This builder for chaining.
      */
     public Builder setTotalDataSize(long value) {
       
@@ -1655,6 +1792,7 @@ private static final long serialVersionUID = 0L;
      * </pre>
      *
      * <code>int64 total_data_size = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTotalDataSize() {
       
@@ -1666,12 +1804,16 @@ private static final long serialVersionUID = 0L;
     private int primaryShardNumber_ ;
     /**
      * <code>int32 primary_shard_number = 10;</code>
+     * @return The primaryShardNumber.
      */
+    @java.lang.Override
     public int getPrimaryShardNumber() {
       return primaryShardNumber_;
     }
     /**
      * <code>int32 primary_shard_number = 10;</code>
+     * @param value The primaryShardNumber to set.
+     * @return This builder for chaining.
      */
     public Builder setPrimaryShardNumber(int value) {
       
@@ -1681,6 +1823,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 primary_shard_number = 10;</code>
+     * @return This builder for chaining.
      */
     public Builder clearPrimaryShardNumber() {
       
@@ -1692,12 +1835,16 @@ private static final long serialVersionUID = 0L;
     private int replicaShardNumber_ ;
     /**
      * <code>int32 replica_shard_number = 11;</code>
+     * @return The replicaShardNumber.
      */
+    @java.lang.Override
     public int getReplicaShardNumber() {
       return replicaShardNumber_;
     }
     /**
      * <code>int32 replica_shard_number = 11;</code>
+     * @param value The replicaShardNumber to set.
+     * @return This builder for chaining.
      */
     public Builder setReplicaShardNumber(int value) {
       
@@ -1707,6 +1854,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 replica_shard_number = 11;</code>
+     * @return This builder for chaining.
      */
     public Builder clearReplicaShardNumber() {
       
@@ -1718,6 +1866,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object indexHealth_ = "";
     /**
      * <code>string index_health = 12;</code>
+     * @return The indexHealth.
      */
     public java.lang.String getIndexHealth() {
       java.lang.Object ref = indexHealth_;
@@ -1733,6 +1882,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string index_health = 12;</code>
+     * @return The bytes for indexHealth.
      */
     public com.google.protobuf.ByteString
         getIndexHealthBytes() {
@@ -1749,6 +1899,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string index_health = 12;</code>
+     * @param value The indexHealth to set.
+     * @return This builder for chaining.
      */
     public Builder setIndexHealth(
         java.lang.String value) {
@@ -1762,6 +1914,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string index_health = 12;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIndexHealth() {
       
@@ -1771,6 +1924,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string index_health = 12;</code>
+     * @param value The bytes for indexHealth to set.
+     * @return This builder for chaining.
      */
     public Builder setIndexHealthBytes(
         com.google.protobuf.ByteString value) {
@@ -1787,6 +1942,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object projectId_ = "";
     /**
      * <code>string project_id = 13;</code>
+     * @return The projectId.
      */
     public java.lang.String getProjectId() {
       java.lang.Object ref = projectId_;
@@ -1802,6 +1958,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_id = 13;</code>
+     * @return The bytes for projectId.
      */
     public com.google.protobuf.ByteString
         getProjectIdBytes() {
@@ -1818,6 +1975,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_id = 13;</code>
+     * @param value The projectId to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectId(
         java.lang.String value) {
@@ -1831,6 +1990,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_id = 13;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProjectId() {
       
@@ -1840,6 +2000,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string project_id = 13;</code>
+     * @param value The bytes for projectId to set.
+     * @return This builder for chaining.
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1856,6 +2018,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object clusterId_ = "";
     /**
      * <code>string cluster_id = 14;</code>
+     * @return The clusterId.
      */
     public java.lang.String getClusterId() {
       java.lang.Object ref = clusterId_;
@@ -1871,6 +2034,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_id = 14;</code>
+     * @return The bytes for clusterId.
      */
     public com.google.protobuf.ByteString
         getClusterIdBytes() {
@@ -1887,6 +2051,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_id = 14;</code>
+     * @param value The clusterId to set.
+     * @return This builder for chaining.
      */
     public Builder setClusterId(
         java.lang.String value) {
@@ -1900,6 +2066,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_id = 14;</code>
+     * @return This builder for chaining.
      */
     public Builder clearClusterId() {
       
@@ -1909,6 +2076,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string cluster_id = 14;</code>
+     * @param value The bytes for clusterId to set.
+     * @return This builder for chaining.
      */
     public Builder setClusterIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1925,27 +2094,36 @@ private static final long serialVersionUID = 0L;
     private int rollingPolicy_ = 0;
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     * @return The enum numeric value on the wire for rollingPolicy.
      */
-    public int getRollingPolicyValue() {
+    @java.lang.Override public int getRollingPolicyValue() {
       return rollingPolicy_;
     }
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     * @param value The enum numeric value on the wire for rollingPolicy to set.
+     * @return This builder for chaining.
      */
     public Builder setRollingPolicyValue(int value) {
+      
       rollingPolicy_ = value;
       onChanged();
       return this;
     }
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     * @return The rollingPolicy.
      */
+    @java.lang.Override
     public com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy() {
+      @SuppressWarnings("deprecation")
       com.rany.service.platform.meta.AutoIndexRollingPolicy result = com.rany.service.platform.meta.AutoIndexRollingPolicy.valueOf(rollingPolicy_);
       return result == null ? com.rany.service.platform.meta.AutoIndexRollingPolicy.UNRECOGNIZED : result;
     }
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     * @param value The rollingPolicy to set.
+     * @return This builder for chaining.
      */
     public Builder setRollingPolicy(com.rany.service.platform.meta.AutoIndexRollingPolicy value) {
       if (value == null) {
@@ -1958,6 +2136,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>.AutoIndexRollingPolicy rolling_policy = 15;</code>
+     * @return This builder for chaining.
      */
     public Builder clearRollingPolicy() {
       
@@ -1969,12 +2148,16 @@ private static final long serialVersionUID = 0L;
     private int indexId_ ;
     /**
      * <code>int32 index_id = 16;</code>
+     * @return The indexId.
      */
+    @java.lang.Override
     public int getIndexId() {
       return indexId_;
     }
     /**
      * <code>int32 index_id = 16;</code>
+     * @param value The indexId to set.
+     * @return This builder for chaining.
      */
     public Builder setIndexId(int value) {
       
@@ -1984,6 +2167,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 index_id = 16;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIndexId() {
       
@@ -1995,6 +2179,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object template_ = "";
     /**
      * <code>string template = 17;</code>
+     * @return The template.
      */
     public java.lang.String getTemplate() {
       java.lang.Object ref = template_;
@@ -2010,6 +2195,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string template = 17;</code>
+     * @return The bytes for template.
      */
     public com.google.protobuf.ByteString
         getTemplateBytes() {
@@ -2026,6 +2212,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string template = 17;</code>
+     * @param value The template to set.
+     * @return This builder for chaining.
      */
     public Builder setTemplate(
         java.lang.String value) {
@@ -2039,6 +2227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string template = 17;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTemplate() {
       
@@ -2048,6 +2237,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string template = 17;</code>
+     * @param value The bytes for template to set.
+     * @return This builder for chaining.
      */
     public Builder setTemplateBytes(
         com.google.protobuf.ByteString value) {
@@ -2060,11 +2251,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -2086,11 +2279,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<IndexInfo>
       PARSER = new com.google.protobuf.AbstractParser<IndexInfo>() {
+    @java.lang.Override
     public IndexInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IndexInfo(input, extensionRegistry);
+      return new IndexInfo(input, extensionRegistry);
     }
   };
 
@@ -2103,6 +2297,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.IndexInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

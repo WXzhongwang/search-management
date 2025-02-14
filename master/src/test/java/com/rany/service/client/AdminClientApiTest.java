@@ -18,11 +18,12 @@ import java.util.stream.Collectors;
 public class AdminClientApiTest {
 
     private static final String master = "localhost";
+    private static final Integer port = 8080;
     private static AdminClient client;
 
     @Before
     public void setUp() throws Exception {
-        client = new AdminClient(master, 8080, 40000);
+        client = new AdminClient(master, port, 40000);
         client.init();
     }
 
@@ -34,9 +35,13 @@ public class AdminClientApiTest {
 
     @Test
     public void getCluster() {
+        client.setServiceNormal();
+
+
         ClusterGetRequest clusterGetRequest = new ClusterGetRequest();
         clusterGetRequest.setName("localhost");
         ClusterInfo cluster = client.getCluster(clusterGetRequest);
+        Assert.assertEquals("IN_SERVICE", cluster.getStatus().name());
         Assert.assertEquals("localhost", cluster.getName());
     }
 

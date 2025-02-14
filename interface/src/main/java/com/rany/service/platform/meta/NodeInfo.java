@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code NodeInfo}
  */
-public  final class NodeInfo extends
+public final class NodeInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:NodeInfo)
     NodeInfoOrBuilder {
@@ -16,19 +16,22 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private NodeInfo() {
-    id_ = 0;
     name_ = "";
     ipAddress_ = "";
-    isMaster_ = false;
-    cpuPercent_ = 0D;
     ramMax_ = "";
     ramCurrent_ = "";
     heapMax_ = "";
     heapCurrent_ = "";
     diskAvail_ = "";
-    diskPercent_ = 0D;
     group_ = "";
     tag_ = "";
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new NodeInfo();
   }
 
   @java.lang.Override
@@ -41,7 +44,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
-    int mutable_bitField0_ = 0;
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -52,13 +57,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             id_ = input.readInt32();
@@ -133,6 +131,13 @@ private static final long serialVersionUID = 0L;
             tag_ = s;
             break;
           }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -150,6 +155,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_NodeInfo_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_NodeInfo_fieldAccessorTable
@@ -161,7 +167,9 @@ private static final long serialVersionUID = 0L;
   private int id_;
   /**
    * <code>int32 id = 1;</code>
+   * @return The id.
    */
+  @java.lang.Override
   public int getId() {
     return id_;
   }
@@ -170,7 +178,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object name_;
   /**
    * <code>string name = 2;</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -185,7 +195,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string name = 2;</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -204,7 +216,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ipAddress_;
   /**
    * <code>string ip_address = 3;</code>
+   * @return The ipAddress.
    */
+  @java.lang.Override
   public java.lang.String getIpAddress() {
     java.lang.Object ref = ipAddress_;
     if (ref instanceof java.lang.String) {
@@ -219,7 +233,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string ip_address = 3;</code>
+   * @return The bytes for ipAddress.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getIpAddressBytes() {
     java.lang.Object ref = ipAddress_;
@@ -238,7 +254,9 @@ private static final long serialVersionUID = 0L;
   private boolean isMaster_;
   /**
    * <code>bool is_master = 4;</code>
+   * @return The isMaster.
    */
+  @java.lang.Override
   public boolean getIsMaster() {
     return isMaster_;
   }
@@ -247,7 +265,9 @@ private static final long serialVersionUID = 0L;
   private double cpuPercent_;
   /**
    * <code>double cpu_percent = 5;</code>
+   * @return The cpuPercent.
    */
+  @java.lang.Override
   public double getCpuPercent() {
     return cpuPercent_;
   }
@@ -256,7 +276,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ramMax_;
   /**
    * <code>string ram_max = 6;</code>
+   * @return The ramMax.
    */
+  @java.lang.Override
   public java.lang.String getRamMax() {
     java.lang.Object ref = ramMax_;
     if (ref instanceof java.lang.String) {
@@ -271,7 +293,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string ram_max = 6;</code>
+   * @return The bytes for ramMax.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getRamMaxBytes() {
     java.lang.Object ref = ramMax_;
@@ -290,7 +314,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object ramCurrent_;
   /**
    * <code>string ram_current = 7;</code>
+   * @return The ramCurrent.
    */
+  @java.lang.Override
   public java.lang.String getRamCurrent() {
     java.lang.Object ref = ramCurrent_;
     if (ref instanceof java.lang.String) {
@@ -305,7 +331,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string ram_current = 7;</code>
+   * @return The bytes for ramCurrent.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getRamCurrentBytes() {
     java.lang.Object ref = ramCurrent_;
@@ -324,7 +352,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object heapMax_;
   /**
    * <code>string heap_max = 8;</code>
+   * @return The heapMax.
    */
+  @java.lang.Override
   public java.lang.String getHeapMax() {
     java.lang.Object ref = heapMax_;
     if (ref instanceof java.lang.String) {
@@ -339,7 +369,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string heap_max = 8;</code>
+   * @return The bytes for heapMax.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getHeapMaxBytes() {
     java.lang.Object ref = heapMax_;
@@ -358,7 +390,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object heapCurrent_;
   /**
    * <code>string heap_current = 9;</code>
+   * @return The heapCurrent.
    */
+  @java.lang.Override
   public java.lang.String getHeapCurrent() {
     java.lang.Object ref = heapCurrent_;
     if (ref instanceof java.lang.String) {
@@ -373,7 +407,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string heap_current = 9;</code>
+   * @return The bytes for heapCurrent.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getHeapCurrentBytes() {
     java.lang.Object ref = heapCurrent_;
@@ -392,7 +428,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object diskAvail_;
   /**
    * <code>string disk_avail = 10;</code>
+   * @return The diskAvail.
    */
+  @java.lang.Override
   public java.lang.String getDiskAvail() {
     java.lang.Object ref = diskAvail_;
     if (ref instanceof java.lang.String) {
@@ -407,7 +445,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string disk_avail = 10;</code>
+   * @return The bytes for diskAvail.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDiskAvailBytes() {
     java.lang.Object ref = diskAvail_;
@@ -426,7 +466,9 @@ private static final long serialVersionUID = 0L;
   private double diskPercent_;
   /**
    * <code>double disk_percent = 11;</code>
+   * @return The diskPercent.
    */
+  @java.lang.Override
   public double getDiskPercent() {
     return diskPercent_;
   }
@@ -435,7 +477,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object group_;
   /**
    * <code>string group = 12;</code>
+   * @return The group.
    */
+  @java.lang.Override
   public java.lang.String getGroup() {
     java.lang.Object ref = group_;
     if (ref instanceof java.lang.String) {
@@ -450,7 +494,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string group = 12;</code>
+   * @return The bytes for group.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getGroupBytes() {
     java.lang.Object ref = group_;
@@ -469,7 +515,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object tag_;
   /**
    * <code>string tag = 13;</code>
+   * @return The tag.
    */
+  @java.lang.Override
   public java.lang.String getTag() {
     java.lang.Object ref = tag_;
     if (ref instanceof java.lang.String) {
@@ -484,7 +532,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string tag = 13;</code>
+   * @return The bytes for tag.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTagBytes() {
     java.lang.Object ref = tag_;
@@ -500,6 +550,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -509,6 +560,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (id_ != 0) {
@@ -553,6 +605,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -616,39 +669,36 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.NodeInfo other = (com.rany.service.platform.meta.NodeInfo) obj;
 
-    boolean result = true;
-    result = result && (getId()
-        == other.getId());
-    result = result && getName()
-        .equals(other.getName());
-    result = result && getIpAddress()
-        .equals(other.getIpAddress());
-    result = result && (getIsMaster()
-        == other.getIsMaster());
-    result = result && (
-        java.lang.Double.doubleToLongBits(getCpuPercent())
-        == java.lang.Double.doubleToLongBits(
-            other.getCpuPercent()));
-    result = result && getRamMax()
-        .equals(other.getRamMax());
-    result = result && getRamCurrent()
-        .equals(other.getRamCurrent());
-    result = result && getHeapMax()
-        .equals(other.getHeapMax());
-    result = result && getHeapCurrent()
-        .equals(other.getHeapCurrent());
-    result = result && getDiskAvail()
-        .equals(other.getDiskAvail());
-    result = result && (
-        java.lang.Double.doubleToLongBits(getDiskPercent())
-        == java.lang.Double.doubleToLongBits(
-            other.getDiskPercent()));
-    result = result && getGroup()
-        .equals(other.getGroup());
-    result = result && getTag()
-        .equals(other.getTag());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getId()
+        != other.getId()) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (!getIpAddress()
+        .equals(other.getIpAddress())) return false;
+    if (getIsMaster()
+        != other.getIsMaster()) return false;
+    if (java.lang.Double.doubleToLongBits(getCpuPercent())
+        != java.lang.Double.doubleToLongBits(
+            other.getCpuPercent())) return false;
+    if (!getRamMax()
+        .equals(other.getRamMax())) return false;
+    if (!getRamCurrent()
+        .equals(other.getRamCurrent())) return false;
+    if (!getHeapMax()
+        .equals(other.getHeapMax())) return false;
+    if (!getHeapCurrent()
+        .equals(other.getHeapCurrent())) return false;
+    if (!getDiskAvail()
+        .equals(other.getDiskAvail())) return false;
+    if (java.lang.Double.doubleToLongBits(getDiskPercent())
+        != java.lang.Double.doubleToLongBits(
+            other.getDiskPercent())) return false;
+    if (!getGroup()
+        .equals(other.getGroup())) return false;
+    if (!getTag()
+        .equals(other.getTag())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -762,6 +812,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -769,6 +820,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.NodeInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -792,6 +844,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_NodeInfo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_NodeInfo_fieldAccessorTable
@@ -814,6 +867,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       id_ = 0;
@@ -845,15 +899,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_NodeInfo_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.NodeInfo getDefaultInstanceForType() {
       return com.rany.service.platform.meta.NodeInfo.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.NodeInfo build() {
       com.rany.service.platform.meta.NodeInfo result = buildPartial();
       if (!result.isInitialized()) {
@@ -862,6 +919,7 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.NodeInfo buildPartial() {
       com.rany.service.platform.meta.NodeInfo result = new com.rany.service.platform.meta.NodeInfo(this);
       result.id_ = id_;
@@ -881,32 +939,39 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.NodeInfo) {
         return mergeFrom((com.rany.service.platform.meta.NodeInfo)other);
@@ -971,10 +1036,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -996,12 +1063,16 @@ private static final long serialVersionUID = 0L;
     private int id_ ;
     /**
      * <code>int32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
     /**
      * <code>int32 id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
      */
     public Builder setId(int value) {
       
@@ -1011,6 +1082,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 id = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearId() {
       
@@ -1022,6 +1094,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -1037,6 +1110,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -1053,6 +1127,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -1066,6 +1142,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -1075,6 +1152,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string name = 2;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1091,6 +1170,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ipAddress_ = "";
     /**
      * <code>string ip_address = 3;</code>
+     * @return The ipAddress.
      */
     public java.lang.String getIpAddress() {
       java.lang.Object ref = ipAddress_;
@@ -1106,6 +1186,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ip_address = 3;</code>
+     * @return The bytes for ipAddress.
      */
     public com.google.protobuf.ByteString
         getIpAddressBytes() {
@@ -1122,6 +1203,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ip_address = 3;</code>
+     * @param value The ipAddress to set.
+     * @return This builder for chaining.
      */
     public Builder setIpAddress(
         java.lang.String value) {
@@ -1135,6 +1218,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ip_address = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIpAddress() {
       
@@ -1144,6 +1228,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ip_address = 3;</code>
+     * @param value The bytes for ipAddress to set.
+     * @return This builder for chaining.
      */
     public Builder setIpAddressBytes(
         com.google.protobuf.ByteString value) {
@@ -1160,12 +1246,16 @@ private static final long serialVersionUID = 0L;
     private boolean isMaster_ ;
     /**
      * <code>bool is_master = 4;</code>
+     * @return The isMaster.
      */
+    @java.lang.Override
     public boolean getIsMaster() {
       return isMaster_;
     }
     /**
      * <code>bool is_master = 4;</code>
+     * @param value The isMaster to set.
+     * @return This builder for chaining.
      */
     public Builder setIsMaster(boolean value) {
       
@@ -1175,6 +1265,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>bool is_master = 4;</code>
+     * @return This builder for chaining.
      */
     public Builder clearIsMaster() {
       
@@ -1186,12 +1277,16 @@ private static final long serialVersionUID = 0L;
     private double cpuPercent_ ;
     /**
      * <code>double cpu_percent = 5;</code>
+     * @return The cpuPercent.
      */
+    @java.lang.Override
     public double getCpuPercent() {
       return cpuPercent_;
     }
     /**
      * <code>double cpu_percent = 5;</code>
+     * @param value The cpuPercent to set.
+     * @return This builder for chaining.
      */
     public Builder setCpuPercent(double value) {
       
@@ -1201,6 +1296,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>double cpu_percent = 5;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCpuPercent() {
       
@@ -1212,6 +1308,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ramMax_ = "";
     /**
      * <code>string ram_max = 6;</code>
+     * @return The ramMax.
      */
     public java.lang.String getRamMax() {
       java.lang.Object ref = ramMax_;
@@ -1227,6 +1324,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_max = 6;</code>
+     * @return The bytes for ramMax.
      */
     public com.google.protobuf.ByteString
         getRamMaxBytes() {
@@ -1243,6 +1341,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_max = 6;</code>
+     * @param value The ramMax to set.
+     * @return This builder for chaining.
      */
     public Builder setRamMax(
         java.lang.String value) {
@@ -1256,6 +1356,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_max = 6;</code>
+     * @return This builder for chaining.
      */
     public Builder clearRamMax() {
       
@@ -1265,6 +1366,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_max = 6;</code>
+     * @param value The bytes for ramMax to set.
+     * @return This builder for chaining.
      */
     public Builder setRamMaxBytes(
         com.google.protobuf.ByteString value) {
@@ -1281,6 +1384,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object ramCurrent_ = "";
     /**
      * <code>string ram_current = 7;</code>
+     * @return The ramCurrent.
      */
     public java.lang.String getRamCurrent() {
       java.lang.Object ref = ramCurrent_;
@@ -1296,6 +1400,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_current = 7;</code>
+     * @return The bytes for ramCurrent.
      */
     public com.google.protobuf.ByteString
         getRamCurrentBytes() {
@@ -1312,6 +1417,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_current = 7;</code>
+     * @param value The ramCurrent to set.
+     * @return This builder for chaining.
      */
     public Builder setRamCurrent(
         java.lang.String value) {
@@ -1325,6 +1432,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_current = 7;</code>
+     * @return This builder for chaining.
      */
     public Builder clearRamCurrent() {
       
@@ -1334,6 +1442,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string ram_current = 7;</code>
+     * @param value The bytes for ramCurrent to set.
+     * @return This builder for chaining.
      */
     public Builder setRamCurrentBytes(
         com.google.protobuf.ByteString value) {
@@ -1350,6 +1460,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object heapMax_ = "";
     /**
      * <code>string heap_max = 8;</code>
+     * @return The heapMax.
      */
     public java.lang.String getHeapMax() {
       java.lang.Object ref = heapMax_;
@@ -1365,6 +1476,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_max = 8;</code>
+     * @return The bytes for heapMax.
      */
     public com.google.protobuf.ByteString
         getHeapMaxBytes() {
@@ -1381,6 +1493,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_max = 8;</code>
+     * @param value The heapMax to set.
+     * @return This builder for chaining.
      */
     public Builder setHeapMax(
         java.lang.String value) {
@@ -1394,6 +1508,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_max = 8;</code>
+     * @return This builder for chaining.
      */
     public Builder clearHeapMax() {
       
@@ -1403,6 +1518,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_max = 8;</code>
+     * @param value The bytes for heapMax to set.
+     * @return This builder for chaining.
      */
     public Builder setHeapMaxBytes(
         com.google.protobuf.ByteString value) {
@@ -1419,6 +1536,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object heapCurrent_ = "";
     /**
      * <code>string heap_current = 9;</code>
+     * @return The heapCurrent.
      */
     public java.lang.String getHeapCurrent() {
       java.lang.Object ref = heapCurrent_;
@@ -1434,6 +1552,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_current = 9;</code>
+     * @return The bytes for heapCurrent.
      */
     public com.google.protobuf.ByteString
         getHeapCurrentBytes() {
@@ -1450,6 +1569,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_current = 9;</code>
+     * @param value The heapCurrent to set.
+     * @return This builder for chaining.
      */
     public Builder setHeapCurrent(
         java.lang.String value) {
@@ -1463,6 +1584,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_current = 9;</code>
+     * @return This builder for chaining.
      */
     public Builder clearHeapCurrent() {
       
@@ -1472,6 +1594,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string heap_current = 9;</code>
+     * @param value The bytes for heapCurrent to set.
+     * @return This builder for chaining.
      */
     public Builder setHeapCurrentBytes(
         com.google.protobuf.ByteString value) {
@@ -1488,6 +1612,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object diskAvail_ = "";
     /**
      * <code>string disk_avail = 10;</code>
+     * @return The diskAvail.
      */
     public java.lang.String getDiskAvail() {
       java.lang.Object ref = diskAvail_;
@@ -1503,6 +1628,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string disk_avail = 10;</code>
+     * @return The bytes for diskAvail.
      */
     public com.google.protobuf.ByteString
         getDiskAvailBytes() {
@@ -1519,6 +1645,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string disk_avail = 10;</code>
+     * @param value The diskAvail to set.
+     * @return This builder for chaining.
      */
     public Builder setDiskAvail(
         java.lang.String value) {
@@ -1532,6 +1660,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string disk_avail = 10;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDiskAvail() {
       
@@ -1541,6 +1670,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string disk_avail = 10;</code>
+     * @param value The bytes for diskAvail to set.
+     * @return This builder for chaining.
      */
     public Builder setDiskAvailBytes(
         com.google.protobuf.ByteString value) {
@@ -1557,12 +1688,16 @@ private static final long serialVersionUID = 0L;
     private double diskPercent_ ;
     /**
      * <code>double disk_percent = 11;</code>
+     * @return The diskPercent.
      */
+    @java.lang.Override
     public double getDiskPercent() {
       return diskPercent_;
     }
     /**
      * <code>double disk_percent = 11;</code>
+     * @param value The diskPercent to set.
+     * @return This builder for chaining.
      */
     public Builder setDiskPercent(double value) {
       
@@ -1572,6 +1707,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>double disk_percent = 11;</code>
+     * @return This builder for chaining.
      */
     public Builder clearDiskPercent() {
       
@@ -1583,6 +1719,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object group_ = "";
     /**
      * <code>string group = 12;</code>
+     * @return The group.
      */
     public java.lang.String getGroup() {
       java.lang.Object ref = group_;
@@ -1598,6 +1735,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string group = 12;</code>
+     * @return The bytes for group.
      */
     public com.google.protobuf.ByteString
         getGroupBytes() {
@@ -1614,6 +1752,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string group = 12;</code>
+     * @param value The group to set.
+     * @return This builder for chaining.
      */
     public Builder setGroup(
         java.lang.String value) {
@@ -1627,6 +1767,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string group = 12;</code>
+     * @return This builder for chaining.
      */
     public Builder clearGroup() {
       
@@ -1636,6 +1777,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string group = 12;</code>
+     * @param value The bytes for group to set.
+     * @return This builder for chaining.
      */
     public Builder setGroupBytes(
         com.google.protobuf.ByteString value) {
@@ -1652,6 +1795,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object tag_ = "";
     /**
      * <code>string tag = 13;</code>
+     * @return The tag.
      */
     public java.lang.String getTag() {
       java.lang.Object ref = tag_;
@@ -1667,6 +1811,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 13;</code>
+     * @return The bytes for tag.
      */
     public com.google.protobuf.ByteString
         getTagBytes() {
@@ -1683,6 +1828,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 13;</code>
+     * @param value The tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTag(
         java.lang.String value) {
@@ -1696,6 +1843,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 13;</code>
+     * @return This builder for chaining.
      */
     public Builder clearTag() {
       
@@ -1705,6 +1853,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string tag = 13;</code>
+     * @param value The bytes for tag to set.
+     * @return This builder for chaining.
      */
     public Builder setTagBytes(
         com.google.protobuf.ByteString value) {
@@ -1717,11 +1867,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -1743,11 +1895,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<NodeInfo>
       PARSER = new com.google.protobuf.AbstractParser<NodeInfo>() {
+    @java.lang.Override
     public NodeInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NodeInfo(input, extensionRegistry);
+      return new NodeInfo(input, extensionRegistry);
     }
   };
 
@@ -1760,6 +1913,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.NodeInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

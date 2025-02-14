@@ -6,7 +6,7 @@ package com.rany.service.platform.meta;
 /**
  * Protobuf type {@code ListProjectReply}
  */
-public  final class ListProjectReply extends
+public final class ListProjectReply extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:ListProjectReply)
     ListProjectReplyOrBuilder {
@@ -16,9 +16,15 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ListProjectReply() {
-    code_ = 0;
     message_ = "";
     projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+  }
+
+  @java.lang.Override
+  @SuppressWarnings({"unused"})
+  protected java.lang.Object newInstance(
+      UnusedPrivateParameter unused) {
+    return new ListProjectReply();
   }
 
   @java.lang.Override
@@ -31,6 +37,9 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     this();
+    if (extensionRegistry == null) {
+      throw new java.lang.NullPointerException();
+    }
     int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -42,13 +51,6 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          default: {
-            if (!parseUnknownFieldProto3(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
           case 8: {
 
             code_ = input.readInt32();
@@ -62,11 +64,18 @@ private static final long serialVersionUID = 0L;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               projects_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000001;
             }
             projects_.add(s);
+            break;
+          }
+          default: {
+            if (!parseUnknownField(
+                input, unknownFields, extensionRegistry, tag)) {
+              done = true;
+            }
             break;
           }
         }
@@ -77,7 +86,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
         projects_ = projects_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -89,6 +98,7 @@ private static final long serialVersionUID = 0L;
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ListProjectReply_descriptor;
   }
 
+  @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ListProjectReply_fieldAccessorTable
@@ -96,12 +106,13 @@ private static final long serialVersionUID = 0L;
             com.rany.service.platform.meta.ListProjectReply.class, com.rany.service.platform.meta.ListProjectReply.Builder.class);
   }
 
-  private int bitField0_;
   public static final int CODE_FIELD_NUMBER = 1;
   private int code_;
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
+  @java.lang.Override
   public int getCode() {
     return code_;
   }
@@ -110,7 +121,9 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object message_;
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
+  @java.lang.Override
   public java.lang.String getMessage() {
     java.lang.Object ref = message_;
     if (ref instanceof java.lang.String) {
@@ -125,7 +138,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getMessageBytes() {
     java.lang.Object ref = message_;
@@ -144,6 +159,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringList projects_;
   /**
    * <code>repeated string projects = 3;</code>
+   * @return A list containing the projects.
    */
   public com.google.protobuf.ProtocolStringList
       getProjectsList() {
@@ -151,18 +167,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <code>repeated string projects = 3;</code>
+   * @return The count of projects.
    */
   public int getProjectsCount() {
     return projects_.size();
   }
   /**
    * <code>repeated string projects = 3;</code>
+   * @param index The index of the element to return.
+   * @return The projects at the given index.
    */
   public java.lang.String getProjects(int index) {
     return projects_.get(index);
   }
   /**
    * <code>repeated string projects = 3;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the projects at the given index.
    */
   public com.google.protobuf.ByteString
       getProjectsBytes(int index) {
@@ -170,6 +191,7 @@ private static final long serialVersionUID = 0L;
   }
 
   private byte memoizedIsInitialized = -1;
+  @java.lang.Override
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
     if (isInitialized == 1) return true;
@@ -179,6 +201,7 @@ private static final long serialVersionUID = 0L;
     return true;
   }
 
+  @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     if (code_ != 0) {
@@ -193,6 +216,7 @@ private static final long serialVersionUID = 0L;
     unknownFields.writeTo(output);
   }
 
+  @java.lang.Override
   public int getSerializedSize() {
     int size = memoizedSize;
     if (size != -1) return size;
@@ -228,15 +252,14 @@ private static final long serialVersionUID = 0L;
     }
     com.rany.service.platform.meta.ListProjectReply other = (com.rany.service.platform.meta.ListProjectReply) obj;
 
-    boolean result = true;
-    result = result && (getCode()
-        == other.getCode());
-    result = result && getMessage()
-        .equals(other.getMessage());
-    result = result && getProjectsList()
-        .equals(other.getProjectsList());
-    result = result && unknownFields.equals(other.unknownFields);
-    return result;
+    if (getCode()
+        != other.getCode()) return false;
+    if (!getMessage()
+        .equals(other.getMessage())) return false;
+    if (!getProjectsList()
+        .equals(other.getProjectsList())) return false;
+    if (!unknownFields.equals(other.unknownFields)) return false;
+    return true;
   }
 
   @java.lang.Override
@@ -329,6 +352,7 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
+  @java.lang.Override
   public Builder newBuilderForType() { return newBuilder(); }
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
@@ -336,6 +360,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder(com.rany.service.platform.meta.ListProjectReply prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
+  @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
         ? new Builder() : new Builder().mergeFrom(this);
@@ -359,6 +384,7 @@ private static final long serialVersionUID = 0L;
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ListProjectReply_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ListProjectReply_fieldAccessorTable
@@ -381,6 +407,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
       }
     }
+    @java.lang.Override
     public Builder clear() {
       super.clear();
       code_ = 0;
@@ -388,19 +415,22 @@ private static final long serialVersionUID = 0L;
       message_ = "";
 
       projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
+    @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
       return com.rany.service.platform.meta.SearchMiddlePlatformMetaService.internal_static_ListProjectReply_descriptor;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.ListProjectReply getDefaultInstanceForType() {
       return com.rany.service.platform.meta.ListProjectReply.getDefaultInstance();
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.ListProjectReply build() {
       com.rany.service.platform.meta.ListProjectReply result = buildPartial();
       if (!result.isInitialized()) {
@@ -409,48 +439,54 @@ private static final long serialVersionUID = 0L;
       return result;
     }
 
+    @java.lang.Override
     public com.rany.service.platform.meta.ListProjectReply buildPartial() {
       com.rany.service.platform.meta.ListProjectReply result = new com.rany.service.platform.meta.ListProjectReply(this);
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
       result.code_ = code_;
       result.message_ = message_;
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000001) != 0)) {
         projects_ = projects_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.projects_ = projects_;
-      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
 
+    @java.lang.Override
     public Builder clone() {
-      return (Builder) super.clone();
+      return super.clone();
     }
+    @java.lang.Override
     public Builder setField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.setField(field, value);
+      return super.setField(field, value);
     }
+    @java.lang.Override
     public Builder clearField(
         com.google.protobuf.Descriptors.FieldDescriptor field) {
-      return (Builder) super.clearField(field);
+      return super.clearField(field);
     }
+    @java.lang.Override
     public Builder clearOneof(
         com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-      return (Builder) super.clearOneof(oneof);
+      return super.clearOneof(oneof);
     }
+    @java.lang.Override
     public Builder setRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         int index, java.lang.Object value) {
-      return (Builder) super.setRepeatedField(field, index, value);
+      return super.setRepeatedField(field, index, value);
     }
+    @java.lang.Override
     public Builder addRepeatedField(
         com.google.protobuf.Descriptors.FieldDescriptor field,
         java.lang.Object value) {
-      return (Builder) super.addRepeatedField(field, value);
+      return super.addRepeatedField(field, value);
     }
+    @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
       if (other instanceof com.rany.service.platform.meta.ListProjectReply) {
         return mergeFrom((com.rany.service.platform.meta.ListProjectReply)other);
@@ -472,7 +508,7 @@ private static final long serialVersionUID = 0L;
       if (!other.projects_.isEmpty()) {
         if (projects_.isEmpty()) {
           projects_ = other.projects_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           ensureProjectsIsMutable();
           projects_.addAll(other.projects_);
@@ -484,10 +520,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    @java.lang.Override
     public final boolean isInitialized() {
       return true;
     }
 
+    @java.lang.Override
     public Builder mergeFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -510,12 +548,16 @@ private static final long serialVersionUID = 0L;
     private int code_ ;
     /**
      * <code>int32 code = 1;</code>
+     * @return The code.
      */
+    @java.lang.Override
     public int getCode() {
       return code_;
     }
     /**
      * <code>int32 code = 1;</code>
+     * @param value The code to set.
+     * @return This builder for chaining.
      */
     public Builder setCode(int value) {
       
@@ -525,6 +567,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>int32 code = 1;</code>
+     * @return This builder for chaining.
      */
     public Builder clearCode() {
       
@@ -536,6 +579,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object message_ = "";
     /**
      * <code>string message = 2;</code>
+     * @return The message.
      */
     public java.lang.String getMessage() {
       java.lang.Object ref = message_;
@@ -551,6 +595,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
+     * @return The bytes for message.
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
@@ -567,6 +612,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
+     * @param value The message to set.
+     * @return This builder for chaining.
      */
     public Builder setMessage(
         java.lang.String value) {
@@ -580,6 +627,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
+     * @return This builder for chaining.
      */
     public Builder clearMessage() {
       
@@ -589,6 +637,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>string message = 2;</code>
+     * @param value The bytes for message to set.
+     * @return This builder for chaining.
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
@@ -604,13 +654,14 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureProjectsIsMutable() {
-      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!((bitField0_ & 0x00000001) != 0)) {
         projects_ = new com.google.protobuf.LazyStringArrayList(projects_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000001;
        }
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @return A list containing the projects.
      */
     public com.google.protobuf.ProtocolStringList
         getProjectsList() {
@@ -618,18 +669,23 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @return The count of projects.
      */
     public int getProjectsCount() {
       return projects_.size();
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param index The index of the element to return.
+     * @return The projects at the given index.
      */
     public java.lang.String getProjects(int index) {
       return projects_.get(index);
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the projects at the given index.
      */
     public com.google.protobuf.ByteString
         getProjectsBytes(int index) {
@@ -637,6 +693,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The projects to set.
+     * @return This builder for chaining.
      */
     public Builder setProjects(
         int index, java.lang.String value) {
@@ -650,6 +709,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param value The projects to add.
+     * @return This builder for chaining.
      */
     public Builder addProjects(
         java.lang.String value) {
@@ -663,6 +724,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param values The projects to add.
+     * @return This builder for chaining.
      */
     public Builder addAllProjects(
         java.lang.Iterable<java.lang.String> values) {
@@ -674,15 +737,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @return This builder for chaining.
      */
     public Builder clearProjects() {
       projects_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <code>repeated string projects = 3;</code>
+     * @param value The bytes of the projects to add.
+     * @return This builder for chaining.
      */
     public Builder addProjectsBytes(
         com.google.protobuf.ByteString value) {
@@ -695,11 +761,13 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
-      return super.setUnknownFieldsProto3(unknownFields);
+      return super.setUnknownFields(unknownFields);
     }
 
+    @java.lang.Override
     public final Builder mergeUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
       return super.mergeUnknownFields(unknownFields);
@@ -721,11 +789,12 @@ private static final long serialVersionUID = 0L;
 
   private static final com.google.protobuf.Parser<ListProjectReply>
       PARSER = new com.google.protobuf.AbstractParser<ListProjectReply>() {
+    @java.lang.Override
     public ListProjectReply parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListProjectReply(input, extensionRegistry);
+      return new ListProjectReply(input, extensionRegistry);
     }
   };
 
@@ -738,6 +807,7 @@ private static final long serialVersionUID = 0L;
     return PARSER;
   }
 
+  @java.lang.Override
   public com.rany.service.platform.meta.ListProjectReply getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }

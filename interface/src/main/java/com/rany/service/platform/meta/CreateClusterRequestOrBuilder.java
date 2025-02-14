@@ -9,58 +9,70 @@ public interface CreateClusterRequestOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>.ClusterType cluster = 2;</code>
+   * @return The enum numeric value on the wire for cluster.
    */
   int getClusterValue();
   /**
    * <code>.ClusterType cluster = 2;</code>
+   * @return The cluster.
    */
   com.rany.service.platform.meta.ClusterType getCluster();
 
   /**
    * <code>string description = 3;</code>
+   * @return The description.
    */
   java.lang.String getDescription();
   /**
    * <code>string description = 3;</code>
+   * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
    * <code>.ClusterStatus status = 4;</code>
+   * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
    * <code>.ClusterStatus status = 4;</code>
+   * @return The status.
    */
   com.rany.service.platform.meta.ClusterStatus getStatus();
 
   /**
    * <code>string endpoint = 5;</code>
+   * @return The endpoint.
    */
   java.lang.String getEndpoint();
   /**
    * <code>string endpoint = 5;</code>
+   * @return The bytes for endpoint.
    */
   com.google.protobuf.ByteString
       getEndpointBytes();
 
   /**
    * <code>string internal_endpoint = 6;</code>
+   * @return The internalEndpoint.
    */
   java.lang.String getInternalEndpoint();
   /**
    * <code>string internal_endpoint = 6;</code>
+   * @return The bytes for internalEndpoint.
    */
   com.google.protobuf.ByteString
       getInternalEndpointBytes();

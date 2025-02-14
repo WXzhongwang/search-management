@@ -9,83 +9,102 @@ public interface CreateIndexTemplateRequestOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string project = 2;</code>
+   * @return The project.
    */
   java.lang.String getProject();
   /**
    * <code>string project = 2;</code>
+   * @return The bytes for project.
    */
   com.google.protobuf.ByteString
       getProjectBytes();
 
   /**
    * <code>string mapping = 3;</code>
+   * @return The mapping.
    */
   java.lang.String getMapping();
   /**
    * <code>string mapping = 3;</code>
+   * @return The bytes for mapping.
    */
   com.google.protobuf.ByteString
       getMappingBytes();
 
   /**
    * <code>string setting = 4;</code>
+   * @return The setting.
    */
   java.lang.String getSetting();
   /**
    * <code>string setting = 4;</code>
+   * @return The bytes for setting.
    */
   com.google.protobuf.ByteString
       getSettingBytes();
 
   /**
    * <code>repeated string aliases = 5;</code>
+   * @return A list containing the aliases.
    */
   java.util.List<java.lang.String>
       getAliasesList();
   /**
    * <code>repeated string aliases = 5;</code>
+   * @return The count of aliases.
    */
   int getAliasesCount();
   /**
    * <code>repeated string aliases = 5;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   java.lang.String getAliases(int index);
   /**
    * <code>repeated string aliases = 5;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   com.google.protobuf.ByteString
       getAliasesBytes(int index);
 
   /**
    * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
+   * @return The enum numeric value on the wire for autoIndexRollingPolicy.
    */
   int getAutoIndexRollingPolicyValue();
   /**
    * <code>.AutoIndexRollingPolicy auto_index_rolling_policy = 6;</code>
+   * @return The autoIndexRollingPolicy.
    */
   com.rany.service.platform.meta.AutoIndexRollingPolicy getAutoIndexRollingPolicy();
 
   /**
    * <code>int32 auto_index_rolling_window = 7;</code>
+   * @return The autoIndexRollingWindow.
    */
   int getAutoIndexRollingWindow();
 
   /**
    * <code>string auto_index_name_prefix = 8;</code>
+   * @return The autoIndexNamePrefix.
    */
   java.lang.String getAutoIndexNamePrefix();
   /**
    * <code>string auto_index_name_prefix = 8;</code>
+   * @return The bytes for autoIndexNamePrefix.
    */
   com.google.protobuf.ByteString
       getAutoIndexNamePrefixBytes();

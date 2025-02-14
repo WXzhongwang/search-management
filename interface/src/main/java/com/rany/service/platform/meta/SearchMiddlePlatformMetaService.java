@@ -352,7 +352,7 @@ public final class SearchMiddlePlatformMetaService {
       "\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"%\n\025GetCl" +
       "usterInfoRequest\022\014\n\004name\030\001 \001(\t\"S\n\023GetClu" +
       "sterInfoReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002" +
-      " \001(\t\022\035\n\007cluster\030\003 \001(\0132\014.ClusterInfo\"\246\003\n\013",
+      " \001(\t\022\035\n\007cluster\030\003 \001(\0132\014.ClusterInfo\"\246\003\n\013" +
       "ClusterInfo\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\020\n" +
       "\010endpoint\030\003 \001(\t\022\031\n\021internal_endpoint\030\004 \001" +
       "(\t\022\032\n\004type\030\005 \001(\0162\014.ClusterType\022\023\n\013descri" +
@@ -362,7 +362,7 @@ public final class SearchMiddlePlatformMetaService {
       "project_number\030\013 \001(\005\022\032\n\022total_index_numb" +
       "er\030\014 \001(\005\022\030\n\020total_doc_number\030\r \001(\003\022\027\n\017to" +
       "tal_data_size\030\016 \001(\003\022\026\n\016cluster_health\030\017 " +
-      "\001(\t\022\030\n\005nodes\030\020 \003(\0132\t.NodeInfo\022\035\n\025total_t",
+      "\001(\t\022\030\n\005nodes\030\020 \003(\0132\t.NodeInfo\022\035\n\025total_t" +
       "emplate_number\030\021 \001(\005\"\364\001\n\010NodeInfo\022\n\n\002id\030" +
       "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\022\n\nip_address\030\003 \001(\t\022" +
       "\021\n\tis_master\030\004 \001(\010\022\023\n\013cpu_percent\030\005 \001(\001\022" +
@@ -372,7 +372,7 @@ public final class SearchMiddlePlatformMetaService {
       "\r\n\005group\030\014 \001(\t\022\013\n\003tag\030\r \001(\t\"\204\001\n\030UpdateCl" +
       "usterInfoRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001" +
       "(\t\022\036\n\006status\030\003 \001(\0162\016.ClusterStatus\022\023\n\013de" +
-      "scription\030\004 \001(\t\022\031\n\021internal_endpoint\030\005 \001",
+      "scription\030\004 \001(\t\022\031\n\021internal_endpoint\030\005 \001" +
       "(\t\"7\n\026UpdateClusterInfoReply\022\014\n\004code\030\001 \001" +
       "(\005\022\017\n\007message\030\002 \001(\t\"$\n\024DeleteClusterRequ" +
       "est\022\014\n\004name\030\001 \001(\t\"3\n\022DeleteClusterReply\022" +
@@ -382,7 +382,7 @@ public final class SearchMiddlePlatformMetaService {
       "\t\"\033\n\031ListClusterDetailsRequest\"X\n\027ListCl" +
       "usterDetailsReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
       "ge\030\002 \001(\t\022\036\n\010clusters\030\003 \003(\0132\014.ClusterInfo" +
-      "\"b\n\024CreateProjectRequest\022\014\n\004name\030\001 \001(\t\022\017",
+      "\"b\n\024CreateProjectRequest\022\014\n\004name\030\001 \001(\t\022\017" +
       "\n\007cluster\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016" +
       "projectSetting\030\004 \001(\t\"3\n\022CreateProjectRep" +
       "ly\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"D\n\024Del" +
@@ -392,7 +392,7 @@ public final class SearchMiddlePlatformMetaService {
       "UpdateProjectRequest\022\n\n\002id\030\001 \001(\005\022\014\n\004name" +
       "\030\002 \001(\t\022\023\n\013description\030\003 \001(\t\022\026\n\016projectSe" +
       "tting\030\004 \001(\t\"3\n\022UpdateProjectReply\022\014\n\004cod" +
-      "e\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"!\n\021GetProjectRe",
+      "e\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"!\n\021GetProjectRe" +
       "quest\022\014\n\004name\030\001 \001(\t\"O\n\017GetProjectReply\022\014" +
       "\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\035\n\007project" +
       "\030\003 \001(\0132\014.ProjectInfo\"\364\001\n\013ProjectInfo\022\n\n\002" +
@@ -402,7 +402,7 @@ public final class SearchMiddlePlatformMetaService {
       "\027\n\017total_data_size\030\007 \001(\003\022\022\n\ncluster_id\030\010" +
       " \001(\005\022\036\n\006status\030\t \001(\0162\016.ProjectStatus\022\035\n\025" +
       "total_template_number\030\021 \001(\005\"%\n\022ListProje" +
-      "ctRequest\022\017\n\007cluster\030\001 \001(\t\"C\n\020ListProjec",
+      "ctRequest\022\017\n\007cluster\030\001 \001(\t\"C\n\020ListProjec" +
       "tReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\020\n" +
       "\010projects\030\003 \003(\t\",\n\031ListProjectDetailsReq" +
       "uest\022\017\n\007cluster\030\001 \001(\t\"X\n\027ListProjectDeta" +
@@ -412,7 +412,7 @@ public final class SearchMiddlePlatformMetaService {
       "project\030\002 \001(\t\022\017\n\007mapping\030\003 \001(\t\022\017\n\007settin" +
       "g\030\004 \001(\t\022\017\n\007aliases\030\005 \003(\t\022:\n\031auto_index_r" +
       "olling_policy\030\006 \001(\0162\027.AutoIndexRollingPo" +
-      "licy\022!\n\031auto_index_rolling_window\030\007 \001(\005\022",
+      "licy\022!\n\031auto_index_rolling_window\030\007 \001(\005\022" +
       "\036\n\026auto_index_name_prefix\030\010 \001(\t\"9\n\030Creat" +
       "eIndexTemplateReply\022\014\n\004code\030\001 \001(\005\022\017\n\007mes" +
       "sage\030\002 \001(\t\"8\n\027GetIndexTemplateRequest\022\014\n" +
@@ -422,7 +422,7 @@ public final class SearchMiddlePlatformMetaService {
       "fo\"\315\002\n\032UpdateIndexTemplateRequest\022\014\n\004nam" +
       "e\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022-\n\007mapping\030\003 \001(" +
       "\0132\034.google.protobuf.StringValue\022-\n\007setti" +
-      "ng\030\004 \001(\0132\034.google.protobuf.StringValue\022\024",
+      "ng\030\004 \001(\0132\034.google.protobuf.StringValue\022\024" +
       "\n\014update_alias\030\005 \001(\010\022\025\n\rupdate_policy\030\006 " +
       "\001(\010\022\025\n\rupdate_window\030\007 \001(\010\022\017\n\007aliases\030\010 " +
       "\003(\t\022:\n\031auto_index_rolling_policy\030\t \001(\0162\027" +
@@ -432,7 +432,7 @@ public final class SearchMiddlePlatformMetaService {
       "\032DeleteIndexTemplateRequest\022\014\n\004name\030\001 \001(" +
       "\t\022\017\n\007project\030\002 \001(\t\"9\n\030DeleteIndexTemplat" +
       "eReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\"+\n" +
-      "\030ListIndexTemplateRequest\022\017\n\007project\030\001 \001",
+      "\030ListIndexTemplateRequest\022\017\n\007project\030\001 \001" +
       "(\t\"J\n\026ListIndexTemplateReply\022\014\n\004code\030\001 \001" +
       "(\005\022\017\n\007message\030\002 \001(\t\022\021\n\ttemplates\030\003 \003(\t\"2" +
       "\n\037ListIndexTemplateDetailsRequest\022\017\n\007pro" +
@@ -442,7 +442,7 @@ public final class SearchMiddlePlatformMetaService {
       "dexTemplateInfo\022\014\n\004name\030\001 \001(\t\022\017\n\007cluster" +
       "\030\002 \001(\t\022\017\n\007project\030\003 \001(\t\022\017\n\007mapping\030\004 \001(\t" +
       "\022\017\n\007setting\030\005 \001(\t\022\017\n\007aliases\030\006 \003(\t\022:\n\031au" +
-      "to_index_rolling_policy\030\007 \001(\0162\027.AutoInde",
+      "to_index_rolling_policy\030\007 \001(\0162\027.AutoInde" +
       "xRollingPolicy\022!\n\031auto_index_rolling_win" +
       "dow\030\010 \001(\005\022\036\n\026auto_index_name_prefix\030\t \001(" +
       "\t\022\032\n\022total_index_number\030\n \001(\005\022\030\n\020total_d" +
@@ -452,7 +452,7 @@ public final class SearchMiddlePlatformMetaService {
       "\007aliases\030\004 \003(\t\022-\n\007mapping\030\005 \001(\0132\034.google" +
       ".protobuf.StringValue\022-\n\007setting\030\006 \001(\0132\034" +
       ".google.protobuf.StringValue\022/\n\016rolling_" +
-      "policy\030\007 \001(\0162\027.AutoIndexRollingPolicy\"1\n",
+      "policy\030\007 \001(\0162\027.AutoIndexRollingPolicy\"1\n" +
       "\020CreateIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007messa" +
       "ge\030\002 \001(\t\"G\n\017GetIndexRequest\022\014\n\004name\030\001 \001(" +
       "\t\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(" +
@@ -462,7 +462,7 @@ public final class SearchMiddlePlatformMetaService {
       "\030\002 \001(\t\022\024\n\014project_name\030\003 \001(\t\022\017\n\007mapping\030" +
       "\005 \001(\t\022\017\n\007setting\030\006 \001(\t\022\017\n\007aliases\030\007 \003(\t\022" +
       "\030\n\020total_doc_number\030\010 \001(\003\022\027\n\017total_data_" +
-      "size\030\t \001(\003\022\034\n\024primary_shard_number\030\n \001(\005",
+      "size\030\t \001(\003\022\034\n\024primary_shard_number\030\n \001(\005" +
       "\022\034\n\024replica_shard_number\030\013 \001(\005\022\024\n\014index_" +
       "health\030\014 \001(\t\022\022\n\nproject_id\030\r \001(\t\022\022\n\nclus" +
       "ter_id\030\016 \001(\t\022/\n\016rolling_policy\030\017 \001(\0162\027.A" +
@@ -472,7 +472,7 @@ public final class SearchMiddlePlatformMetaService {
       "\022\021\n\tindexName\030\003 \001(\t\022-\n\007mapping\030\004 \001(\0132\034.g" +
       "oogle.protobuf.StringValue\022-\n\007setting\030\005 " +
       "\001(\0132\034.google.protobuf.StringValue\022\017\n\007ali" +
-      "ases\030\006 \003(\t\"1\n\020UpdateIndexReply\022\014\n\004code\030\001",
+      "ases\030\006 \003(\t\"1\n\020UpdateIndexReply\022\014\n\004code\030\001" +
       " \001(\005\022\017\n\007message\030\002 \001(\t\"O\n\022DeleteIndexRequ" +
       "est\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
       "\001(\t\022\021\n\tindexName\030\003 \001(\t\"1\n\020DeleteIndexRep" +
@@ -482,7 +482,7 @@ public final class SearchMiddlePlatformMetaService {
       "dexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022" +
       "\017\n\007indices\030\003 \003(\t\"R\n\027ListIndexDetailsRequ" +
       "est\022\017\n\007cluster\030\001 \001(\t\022\017\n\007project\030\002 \001(\t\022\025\n" +
-      "\rindexTemplate\030\003 \001(\t\"S\n\025ListIndexDetails",
+      "\rindexTemplate\030\003 \001(\t\"S\n\025ListIndexDetails" +
       "Reply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\033\n\007" +
       "indices\030\003 \003(\0132\n.IndexInfo\"}\n\016IndexNameEn" +
       "try\022\017\n\007project\030\001 \001(\t\022\025\n\rindexTemplate\030\002 " +
@@ -492,7 +492,7 @@ public final class SearchMiddlePlatformMetaService {
       "tIndexNameReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message" +
       "\030\002 \001(\t\022#\n\nindexNames\030\003 \003(\0132\017.IndexNameEn" +
       "try\",\n\031ListIndexAliasNameRequest\022\017\n\007clus" +
-      "ter\030\001 \001(\t\"b\n\027ListIndexAliasNameReply\022\014\n\004",
+      "ter\030\001 \001(\t\"b\n\027ListIndexAliasNameReply\022\014\n\004" +
       "code\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022(\n\017indexAlia" +
       "sNames\030\003 \003(\0132\017.IndexNameEntry\"J\n\022AttachI" +
       "ndexRequest\022\014\n\004name\030\001 \001(\t\022\017\n\007project\030\002 \001" +
@@ -502,7 +502,7 @@ public final class SearchMiddlePlatformMetaService {
       "ect\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t\"1\n\020Deta" +
       "chIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007message\030\002 " +
       "\001(\t\"K\n\023RefreshIndexRequest\022\014\n\004name\030\001 \001(\t" +
-      "\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t",
+      "\022\017\n\007project\030\002 \001(\t\022\025\n\rindexTemplate\030\003 \001(\t" +
       "\"2\n\021RefreshIndexReply\022\014\n\004code\030\001 \001(\005\022\017\n\007m" +
       "essage\030\002 \001(\t*\037\n\013ClusterType\022\007\n\003HDD\020\000\022\007\n\003" +
       "SSD\020\001*S\n\rClusterStatus\022\010\n\004NULL\020\000\022\014\n\010CREA" +
@@ -512,7 +512,7 @@ public final class SearchMiddlePlatformMetaService {
       "\004NONE\020\000\022\007\n\003DAY\020\001\022\t\n\005MONTH\020\002\022\013\n\007QUARTER\020\003" +
       "\022\r\n\tHALF_YEAR\020\004\022\010\n\004YEAR\020\0052\214\017\n\013MetaServic" +
       "e\022=\n\rCreateCluster\022\025.CreateClusterReques" +
-      "t\032\023.CreateClusterReply\"\000\022=\n\rDeleteCluste",
+      "t\032\023.CreateClusterReply\"\000\022=\n\rDeleteCluste" +
       "r\022\025.DeleteClusterRequest\032\023.DeleteCluster" +
       "Reply\"\000\022E\n\rUpdateCluster\022\031.UpdateCluster" +
       "InfoRequest\032\027.UpdateClusterInfoReply\"\000\022@" +
@@ -522,7 +522,7 @@ public final class SearchMiddlePlatformMetaService {
       "\000\022L\n\022ListClusterDetails\022\032.ListClusterDet" +
       "ailsRequest\032\030.ListClusterDetailsReply\"\000\022" +
       "=\n\rCreateProject\022\025.CreateProjectRequest\032" +
-      "\023.CreateProjectReply\"\000\022=\n\rDeleteProject\022",
+      "\023.CreateProjectReply\"\000\022=\n\rDeleteProject\022" +
       "\025.DeleteProjectRequest\032\023.DeleteProjectRe" +
       "ply\"\000\022=\n\rUpdateProject\022\025.UpdateProjectRe" +
       "quest\032\023.UpdateProjectReply\"\000\0224\n\nGetProje" +
@@ -532,7 +532,7 @@ public final class SearchMiddlePlatformMetaService {
       "s\022\032.ListProjectDetailsRequest\032\030.ListProj" +
       "ectDetailsReply\"\000\022O\n\023CreateIndexTemplate" +
       "\022\033.CreateIndexTemplateRequest\032\031.CreateIn" +
-      "dexTemplateReply\"\000\022F\n\020GetIndexTemplate\022\030",
+      "dexTemplateReply\"\000\022F\n\020GetIndexTemplate\022\030" +
       ".GetIndexTemplateRequest\032\026.GetIndexTempl" +
       "ateReply\"\000\022O\n\023UpdateIndexTemplate\022\033.Upda" +
       "teIndexTemplateRequest\032\031.UpdateIndexTemp" +
@@ -542,7 +542,7 @@ public final class SearchMiddlePlatformMetaService {
       "IndexTemplateRequest\032\027.ListIndexTemplate" +
       "Reply\"\000\022^\n\030ListIndexTemplateDetails\022 .Li" +
       "stIndexTemplateDetailsRequest\032\036.ListInde" +
-      "xTemplateDetailsReply\"\000\0227\n\013CreateIndex\022\023",
+      "xTemplateDetailsReply\"\000\0227\n\013CreateIndex\022\023" +
       ".CreateIndexRequest\032\021.CreateIndexReply\"\000" +
       "\022.\n\010GetIndex\022\020.GetIndexRequest\032\016.GetInde" +
       "xReply\"\000\0227\n\013UpdateIndex\022\023.UpdateIndexReq" +
@@ -552,7 +552,7 @@ public final class SearchMiddlePlatformMetaService {
       "tIndexReply\"\000\022F\n\020ListIndexDetails\022\030.List" +
       "IndexDetailsRequest\032\026.ListIndexDetailsRe" +
       "ply\"\000\022=\n\rListIndexName\022\025.ListIndexNameRe" +
-      "quest\032\023.ListIndexNameReply\"\000\022L\n\022ListInde",
+      "quest\032\023.ListIndexNameReply\"\000\022L\n\022ListInde" +
       "xAliasName\022\032.ListIndexAliasNameRequest\032\030" +
       ".ListIndexAliasNameReply\"\000\0227\n\013AttachInde" +
       "x\022\023.AttachIndexRequest\032\021.AttachIndexRepl" +
@@ -562,19 +562,11 @@ public final class SearchMiddlePlatformMetaService {
       "BC\n\036com.rany.service.platform.metaB\037Sear" +
       "chMiddlePlatformMetaServiceP\001b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.WrappersProto.getDescriptor(),
-        }, assigner);
+        });
     internal_static_CreateClusterRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_CreateClusterRequest_fieldAccessorTable = new

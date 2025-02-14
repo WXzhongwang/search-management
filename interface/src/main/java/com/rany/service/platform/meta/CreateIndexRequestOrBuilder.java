@@ -9,49 +9,61 @@ public interface CreateIndexRequestOrBuilder extends
 
   /**
    * <code>string name = 1;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 1;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string project = 2;</code>
+   * @return The project.
    */
   java.lang.String getProject();
   /**
    * <code>string project = 2;</code>
+   * @return The bytes for project.
    */
   com.google.protobuf.ByteString
       getProjectBytes();
 
   /**
    * <code>string indexTemplate = 3;</code>
+   * @return The indexTemplate.
    */
   java.lang.String getIndexTemplate();
   /**
    * <code>string indexTemplate = 3;</code>
+   * @return The bytes for indexTemplate.
    */
   com.google.protobuf.ByteString
       getIndexTemplateBytes();
 
   /**
    * <code>repeated string aliases = 4;</code>
+   * @return A list containing the aliases.
    */
   java.util.List<java.lang.String>
       getAliasesList();
   /**
    * <code>repeated string aliases = 4;</code>
+   * @return The count of aliases.
    */
   int getAliasesCount();
   /**
    * <code>repeated string aliases = 4;</code>
+   * @param index The index of the element to return.
+   * @return The aliases at the given index.
    */
   java.lang.String getAliases(int index);
   /**
    * <code>repeated string aliases = 4;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the aliases at the given index.
    */
   com.google.protobuf.ByteString
       getAliasesBytes(int index);
@@ -62,6 +74,7 @@ public interface CreateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 5;</code>
+   * @return Whether the mapping field is set.
    */
   boolean hasMapping();
   /**
@@ -70,6 +83,7 @@ public interface CreateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue mapping = 5;</code>
+   * @return The mapping.
    */
   com.google.protobuf.StringValue getMapping();
   /**
@@ -87,6 +101,7 @@ public interface CreateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 6;</code>
+   * @return Whether the setting field is set.
    */
   boolean hasSetting();
   /**
@@ -95,6 +110,7 @@ public interface CreateIndexRequestOrBuilder extends
    * </pre>
    *
    * <code>.google.protobuf.StringValue setting = 6;</code>
+   * @return The setting.
    */
   com.google.protobuf.StringValue getSetting();
   /**
@@ -108,10 +124,12 @@ public interface CreateIndexRequestOrBuilder extends
 
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 7;</code>
+   * @return The enum numeric value on the wire for rollingPolicy.
    */
   int getRollingPolicyValue();
   /**
    * <code>.AutoIndexRollingPolicy rolling_policy = 7;</code>
+   * @return The rollingPolicy.
    */
   com.rany.service.platform.meta.AutoIndexRollingPolicy getRollingPolicy();
 }

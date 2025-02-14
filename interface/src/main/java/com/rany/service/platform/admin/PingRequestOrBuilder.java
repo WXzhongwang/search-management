@@ -9,10 +9,12 @@ public interface PingRequestOrBuilder extends
 
   /**
    * <code>string ping = 1;</code>
+   * @return The ping.
    */
   java.lang.String getPing();
   /**
    * <code>string ping = 1;</code>
+   * @return The bytes for ping.
    */
   com.google.protobuf.ByteString
       getPingBytes();

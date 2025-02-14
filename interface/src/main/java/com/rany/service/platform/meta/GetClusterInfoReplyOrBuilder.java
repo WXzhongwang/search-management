@@ -9,25 +9,30 @@ public interface GetClusterInfoReplyOrBuilder extends
 
   /**
    * <code>int32 code = 1;</code>
+   * @return The code.
    */
   int getCode();
 
   /**
    * <code>string message = 2;</code>
+   * @return The message.
    */
   java.lang.String getMessage();
   /**
    * <code>string message = 2;</code>
+   * @return The bytes for message.
    */
   com.google.protobuf.ByteString
       getMessageBytes();
 
   /**
    * <code>.ClusterInfo cluster = 3;</code>
+   * @return Whether the cluster field is set.
    */
   boolean hasCluster();
   /**
    * <code>.ClusterInfo cluster = 3;</code>
+   * @return The cluster.
    */
   com.rany.service.platform.meta.ClusterInfo getCluster();
   /**

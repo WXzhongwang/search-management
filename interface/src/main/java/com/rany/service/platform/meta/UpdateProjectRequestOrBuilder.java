@@ -9,35 +9,42 @@ public interface UpdateProjectRequestOrBuilder extends
 
   /**
    * <code>int32 id = 1;</code>
+   * @return The id.
    */
   int getId();
 
   /**
    * <code>string name = 2;</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
    * <code>string name = 2;</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
    * <code>string description = 3;</code>
+   * @return The description.
    */
   java.lang.String getDescription();
   /**
    * <code>string description = 3;</code>
+   * @return The bytes for description.
    */
   com.google.protobuf.ByteString
       getDescriptionBytes();
 
   /**
    * <code>string projectSetting = 4;</code>
+   * @return The projectSetting.
    */
   java.lang.String getProjectSetting();
   /**
    * <code>string projectSetting = 4;</code>
+   * @return The bytes for projectSetting.
    */
   com.google.protobuf.ByteString
       getProjectSettingBytes();

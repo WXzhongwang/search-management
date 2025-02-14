@@ -534,3 +534,47 @@ public class CommandConstants {
 
 升级项目版本:
 > mvn versions:set -DnewVersion=1.0.1-SNAPSHOT
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticsearch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      containers:
+        - name: elasticsearch
+          image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+          ports:
+            - containerPort: 9200
+          env:
+            - name: discovery.type
+              value: single-node
+          volumeMounts:
+            - name: elasticsearch-data
+              mountPath: /usr/share/elasticsearch/data
+      volumes:
+        - name: elasticsearch-data
+          persistentVolumeClaim:
+            claimName: elasticsearch-data-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: elasticsearch-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi 
+```
