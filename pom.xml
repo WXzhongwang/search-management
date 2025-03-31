@@ -7,7 +7,7 @@
     <groupId>com.rany.service</groupId>
     <artifactId>search-management</artifactId>
     <version>1.0.1</version>
-    <name>root</name>
+    <name>search-management</name>
     <modules>
         <module>client</module>
         <module>master</module>
@@ -27,8 +27,10 @@
         <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
         <fastjson.version>1.2.72</fastjson.version>
         <grpc.version>1.11.0</grpc.version>
-        <protobuf.version>3.12.0</protobuf.version>
-        <protoc.version>3.12.0</protoc.version>
+<!--        <protobuf.version>3.12.0</protobuf.version>-->
+<!--        <protoc.version>3.12.0</protoc.version>-->
+        <protobuf.version>3.5.1</protobuf.version>
+        <protoc.version>3.5.1</protoc.version>
         <hutool-all.version>5.5.1</hutool-all.version>
         <guava.version>31.1-jre</guava.version>
         <guava-retrying.version>2.0.0</guava-retrying.version>
